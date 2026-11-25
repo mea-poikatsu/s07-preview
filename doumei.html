@@ -219,6 +219,13 @@ body{padding-bottom:104px}
 a.bannerlink{display:block;margin:10px 0}
 a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
 .rel2{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 12px;margin:14px 0 4px}.rel2-cell{display:block;border:1px solid #e3e3e3;border-radius:8px;overflow:hidden;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.05)} .rel2-cell img{width:100%;height:84px;object-fit:cover} .rel2-cell span{display:block;font-size:12.5px;font-weight:800;color:#3977b8;padding:7px 9px}
+
+/* 目次ボタン */
+.toclist{display:flex;flex-direction:column;gap:6px;margin:4px 0 10px}
+.toclist a{display:flex;align-items:center;justify-content:space-between;gap:8px;background:#eaf2fc;border:1px solid #bcd6f2;border-radius:8px;padding:10px 12px;font-size:13.5px;font-weight:800;color:#2f5f8f;line-height:1.45}
+.toclist a .arr{flex:none;color:#3977b8;font-weight:900}
+.toclist a:active{background:#d9e9fb}
+h4[id],div.acc[id],div[id^="b"]{scroll-margin-top:118px}
 </style></head><body><div class="page">
 <header class="header">
   <div class="header-top">
@@ -228,19 +235,19 @@ a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
   <div class="searchbar"><div class="box"><span>🔍</span><input id="q" type="search" placeholder="ゲーム名で検索"></div></div>
   <nav class="gnav"><a href="index.html" class="on">人気ゲーム</a><a href="index.html">新着・更新</a><a href="index.html">ランキング</a><a href="index.html">ゲーム一覧</a><a href="index.html">攻略メニュー</a></nav>
 </header>
-<div class="crumbs"><a href="index.html">トップ</a> ＞ <a href="index.html">ゲーム一覧</a> ＞ <a href="index.html">パズル＆サバイバル</a> ＞ <b>同盟・ギルド</b></div><div class="ghead"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bd/24/5e/bd245e4e-b9c6-014c-dc10-de86ab61c260/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="パズル＆サバイバル" loading="lazy"><div><h1>パズル＆サバイバル<br>同盟・ギルド</h1><div class="gmeta">37GAMES｜iOS/Android</div></div></div><p class="dates"><span>更新日：<b>2026年11月25日</b></span></p><p class="lead">ギルドの選び方、ヘルプとギルドコインの数値、ギャザー（集結）の作法、移籍の注意をまとめたページです。進行速度はギルドで大きく変わるため、序盤の判断材料を整理しています。</p><div class="blk"><div class="sub">このページの要点</div><div class="chips"><span class="bd bd-buy">R4が任命されているギルドを選ぶ</span><span class="bd bd-info">ヘルプ1回＝1,000コイン</span><span class="bd bd-warn">移籍は同盟対決の期間外に</span></div><ul class="pts"><li>加入先は<b>R4（副リーダー相当）が任命されているか</b>で選ぶ。停滞しにくい</li><li>ヘルプは<b>時間短縮とギルドコインの両取り</b>。自分の建設・研究も依頼を出してから加速する</li><li>巣窟ギャザーには<b>タクシー（改造車）で乗る</b>のがマナー兼効率</li><li>活動が落ちたギルドに居続けると進行が落ちる。移籍のタイミングはイベント日程とずらす</li></ul></div><div class="blk"><div class="sub">目次</div><ul class="pts"><li><a href="#b1" style="color:#3977b8;text-decoration:underline">ギルドの探し方・入り方／ヘルプとコインの数値／ギャザーの作法／同盟まわりの注意</a></li></ul></div><div class="sec"><div id="b1"><div class="cards"><div class="card"><h4>ギルドの探し方・入り方</h4>
+<div class="crumbs"><a href="index.html">トップ</a> ＞ <a href="index.html">ゲーム一覧</a> ＞ <a href="index.html">パズル＆サバイバル</a> ＞ <b>同盟・ギルド</b></div><div class="ghead"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bd/24/5e/bd245e4e-b9c6-014c-dc10-de86ab61c260/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="パズル＆サバイバル" loading="lazy"><div><h1>パズル＆サバイバル<br>同盟・ギルド</h1><div class="gmeta">37GAMES｜iOS/Android</div></div></div><p class="dates"><span>更新日：<b>2026年11月25日</b></span></p><p class="lead">ギルドの選び方、ヘルプとギルドコインの数値、ギャザー（集結）の作法、移籍の注意をまとめたページです。進行速度はギルドで大きく変わるため、序盤の判断材料を整理しています。</p><div class="blk"><div class="sub">このページの要点</div><div class="chips"><span class="bd bd-buy">R4が任命されているギルドを選ぶ</span><span class="bd bd-info">ヘルプ1回＝1,000コイン</span><span class="bd bd-warn">移籍は同盟対決の期間外に</span></div><ul class="pts"><li>加入先は<b>R4（副リーダー相当）が任命されているか</b>で選ぶ。停滞しにくい</li><li>ヘルプは<b>時間短縮とギルドコインの両取り</b>。自分の建設・研究も依頼を出してから加速する</li><li>巣窟ギャザーには<b>タクシー（改造車）で乗る</b>のがマナー兼効率</li><li>活動が落ちたギルドに居続けると進行が落ちる。移籍のタイミングはイベント日程とずらす</li></ul></div><div class="blk"><div class="sub">目次</div><nav class="toclist"><a href="#b1-1">ギルドの探し方・入り方<span class="arr">›</span></a><a href="#b1-2">ヘルプとコインの数値<span class="arr">›</span></a><a href="#b1-3">ギャザーの作法<span class="arr">›</span></a><a href="#b1-4">同盟まわりの注意<span class="arr">›</span></a></nav></div><div class="sec"><div id="b1"><div class="cards"><div class="card"><h4 id="b1-1">ギルドの探し方・入り方</h4>
 <ul>
 <li><b>R4（副リーダー相当）が任命されているか</b>をメンバー一覧で確認する。R4がいるギルドは、リーダーが不在でもギルドショップの運営やテクの更新が代行され、停滞しにくい。初心者がリーダーのギルドはショップ未運営・更新漏れでコインが稼ぎにくいリスクがある</li>
 <li>探し方は、マップ中央（実験基地を囲む「黒土」付近）の避難所→プレイヤー情報→ギルド情報の順に辿る方法と、戦力ランキングから探す方法の併用。中央付近は高Lv資源タイルと定期イベントで有利なため経験者が集まる</li>
 <li>ギルドテクの効果は避難所の位置に関係なく全員に反映される（領地系のギルドバフとは別）。移転できない事情があってもテクの恩恵は受けられる</li>
 </ul></div>
-<div class="card"><h4>ヘルプとギルドコインの数値</h4>
+<div class="card"><h4 id="b1-2">ヘルプとギルドコインの数値</h4>
 <div class="stack"><div class="shead">ヘルプ1回の短縮</div><div class="sbody">大使館Lvで変わる固定時間（Lv1＝1回1分30秒・受けられる回数4回／Lv5＝1分42秒・6回）。序盤は建設時間自体が短いため、固定短縮の効きが大きい</div></div>
 <div class="stack"><div class="shead">ギルドコイン</div><div class="sbody">ヘルプ1回＝1,000コイン、1日の上限5万（＝ヘルプ50回分相当）</div></div>
 <div class="stack"><div class="shead">ギルドショップ</div><div class="sbody">VIPポイント100＝15,000ギルドコイン。人気商品で売り切れやすく、在庫がない場合はR4以上の管理者に補充を依頼できる</div></div>
 <div class="stack"><div class="shead">テク寄付</div><div class="sbody">ダイヤ寄付は10ダイヤから+10ずつ（上限200）・回数無制限で、2倍〜20倍のランダム倍率つき。資源寄付には回数制限がある。ポイ活帯ではダイヤ温存が優先のため、使うのはイベントのダイヤ任務と重なったときだけが現実解</div></div>
 <p class="cnote">ヘルプの短縮量には「2分固定」という別説もあります（高Lv帯の値の可能性）。このページでは大使館Lv依存の整理を軸にしています。</p></div>
-<div class="card"><h4>ギャザー（集結）の作法</h4>
+<div class="card"><h4 id="b1-3">ギャザー（集結）の作法</h4>
 <figure class="fig"><img src="img/promo-gather.jpg" alt="ゾンビに挑む射撃ヒーローのプロモーションイラスト" loading="lazy"><figcaption class="fcap">集結（ギャザー）で強敵に挑むイメージ</figcaption></figure>
 <ul>
 <li>巣窟ギャザーへの参加は<b>タクシー（改造車）で乗る</b>のがマナー兼効率。主力兵で乗ると自分だけでなく全体の負傷兵を増やす</li>
@@ -272,7 +279,7 @@ a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
 <div class="card"><h4>同盟の詳細ページ</h4>
 <a class="svc-link" href="doumei-duel.html"><span>ギルド対決の進め方</span><span>チケット数／任務の仕組み／段階報酬の二重条件 ›</span></a>
 </div>
-<div class="card"><h4>同盟まわりの注意</h4>
+<div class="card"><h4 id="b1-4">同盟まわりの注意</h4>
 <ul>
 <li><span class="bd bd-warn">注意</span> <b>ポイ活ギルドはLv17前後で崩壊しやすい</b>。到達済みのメンバーが抜け、ヘルプと集結が止まると進行が一気に落ちる。活動が落ちてきたら早めに移籍を検討する</li>
 <li><span class="bd bd-warn">注意</span> 内規が強すぎるギルドで育成が止まり、Lv19で撤退した例もある。加入前に参加条件（戦力・ログイン頻度など）を確認する</li>

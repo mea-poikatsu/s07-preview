@@ -193,6 +193,13 @@ body{padding-bottom:104px}
 .sticky-cta.alt .sticky-cta-bar::after{content:"";position:absolute;inset:0;border-radius:999px;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.75) 50%,transparent 70%);background-size:250% 100%;animation:shine 2.6s ease-in-out infinite;pointer-events:none}
 @keyframes shine{0%{background-position:120% 0}55%,100%{background-position:-60% 0}}
 @media (max-width:380px){.sticky-cta-bar{font-size:13.5px;padding:14px 12px 13px}}
+
+/* 目次ボタン */
+.toclist{display:flex;flex-direction:column;gap:6px;margin:4px 0 10px}
+.toclist a{display:flex;align-items:center;justify-content:space-between;gap:8px;background:#eaf2fc;border:1px solid #bcd6f2;border-radius:8px;padding:10px 12px;font-size:13.5px;font-weight:800;color:#2f5f8f;line-height:1.45}
+.toclist a .arr{flex:none;color:#3977b8;font-weight:900}
+.toclist a:active{background:#d9e9fb}
+h4[id],div.acc[id],div[id^="b"]{scroll-margin-top:118px}
 </style></head>
 <body><div class="page">
 
@@ -204,13 +211,13 @@ body{padding-bottom:104px}
   <div class="searchbar"><div class="box"><span>🔍</span><input id="q" type="search" placeholder="ゲーム名で検索"></div></div>
   <nav class="gnav"><a href="index.html" class="on">人気ゲーム</a><a href="index.html">新着・更新</a><a href="index.html">ランキング</a><a href="index.html">ゲーム一覧</a><a href="index.html">攻略メニュー</a></nav>
 </header>
-<div class="crumbs"><a href="index.html">トップ</a> ＞ <a href="index.html">ゲーム一覧</a> ＞ <a href="index.html">パズル＆サバイバル</a> ＞ <b>兵士・部隊</b></div><div class="ghead"><img src="img/app-icon.jpg" alt="パズル＆サバイバル" loading="lazy"><div><h1>パズル＆サバイバル<br>兵士・部隊</h1><div class="gmeta">37GAMES｜iOS/Android</div></div></div><p class="dates"><span>更新日：<b>2026年11月25日</b></span></p><p class="lead">兵士の戦力・積載量・ティア解放・兵種相性から、病院容量・部隊規模・訓練コスト（100,000人分）まで、兵士と部隊まわりの数値をまとめたページです。未取得の数値は「未取得」と明記し、推測では埋めていません。</p><div class="blk"><div class="sub">このページの要点</div><div class="chips"><span class="bd bd-info">戦力は全兵種共通</span><span class="bd bd-info">訓練時間はティアで決まる</span><span class="bd bd-warn">T11・T12の解放Lvは両論</span><span class="bd bd-gray">治療コスト表は未取得</span></div><ul class="pts"><li>戦力（Might）は<b>全兵種共通</b>で、ティアだけで決まります。積載量は兵種ごとに違います</li><li>訓練時間は<b>ティアで決まり、兵種差はありません</b></li><li>病院の収容は<b>ファイター＞ライダー＞シューター＞改造車</b>の順で、容量を溢れた負傷兵は死亡します</li></ul></div><div class="blk"><div class="sub">目次</div><ul class="pts"><li><a href="#b1" style="color:#3977b8;text-decoration:underline">戦力と積載量／ティア解放</a></li><li><a href="#b2" style="color:#3977b8;text-decoration:underline">兵種相性／病院容量と部隊規模</a></li><li><a href="#b3" style="color:#3977b8;text-decoration:underline">訓練の仕様／訓練コスト表（100,000人分）</a></li><li><a href="#b4" style="color:#3977b8;text-decoration:underline">エースコマンダー合わせ／タクシーの使い道／治療コスト</a></li></ul></div>
+<div class="crumbs"><a href="index.html">トップ</a> ＞ <a href="index.html">ゲーム一覧</a> ＞ <a href="index.html">パズル＆サバイバル</a> ＞ <b>兵士・部隊</b></div><div class="ghead"><img src="img/app-icon.jpg" alt="パズル＆サバイバル" loading="lazy"><div><h1>パズル＆サバイバル<br>兵士・部隊</h1><div class="gmeta">37GAMES｜iOS/Android</div></div></div><p class="dates"><span>更新日：<b>2026年11月25日</b></span></p><p class="lead">兵士の戦力・積載量・ティア解放・兵種相性から、病院容量・部隊規模・訓練コスト（100,000人分）まで、兵士と部隊まわりの数値をまとめたページです。未取得の数値は「未取得」と明記し、推測では埋めていません。</p><div class="blk"><div class="sub">このページの要点</div><div class="chips"><span class="bd bd-info">戦力は全兵種共通</span><span class="bd bd-info">訓練時間はティアで決まる</span><span class="bd bd-warn">T11・T12の解放Lvは両論</span><span class="bd bd-gray">治療コスト表は未取得</span></div><ul class="pts"><li>戦力（Might）は<b>全兵種共通</b>で、ティアだけで決まります。積載量は兵種ごとに違います</li><li>訓練時間は<b>ティアで決まり、兵種差はありません</b></li><li>病院の収容は<b>ファイター＞ライダー＞シューター＞改造車</b>の順で、容量を溢れた負傷兵は死亡します</li></ul></div><div class="blk"><div class="sub">目次</div><nav class="toclist"><a href="#b1-1">戦力と積載量<span class="arr">›</span></a><a href="#b1-2">ティア解放<span class="arr">›</span></a><a href="#b2-1">兵種相性<span class="arr">›</span></a><a href="#b2-2">病院容量と部隊規模<span class="arr">›</span></a><a href="#b3-1">訓練の仕様<span class="arr">›</span></a><a href="#b3-2">訓練コスト表（100,000人分）<span class="arr">›</span></a><a href="#b4-1">エースコマンダー合わせ<span class="arr">›</span></a><a href="#b4-2">タクシーの使い道<span class="arr">›</span></a><a href="#b4-3">治療コスト<span class="arr">›</span></a></nav></div>
 <div class="sec"><div id="b1"><div class="cards">
-<div class="card"><h4>戦力（Might）と積載量</h4>
+<div class="card"><h4 id="b1-1">戦力（Might）と積載量</h4>
 <p class="kv">戦力は全兵種共通です。積載量は兵種ごとに異なり、採集や略奪で運べる資源量に影響します。</p>
 <div class="tscroll" style="padding:0"><table><tr><th>ティア</th><th>戦力（全兵種共通）</th><th>ファイター積載</th><th>ライダー積載</th><th>シューター積載</th><th>改造車積載</th></tr><tr><td><b>T1</b></td><td class="pt">4</td><td>10</td><td>8</td><td>10</td><td>15</td></tr><tr><td><b>T2</b></td><td class="pt">6</td><td>12</td><td>8</td><td>12</td><td>17</td></tr><tr><td><b>T3</b></td><td class="pt">8</td><td>14</td><td>10</td><td>14</td><td>19</td></tr><tr><td><b>T4</b></td><td class="pt">12</td><td>16</td><td>12</td><td>16</td><td>21</td></tr><tr><td><b>T5</b></td><td class="pt">15</td><td>18</td><td>12</td><td>18</td><td>23</td></tr><tr><td><b>T6</b></td><td class="pt">20</td><td>18</td><td>14</td><td>18</td><td>25</td></tr><tr><td><b>T7</b></td><td class="pt">25</td><td>20</td><td>14</td><td>20</td><td>27</td></tr><tr><td><b>T8</b></td><td class="pt">33</td><td>22</td><td>16</td><td>22</td><td>29</td></tr><tr><td><b>T9</b></td><td class="pt">45</td><td>24</td><td>16</td><td>25</td><td>31</td></tr><tr><td><b>T10</b></td><td class="pt">60</td><td>25</td><td>18</td><td>26</td><td>33</td></tr><tr><td><b>T11</b></td><td class="pt">80</td><td>28</td><td>20</td><td>28</td><td>35</td></tr><tr><td><b>T12</b></td><td class="pt">100</td><td>30</td><td>22</td><td>30</td><td>40</td></tr><tr><td><b>T13</b></td><td class="pt">125</td><td>34</td><td>25</td><td>34</td><td>50</td></tr><tr><td><b>T14</b></td><td class="pt">180</td><td>42</td><td>28</td><td>42</td><td>60</td></tr></table></div>
 <p class="cnote">積載量は改造車が全ティアで最大級です（タクシーの使い道は下のカード参照）。</p></div>
-<div class="card"><h4>ティア解放（キャンプLv）</h4>
+<div class="card"><h4 id="b1-2">ティア解放（キャンプLv）</h4>
 <div style="overflow-x:auto"><table><tr><th>ティア</th><th>解放条件</th></tr><tr><td><b>T1</b></td><td>キャンプLv1</td></tr><tr><td><b>T2</b></td><td>キャンプLv4</td></tr><tr><td><b>T3</b></td><td>キャンプLv7</td></tr><tr><td><b>T4</b></td><td>キャンプLv10</td></tr><tr><td><b>T5</b></td><td>キャンプLv13</td></tr><tr><td><b>T6</b></td><td>キャンプLv16</td></tr><tr><td><b>T7</b></td><td>キャンプLv19</td></tr><tr><td><b>T8</b></td><td>キャンプLv22</td></tr><tr><td><b>T9</b></td><td>キャンプLv26</td></tr><tr><td><b>T10</b></td><td>キャンプLv30</td></tr><tr><td><b>T11</b></td><td>キャンプLv35（別説：34）</td></tr><tr><td><b>T12</b></td><td>キャンプLv40（別説：38）</td></tr><tr><td><b>T13</b></td><td>キャンプLv40</td></tr><tr><td><b>T14</b></td><td>キャンプLv44</td></tr></table></div>
 <ul>
 <li>T1〜T10の解放Lvは確認済みです</li>
@@ -219,7 +226,7 @@ body{padding-bottom:104px}
 </ul></div>
 </div></div>
 <div id="b2"><div class="cards">
-<div class="card"><h4>兵種相性（三すくみ＋改造車）</h4>
+<div class="card"><h4 id="b2-1">兵種相性（三すくみ＋改造車）</h4>
 <div class="flow" style="padding:8px 0 2px"><span class="fbox">ファイター<small>シューターに強い</small></span><span class="farr">▶</span><span class="fbox">シューター<small>ライダーに強い</small></span><span class="farr">▶</span><span class="fbox">ライダー<small>ファイターに強い</small></span><span class="farr">▶</span><span class="fbox">ファイターへ戻る<small>三すくみ</small></span></div>
 <ul>
 <li><b>ファイター</b>：シューターに強く、ライダーに弱い</li>
@@ -227,7 +234,7 @@ body{padding-bottom:104px}
 <li><b>シューター</b>：ライダーに強く、ファイターに弱い</li>
 <li><b>改造車</b>：三すくみの外で、ダメージ吸収役として扱われます</li>
 </ul></div>
-<div class="card"><h4>病院容量と部隊規模</h4>
+<div class="card"><h4 id="b2-2">病院容量と部隊規模</h4>
 <div class="sub">病院容量の目安（CC連動の基礎値）</div>
 <div style="overflow-x:auto"><table><tr><th>CC</th><th>病院容量</th></tr>
 <tr><td><b>CC4</b></td><td>36,000</td></tr><tr><td><b>CC10</b></td><td>48,000</td></tr><tr><td><b>CC16</b></td><td>60,000</td></tr><tr><td><b>CC22</b></td><td>72,000</td></tr><tr><td><b>CC30</b></td><td>100,000</td></tr><tr><td><b>CC31</b></td><td>105,000</td></tr></table></div>
@@ -241,14 +248,14 @@ body{padding-bottom:104px}
 <p class="cnote">病院容量はCC連動の基礎値です。施設側の増加分との合算関係は未確認のため、合計値としては掲載していません。</p></div>
 </div></div>
 <div id="b3"><div class="cards">
-<div class="card"><h4>訓練の仕様</h4>
+<div class="card"><h4 id="b3-1">訓練の仕様</h4>
 <ul>
 <li>訓練時間は<b>ティアで決まり、兵種差はありません</b></li>
 <li>T1の訓練コストは食料のみ判明しています。他の資源は未取得です</li>
 </ul>
 <div style="overflow-x:auto"><table><tr><th>T1 兵種</th><th>訓練コスト（食料）</th></tr>
 <tr><td>改造車</td><td>30</td></tr><tr><td>シューター</td><td>50</td></tr><tr><td>ライダー</td><td>53</td></tr><tr><td>ファイター</td><td>60</td></tr></table></div></div>
-<div class="card"><h4>訓練コスト表（100,000人分）</h4>
+<div class="card"><h4 id="b3-2">訓練コスト表（100,000人分）</h4>
 <div class="read-note"><b>固定条件：</b>UG（昇格）元ティアなし・訓練速度100%・コスト軽減15%・1回の訓練数1,000人で、100,000人分を訓練した場合の表示値です。条件を変えた場合の値は未取得です。</div>
 <div class="sub">ティア共通値</div>
 <div class="tscroll" style="padding:0"><table><tr><th>ティア</th><th>エスコマPt</th><th>必要ブースト合計</th><th>1回1,000人あたりの訓練時間</th></tr><tr><td><b>T1</b></td><td>1.2M</td><td>10日10時間0分</td><td>2時間30分0秒</td></tr><tr><td><b>T2</b></td><td>1.53M</td><td>13日7時間26分</td><td>3時間11分40秒</td></tr><tr><td><b>T3</b></td><td>2M</td><td>17日8時間40分</td><td>4時間10分0秒</td></tr><tr><td><b>T4</b></td><td>2.6M</td><td>22日13時間40分</td><td>5時間25分0秒</td></tr><tr><td><b>T5</b></td><td>3.4M</td><td>29日12時間20分</td><td>7時間5分0秒</td></tr><tr><td><b>T6</b></td><td>4.47M</td><td>38日18時間33分</td><td>9時間18分20秒</td></tr><tr><td><b>T7</b></td><td>5.87M</td><td>50日22時間13分</td><td>12時間13分20秒</td></tr><tr><td><b>T8</b></td><td>7.67M</td><td>66日13時間13分</td><td>15時間58分20秒</td></tr><tr><td><b>T9</b></td><td>10M</td><td>86日19時間20分</td><td>20時間50分0秒</td></tr><tr><td><b>T10</b></td><td>13.13M</td><td>114日0時間6分</td><td>1日3時間21分</td></tr><tr><td><b>T11</b></td><td>17.33M</td><td>150日11時間6分</td><td>1日12時間6分</td></tr><tr><td><b>T12</b></td><td>26.67M</td><td>231日11時間33分</td><td>2日7時間33分</td></tr><tr><td><b>T13</b></td><td>40M</td><td>347日5時間20分</td><td>3日11時間20分</td></tr><tr><td><b>T14</b></td><td>53.33M</td><td>462日23時間6分</td><td>4日15時間6分</td></tr></table></div>
@@ -264,7 +271,7 @@ body{padding-bottom:104px}
 <p class="cnote">上の表は固定条件での表示値です。自分の条件で計算したい場合は計算機を使ってください。</p></div>
 </div></div>
 <div id="b4"><div class="cards">
-<div class="card"><h4>エースコマンダー合わせ（訓練）</h4>
+<div class="card"><h4 id="b4-1">エースコマンダー合わせ（訓練）</h4>
 <div class="sub">日曜：新規訓練のポイント</div>
 <div style="overflow-x:auto"><table><tr><th>ティア</th><th>ポイント</th></tr><tr><td><b>T1</b></td><td class="pt">5pt</td></tr><tr><td><b>T2</b></td><td class="pt">10pt</td></tr><tr><td><b>T3</b></td><td class="pt">15pt</td></tr><tr><td><b>T4</b></td><td class="pt">22pt</td></tr><tr><td><b>T5</b></td><td class="pt">30pt</td></tr><tr><td><b>T6</b></td><td class="pt">40pt</td></tr><tr><td><b>T7</b></td><td class="pt">55pt</td></tr><tr><td><b>T8</b></td><td class="pt">70pt</td></tr><tr><td><b>T9</b></td><td class="pt">85pt</td></tr><tr><td><b>T10</b></td><td class="pt">110pt</td></tr><tr><td><b>T11</b></td><td class="pt">125pt</td></tr><tr><td><b>T12</b></td><td class="pt">150pt</td></tr></table></div>
 <ul>
@@ -272,13 +279,13 @@ body{padding-bottom:104px}
 <li><b>木曜</b>は訓練ブースト1分使用＝<b>80pt</b> です</li>
 </ul>
 <a class="svc-link" href="event-ace.html"><span>エースコマンダーの詳細</span><span>イベントページはこちら ›</span></a></div>
-<div class="card"><h4>タクシー（T1改造車）の使い道</h4>
+<div class="card"><h4 id="b4-2">タクシー（T1改造車）の使い道</h4>
 <ul>
 <li>T1改造車（通称タクシー）は、<b>積載量が全ティア最大級</b>で、訓練コストも安いのが特徴です。採集・運搬用として大量に抱える運用が定番です</li>
 <li>数量の目安：ポイ活帯では<b>2万台</b>、長期運営の完成形では<b>数百万〜1,000万台以上</b>という整理があります</li>
 <li><span class="bd bd-warn">注意</span> 病院では収容順位が<b>最後</b>です。容量を溢れた場合は、先に死ぬ側になります</li>
 </ul></div>
-<div class="card"><h4>治療コスト <span class="bd bd-gray">未取得</span></h4>
+<div class="card"><h4 id="b4-3">治療コスト <span class="bd bd-gray">未取得</span></h4>
 <ul>
 <li>1体あたりの治療コスト・治療時間の数値表は<b>未取得</b>です。確認できたのは、タクシー（T1改造車）の治療費＝<b>食料8</b> のみです</li>
 <li>他の兵種・ティアの治療コストは、確認が取れ次第追加します。推測値では埋めていません</li>

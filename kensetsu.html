@@ -216,6 +216,13 @@ body{padding-bottom:104px}
 .hicon{width:34px;height:34px;border-radius:8px;vertical-align:-10px;margin-right:6px;object-fit:cover}
 a.bannerlink{display:block;margin:10px 0}
 a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
+
+/* 目次ボタン */
+.toclist{display:flex;flex-direction:column;gap:6px;margin:4px 0 10px}
+.toclist a{display:flex;align-items:center;justify-content:space-between;gap:8px;background:#eaf2fc;border:1px solid #bcd6f2;border-radius:8px;padding:10px 12px;font-size:13.5px;font-weight:800;color:#2f5f8f;line-height:1.45}
+.toclist a .arr{flex:none;color:#3977b8;font-weight:900}
+.toclist a:active{background:#d9e9fb}
+h4[id],div.acc[id],div[id^="b"]{scroll-margin-top:118px}
 </style></head><body><div class="page">
 <header class="header">
   <div class="header-top">
@@ -225,7 +232,7 @@ a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
   <div class="searchbar"><div class="box"><span>🔍</span><input id="q" type="search" placeholder="ゲーム名で検索"></div></div>
   <nav class="gnav"><a href="index.html" class="on">人気ゲーム</a><a href="index.html">新着・更新</a><a href="index.html">ランキング</a><a href="index.html">ゲーム一覧</a><a href="index.html">攻略メニュー</a></nav>
 </header>
-<div class="crumbs"><a href="index.html">トップ</a> ＞ <a href="index.html">ゲーム一覧</a> ＞ <a href="index.html">パズル＆サバイバル</a> ＞ <b>建設と前提</b></div><div class="ghead"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bd/24/5e/bd245e4e-b9c6-014c-dc10-de86ab61c260/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="パズル＆サバイバル" loading="lazy"><div><h1>パズル＆サバイバル<br>建設と前提</h1><div class="gmeta">37GAMES｜iOS/Android</div></div></div><p class="dates"><span>更新日：<b>2026年11月25日</b></span></p><p class="lead">コントロールセンター（CC）のレベルアップに必要な前提建物と、建設で止まらないための運用をまとめたページです。前提の連鎖はツリー図で全体像を、数値は全表で確認できます。建設マスターや加速アイテムの使い方もこのページで扱います。</p><div class="blk"><div class="sub">このページの要点</div><div class="chips"><span class="bd bd-info">前提は先回りが原則</span><span class="bd bd-warn">CC15・CC17は2023年12月に仕様変更</span><span class="bd bd-buy">★3建設マスターは初日〜2日目</span></div><ul class="pts"><li>前提建物は<b>着工の1つ前から先回り</b>で上げる。城壁は常にCCと同レベル</li><li>建設時間には「素の時間」と「実効時間」の2系統があり、<b>期限の逆算は素の時間側</b>で見積もる</li><li><b>★3建設マスター</b>は資源削減の定番。買うなら恩恵期間が長い初日〜2日目</li><li>加速は要所（後半のCC・城壁）まで温存し、焦土鉱洞などで確保する</li></ul></div><div class="blk"><div class="sub">目次</div><ul class="pts"><li><a href="#b1" style="color:#3977b8;text-decoration:underline">前提建物は「先回り」で上げる（ツリー図）</a></li><li><a href="#b2" style="color:#3977b8;text-decoration:underline">前提表（全表）</a></li><li><a href="#b3" style="color:#3977b8;text-decoration:underline">建設の運用ルール／建設マスター／加速／両論</a></li></ul></div><div class="sec"><div id="b1"><div class="cards"><div class="card"><h4>前提建物は「先回り」で上げる</h4>
+<div class="crumbs"><a href="index.html">トップ</a> ＞ <a href="index.html">ゲーム一覧</a> ＞ <a href="index.html">パズル＆サバイバル</a> ＞ <b>建設と前提</b></div><div class="ghead"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bd/24/5e/bd245e4e-b9c6-014c-dc10-de86ab61c260/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="パズル＆サバイバル" loading="lazy"><div><h1>パズル＆サバイバル<br>建設と前提</h1><div class="gmeta">37GAMES｜iOS/Android</div></div></div><p class="dates"><span>更新日：<b>2026年11月25日</b></span></p><p class="lead">コントロールセンター（CC）のレベルアップに必要な前提建物と、建設で止まらないための運用をまとめたページです。前提の連鎖はツリー図で全体像を、数値は全表で確認できます。建設マスターや加速アイテムの使い方もこのページで扱います。</p><div class="blk"><div class="sub">このページの要点</div><div class="chips"><span class="bd bd-info">前提は先回りが原則</span><span class="bd bd-warn">CC15・CC17は2023年12月に仕様変更</span><span class="bd bd-buy">★3建設マスターは初日〜2日目</span></div><ul class="pts"><li>前提建物は<b>着工の1つ前から先回り</b>で上げる。城壁は常にCCと同レベル</li><li>建設時間には「素の時間」と「実効時間」の2系統があり、<b>期限の逆算は素の時間側</b>で見積もる</li><li><b>★3建設マスター</b>は資源削減の定番。買うなら恩恵期間が長い初日〜2日目</li><li>加速は要所（後半のCC・城壁）まで温存し、焦土鉱洞などで確保する</li></ul></div><div class="blk"><div class="sub">目次</div><nav class="toclist"><a href="#b1">前提建物は「先回り」で上げる（ツリー図）<span class="arr">›</span></a><a href="#b2">前提表（全表）<span class="arr">›</span></a><a href="#b3-1">建設の運用ルール<span class="arr">›</span></a><a href="#b3-2">建設マスター<span class="arr">›</span></a><a href="#b3-3">加速<span class="arr">›</span></a><a href="#b3-4">両論<span class="arr">›</span></a></nav></div><div class="sec"><div id="b1"><div class="cards"><div class="card"><h4>前提建物は「先回り」で上げる</h4>
 <figure class="figc"><img src="img/building-headquarters.webp" alt="拠点の中心施設（本部／コントロールセンター）の外観" style="width:300px" loading="lazy"><figcaption class="fcap">拠点の中心施設（本部／コントロールセンター）の外観</figcaption></figure>
 <ul>
 <li>CCのレベルアップには、それぞれ前提建物のレベル到達が必要。前提が未達だと、資源と加速アイテムが揃っていてもCCの建設に着工できず足止めされる</li>
@@ -268,7 +275,7 @@ a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
 <tr><td><b>Lv30</b></td><td>シューターキャンプLv29（あわせて城壁Lv29）</td></tr>
 </table></div>
 <div class="blk"><p class="note">Lv9〜14の行は参考値です。Lv15以降は確認した現行仕様で統一しています。施設名にはゲーム内表記のゆれがあります。</p></div></div>
-<div id="b3"><div class="cards"><div class="card"><h4>建設の運用ルール</h4>
+<div id="b3"><div class="cards"><div class="card"><h4 id="b3-1">建設の運用ルール</h4>
 <ul>
 <li><b>城壁は常にCCと同レベル</b>が条件。1枠を城壁専用に回し続けると止まらない</li>
 <li><b>大使館・戦争ホールは連鎖が長い</b>（戦争ホール←大使館←…）。常時最大レベルを目安に先回りする</li>
@@ -277,7 +284,7 @@ a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
 <li>アイテム「建築ブースト」も使用後に開始した建設に効くため、着工直前に使う</li>
 <li>建設時間には短縮なしの「素の時間」と短縮適用後の「実効時間」の2系統があり約25%異なる（Lv22：素＝約8日10時間／実効＝約6日9時間）。<b>期限の逆算は素の時間側</b>で見積もる</li>
 </ul></div>
-<div class="card"><h4>★3建設マスターは初日〜2日目に買う <span class="bd bd-buy">買う物</span></h4>
+<div class="card"><h4 id="b3-2">★3建設マスターは初日〜2日目に買う <span class="bd bd-buy">買う物</span></h4>
 <ul>
 <li>課金するなら定番とされるのが、指揮官装備の「★3建設マスター」（建築装備）。建物のレベルアップに必要な資源を、部位ごとに「固定額＋割合」で削減する</li>
 <li>削減の例：武器★3は食料-100万かつ-5%、頭★3は鋼材-20万かつ-5%、盾・胴★3は木材-50万かつ-2.5%、指・足★3はガス-2.5%など</li>
@@ -289,7 +296,7 @@ a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
 <p class="cnote">価格は610円〜800円程度の幅で報告されています（iOS 800円／Android 670円という提示と、610円での購入実績の両方があります）。時期による価格改定の階段があり、現行（2026年8月の価格改定後）は800円帯が中心とされます。OS・時期で変動するため断定はできません。また、装備自体が建設時間を直接短縮するわけではなく、削減するのは資源のみです。「時間も大幅に削減」という表現もありますが、実態は資源待ちが解消されることによる間接的な短縮、と整理するのが正確です。</p>
 </div>
 <div class="hook">買うと決めたら、購入の前に案件の「購入ステップ」を確認してください。永久建築隊列は購入ステップの対象で、ハピタス掲載では474円が付きます（価格は現行800円帯が中心）。一方、この★3建築マスター装備は購入ステップの対象外で、買ってもポイントは付きません。ポイントが付く物と付かない物を分けて考えるのが、このゲームの課金判断の要点です。</div>
-<div class="card"><h4>加速アイテムの確保策</h4>
+<div class="card"><h4 id="b3-3">加速アイテムの確保策</h4>
 <p class="kv">ポイ活で必要な加速は「汎用ブースト」と「建造ブースト」の2種。CC単体の建設時間には、短縮なしの「素の時間」と短縮適用後の「実効時間」の2系統があり、約25%異なります。</p>
 <div class="cmp" style="margin:6px 0">
 <div class="crow"><span class="cl">素</span><span class="ct"><span class="cf p" style="display:block;width:100%"></span></span><span class="cv">Lv22：約8日10時間（Lv21は約7日）</span></div>
@@ -329,7 +336,7 @@ a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
 <div class="card"><h4>施設の詳細ページ</h4>
 <a class="svc-link" href="kensetsu-numbers.html"><span>コントロールセンターの数値表</span><span>Lv15〜30の建設コスト・建設時間（2系統）／累計資源／城壁の要件 ›</span></a>
 </div>
-<div class="card"><h4>意見が割れている点：不足する資源はLv帯で変わる</h4><h4>意見が割れている点（両論）</h4>
+<div class="card"><h4>意見が割れている点：不足する資源はLv帯で変わる</h4><h4 id="b3-4">意見が割れている点（両論）</h4>
 
 <ul>
 <li>序盤〜中盤は木材・鋼材がかなり不足する、という見方が中心</li>

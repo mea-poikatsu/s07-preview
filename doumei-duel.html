@@ -193,6 +193,13 @@ body{padding-bottom:104px}
 @keyframes shine{0%{background-position:120% 0}55%,100%{background-position:-60% 0}}
 @media (max-width:380px){.sticky-cta-bar{font-size:13.5px;padding:14px 12px 13px}}
 .rel2{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 12px;margin:14px 0 4px}.rel2-cell{display:block;border:1px solid #e3e3e3;border-radius:8px;overflow:hidden;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.05)} .rel2-cell img{width:100%;height:84px;object-fit:cover} .rel2-cell span{display:block;font-size:12.5px;font-weight:800;color:#3977b8;padding:7px 9px}
+
+/* 目次ボタン */
+.toclist{display:flex;flex-direction:column;gap:6px;margin:4px 0 10px}
+.toclist a{display:flex;align-items:center;justify-content:space-between;gap:8px;background:#eaf2fc;border:1px solid #bcd6f2;border-radius:8px;padding:10px 12px;font-size:13.5px;font-weight:800;color:#2f5f8f;line-height:1.45}
+.toclist a .arr{flex:none;color:#3977b8;font-weight:900}
+.toclist a:active{background:#d9e9fb}
+h4[id],div.acc[id],div[id^="b"]{scroll-margin-top:118px}
 </style></head><body><div class="page">
 <header class="header">
   <div class="header-top">
@@ -202,13 +209,13 @@ body{padding-bottom:104px}
   <div class="searchbar"><div class="box"><span>🔍</span><input id="q" type="search" placeholder="ゲーム名で検索"></div></div>
   <nav class="gnav"><a href="index.html" class="on">人気ゲーム</a><a href="index.html">新着・更新</a><a href="index.html">ランキング</a><a href="index.html">ゲーム一覧</a><a href="index.html">攻略メニュー</a></nav>
 </header>
-<div class="crumbs"><a href="index.html">トップ</a> ＞ <a href="index.html">ゲーム一覧</a> ＞ <a href="index.html">パズル＆サバイバル</a> ＞ <a href="doumei.html">同盟・ギルド</a> ＞ <b>ギルド対決</b></div><div class="ghead"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bd/24/5e/bd245e4e-b9c6-014c-dc10-de86ab61c260/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="パズル＆サバイバル" loading="lazy"><div><h1>パズル＆サバイバル<br>ギルド対決</h1><div class="gmeta">37GAMES｜iOS/Android</div></div></div><p class="dates"><span>更新日：<b>2026年11月25日</b></span></p><p class="lead">ギルド対決の進め方です。開催サイクル、階級ごとのチケット数、任務の仕組み、段階報酬の受け取り条件をまとめています。</p><div class="blk"><div class="sub">このページの要点</div><div class="chips"><span class="bd bd-info">約3週間に1回・7日間</span><span class="bd bd-buy">専属任務は240pt固定</span><span class="bd bd-warn">段階報酬は二重条件</span></div><ul class="pts"><li>参加条件は<b>コントロールセンターLv15以上</b>。開催期間中はギルドの移籍ができません</li><li>任務は<b>専属任務（240pt固定）</b>と通常任務の2種。チケットを消費して受けます</li><li>段階報酬は<b>ギルド合計ポイント×個人ポイント</b>の両方を満たさないと受け取れません</li></ul></div><div class="blk"><div class="sub">目次</div><ul class="pts"><li><a href="#b1" style="color:#3977b8;text-decoration:underline">開催と参加条件／チケット数（階級別）／任務の仕組み／段階報酬の二重条件</a></li></ul></div><div class="sec"><div id="b1"><div class="cards"><div class="card"><h4>開催と参加条件</h4>
+<div class="crumbs"><a href="index.html">トップ</a> ＞ <a href="index.html">ゲーム一覧</a> ＞ <a href="index.html">パズル＆サバイバル</a> ＞ <a href="doumei.html">同盟・ギルド</a> ＞ <b>ギルド対決</b></div><div class="ghead"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bd/24/5e/bd245e4e-b9c6-014c-dc10-de86ab61c260/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="パズル＆サバイバル" loading="lazy"><div><h1>パズル＆サバイバル<br>ギルド対決</h1><div class="gmeta">37GAMES｜iOS/Android</div></div></div><p class="dates"><span>更新日：<b>2026年11月25日</b></span></p><p class="lead">ギルド対決の進め方です。開催サイクル、階級ごとのチケット数、任務の仕組み、段階報酬の受け取り条件をまとめています。</p><div class="blk"><div class="sub">このページの要点</div><div class="chips"><span class="bd bd-info">約3週間に1回・7日間</span><span class="bd bd-buy">専属任務は240pt固定</span><span class="bd bd-warn">段階報酬は二重条件</span></div><ul class="pts"><li>参加条件は<b>コントロールセンターLv15以上</b>。開催期間中はギルドの移籍ができません</li><li>任務は<b>専属任務（240pt固定）</b>と通常任務の2種。チケットを消費して受けます</li><li>段階報酬は<b>ギルド合計ポイント×個人ポイント</b>の両方を満たさないと受け取れません</li></ul></div><div class="blk"><div class="sub">目次</div><nav class="toclist"><a href="#b1-1">開催と参加条件<span class="arr">›</span></a><a href="#b1-2">チケット数（階級別）<span class="arr">›</span></a><a href="#b1-3">任務の仕組み<span class="arr">›</span></a><a href="#b1-4">段階報酬の二重条件<span class="arr">›</span></a></nav></div><div class="sec"><div id="b1"><div class="cards"><div class="card"><h4 id="b1-1">開催と参加条件</h4>
 <ul>
 <li>開催は<b>約3週間ごとに1週間</b></li>
 <li>参加条件は<b>コントロールセンターLv15以上</b>。開催期間中は<b>ギルドの移籍不可</b>なので、参加するギルドは開催前に決めておきます</li>
 <li>任務を受けてポイントを稼ぎ、ギルド合計と個人の両方で段階報酬を狙う形式です</li>
 </ul></div>
-<div class="card"><h4>チケット数（階級別）</h4>
+<div class="card"><h4 id="b1-2">チケット数（階級別）</h4>
 <div style="overflow-x:auto"><table><tr><th>階級</th><th>チケット</th><th>追加分</th></tr>
 <tr><td>ビギナー</td><td>8回</td><td>追加1回</td></tr>
 <tr><td>ルーキー</td><td>9回</td><td>追加2回</td></tr>
@@ -218,13 +225,13 @@ body{padding-bottom:104px}
 <ul>
 <li>追加チケットの購入は<b>1枚＝ダイヤ1,000</b>。無理に買うより、任務の選び方で稼ぐのが先です</li>
 </ul></div>
-<div class="card"><h4>任務の仕組み</h4>
+<div class="card"><h4 id="b1-3">任務の仕組み</h4>
 <ul>
 <li><b>専属任務</b>：自分専用の任務で<b>240pt固定</b>。自分で削除でき、<b>10分で差し替え</b>られます。こなせる内容が出るまで差し替えるのが基本動作です</li>
 <li><b>通常任務</b>：ギルド共通の棚から取る任務。削除できるのは<b>R4以上の役職者</b>のみです</li>
 <li>手軽にこなせる通常任務の例：資源の採集、兵士の訓練、研究・建設の進行など、普段の行動で達成できるもの</li>
 </ul></div>
-<div class="card"><h4>段階報酬の二重条件</h4>
+<div class="card"><h4 id="b1-4">段階報酬の二重条件</h4>
 <ul>
 <li>段階報酬は<b>ギルド合計ポイント</b>と<b>個人ポイント</b>の二重条件です。ギルドが到達していても、個人側が不足すると受け取れません</li>
 <li>例：30段階目（ギルド合計150,000pt）の報酬を受け取るには、<b>個人1,000pt</b>が必要です</li>

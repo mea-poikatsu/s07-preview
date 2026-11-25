@@ -193,6 +193,13 @@ body{padding-bottom:104px}
 @keyframes shine{0%{background-position:120% 0}55%,100%{background-position:-60% 0}}
 @media (max-width:380px){.sticky-cta-bar{font-size:13.5px;padding:14px 12px 13px}}
 .rel2{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 12px;margin:14px 0 4px}.rel2-cell{display:block;border:1px solid #e3e3e3;border-radius:8px;overflow:hidden;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.05)} .rel2-cell img{width:100%;height:84px;object-fit:cover} .rel2-cell span{display:block;font-size:12.5px;font-weight:800;color:#3977b8;padding:7px 9px}
+
+/* 目次ボタン */
+.toclist{display:flex;flex-direction:column;gap:6px;margin:4px 0 10px}
+.toclist a{display:flex;align-items:center;justify-content:space-between;gap:8px;background:#eaf2fc;border:1px solid #bcd6f2;border-radius:8px;padding:10px 12px;font-size:13.5px;font-weight:800;color:#2f5f8f;line-height:1.45}
+.toclist a .arr{flex:none;color:#3977b8;font-weight:900}
+.toclist a:active{background:#d9e9fb}
+h4[id],div.acc[id],div[id^="b"]{scroll-margin-top:118px}
 </style></head><body><div class="page">
 <header class="header">
   <div class="header-top">
@@ -202,15 +209,15 @@ body{padding-bottom:104px}
   <div class="searchbar"><div class="box"><span>🔍</span><input id="q" type="search" placeholder="ゲーム名で検索"></div></div>
   <nav class="gnav"><a href="index.html" class="on">人気ゲーム</a><a href="index.html">新着・更新</a><a href="index.html">ランキング</a><a href="index.html">ゲーム一覧</a><a href="index.html">攻略メニュー</a></nav>
 </header>
-<div class="crumbs"><a href="index.html">トップ</a> ＞ <a href="index.html">ゲーム一覧</a> ＞ <a href="index.html">パズル＆サバイバル</a> ＞ <b>研究の進め方</b></div><div class="ghead"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bd/24/5e/bd245e4e-b9c6-014c-dc10-de86ab61c260/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="パズル＆サバイバル" loading="lazy"><div><h1>パズル＆サバイバル<br>研究の進め方</h1><div class="gmeta">37GAMES｜iOS/Android</div></div></div><p class="dates"><span>更新日：<b>2026年11月25日</b></span></p><p class="lead">研究ツリーの優先順位と進軍枠の解放階段をまとめたページです。期限内にCC到達を狙う期間を前提に、「何を先に取り、何をやらないか」の判断を整理しています。</p><div class="blk"><div class="sub">このページの要点</div><div class="chips"><span class="bd bd-buy">発展ツリー最優先</span><span class="bd bd-info">進軍枠は研究所Lv6／12／20</span><span class="bd bd-gray">防衛ツリーは基本触らない</span></div><ul class="pts"><li>最優先は<b>発展ツリーの「スタミナ回復」</b>。次に建築・研究・訓練の速度系</li><li><b>進軍枠</b>は研究所Lv6／12／20で解放。部隊数が採集効率に直結する</li><li>進軍枠IIIへ進む際、途中の非特化兵種バフは<b>Lv1止め</b>で通過すると最短</li><li>VIP8（進軍枠+1）は推進・否定の両論あり。ダイヤ残量と残り日数で判断</li></ul></div><div class="blk"><div class="sub">目次</div><ul class="pts"><li><a href="#b1" style="color:#3977b8;text-decoration:underline">研究の優先順位（全体像）</a></li><li><a href="#b2" style="color:#3977b8;text-decoration:underline">発展ツリー／進軍枠の解放階段／やらない判断／VIP8の両論</a></li></ul></div><div class="sec"><div id="b1"><div class="flow"><span class="fbox">発展<small>最優先</small></span><span class="farr">→</span><span class="fbox">戦闘<small>進軍枠・部隊規模のみ</small></span><span class="farr">→</span><span class="fbox">経済<small>採集系</small></span><span class="farr">→</span><span class="fbox plus">防衛<small>基本触らない</small></span></div></div>
-<div id="b2"><div class="cards"><div class="card"><h4>発展ツリーの取り方</h4>
+<div class="crumbs"><a href="index.html">トップ</a> ＞ <a href="index.html">ゲーム一覧</a> ＞ <a href="index.html">パズル＆サバイバル</a> ＞ <b>研究の進め方</b></div><div class="ghead"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bd/24/5e/bd245e4e-b9c6-014c-dc10-de86ab61c260/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="パズル＆サバイバル" loading="lazy"><div><h1>パズル＆サバイバル<br>研究の進め方</h1><div class="gmeta">37GAMES｜iOS/Android</div></div></div><p class="dates"><span>更新日：<b>2026年11月25日</b></span></p><p class="lead">研究ツリーの優先順位と進軍枠の解放階段をまとめたページです。期限内にCC到達を狙う期間を前提に、「何を先に取り、何をやらないか」の判断を整理しています。</p><div class="blk"><div class="sub">このページの要点</div><div class="chips"><span class="bd bd-buy">発展ツリー最優先</span><span class="bd bd-info">進軍枠は研究所Lv6／12／20</span><span class="bd bd-gray">防衛ツリーは基本触らない</span></div><ul class="pts"><li>最優先は<b>発展ツリーの「スタミナ回復」</b>。次に建築・研究・訓練の速度系</li><li><b>進軍枠</b>は研究所Lv6／12／20で解放。部隊数が採集効率に直結する</li><li>進軍枠IIIへ進む際、途中の非特化兵種バフは<b>Lv1止め</b>で通過すると最短</li><li>VIP8（進軍枠+1）は推進・否定の両論あり。ダイヤ残量と残り日数で判断</li></ul></div><div class="blk"><div class="sub">目次</div><nav class="toclist"><a href="#b1">研究の優先順位（全体像）<span class="arr">›</span></a><a href="#b2-1">発展ツリー<span class="arr">›</span></a><a href="#b2-2">進軍枠の解放階段<span class="arr">›</span></a><a href="#b2-3">やらない判断<span class="arr">›</span></a><a href="#b2-4">VIP8の両論<span class="arr">›</span></a></nav></div><div class="sec"><div id="b1"><div class="flow"><span class="fbox">発展<small>最優先</small></span><span class="farr">→</span><span class="fbox">戦闘<small>進軍枠・部隊規模のみ</small></span><span class="farr">→</span><span class="fbox">経済<small>採集系</small></span><span class="farr">→</span><span class="fbox plus">防衛<small>基本触らない</small></span></div></div>
+<div id="b2"><div class="cards"><div class="card"><h4 id="b2-1">発展ツリーの取り方</h4>
 <ul>
 <li><b>最優先は「スタミナ回復」</b>。回復が早まる分だけ巣窟への参加回数が増え、英雄の欠片・血清の入手量が増える（＝英雄育成の速度に直結）</li>
 <li>次に<b>建築速度→研究速度→訓練速度</b>の時間短縮系を揃える。効果が全工程に複利で効くため、数値系バフより先</li>
 <li>「部隊積載量」「アフターショック」は序盤スルー（積載量は兵士数で代替でき、アフターショックは荒野の王の段階まで出番がない）</li>
 <li>研究を回す前に、<b>Mr.陳（★2）の研究コスト削減スキル</b>を解放しておくと、同じ資源で回せる研究数が増える</li>
 </ul></div>
-<div class="card"><h4>進軍枠の解放階段</h4>
+<div class="card"><h4 id="b2-2">進軍枠の解放階段</h4>
 <div style="overflow-x:auto"><table><tr><th>段階</th><th>条件</th><th>部隊数</th></tr>
 <tr><td>初期</td><td>―</td><td>1部隊</td></tr>
 <tr><td>進軍枠I</td><td>研究所Lv6</td><td>2部隊</td></tr>
@@ -238,14 +245,14 @@ body{padding-bottom:104px}
 <li><b>通常週の火曜</b>：獅子奮迅の「研究」日にあたります（週の組み立てはイベントページ参照）</li>
 <li>研究所Lv20が序盤の目標ライン。進軍枠III（研究所Lv20で解放）とセットで到達を目指します</li>
 </ul></div>
-<div class="card"><h4>やらない判断・両論</h4>
+<div class="card"><h4 id="b2-3">やらない判断・両論</h4>
 <ul>
 <li><b>防衛ツリーは基本育てない</b>（トラップは実効がほぼないとされる）。デイリー任務で研究完了が必要なときだけ、数分で終わる防衛テクを完了させる置き場として使う</li>
 <li><span class="bd bd-gray">両論</span> 進軍枠と採集に無関係な研究は「枠が空いてもやらない」派と、「経済は元が取れる範囲までやる」派がある。資源を建築に集中させたい時期かどうかで判断が分かれる</li>
 <li><span class="bd bd-gray">両論</span> 長期の対人戦（PvP）目線では優先順位が逆転し、軍事ツリー最優先になる。このページの順序は「期限内にCC到達を狙うポイ活期間」の前提で、卒業後は軍事へ転換する段階切り分けが両立の形</li>
 <li>研究の完了とブースト使用は、ポイントになる曜日（火曜。通常週・エースコマンダー週とも）に寄せるとイベント報酬も増える</li>
 </ul></div>
-<div class="card"><h4>意見が割れている点：VIP8（進軍枠4つ目）の是非</h4><ul>
+<div class="card"><h4 id="b2-4">意見が割れている点：VIP8（進軍枠4つ目）の是非</h4><ul>
 <li><span class="bd bd-info">推進論</span> 「Lv20くらいまでにVIP8にしておきたい。ギルドショップと、最後はダイヤで届かせる」というもの</li>
 <li><span class="bd bd-gray">否定論</span> 「VIP8にはダイヤ30,000個以上が必要で割に合わない。毎日のログインで届くVIP2〜3で十分」というもの</li>
 <li>ダイヤの残量と期限までの日数で判断が分かれる論点として、両論を併記する</li>

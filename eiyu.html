@@ -216,6 +216,13 @@ body{padding-bottom:104px}
 a.bannerlink{display:block;margin:10px 0}
 a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
 .rel2{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 12px;margin:14px 0 4px}.rel2-cell{display:block;border:1px solid #e3e3e3;border-radius:8px;overflow:hidden;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.05)} .rel2-cell img{width:100%;height:84px;object-fit:cover} .rel2-cell span{display:block;font-size:12.5px;font-weight:800;color:#3977b8;padding:7px 9px}
+
+/* 目次ボタン */
+.toclist{display:flex;flex-direction:column;gap:6px;margin:4px 0 10px}
+.toclist a{display:flex;align-items:center;justify-content:space-between;gap:8px;background:#eaf2fc;border:1px solid #bcd6f2;border-radius:8px;padding:10px 12px;font-size:13.5px;font-weight:800;color:#2f5f8f;line-height:1.45}
+.toclist a .arr{flex:none;color:#3977b8;font-weight:900}
+.toclist a:active{background:#d9e9fb}
+h4[id],div.acc[id],div[id^="b"]{scroll-margin-top:118px}
 </style></head><body><div class="page">
 <header class="header">
   <div class="header-top">
@@ -225,12 +232,12 @@ a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
   <div class="searchbar"><div class="box"><span>🔍</span><input id="q" type="search" placeholder="ゲーム名で検索"></div></div>
   <nav class="gnav"><a href="index.html" class="on">人気ゲーム</a><a href="index.html">新着・更新</a><a href="index.html">ランキング</a><a href="index.html">ゲーム一覧</a><a href="index.html">攻略メニュー</a></nav>
 </header>
-<div class="crumbs"><a href="index.html">トップ</a> ＞ <a href="index.html">ゲーム一覧</a> ＞ <a href="index.html">パズル＆サバイバル</a> ＞ <b>英雄</b></div><div class="ghead"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bd/24/5e/bd245e4e-b9c6-014c-dc10-de86ab61c260/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="パズル＆サバイバル" loading="lazy"><div><h1>パズル＆サバイバル<br>英雄</h1><div class="gmeta">37GAMES｜iOS/Android</div></div></div><p class="dates"><span>更新日：<b>2026年11月25日</b></span></p><p class="lead">英雄まわりの入口ページです。全英雄の一覧、育成の節目と優先順位、役割別（内政／軍事・機能別）の詳細へ、ここから枝分かれします。まず全体像を掴んで、必要な詳細ページへ進んでください。</p><div class="blk"><div class="sub">このページの要点</div><div class="chips"><span class="bd bd-info">全英雄57名＋コラボ8名</span><span class="bd bd-buy">内政スキルは所持で常時発動</span><span class="bd bd-gray">英雄本体は欠片10個で解放</span></div><ul class="pts"><li>英雄の詳細は3ページに分かれています：<b>全英雄一覧／英雄の育成／役割別・機能別</b></li><li><b>内政型</b>は所持でスキルが常時発動、<b>軍事型</b>は編成時のみ発動。集め方と育て方が違います</li><li>属性は5分類。探索編成は<b>全タイプをバランスよく</b>入れるのが基本です</li></ul></div><div class="blk"><div class="sub">目次</div><ul class="pts"><li><a href="#b1" style="color:#3977b8;text-decoration:underline">詳細ページへの案内／属性と編成の基本／英雄の要点サマリー</a></li></ul></div><div class="sec"><div id="b1"><div class="cards"><div class="card"><h4>英雄の詳細ページ</h4>
+<div class="crumbs"><a href="index.html">トップ</a> ＞ <a href="index.html">ゲーム一覧</a> ＞ <a href="index.html">パズル＆サバイバル</a> ＞ <b>英雄</b></div><div class="ghead"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bd/24/5e/bd245e4e-b9c6-014c-dc10-de86ab61c260/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="パズル＆サバイバル" loading="lazy"><div><h1>パズル＆サバイバル<br>英雄</h1><div class="gmeta">37GAMES｜iOS/Android</div></div></div><p class="dates"><span>更新日：<b>2026年11月25日</b></span></p><p class="lead">英雄まわりの入口ページです。全英雄の一覧、育成の節目と優先順位、役割別（内政／軍事・機能別）の詳細へ、ここから枝分かれします。まず全体像を掴んで、必要な詳細ページへ進んでください。</p><div class="blk"><div class="sub">このページの要点</div><div class="chips"><span class="bd bd-info">全英雄57名＋コラボ8名</span><span class="bd bd-buy">内政スキルは所持で常時発動</span><span class="bd bd-gray">英雄本体は欠片10個で解放</span></div><ul class="pts"><li>英雄の詳細は3ページに分かれています：<b>全英雄一覧／英雄の育成／役割別・機能別</b></li><li><b>内政型</b>は所持でスキルが常時発動、<b>軍事型</b>は編成時のみ発動。集め方と育て方が違います</li><li>属性は5分類。探索編成は<b>全タイプをバランスよく</b>入れるのが基本です</li></ul></div><div class="blk"><div class="sub">目次</div><nav class="toclist"><a href="#b1-1">詳細ページへの案内<span class="arr">›</span></a><a href="#b1-2">属性と編成の基本<span class="arr">›</span></a><a href="#b1-3">英雄の要点サマリー<span class="arr">›</span></a></nav></div><div class="sec"><div id="b1"><div class="cards"><div class="card"><h4 id="b1-1">英雄の詳細ページ</h4>
 <a class="svc-link" href="eiyu-list.html"><span>全英雄一覧</span><span>属性別57名＋コラボ8名の一覧（レア度・兵種・入手手段） ›</span></a>
 <a class="svc-link" href="eiyu-ikusei.html"><span>英雄の育成</span><span>育成の節目／スキル解放の節目／内政英雄の止めライン／入手の優先 ›</span></a>
 <a class="svc-link" href="eiyu-yakuwari.html"><span>役割別・機能別</span><span>内政と軍事の違い／資源削減の対応表／採集・生産・治療などの機能別早見表 ›</span></a>
 </div>
-<div class="card"><h4>属性と編成の基本</h4>
+<div class="card"><h4 id="b1-2">属性と編成の基本</h4>
 <figure class="fig"><img src="img/gamein-skill.webp" alt="マッチ3パズルと英雄スキルの画面（公式サイト素材）" loading="lazy"><figcaption class="fcap">英雄スキルを使うパズル戦闘の画面イメージ</figcaption></figure>
 <ul>
 <li>属性（タイプ）は5分類：<b>勇敢（緑）／衝動（赤）／冷静（青）／慎重（黄）／狂乱（紫）</b></li>
@@ -238,7 +245,7 @@ a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
 <li>属性の有利は<b>ダメージ+200%</b>、不利は<b>半減</b>と影響が大きい。相手の属性に合わせて編成を入れ替える場面も多い</li>
 <li>探索編成のキーマンは、沈黙スキル（4ターン敵を沈黙）の<b>エルウィン</b>。回復は<b>ゼルス→ニモラ</b>を確保します</li>
 </ul></div>
-<div class="card"><h4>英雄の要点サマリー</h4>
+<div class="card"><h4 id="b1-3">英雄の要点サマリー</h4>
 <figure class="fig"><img src="img/ui-hero-bag.webp" alt="英雄バッグのゲーム内画面（英雄カード一覧）" loading="lazy"><figcaption class="fcap">英雄バッグ（所持英雄の管理画面）の例</figcaption></figure>
 <ul>
 <li><b>★2英雄はLv31で全スキル解放</b>。ここが止めラインで、それ以上は血清の無駄になりやすい</li>

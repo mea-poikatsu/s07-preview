@@ -193,6 +193,13 @@ body{padding-bottom:104px}
 @keyframes shine{0%{background-position:120% 0}55%,100%{background-position:-60% 0}}
 @media (max-width:380px){.sticky-cta-bar{font-size:13.5px;padding:14px 12px 13px}}
 .rel2{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 12px;margin:14px 0 4px}.rel2-cell{display:block;border:1px solid #e3e3e3;border-radius:8px;overflow:hidden;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.05)} .rel2-cell img{width:100%;height:84px;object-fit:cover} .rel2-cell span{display:block;font-size:12.5px;font-weight:800;color:#3977b8;padding:7px 9px}.figimg{width:100%;height:auto;border-radius:8px;border:1px solid #e5e5e5}
+
+/* 目次ボタン */
+.toclist{display:flex;flex-direction:column;gap:6px;margin:4px 0 10px}
+.toclist a{display:flex;align-items:center;justify-content:space-between;gap:8px;background:#eaf2fc;border:1px solid #bcd6f2;border-radius:8px;padding:10px 12px;font-size:13.5px;font-weight:800;color:#2f5f8f;line-height:1.45}
+.toclist a .arr{flex:none;color:#3977b8;font-weight:900}
+.toclist a:active{background:#d9e9fb}
+h4[id],div.acc[id],div[id^="b"]{scroll-margin-top:118px}
 </style></head><body><div class="page">
 <header class="header">
   <div class="header-top">
@@ -204,13 +211,13 @@ body{padding-bottom:104px}
 </header>
 <div class="crumbs"><a href="index.html">トップ</a> ＞ <a href="index.html">ゲーム一覧</a> ＞ <a href="index.html">パズル＆サバイバル</a> ＞ <a href="event.html">イベント攻略</a> ＞ <b>エースコマンダーの単価表</b></div><div class="ghead"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bd/24/5e/bd245e4e-b9c6-014c-dc10-de86ab61c260/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="パズル＆サバイバル" loading="lazy"><div><h1>パズル＆サバイバル<br>エースコマンダーの単価表</h1><div class="gmeta">37GAMES｜iOS/Android</div></div></div><p class="dates"><span>更新日：<b>2026年11月25日</b></span></p><p class="lead">エースコマンダー（ワールドエースコマンダー）の曜日別ポイント単価表です。エース週と通常週で単価が異なるため分けて掲載し、古い世代の単価との違いも注記しています。</p><div class="blk"><div class="sub">このページの要点</div><div class="chips"><span class="bd bd-info">エース週と通常週で単価が違う</span><span class="bd bd-buy">現行単価は照合済み</span><span class="bd bd-warn">2022年世代の単価は使用禁止</span></div><ul class="pts"><li>エース週・水曜の現行単価は<b>スタミナ1＝2,000pt／AP1＝500pt</b>。旧資料の600／400とは桁が違います</li><li>エース週は隔週開催で、通常週と交互に回ります。締め切りは<b>月曜8:30</b></li></ul></div><div class="blk"><img class="figimg" src="img/inf-ace-week.png" alt="エースコマンダー曜日早見" loading="lazy"><p class="cnote" style="margin:4px 0 0">エースコマンダーの曜日早見図解</p></div>
 <div class="blk"><p style="margin:0 0 4px"><a href="event-dead.html" style="color:#3977b8;text-decoration:underline;font-weight:700">▶ デッドライジングの報酬表を見る</a></p><p style="margin:0"><a href="event.html" style="color:#3977b8;text-decoration:underline;font-weight:700">▶ イベント攻略トップを見る</a></p></div>
-<div class="blk"><div class="sub">目次</div><ul class="pts"><li><a href="#b1" style="color:#3977b8;text-decoration:underline">エース週の曜日別単価表／通常週の曜日別単価／総合ランキングと世代差の注意</a></li></ul></div><div class="sec"><div id="b1"><div class="cards"><div class="card"><h4>エース週の曜日別単価表（現行）</h4>
+<div class="blk"><div class="sub">目次</div><nav class="toclist"><a href="#b1-1">エース週の曜日別単価表<span class="arr">›</span></a><a href="#b1-2">通常週の曜日別単価<span class="arr">›</span></a><a href="#b1-3">総合ランキングと世代差の注意<span class="arr">›</span></a></nav></div><div class="sec"><div id="b1"><div class="cards"><div class="card"><h4 id="b1-1">エース週の曜日別単価表（現行）</h4>
 <div class="tscroll"><table><tr><th>曜日</th><th>テーマ</th><th>ポイント単価</th><th>段階報酬</th></tr><tr><td><b>月</b></td><td>英雄強化</td><td>★2英雄の破片＝1,500／★3万能欠片＝6,000／★4万能＝20,000／★5万能＝60,000／★6英雄の破片＝90,000</td><td>100,000〜4,000,000</td></tr><tr><td><b>火</b></td><td>建築・研究</td><td>建築実力+1＝7／研究実力+1＝7（ブースト使用は無関係。完了時の戦力増のみ）</td><td>100,000〜4,000,000</td></tr><tr><td><b>水</b></td><td>生存</td><td>スタミナ1消費＝2,000／AP1消費＝500／採集：食料・木材20＝4・鋼材4＝4・ガス1＝4・アース2＝1／全景模擬訓練1回＝10,000</td><td>60,000〜2,400,000</td></tr><tr><td><b>木</b></td><td>兵士訓練</td><td>訓練ブースト1分＝80 のみが対象（訓練そのもの・戦力増は対象外）</td><td>20,000〜800,000</td></tr><tr><td><b>金</b></td><td>進級の道</td><td>器官ルーン N＝40,000／HN＝200,000／R＝800,000／HR＝2,000,000／SR＝4,000,000（破片は各1/100）／器官強化薬＝100／ギア装置＝3,000／メカスキルデータ＝5,000／メカスキルコア＝50,000</td><td>25,000〜1,000,000</td></tr><tr><td><b>土</b></td><td>能力強化</td><td>強化材料 ★1〜★5＝50／250／1,000／2,500／10,000／プロモーター I＝500・II＝2,500・III＝20,000／改造機＝3,000／装備ロック装置＝30,000</td><td>20,000〜800,000</td></tr><tr><td><b>日</b></td><td>究極への道</td><td>建築実力+1＝7／研究実力+1＝7／兵士訓練 R1＝5・R2＝10・R3＝15・R4＝22・R5＝30・R6＝40・R7＝55・R8＝70・R9＝85・R10＝110・R11＝125・R12＝150・R13＝160・半感染兵士＝200</td><td>200,000〜8,000,000</td></tr></table></div>
 <p class="cnote">単価は現行の値で、主要部は照合済みです（月曜の★5万能欠片＝60,000や段階報酬の幅など）。締め切りは月曜8:30です。</p></div>
-<div class="card"><h4>通常週の曜日別単価（要約）</h4>
+<div class="card"><h4 id="b1-2">通常週の曜日別単価（要約）</h4>
 <div class="tscroll"><table><tr><th>曜日</th><th>テーマ</th><th>ポイント単価（主なもの）</th></tr><tr><td><b>月</b></td><td>英雄強化</td><td>★2破片＝500／★3万能＝2,000／★4万能＝8,000／★5万能＝20,000／★6＝30,000（エース週の約1/3）</td></tr><tr><td><b>火</b></td><td>避難所強化</td><td>建築・研究・訓練ブースト＝15pt／分／ハッピーガチャ＝20,000／回</td></tr><tr><td><b>水</b></td><td>装備強化</td><td>プロモーター I＝1,000・II＝5,000・III＝40,000／装備強化材料＝100〜20,000／戦闘装備の入手 ★2＝3,000〜★6＝2,500,000</td></tr><tr><td><b>木</b></td><td>ミュータント＆モジュール</td><td>ミュータントPt100獲得＝20／モジュール強化材料＝100〜20,000／モジュールの入手 ★3＝15,000〜★7＝2,000,000</td></tr><tr><td><b>金</b></td><td>栄誉＆器官</td><td>器官ルーン N＝20,000〜SR＝2,000,000（破片は各1/100）／グローリー獲得＝600／メカモジュールの入手 Lv1＝5,000〜Lv5＝405,000</td></tr><tr><td><b>土・日</b></td><td>ダイヤの達人</td><td>ダイヤ1消費＝1</td></tr><tr><td><b>日</b></td><td>チップ＆キューブ</td><td>強化材料＝100〜20,000／本体の入手 チップ ★3＝5,000〜★7＝1,500,000・キューブ ★3＝20,000〜★7＝2,500,000</td></tr></table></div>
 <p class="cnote">通常週の報酬段階は各曜日10段階制です。単価は同ガイドの現行掲載分ですが、通常週の報酬は近年も相次いで変更されているため、開催週のゲーム内表示が最終確認になります。</p></div>
-<div class="card"><h4>総合ランキングと世代差の注意</h4>
+<div class="card"><h4 id="b1-3">総合ランキングと世代差の注意</h4>
 <ul>
 <li>エース週の総合ランキング1位は、スキン（花嫁のノヴァ・15日）＋エースコマンダー英雄III×80＋ダイヤ15,000など。上位帯のボーダーはワールドと時期で大きく変動します</li>
 <li><span class="bd bd-warn">世代差</span> 2022年世代の単価表（例：水曜スタミナ1＝600／AP1＝400、月曜＝資源採集）は曜日構成ごと現行と別物です。古い攻略記事の単価を現行として使わないでください</li>

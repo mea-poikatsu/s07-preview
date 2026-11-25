@@ -216,6 +216,13 @@ body{padding-bottom:104px}
 a.bannerlink{display:block;margin:10px 0}
 a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
 .rel2{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 12px;margin:14px 0 4px}.rel2-cell{display:block;border:1px solid #e3e3e3;border-radius:8px;overflow:hidden;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.05)} .rel2-cell img{width:100%;height:84px;object-fit:cover} .rel2-cell span{display:block;font-size:12.5px;font-weight:800;color:#3977b8;padding:7px 9px}.figimg{width:100%;height:auto;border-radius:8px;border:1px solid #e5e5e5}
+
+/* 目次ボタン */
+.toclist{display:flex;flex-direction:column;gap:6px;margin:4px 0 10px}
+.toclist a{display:flex;align-items:center;justify-content:space-between;gap:8px;background:#eaf2fc;border:1px solid #bcd6f2;border-radius:8px;padding:10px 12px;font-size:13.5px;font-weight:800;color:#2f5f8f;line-height:1.45}
+.toclist a .arr{flex:none;color:#3977b8;font-weight:900}
+.toclist a:active{background:#d9e9fb}
+h4[id],div.acc[id],div[id^="b"]{scroll-margin-top:118px}
 </style></head><body><div class="page">
 <header class="header">
   <div class="header-top">
@@ -225,10 +232,10 @@ a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
   <div class="searchbar"><div class="box"><span>🔍</span><input id="q" type="search" placeholder="ゲーム名で検索"></div></div>
   <nav class="gnav"><a href="index.html" class="on">人気ゲーム</a><a href="index.html">新着・更新</a><a href="index.html">ランキング</a><a href="index.html">ゲーム一覧</a><a href="index.html">攻略メニュー</a></nav>
 </header>
-<div class="crumbs"><a href="index.html">トップ</a> ＞ <a href="index.html">ゲーム一覧</a> ＞ <a href="index.html">パズル＆サバイバル</a> ＞ <b>イベント</b></div><div class="ghead"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bd/24/5e/bd245e4e-b9c6-014c-dc10-de86ab61c260/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="パズル＆サバイバル" loading="lazy"><div><h1>パズル＆サバイバル<br>イベント</h1><div class="gmeta">37GAMES｜iOS/Android</div></div></div><p class="dates"><span>更新日：<b>2026年11月25日</b></span></p><p class="lead">主要イベントの仕組みと、消費を寄せる曜日サイクルをまとめたページです。普段の行動がポイントになる設計のため、「何を・いつ使うか」の判断を整理しています。</p><div class="blk"><div class="sub">このページの要点</div><div class="chips"><span class="bd bd-buy">原則：温存して寄せる</span><span class="bd bd-info">更新は午前9時</span><span class="bd bd-warn">エースコマンダー週は締切が月曜8:30</span></div><ul class="pts"><li>リクルートコイン・ブースト・スタミナ回復は、<b>対応するイベントの曜日・週まで温存</b>して一括使用</li><li>通常週とエースコマンダー週では<b>曜日の中身が変わる</b>。古い曜日表を現行として使わない</li><li>デッドライジングは<b>「負けさせない」ことが最優先</b>（2回敗北で襲来が止まる）</li><li>攻勢作戦は条件が8時間ごとに切り替わる。完了のタイミングを合わせると二重取りが狙える</li></ul></div><div class="blk"><div class="sub">目次</div><ul class="pts"><li><a href="#b1" style="color:#3977b8;text-decoration:underline">イベントの原則</a></li><li><a href="#b2" style="color:#3977b8;text-decoration:underline">通常週の曜日サイクル／デッドライジング／エースコマンダー週／同盟対決／攻勢作戦ほか</a></li></ul></div><div class="blk"><img class="figimg" src="img/inf-event-week.png" alt="週間イベント早見" loading="lazy"><p class="cnote" style="margin:4px 0 0">週間イベントの早見図解</p></div>
+<div class="crumbs"><a href="index.html">トップ</a> ＞ <a href="index.html">ゲーム一覧</a> ＞ <a href="index.html">パズル＆サバイバル</a> ＞ <b>イベント</b></div><div class="ghead"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bd/24/5e/bd245e4e-b9c6-014c-dc10-de86ab61c260/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="パズル＆サバイバル" loading="lazy"><div><h1>パズル＆サバイバル<br>イベント</h1><div class="gmeta">37GAMES｜iOS/Android</div></div></div><p class="dates"><span>更新日：<b>2026年11月25日</b></span></p><p class="lead">主要イベントの仕組みと、消費を寄せる曜日サイクルをまとめたページです。普段の行動がポイントになる設計のため、「何を・いつ使うか」の判断を整理しています。</p><div class="blk"><div class="sub">このページの要点</div><div class="chips"><span class="bd bd-buy">原則：温存して寄せる</span><span class="bd bd-info">更新は午前9時</span><span class="bd bd-warn">エースコマンダー週は締切が月曜8:30</span></div><ul class="pts"><li>リクルートコイン・ブースト・スタミナ回復は、<b>対応するイベントの曜日・週まで温存</b>して一括使用</li><li>通常週とエースコマンダー週では<b>曜日の中身が変わる</b>。古い曜日表を現行として使わない</li><li>デッドライジングは<b>「負けさせない」ことが最優先</b>（2回敗北で襲来が止まる）</li><li>攻勢作戦は条件が8時間ごとに切り替わる。完了のタイミングを合わせると二重取りが狙える</li></ul></div><div class="blk"><div class="sub">目次</div><nav class="toclist"><a href="#b1">イベントの原則<span class="arr">›</span></a><a href="#b2-1">通常週の曜日サイクル<span class="arr">›</span></a><a href="#b2-2">デッドライジング<span class="arr">›</span></a><a href="#b2-3">エースコマンダー週<span class="arr">›</span></a><a href="#b2-4">同盟対決<span class="arr">›</span></a><a href="#b2-5">攻勢作戦ほか<span class="arr">›</span></a></nav></div><div class="blk"><img class="figimg" src="img/inf-event-week.png" alt="週間イベント早見" loading="lazy"><p class="cnote" style="margin:4px 0 0">週間イベントの早見図解</p></div>
 <div class="sec"><div id="b1"><div class="blk"><div class="chips"><span class="bd bd-buy">原則：普段の行動がポイントになる</span><span class="bd bd-gray">更新・リセットは午前9時</span></div>
 <p class="note">主要イベントはいずれも通常行動（ブースト使用・欠片入手・スタミナ消費など）がポイント化する設計です。リクルートコイン・ブースト・スタミナ回復は、対応するイベントの曜日・週まで温存してから一括使用するのが全体の原則です。曜日ごとの消費の寄せ方は、このページの「通常週の曜日サイクル」もあわせて確認してください。</p></div></div>
-<div id="b2"><div class="cards"><div class="card"><h4>曜日イベントに消費を寄せる</h4>
+<div id="b2"><div class="cards"><div class="card"><h4 id="b2-1">曜日イベントに消費を寄せる</h4>
 <p class="kv">通常イベント週には曜日ごとの固定サイクルがあり、消費のタイミングを寄せるとイベント報酬が増えます。</p>
 <div style="overflow-x:auto"><table><tr><th>曜日</th><th>イベント</th><th>寄せる消費</th></tr>
 <tr><td><b>月</b></td><td>英雄強化（英雄獲得でポイント）</td><td>ガチャ・英雄チョイスは月曜にまとめて使う</td></tr>
@@ -239,7 +246,7 @@ a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
 <tr><td><b>土・日</b></td><td>ダイヤの達人（ダイヤ使用量でポイント）</td><td>ダイヤ消費（資源購入・VIPポイント購入など）は土日に寄せる</td></tr>
 </table></div>
 </div>
-<div class="card"><h4>デッドライジング（ギルド防衛）</h4>
+<div class="card"><h4 id="b2-2">デッドライジング（ギルド防衛）</h4>
 <a class="bannerlink" href="event-dead.html"><img src="img/bg-defense.jpg" alt="砦を襲うゾンビの大群と防衛戦のイラスト" loading="lazy"></a>
 <div style="overflow-x:auto"><table><tr><th>項目</th><th>内容</th></tr><tr><td>開催形式</td><td>ギルド防衛イベント</td></tr><tr><td>開催・報酬の詳細</td><td>詳細はリンク先で確認</td></tr></table></div>
 <p style="margin:6px 0 2px"><a href="event-dead.html" style="color:#3977b8;text-decoration:underline;font-weight:700">▶ デッドライジングの詳細を見る</a></p>
@@ -251,7 +258,7 @@ a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
 <li>難易度5以上では、防衛成功ごとにダイヤや補給箱などがランダムで追加ドロップする。個人ポイント3,000／ギルド300,000が最初の報酬ライン</li>
 <li>開催中は負傷兵の治療ヘルプが大量に流れる。自分の治療も即回しすることでヘルプの往来に乗り、普段後回しの施設・兵士のケアを進める好機になる</li>
 </ul></div>
-<div class="card"><h4>エースコマンダー週の曜日配分</h4>
+<div class="card"><h4 id="b2-3">エースコマンダー週の曜日配分</h4>
 <p class="kv">エースコマンダーが開催される週は、通常週と曜日の中身が変わります（現行の整理）。締め切りは月曜8:30で、通常の9:00切り替えではない点に注意。</p>
 <div style="overflow-x:auto"><table><tr><th>曜日</th><th>テーマ</th><th>寄せる消費</th></tr>
 <tr><td><b>月</b></td><td>英雄強化</td><td>英雄の欠片入手がポイント。巣窟の物資補給箱のチケットが主な稼ぎ筋。★5万能欠片は「使ったとき」ではなく「入手したタイミング」でポイントになる</td></tr>
@@ -263,7 +270,7 @@ a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
 <tr><td><b>日</b></td><td>建築・研究・兵士訓練（戦力）</td><td>週の締めとして戦力系をまとめて完了させる</td></tr>
 </table></div>
 <p class="cnote">曜日構成は改定で変わることがあり、過去の整理とは月曜・金曜の内容が入れ替わっています。古い曜日表を現行として使わないよう、確認時点の表を使うことが大切です。</p></div>
-<div class="card"><h4>同盟対決（Alliance Showdown）</h4>
+<div class="card"><h4 id="b2-4">同盟対決（Alliance Showdown）</h4>
 <ul>
 <li>開催は約3週に1回・7日間。ギルド側は20人以上の登録が必要で、クエスト受注は<b>個人のCC15以上</b>が条件</li>
 <li>報酬は「ギルド合計ポイント＋個人ポイント」の<b>二重条件</b>。両方を満たして初めて受け取れるため、個人としては「個人ラインだけは毎日落とさない」が最低限の貢献になる</li>
@@ -271,7 +278,7 @@ a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
 <li>期間中はギルドの移籍ができない</li>
 </ul>
 <p class="cnote">同盟対決の詳細な数値は確認が取りにくい領域です。参加条件と報酬の仕組みの骨格のみ載せています。 任務とチケットの詳細は<a href="doumei-duel.html" style="color:#3977b8;text-decoration:underline">ギルド対決の詳細ページ</a>にまとめています。</p></div>
-<div class="card"><h4>攻勢作戦・獅子奮迅・その他</h4>
+<div class="card"><h4 id="b2-5">攻勢作戦・獅子奮迅・その他</h4>
 <ul>
 <li>攻勢作戦（Strike First）：<b>土〜日開催</b>。ゾンビの巣窟への勝利とスタミナ消費がポイントになります（巣窟のLv帯で単価が変わります）。ギルド合計の段階報酬があり、最終段階ではオーストンの欠片が目玉です</li>
 <li><b>Break Loose</b>：別イベントで、対象条件が8時間ごとに切り替わる形式です。国内名は未確認のため、攻勢作戦とは分けて扱います（英雄リアの入手先とされるのはこちら）</li>
