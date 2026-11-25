@@ -193,6 +193,29 @@ body{padding-bottom:104px}
 .sticky-cta.alt .sticky-cta-bar::after{content:"";position:absolute;inset:0;border-radius:999px;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.75) 50%,transparent 70%);background-size:250% 100%;animation:shine 2.6s ease-in-out infinite;pointer-events:none}
 @keyframes shine{0%{background-position:120% 0}55%,100%{background-position:-60% 0}}
 @media (max-width:380px){.sticky-cta-bar{font-size:13.5px;padding:14px 12px 13px}}
+
+.fig{margin:10px 0}
+.fig img{width:100%;height:auto;display:block;border-radius:10px}
+.figc{margin:10px 0;text-align:center}
+.figc img{max-width:100%;height:auto;border-radius:10px}
+.fcap{font-size:12px;color:#667;margin-top:4px;text-align:left}
+.shotrow{display:flex;gap:8px;overflow-x:auto;padding:2px 0 6px}
+.shotrow img{height:250px;width:auto;flex:none;border-radius:10px}
+.bannergrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.bannergrid a{display:block;text-decoration:none}
+.bannergrid img{width:100%;height:auto;display:block;border-radius:10px}
+.bannergrid .bcap{display:block;font-size:12.5px;font-weight:700;color:#3977b8;margin-top:4px}
+.bgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0}
+.bgrid figure{margin:0}
+.bgrid img{width:100%;height:110px;object-fit:cover;border-radius:8px;display:block}
+.bgrid figcaption{font-size:12px;color:#555;margin-top:3px}
+.prow{display:flex;gap:10px;margin:10px 0}
+.prow figure{flex:1;margin:0}
+.prow img{width:100%;height:210px;object-fit:cover;object-position:top center;border-radius:10px;display:block}
+.prow figcaption{font-size:12px;color:#555;margin-top:3px;text-align:center}
+.hicon{width:34px;height:34px;border-radius:8px;vertical-align:-10px;margin-right:6px;object-fit:cover}
+a.bannerlink{display:block;margin:10px 0}
+a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
 </style></head><body><div class="page">
 <header class="header">
   <div class="header-top">
@@ -203,6 +226,7 @@ body{padding-bottom:104px}
   <nav class="gnav"><a href="index.html" class="on">人気ゲーム</a><a href="index.html">新着・更新</a><a href="index.html">ランキング</a><a href="index.html">ゲーム一覧</a><a href="index.html">攻略メニュー</a></nav>
 </header>
 <div class="crumbs"><a href="index.html">トップ</a> ＞ <a href="index.html">ゲーム一覧</a> ＞ <a href="index.html">パズル＆サバイバル</a> ＞ <b>建設と前提</b></div><div class="ghead"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bd/24/5e/bd245e4e-b9c6-014c-dc10-de86ab61c260/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="パズル＆サバイバル" loading="lazy"><div><h1>パズル＆サバイバル<br>建設と前提</h1><div class="gmeta">37GAMES｜iOS/Android</div></div></div><p class="dates"><span>最終確認日：<b>2026年11月25日</b></span></p><p class="lead">コントロールセンター（CC）のレベルアップに必要な前提建物と、建設で止まらないための運用をまとめたページです。前提の連鎖はツリー図で全体像を、数値は全表で確認できます。建設マスターや加速アイテムの使い方もこのページで扱います。</p><div class="blk"><div class="sub">このページの要点</div><div class="chips"><span class="bd bd-info">前提は先回りが原則</span><span class="bd bd-warn">CC15・CC17は2023年12月に仕様変更</span><span class="bd bd-buy">★3建設マスターは初日〜2日目</span></div><ul class="pts"><li>前提建物は<b>着工の1つ前から先回り</b>で上げる。城壁は常にCCと同レベル</li><li>建設時間には「素の時間」と「実効時間」の2系統があり、<b>期限の逆算は素の時間側</b>で見積もる</li><li><b>★3建設マスター</b>は資源削減の定番。買うなら恩恵期間が長い初日〜2日目</li><li>加速は要所（後半のCC・城壁）まで温存し、焦土鉱洞などで確保する</li></ul></div><div class="blk"><div class="sub">目次</div><ul class="pts"><li><a href="#b1" style="color:#3977b8;text-decoration:underline">前提建物は「先回り」で上げる（ツリー図）</a></li><li><a href="#b2" style="color:#3977b8;text-decoration:underline">前提表（全表）</a></li><li><a href="#b3" style="color:#3977b8;text-decoration:underline">建設の運用ルール／建設マスター／加速／両論</a></li></ul></div><div class="sec"><div id="b1"><div class="cards"><div class="card"><h4>前提建物は「先回り」で上げる</h4>
+<figure class="figc"><img src="img/building-headquarters.webp" alt="拠点の中心施設（本部／コントロールセンター）の外観" style="width:300px" loading="lazy"><figcaption class="fcap">拠点の中心施設（本部／コントロールセンター）の外観</figcaption></figure>
 <ul>
 <li>CCのレベルアップには、それぞれ前提建物のレベル到達が必要。前提が未達だと、資源と加速アイテムが揃っていてもCCの建設に着工できず足止めされる</li>
 <li>建設枠が空いているタイミングで次の前提を先に建てておくことが、調査・体験談等で共通して挙がる最重要の進め方</li>
@@ -301,6 +325,7 @@ body{padding-bottom:104px}
 <li>条件で分けると整理できます：<b>無課金は最小限</b>（建設枠と資源を前提施設に回す）、<b>★3建設マスターがある場合は上げ得</b>（削減が効いて回収が早い）</li>
 <li>どちらにしても、科学研究所と各種キャンプの稼働を止めないことが先です</li>
 </ul></div>
+<div class="bgrid"><figure><img src="img/building-farm.webp" alt="施設「農場」の外観" loading="lazy"><figcaption>農場</figcaption></figure><figure><img src="img/building-gas-tile.webp" alt="施設「ガス田」の外観" loading="lazy"><figcaption>ガス田</figcaption></figure><figure><img src="img/building-steel-tile.webp" alt="施設「鋼材工場」の外観" loading="lazy"><figcaption>鋼材工場</figcaption></figure><figure><img src="img/building-lumber-mill.webp" alt="施設「製材所」の外観" loading="lazy"><figcaption>製材所</figcaption></figure></div>
 <div class="card"><h4>施設の詳細ページ</h4>
 <a class="svc-link" href="kensetsu-numbers.html"><span>コントロールセンターの数値表</span><span>Lv15〜30の建設コスト・建設時間（2系統）／累計資源／城壁の要件 ›</span></a>
 </div>

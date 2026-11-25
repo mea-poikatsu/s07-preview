@@ -192,6 +192,29 @@ body{padding-bottom:104px}
 .sticky-cta.alt .sticky-cta-bar::after{content:"";position:absolute;inset:0;border-radius:999px;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.75) 50%,transparent 70%);background-size:250% 100%;animation:shine 2.6s ease-in-out infinite;pointer-events:none}
 @keyframes shine{0%{background-position:120% 0}55%,100%{background-position:-60% 0}}
 @media (max-width:380px){.sticky-cta-bar{font-size:13.5px;padding:14px 12px 13px}}
+
+.fig{margin:10px 0}
+.fig img{width:100%;height:auto;display:block;border-radius:10px}
+.figc{margin:10px 0;text-align:center}
+.figc img{max-width:100%;height:auto;border-radius:10px}
+.fcap{font-size:12px;color:#667;margin-top:4px;text-align:left}
+.shotrow{display:flex;gap:8px;overflow-x:auto;padding:2px 0 6px}
+.shotrow img{height:250px;width:auto;flex:none;border-radius:10px}
+.bannergrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.bannergrid a{display:block;text-decoration:none}
+.bannergrid img{width:100%;height:auto;display:block;border-radius:10px}
+.bannergrid .bcap{display:block;font-size:12.5px;font-weight:700;color:#3977b8;margin-top:4px}
+.bgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0}
+.bgrid figure{margin:0}
+.bgrid img{width:100%;height:110px;object-fit:cover;border-radius:8px;display:block}
+.bgrid figcaption{font-size:12px;color:#555;margin-top:3px}
+.prow{display:flex;gap:10px;margin:10px 0}
+.prow figure{flex:1;margin:0}
+.prow img{width:100%;height:210px;object-fit:cover;object-position:top center;border-radius:10px;display:block}
+.prow figcaption{font-size:12px;color:#555;margin-top:3px;text-align:center}
+.hicon{width:34px;height:34px;border-radius:8px;vertical-align:-10px;margin-right:6px;object-fit:cover}
+a.bannerlink{display:block;margin:10px 0}
+a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
 </style></head><body><div class="page">
 <header class="header">
   <div class="header-top">
@@ -215,6 +238,7 @@ body{padding-bottom:104px}
 </table></div>
 </div>
 <div class="card"><h4>デッドライジング（ギルド防衛）</h4>
+<a class="bannerlink" href="event-dead.html"><img src="img/bg-defense.jpg" alt="砦を襲うゾンビの大群と防衛戦のイラスト" loading="lazy"></a>
 <ul>
 <li>ギルドイベント。各メンバーの避難所へLv1〜Lv20のゾンビが順に襲来し、倒した合計でポイントが付く（個人目標＋ギルド目標）。<b>1つの避難所が2回敗北すると、その避難所への襲来は止まりポイント源が消える</b>ため、「負けさせない」ことが最優先</li>
 <li>開催は守衛戦のない週の<b>火・木曜</b>。09:00〜翌08:55の間にR4以上が開始し、1日1回・開始予約はできない。難易度は11段階から選択</li>
@@ -272,6 +296,7 @@ body{padding-bottom:104px}
 <li><b>救難信号</b>：2〜3か月に1回の開催。<b>サミュエルの欠片の主な供給源</b>です</li>
 <li><b>廃墟</b>：曜日で対象が日替わりになります。日替わり表は2022年世代の資料が中心のため、このページでは概要のみ扱います</li>
 </ul></div>
+<figure class="figc"><img src="img/ui-quiz-event.webp" alt="クイズイベントのゲーム内画面" style="width:320px" loading="lazy"><figcaption class="fcap">クイズイベントの画面例</figcaption></figure>
 <div class="card"><h4>イベントの詳細ページ</h4>
 <a class="svc-link" href="event-ace.html"><span>エースコマンダーの単価表</span><span>エース週・通常週の曜日別ポイント単価（現行版） ›</span></a>
 <a class="svc-link" href="event-dead.html"><span>デッドライジングの報酬表</span><span>個人×ギルドの二重条件・全20段階／ランキング報酬／運用ルール ›</span></a>

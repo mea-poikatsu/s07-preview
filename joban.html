@@ -192,6 +192,29 @@ body{padding-bottom:104px}
 .sticky-cta.alt .sticky-cta-bar::after{content:"";position:absolute;inset:0;border-radius:999px;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.75) 50%,transparent 70%);background-size:250% 100%;animation:shine 2.6s ease-in-out infinite;pointer-events:none}
 @keyframes shine{0%{background-position:120% 0}55%,100%{background-position:-60% 0}}
 @media (max-width:380px){.sticky-cta-bar{font-size:13.5px;padding:14px 12px 13px}}
+
+.fig{margin:10px 0}
+.fig img{width:100%;height:auto;display:block;border-radius:10px}
+.figc{margin:10px 0;text-align:center}
+.figc img{max-width:100%;height:auto;border-radius:10px}
+.fcap{font-size:12px;color:#667;margin-top:4px;text-align:left}
+.shotrow{display:flex;gap:8px;overflow-x:auto;padding:2px 0 6px}
+.shotrow img{height:250px;width:auto;flex:none;border-radius:10px}
+.bannergrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.bannergrid a{display:block;text-decoration:none}
+.bannergrid img{width:100%;height:auto;display:block;border-radius:10px}
+.bannergrid .bcap{display:block;font-size:12.5px;font-weight:700;color:#3977b8;margin-top:4px}
+.bgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0}
+.bgrid figure{margin:0}
+.bgrid img{width:100%;height:110px;object-fit:cover;border-radius:8px;display:block}
+.bgrid figcaption{font-size:12px;color:#555;margin-top:3px}
+.prow{display:flex;gap:10px;margin:10px 0}
+.prow figure{flex:1;margin:0}
+.prow img{width:100%;height:210px;object-fit:cover;object-position:top center;border-radius:10px;display:block}
+.prow figcaption{font-size:12px;color:#555;margin-top:3px;text-align:center}
+.hicon{width:34px;height:34px;border-radius:8px;vertical-align:-10px;margin-right:6px;object-fit:cover}
+a.bannerlink{display:block;margin:10px 0}
+a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
 </style></head><body><div class="page">
 <header class="header">
   <div class="header-top">
@@ -228,6 +251,7 @@ body{padding-bottom:104px}
 <li>AP（探索用）はダイヤで買わない（回復に1,500ダイヤは割に合わないとされる）。溢れそうならクリア済みステージのスキップで消費し、マニュアルと汎用ブーストに替える</li>
 </ul></div>
 <div class="card"><h4>探索（パズル）の要点</h4>
+<figure class="fig"><img src="img/gamein-puzzle.webp" alt="マッチ3パズル戦闘画面の合成画像（公式サイト素材）" loading="lazy"><figcaption class="fcap">探索（パズル戦闘）の画面イメージ</figcaption></figure>
 <ul>
 <li>属性の有利は追加ダメージが大きく（+200%という整理）、不利は半減とされる。編成は敵の属性に合わせて組み替える</li>
 <li><b>編成外の色</b>を当てても敵のレイジ（怒りゲージ）だけが溜まる。編成している色を優先して消す</li>
@@ -256,6 +280,7 @@ body{padding-bottom:104px}
 </table></div>
 <p class="cnote">序盤で意識するのはLv15〜16まで。栄誉の印とモジュールが開くと、育成の選択肢が一段広がります。</p></div>
 <div class="card"><h4>序盤の施設方針</h4>
+<figure class="figc"><img src="img/ui-build-menu.webp" alt="建設メニューのゲーム内画面（施設一覧）" style="width:220px" loading="lazy"><figcaption class="fcap">建設メニュー（施設一覧）の画面例</figcaption></figure>
 <ul>
 <li><b>優先して上げる施設</b>：科学研究所、各種キャンプ、防衛工事。訓練キャンプLv4・防衛工事Lv3まで上げると次の施設が解放されます</li>
 <li><b>常に稼働させる施設</b>：科学研究所（研究）、3つのキャンプ（訓練）、防衛工事、病院。止まっている時間がいちばんのロスです</li>

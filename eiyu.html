@@ -192,6 +192,29 @@ body{padding-bottom:104px}
 .sticky-cta.alt .sticky-cta-bar::after{content:"";position:absolute;inset:0;border-radius:999px;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.75) 50%,transparent 70%);background-size:250% 100%;animation:shine 2.6s ease-in-out infinite;pointer-events:none}
 @keyframes shine{0%{background-position:120% 0}55%,100%{background-position:-60% 0}}
 @media (max-width:380px){.sticky-cta-bar{font-size:13.5px;padding:14px 12px 13px}}
+
+.fig{margin:10px 0}
+.fig img{width:100%;height:auto;display:block;border-radius:10px}
+.figc{margin:10px 0;text-align:center}
+.figc img{max-width:100%;height:auto;border-radius:10px}
+.fcap{font-size:12px;color:#667;margin-top:4px;text-align:left}
+.shotrow{display:flex;gap:8px;overflow-x:auto;padding:2px 0 6px}
+.shotrow img{height:250px;width:auto;flex:none;border-radius:10px}
+.bannergrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.bannergrid a{display:block;text-decoration:none}
+.bannergrid img{width:100%;height:auto;display:block;border-radius:10px}
+.bannergrid .bcap{display:block;font-size:12.5px;font-weight:700;color:#3977b8;margin-top:4px}
+.bgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0}
+.bgrid figure{margin:0}
+.bgrid img{width:100%;height:110px;object-fit:cover;border-radius:8px;display:block}
+.bgrid figcaption{font-size:12px;color:#555;margin-top:3px}
+.prow{display:flex;gap:10px;margin:10px 0}
+.prow figure{flex:1;margin:0}
+.prow img{width:100%;height:210px;object-fit:cover;object-position:top center;border-radius:10px;display:block}
+.prow figcaption{font-size:12px;color:#555;margin-top:3px;text-align:center}
+.hicon{width:34px;height:34px;border-radius:8px;vertical-align:-10px;margin-right:6px;object-fit:cover}
+a.bannerlink{display:block;margin:10px 0}
+a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
 </style></head><body><div class="page">
 <header class="header">
   <div class="header-top">
@@ -207,6 +230,7 @@ body{padding-bottom:104px}
 <a class="svc-link" href="eiyu-yakuwari.html"><span>役割別・機能別</span><span>内政と軍事の違い／資源削減の対応表／採集・生産・治療などの機能別早見表 ›</span></a>
 </div>
 <div class="card"><h4>属性と編成の基本</h4>
+<figure class="fig"><img src="img/gamein-skill.webp" alt="マッチ3パズルと英雄スキルの画面（公式サイト素材）" loading="lazy"><figcaption class="fcap">英雄スキルを使うパズル戦闘の画面イメージ</figcaption></figure>
 <ul>
 <li>属性（タイプ）は5分類：<b>勇敢（緑）／衝動（赤）／冷静（青）／慎重（黄）／狂乱（紫）</b></li>
 <li>探索（パズル）編成は<b>全タイプをバランスよく</b>入れるのが基本。属性が被ると、相手の弱点をつける色が減ります</li>
@@ -214,13 +238,15 @@ body{padding-bottom:104px}
 <li>探索編成のキーマンは、沈黙スキル（4ターン敵を沈黙）の<b>エルウィン</b>。回復は<b>ゼルス→ニモラ</b>を確保します</li>
 </ul></div>
 <div class="card"><h4>英雄の要点サマリー</h4>
+<figure class="fig"><img src="img/ui-hero-bag.webp" alt="英雄バッグのゲーム内画面（英雄カード一覧）" loading="lazy"><figcaption class="fcap">英雄バッグ（所持英雄の管理画面）の例</figcaption></figure>
 <ul>
 <li><b>★2英雄はLv31で全スキル解放</b>。ここが止めラインで、それ以上は血清の無駄になりやすい</li>
 <li><b>内政英雄のスキルは所持＋スキル解放で常時発動</b>。建築・研究の資源削減は内政4人で全資源をカバーできる</li>
 <li>英雄本体は<b>欠片10個で解放</b>。余った欠片は星上げ（強化）に回る</li>
 <li>血清の主供給は<b>高Lv巣窟のギャザー参加</b>。ウィルスラボの産出だけでは不足します</li>
 <li>★5の万能欠片は、入手するタイミングでポイントになる案件もあるため、開封タイミングには注意</li>
-</ul></div>
+</ul>
+<figure class="figc"><img src="img/building-noahs-tavern.webp" alt="施設「ノアの酒場」の建物イラスト（冬）" style="width:220px" loading="lazy"><figcaption class="fcap">英雄を募集する施設「ノアの酒場」</figcaption></figure></div>
 </div></div></div><div class="blk"><a class="more-link" href="index.html"><span class="tri">◀</span>パズル＆サバイバル攻略トップへ戻る</a></div>
 <div class="blk"><a class="more-link" href="kenkyu.html"><span class="tri">◀</span>前のテーマ：研究の進め方</a><a class="more-link" href="eiyu-list.html"><span class="tri">▶</span>次：全英雄一覧</a></div>
 <footer class="footer">
