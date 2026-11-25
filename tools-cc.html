@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>パズサバ CC必要資源計算機｜ポイゲークエスト</title><style>
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{background:#e8e8e8;scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",sans-serif;color:#333;font-size:14px;line-height:1.6;-webkit-text-size-adjust:100%}
+.page{max-width:420px;margin:0 auto;background:#fff;min-height:100vh;box-shadow:0 0 12px rgba(0,0,0,.18)}
+a{color:inherit;text-decoration:none}
+img{display:block}
+.header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid #e5e5e5}
+.header-top{display:flex;align-items:center;justify-content:space-between;padding:8px 12px 6px}
+.logo{font-size:20px;font-weight:900;color:#333;white-space:nowrap}
+.logo .lg-mark{display:inline-block;background:#ff6900;color:#fff;border-radius:5px;padding:0 6px;margin-right:5px;font-size:18px}
+.logo .lg-sub{font-size:9px;font-weight:700;color:#ff6900;vertical-align:super;margin-left:3px}
+.header-icons{display:flex;gap:13px;color:#555;font-size:10px;text-align:center}
+.header-icons .ic{font-size:18px;line-height:1.1;display:block}
+.searchbar{padding:2px 12px 9px}
+.searchbar .box{display:flex;align-items:center;background:#f2f2f2;border-radius:16px;padding:0 12px}
+.searchbar input{flex:1;border:0;background:transparent;font-size:13px;padding:7px 6px;outline:none;color:#333;font-family:inherit}
+.gnav{display:flex;border-top:1px solid #f0f0f0;overflow-x:auto;white-space:nowrap}
+.gnav a{flex:1;text-align:center;font-size:12px;font-weight:700;padding:8px 6px;color:#444;border-bottom:2px solid transparent}
+.gnav a.on{color:#ff6900;border-bottom-color:#ff6900}
+.crumbs{font-size:11px;color:#888;padding:8px 12px 0}
+.sec{margin-top:22px;scroll-margin-top:118px}
+.sec-head{display:flex;align-items:center;justify-content:space-between;background:#fdf3e3;border-left:5px solid #ff6900;padding:7px 10px 7px 9px;margin:0 0 10px}
+.sec-head h2{font-size:16px;font-weight:800}
+.sec-head a{font-size:12px;color:#ff6900;font-weight:700}
+.sec-head .cnt{font-size:11px;color:#999;font-weight:700}
+.lead{padding:10px 12px 0;font-size:13px;color:#444}
+/* 記事リスト行 */
+.rows{padding:0 12px}
+.row{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid #eee;align-items:flex-start}
+.row img,.row .fallback-icon{width:64px;height:64px;border-radius:14%;flex:none;object-fit:cover;font-size:28px}
+.row .rtitle{font-size:13.5px;font-weight:700;line-height:1.45}
+.row .rmeta{margin-top:4px;font-size:11px;color:#999;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.row .rsum{margin-top:3px;font-size:11.5px;color:#666;line-height:1.5}
+.chip{display:inline-block;background:#fff1de;color:#e05e00;font-weight:800;font-size:10.5px;border-radius:3px;padding:1px 5px}
+.chip.gray{background:#f0f0f0;color:#777}
+/* 表 */
+.tscroll{overflow-x:auto;padding:0 12px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;margin:6px 0 4px}
+th,td{border:1px solid #ddd;padding:6px 8px;text-align:left;vertical-align:middle}
+th{background:#f7f3ec;font-weight:800;white-space:nowrap}
+td.pt,th.pt{text-align:right}
+td.pt{font-weight:800;color:#e05e00;white-space:nowrap}
+/* スペック早見表 */
+.spec th{width:34%;background:#fdf3e3;white-space:normal}
+.spec td{line-height:1.55}
+.spec td b{color:#e05e00}
+/* 攻略メニュー */
+.menu-label{text-align:center;font-weight:800;font-size:13px;color:#666;margin:14px 0 8px}
+.menu{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:0 12px}
+.menu a{border:1px solid #e3e3e3;border-radius:6px;background:#fff;text-align:center;padding:10px 2px 8px;font-size:12px;font-weight:700;color:#444;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.menu a .mi{display:block;font-size:19px;margin-bottom:3px}
+.menu a.hot{border-color:#ffb066;background:#fff8f0;color:#e05e00}
+/* ゲームページ */
+.ghead{display:flex;gap:12px;padding:12px;align-items:center}
+.ghead img,.ghead .fallback-icon{width:76px;height:76px;border-radius:20%;object-fit:cover;font-size:34px}
+.ghead h1{font-size:19px;font-weight:900;line-height:1.35}
+.ghead .gmeta{font-size:11.5px;color:#888;margin-top:3px}
+.ghead .gmax{margin-top:5px;font-size:13px;font-weight:900;color:#ff6900}
+.dates{font-size:11px;color:#999;padding:0 12px;display:flex;gap:12px;flex-wrap:wrap}
+.dates b{color:#777;font-weight:700}
+.toc{position:sticky;top:104px;z-index:55;display:flex;background:#333;overflow-x:auto;white-space:nowrap}
+.toc a{flex:1;text-align:center;color:#fff;font-size:12px;font-weight:700;padding:8px 10px}
+.toc a:active,.toc a.on{background:#ff6900}
+/* タブ */
+.tabs{display:flex;gap:6px;padding:0 12px;margin-bottom:4px;scroll-margin-top:160px}
+.tabs button{flex:1;border:1px solid #ddd;background:#f7f7f7;border-radius:8px 8px 0 0;padding:9px 4px;font-size:13px;font-weight:800;color:#777;cursor:pointer;font-family:inherit;border-bottom:3px solid #ddd}
+.tabs button.on{background:#fff;color:#e05e00;border-color:#ddd;border-bottom:3px solid #ff6900}
+.tabs button .tt{display:block;font-size:11px;font-weight:800;color:#ff6900}
+.tabpanel{display:none;padding:4px 12px 0}
+.tabpanel.on{display:block}
+/* アコーディオン */
+.acc{border:1px solid #e5e5e5;border-radius:6px;margin:8px 0;overflow:hidden}
+.acc button{width:100%;background:#fafafa;border:0;text-align:left;font-size:13px;font-weight:800;color:#444;padding:10px 12px;cursor:pointer;font-family:inherit;display:flex;justify-content:space-between;align-items:center}
+.acc button .pm{color:#ff6900;font-size:15px}
+.acc .acc-body{display:none;padding:10px 12px;font-size:12px;color:#555;border-top:1px solid #eee;line-height:1.7}
+.acc.open .acc-body{display:block}
+.acc-body ul{margin:0 0 0 18px}
+.acc-body li{margin-bottom:4px;line-height:1.6}
+.kv{font-size:12px;color:#555;margin:2px 0}
+.kv b{color:#333}
+.blk{padding:0 12px}
+.blk h3{font-size:15px;font-weight:800;border-bottom:2px solid #ffb066;padding-bottom:3px;margin:16px 0 8px}
+.blk p{font-size:13.5px;margin-bottom:8px}
+.blk ol{margin:0 0 8px 20px;font-size:13.5px}
+.blk li{margin-bottom:5px}
+.note{font-size:11.5px;color:#888}
+.more-link{display:block;padding:10px 12px;font-weight:700;font-size:13.5px;border-bottom:1px solid #eee}
+.more-link .tri{color:#ff6900;margin-right:6px}
+/* モンスター型の追加部品 */
+.anchor-jump{display:block;margin:10px 12px 2px;background:#ff6900;color:#fff;font-weight:800;font-size:13px;text-align:center;border-radius:6px;padding:10px 8px}
+.read-note{font-size:11.5px;color:#777;background:#fafafa;border:1px solid #eee;border-radius:6px;padding:8px 10px;margin:6px 0 8px;line-height:1.65}
+.upd-note{font-size:11.5px;color:#8a6d1a;background:#fffbe8;border:1px solid #f0df9a;border-radius:6px;padding:8px 10px;margin:8px 0;line-height:1.65}
+.upd-note b{color:#6d5510}
+.risk-note{font-size:12px;color:#a33;background:#fff5f5;border-left:4px solid #e88;border-radius:0 6px 6px 0;padding:8px 10px;margin:8px 0;line-height:1.65}
+.hist td{font-size:12px;line-height:1.55}
+.hist td.hd{white-space:nowrap;font-weight:700}
+.hist .old{color:#999}
+.hist .arrw{color:#ff6900;font-weight:800}
+.footer{margin-top:30px;background:#f7f7f7;border-top:1px solid #e5e5e5;padding:16px 12px 28px}
+.footer .flinks{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:#555;margin-bottom:10px}
+.footer .disc{font-size:11px;color:#888;line-height:1.7;margin-bottom:10px}
+.footer .copy{font-size:11px;color:#aaa;text-align:center}
+.grow td{padding:2px 6px 8px;background:#fffdf7}
+.grow .acc{margin:2px 0 0}
+.hidden{display:none!important}
+/* ===== 図解・バー・バッジ ===== */
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin:6px 0}
+.bd{display:inline-block;font-size:10.5px;font-weight:800;border-radius:10px;padding:1px 8px;line-height:1.6;vertical-align:middle;white-space:nowrap}
+.bd-buy{background:#e6f4ea;color:#137333;border:1px solid #a3d9b1}
+.bd-no{background:#fdecea;color:#b3261e;border:1px solid #f0b8b2}
+.bd-warn{background:#fff4e0;color:#a35b00;border:1px solid #f2cf8f}
+.bd-info{background:#eaf2fc;color:#2f5f8f;border:1px solid #bcd6f2}
+.bd-gray{background:#f0f0f0;color:#666;border:1px solid #ddd}
+.bars{margin:8px 0 2px}
+.barrow{display:flex;align-items:center;gap:8px;margin:7px 0}
+.barrow .bl{width:52px;flex:none;font-size:11.5px;font-weight:800;color:#555;text-align:right}
+.barrow .bt{flex:1;background:#f0f0f0;border-radius:4px;height:20px;overflow:hidden}
+.barrow .bf{height:100%;background:#ff6900;border-radius:4px}
+.barrow .bf.free{background:#3977b8}
+.barrow .bv{flex:none;font-size:14px;font-weight:900;color:#333}
+.bar-note{margin-left:60px}
+/* ステップフロー */
+.flow{display:flex;align-items:center;gap:3px;overflow-x:auto;padding:8px 12px 2px}
+.fbox{flex:none;border:1.5px solid #ffb066;background:#fff8f0;border-radius:6px;padding:5px 8px;font-size:12px;font-weight:800;text-align:center;color:#333}
+.fbox small{display:block;font-size:10px;color:#888;font-weight:700}
+.fbox.plus{border-color:#cdd9e5;background:#f4f8fc}
+.farr{color:#ff6900;font-weight:900;flex:none}
+/* タイムライン */
+.tl{display:flex;overflow-x:auto;padding:12px 12px 4px}
+.tl .node{flex:1;min-width:88px;text-align:center;position:relative;padding:0 3px}
+.tl .node:before{content:"";position:absolute;top:8px;left:-50%;width:100%;height:2px;background:#ffd9ae}
+.tl .node:first-child:before{display:none}
+.tl .dot{width:16px;height:16px;border-radius:50%;background:#ff6900;margin:0 auto;position:relative;z-index:1;box-shadow:0 0 0 2px #ffb066}
+.tl .node.blue .dot{background:#3977b8;box-shadow:0 0 0 2px #9dbede}
+.tl .node.red .dot{background:#c0392b;box-shadow:0 0 0 2px #e5a49e}
+.tl .tt2{font-size:11px;font-weight:900;margin-top:6px;color:#333}
+.tl .td2{font-size:10.5px;color:#777;line-height:1.45;margin-top:2px}
+/* 前提ツリー */
+.tree{font-size:12px;margin:8px 0}
+.tnode{border:1.5px solid #ffb066;background:#fff8f0;border-radius:6px;padding:5px 9px;font-weight:800;color:#333;display:inline-block;margin:2px 0}
+.tnode small{display:block;font-weight:700;color:#888;font-size:10.5px}
+.tkids{margin:2px 0 8px 14px;border-left:2px solid #ffd9ae;padding-left:10px}
+.tkids .tnode{border-color:#cdd9e5;background:#f4f8fc}
+.tarr{color:#ff6900;font-weight:900;margin:0 2px}
+/* カード */
+.cards{padding:0 12px}
+.card{border:1px solid #e5e5e5;border-radius:8px;padding:10px 12px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.hook{background:#EAF2FC;border:1px solid #c9def2;border-radius:8px;padding:10px 12px;margin:10px 0;font-size:12.5px;line-height:1.75;color:#333}
+.card h4{font-size:14px;font-weight:800;margin-bottom:6px}
+.card ul{margin:0 0 2px 18px;font-size:12.5px}
+.card li{margin-bottom:4px;line-height:1.55}
+.card .cnote{font-size:11px;color:#888;margin-top:6px;line-height:1.55}
+.card table{font-size:12px}
+.sub{font-size:12.5px;font-weight:800;margin:10px 0 4px}
+/* 価格vs還元などの小バー */
+.cmp{font-size:10.5px;min-width:132px}
+.cmp .crow{display:flex;align-items:center;gap:5px;margin:2px 0}
+.cmp .cl{font-size:10px;font-weight:800;color:#888;width:24px;flex:none}
+.cmp .ct{flex:1;background:#f0f0f0;height:9px;border-radius:3px;overflow:hidden;min-width:44px}
+.cmp .cf{height:100%}
+.cmp .cf.p{background:#c0392b}
+.cmp .cf.r{background:#2e9e5b}
+.cmp .cf.o{background:#ff6900}
+.cmp .cf.b{background:#3977b8}
+.cmp .cv{font-weight:700;color:#555;white-space:nowrap}
+.pts{margin:0 0 8px 18px;font-size:13px}
+.pts li{margin-bottom:5px;line-height:1.55}
+.chk{list-style:none;margin:0 0 2px}
+.chk li{position:relative;padding-left:22px;margin-bottom:5px;font-size:12.5px;line-height:1.55}
+.chk li:before{content:"\2610";position:absolute;left:0;color:#ff6900;font-weight:900}
+.svc-link{display:flex;justify-content:space-between;align-items:center;border:1.5px solid #ddd;background:#fff;border-radius:8px;padding:12px 14px;margin:8px 0;font-weight:800;font-size:13.5px;color:#444}
+.svc-link .arr{color:#ff6900;font-weight:900}
+
+/* 追従バナー：画面下固定・スクロール50%超で候補A（ゴールド＋キラキラ）に変化 */
+body{padding-bottom:104px}
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:80;padding:0 10px calc(10px + env(safe-area-inset-bottom));pointer-events:none}
+.sticky-cta-bar{pointer-events:auto;position:relative;display:flex;align-items:center;justify-content:center;gap:6px;max-width:420px;margin:0 auto;padding:15px 18px 14px;border-radius:999px;background:linear-gradient(180deg,#f0563f,#d42a1e);color:#fff;font-weight:900;font-size:15.5px;letter-spacing:.02em;white-space:nowrap;box-shadow:0 6px 18px rgba(0,0,0,.35);transition:background .45s ease,color .45s ease,box-shadow .45s ease}
+.sticky-cta.alt .sticky-cta-bar{background:linear-gradient(135deg,#fff3b0 0%,#ffd94d 30%,#f5b800 55%,#ffe680 80%,#ffc400 100%);color:#5b4300;box-shadow:0 6px 22px rgba(245,184,0,.65)}
+.sticky-cta-bubble{position:absolute;top:-13px;left:22px;background:#fff;color:#d42a1e;font-size:11.5px;font-weight:900;padding:3px 12px;border-radius:999px;box-shadow:0 2px 6px rgba(0,0,0,.22);transition:color .45s ease,background .45s ease;z-index:3}
+.sticky-cta.alt .sticky-cta-bubble{color:#a87b00;background:linear-gradient(180deg,#fffbe8,#ffedb0)}
+.sticky-cta-text{position:relative;z-index:1}
+.sticky-cta-arrow{font-size:19px;font-weight:900;line-height:1;position:relative;z-index:1}
+.sticky-cta .sparkle{position:absolute;color:#fff;font-size:13px;text-shadow:0 0 6px #ffdf4d,0 0 2px #fff;opacity:0;pointer-events:none;z-index:2}
+.sticky-cta.alt .sparkle{animation:twinkle 1.6s ease-in-out infinite}
+.sticky-cta .sparkle.s1{top:2px;left:16%}
+.sticky-cta .sparkle.s2{top:16px;right:14%;animation-delay:.4s}
+.sticky-cta .sparkle.s3{bottom:3px;left:38%;animation-delay:.8s;font-size:10px}
+.sticky-cta .sparkle.s4{top:6px;right:34%;animation-delay:1.1s;font-size:10px}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(.6) rotate(0deg)}50%{opacity:1;transform:scale(1.25) rotate(25deg)}}
+.sticky-cta.alt .sticky-cta-bar::after{content:"";position:absolute;inset:0;border-radius:999px;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.75) 50%,transparent 70%);background-size:250% 100%;animation:shine 2.6s ease-in-out infinite;pointer-events:none}
+@keyframes shine{0%{background-position:120% 0}55%,100%{background-position:-60% 0}}
+@media (max-width:380px){.sticky-cta-bar{font-size:13.5px;padding:14px 12px 13px}}
+
+
+/* ===== ツール共通追加 ===== */
+.sec-head.navy{background:#172B49;border-left:5px solid #3977B8;color:#fff}
+.sec-head.navy h2{color:#fff}
+.sec-head.navy .cnt{color:#c9def2}
+a{color:#3977B8}
+.hero-img{margin:10px 12px 0;border-radius:10px;overflow:hidden;border:1px solid #c9def2}
+.hero-img img{width:100%;height:170px;object-fit:cover}
+.hero-img .cap{font-size:11px;color:#666;background:#EAF2FC;padding:6px 10px}
+.step-card{border:1px solid #dbe6f2;border-radius:10px;margin:10px 12px;background:#fff;box-shadow:0 2px 6px rgba(23,43,73,.08);overflow:hidden}
+.step-head{display:flex;align-items:center;gap:9px;background:#172B49;color:#fff;padding:9px 12px}
+.step-num{flex:none;width:26px;height:26px;border-radius:50%;background:#3977B8;color:#fff;font-weight:900;font-size:14px;display:flex;align-items:center;justify-content:center}
+.step-head h3{font-size:14.5px;font-weight:900}
+.step-head .sh-sub{font-size:11px;color:#c9def2;margin-left:auto;text-align:right}
+.step-body{padding:11px 12px 12px}
+.frow{display:flex;align-items:center;gap:8px;margin:8px 0;flex-wrap:wrap}
+.frow label{font-size:12.5px;font-weight:800;color:#333;min-width:86px}
+.frow .arrw{color:#3977B8;font-weight:900}
+select,input[type=number]{font-family:inherit;font-size:14px;font-weight:700;color:#172B49;background:#EAF2FC;border:1.5px solid #bcd6f2;border-radius:8px;padding:8px 10px;min-width:96px}
+input[type=number]{width:110px}
+select:focus,input:focus{outline:2px solid #3977B8;outline-offset:1px}
+.eq-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.eq-item{border:1px solid #e3eaf3;border-radius:8px;padding:8px 9px;background:#F7FAFE}
+.eq-item label{display:block;font-size:12px;font-weight:900;color:#172B49;margin-bottom:5px}
+.eq-item select{width:100%;min-width:0}
+.btn-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.btn{border:1.5px solid #3977B8;background:#fff;color:#3977B8;font-family:inherit;font-weight:900;font-size:12.5px;border-radius:999px;padding:7px 13px;cursor:pointer}
+.btn.primary{background:#3977B8;color:#fff}
+.btn:active{opacity:.75}
+.warn-box{font-size:12px;color:#7a4a12;background:#FFF1E4;border:1px solid #f2cf8f;border-radius:8px;padding:8px 10px;line-height:1.65;margin-top:9px}
+.ok-box{font-size:12px;color:#14532d;background:#E9F5EF;border:1px solid #a3d9b1;border-radius:8px;padding:8px 10px;line-height:1.65;margin-top:9px}
+.sub-box{font-size:12px;color:#4b3f72;background:#F0ECFA;border:1px solid #d6ccf0;border-radius:8px;padding:8px 10px;line-height:1.65;margin-top:9px}
+.result-card{margin:12px;border:2px solid #3977B8;border-radius:12px;background:#EAF2FC;overflow:hidden;box-shadow:0 3px 10px rgba(23,43,73,.14)}
+.result-head{background:#172B49;color:#fff;padding:10px 12px}
+.result-head .rh-title{font-size:15px;font-weight:900;line-height:1.45}
+.result-head .rh-sub{font-size:11px;color:#c9def2;margin-top:2px}
+.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:11px 12px 4px}
+.res-item{background:#fff;border:1px solid #c9def2;border-radius:9px;padding:9px 10px}
+.res-item .rl{font-size:11.5px;font-weight:900;color:#3977B8}
+.res-item .rv{font-size:21px;font-weight:900;color:#172B49;line-height:1.25}
+.res-item .rv small{font-size:12px}
+.res-item .rx{font-size:11px;color:#555;line-height:1.5}
+.res-item .rs{font-size:10.5px;color:#888}
+.save-badge{display:inline-block;background:#E9F5EF;color:#137333;border:1px solid #a3d9b1;font-size:10.5px;font-weight:800;border-radius:10px;padding:1px 7px;margin-left:4px}
+.time-big{margin:4px 12px 11px;background:#fff;border:1px solid #c9def2;border-radius:9px;padding:10px;text-align:center}
+.time-big .tl2{font-size:11.5px;font-weight:900;color:#3977B8}
+.time-big .tv2{font-size:24px;font-weight:900;color:#172B49;line-height:1.3}
+.time-big .ts2{font-size:11px;color:#888}
+.trust{display:flex;gap:6px;flex-wrap:wrap;padding:0 12px 11px}
+.copy-row{padding:0 12px 12px}
+.detail-wrap{padding:0 12px}
+.detail-wrap table{font-size:11.5px}
+.detail-wrap td .red{color:#137333;font-weight:700;font-size:10.5px;display:block}
+.formula{font-family:ui-monospace,Menlo,monospace;background:#172B49;color:#fff;border-radius:8px;padding:10px 12px;font-size:12px;line-height:1.7;margin:8px 0;word-break:break-all}
+.fixed-summary{position:fixed;left:0;right:0;bottom:0;z-index:80;padding:0 10px calc(8px + env(safe-area-inset-bottom));pointer-events:none}
+.fixed-summary .fs-bar{pointer-events:auto;max-width:420px;margin:0 auto;background:#172B49;color:#fff;border-radius:12px;padding:9px 12px;box-shadow:0 6px 18px rgba(0,0,0,.35);font-size:11.5px;line-height:1.5}
+.fixed-summary .fs-bar b{font-size:13px}
+.fixed-summary .fs-time{color:#ffd94d;font-weight:900}
+body{padding-bottom:86px}
+/* 訓練ツール用チップ */
+.pick-group{margin:8px 0}
+.pick-label{font-size:12px;font-weight:900;color:#172B49;margin-bottom:6px}
+.pick-chips{display:flex;flex-wrap:wrap;gap:6px}
+.pchip{border:1.5px solid #bcd6f2;background:#fff;color:#3977B8;font-family:inherit;font-weight:900;font-size:13px;border-radius:999px;padding:7px 13px;cursor:pointer}
+.pchip.on{background:#172B49;border-color:#172B49;color:#fff}
+.toggle-row{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid #e3eaf3;border-radius:8px;padding:9px 11px;background:#F7FAFE;margin-top:10px}
+.toggle-row .tg-label{font-size:13px;font-weight:900;color:#172B49}
+.toggle-row .tg-sub{font-size:11px;color:#888;font-weight:400}
+.switch{position:relative;width:52px;height:28px;flex:none}
+.switch input{opacity:0;width:0;height:0}
+.switch .sl{position:absolute;inset:0;background:#ccc;border-radius:999px;cursor:pointer;transition:.2s}
+.switch .sl:before{content:"";position:absolute;width:22px;height:22px;border-radius:50%;background:#fff;top:3px;left:3px;transition:.2s;box-shadow:0 1px 3px rgba(0,0,0,.3)}
+.switch input:checked + .sl{background:#2e9e5b}
+.switch input:checked + .sl:before{transform:translateX(24px)}
+.common-grid{display:grid;grid-template-columns:1fr;gap:8px;padding:0 12px 11px}
+.common-item{background:#F0ECFA;border:1px solid #d6ccf0;border-radius:9px;padding:8px 11px;font-size:12px;display:flex;justify-content:space-between;gap:8px}
+.common-item b{color:#172B49;font-size:13.5px;text-align:right}
+
+</style></head><body><div class="page">
+<header class="header">
+  <div class="header-top">
+    <div class="logo"><span class="lg-mark">ポ</span>ポイゲークエスト<span class="lg-sub">POIKATSU GAME WIKI</span></div>
+    <div class="header-icons"><div><span class="ic">🔍</span>検索</div><div><span class="ic">☰</span>メニュー</div></div>
+  </div>
+  <div class="searchbar"><div class="box"><span>🔍</span><input id="q" type="search" placeholder="ゲーム名で検索"></div></div>
+  <nav class="gnav"><a href="index.html" class="on">人気ゲーム</a><a href="index.html">新着・更新</a><a href="index.html">ランキング</a><a href="index.html">ゲーム一覧</a><a href="index.html">攻略メニュー</a></nav>
+</header>
+<div class="crumbs"><a href="index.html">トップ</a> ＞ <a href="index.html">ゲーム一覧</a> ＞ <a href="index.html">パズル＆サバイバル</a> ＞ <b>CC必要資源計算機</b></div>
+
+<div class="ghead"><img src="img/app-icon.jpg" alt="パズル＆サバイバル" loading="lazy"><div><h1>パズル＆サバイバル<br>CC必要資源計算機</h1><div class="gmeta">37GAMES｜iOS/Android｜計算ツール</div></div></div>
+<p class="dates"><span>最終確認日：<b>2026年11月25日</b></span></p>
+<div class="hero-img"><img src="img/building-headquarters.webp" alt="コントロールセンター（本部）" loading="lazy"><div class="cap">コントロールセンター（CC）。レベルを上げるほど必要資源と前提施設が一気に重くなります。</div></div>
+<p class="lead">CC（コントロールセンター）のレベル区間を選ぶと、建築装備（建築士セット）と英雄の削減スキルを差し引いた「実際に必要な資源」と合計建造時間を計算します。計算式はゲーム内の表示式に合わせています。</p>
+<div class="blk"><div class="sub">このツールの対象範囲</div>
+<div class="chips"><span class="bd bd-info">対応：CC Lv15〜35へのアップグレード</span><span class="bd bd-gray">対象外：Lv1〜14／Lv36〜45</span><span class="bd bd-warn">集計はCC本体のみ</span></div>
+<ul class="pts"><li>前提建築（城壁・各施設）のコスト基礎データが未取得のため、<b>前提建築分は集計に含みません</b>。前提の名前だけ明細に併記します</li><li>ナノ炭素繊維管は基礎個数が未取得のため<b>計算対象外</b>です</li><li>Lv31〜35の資源量は計算ツールの表示値から復元した<b>概数</b>です</li></ul></div>
+
+<div class="sec"><div class="sec-head navy"><h2>条件を入力する</h2><span class="cnt">3ステップ</span></div>
+
+<div class="step-card"><div class="step-head"><span class="step-num">1</span><h3>CCレベル区間</h3><span class="sh-sub">現在 → 目標</span></div><div class="step-body">
+<div class="frow"><label for="curLv">現在CC</label><select id="curLv"></select><span class="arrw">→</span><label for="tgtLv" style="min-width:52px">目標CC</label><select id="tgtLv"></select></div>
+<div class="frow"><label for="buff">建造速度バフ</label><input type="number" id="buff" value="0" min="0" max="999" step="1"><span style="font-weight:800">%</span><span class="note">研究・称号などの合計を入力。全6部位★7でセットボーナス+60%が自動で加算されます</span></div>
+<div class="warn-box"><b>集計範囲はCC本体のみ</b>です。前提建築（城壁・生物研究所など）のコストは基礎データ未取得のため対象外です。前提の確認は明細表と <a href="kensetsu-numbers.html" style="text-decoration:underline;font-weight:800">建設と前提</a> を参照してください。</div>
+</div></div>
+
+<div class="step-card"><div class="step-head"><span class="step-num">2</span><h3>建築装備（建築士セット）</h3><span class="sh-sub">6部位</span></div><div class="step-body">
+<div class="eq-grid" id="eqGrid"></div>
+<div class="btn-row"><button type="button" class="btn" id="all3">全て★3</button><button type="button" class="btn" id="all5">全て★5</button><button type="button" class="btn" id="eqReset">リセット</button></div>
+<p class="cnote" style="font-size:11px;color:#888;margin-top:8px;line-height:1.6">★1・★2は効果データ未取得のため選択肢に入れていません。機密図の削減は「★7の部位1つにつき5%（最大30%）」で計算します。</p>
+<div class="sub-box" id="eqSummary">装備の合計削減：未装備（削減なし）</div>
+</div></div>
+
+<div class="step-card"><div class="step-head"><span class="step-num">3</span><h3>英雄の削減スキル</h3><span class="sh-sub">定額削減のみ</span></div><div class="step-body">
+<div class="eq-grid">
+<div class="eq-item"><label for="sabes">サベス（食料・木材）</label><select id="sabes"></select></div>
+<div class="eq-item"><label for="ira">イラ（鋼材・ガス）</label><select id="ira"></select></div>
+</div>
+<p class="cnote" style="font-size:11px;color:#888;margin-top:8px;line-height:1.6">英雄スキルは定額削減のみで、割合削減はありません。定額は各レベルのアップグレードごとに適用されます。機密図には英雄の定額は効きません。</p>
+</div></div>
+</div>
+
+<div class="sec"><div class="sec-head navy"><h2>計算結果</h2><span class="cnt">自動計算</span></div>
+<div class="result-card">
+<div class="result-head"><div class="rh-title" id="resTitle">CC 14 → 22 の合計必要資源</div><div class="rh-sub">削減適用後の実際に必要な量です。「基準」は削減前の基礎量の合計です。</div></div>
+<div class="res-grid" id="resGrid"></div>
+<div class="time-big"><div class="tl2">合計建造時間（バフ適用後）</div><div class="tv2" id="resTime">—</div><div class="ts2" id="resTimeSub"></div></div>
+<div class="trust"><span class="bd bd-info">データ確認日 2026-11-25</span><span class="bd bd-buy">出典：実機表示と照合済みの計算ツールデータ</span><span class="bd bd-gray" id="approxBadge">Lv31〜35は概数</span></div>
+<div class="copy-row"><button type="button" class="btn primary" id="copyUrl">この条件のURLをコピー</button> <span class="note" id="copyMsg"></span></div>
+</div>
+<div class="detail-wrap"><div class="acc" id="detailAcc"><button type="button">Lv別明細・前提を見る <span class="pm">＋</span></button><div class="acc-body" style="padding:0"><div class="tscroll" style="padding:0"><table id="detailTable"></table></div><p class="cnote" style="padding:6px 10px">各セルは「削減後の値」と、その下に削減量を表示しています。前提には常に城壁Lv（目標−1）も含まれます。Lv31〜35の資源量は概数です。</p></div></div></div>
+</div>
+
+<div class="sec"><div class="sec-head navy"><h2>前提と計算式</h2></div><div class="cards">
+<div class="card"><h4>計算式（ゲーム内式）</h4><div class="formula">最終量 ＝ max(0, 切り上げ(基礎量 × (1 − 割合削減% ÷ 100)) − (装備定額 ＋ 英雄定額))</div>
+<ul><li><b>適用順序</b>：①割合削減（装備の%のみ）を基礎量に掛けて切り上げ → ②定額（装備＋英雄）を引く → ③0未満は0に丸める、の順です</li><li><b>割合削減</b>は建築装備の%だけです。英雄スキルに割合削減はありません</li><li><b>建造時間</b>：合計基礎時間 ÷ (1 ＋ 建造速度バフ% ÷ 100) を切り上げます。固定短縮（秒数短縮）は扱いません。全6部位★7のとき、セットボーナスとして建造速度+60%をバフに加算します</li></ul></div>
+<div class="card"><h4>上級素材の扱い</h4><ul><li><b>機密図</b>：英雄の定額は効きません。効くのは装備の機密図%（★7の部位1つにつき5%、最大30%）だけです。基礎個数は Lv31＝2,000／32＝4,000／33＝6,000／34＝8,000／35＝10,000、その他のLvは0です</li><li><b>ナノ炭素繊維管</b>：基礎個数が未取得のため計算対象外です</li></ul></div>
+<div class="card"><h4>対象外・注意</h4><ul><li>対応範囲は <b>Lv15〜35へのアップグレード分のみ</b>。Lv1〜14とLv36〜45は基礎データ未取得のため対象外です</li><li>前提建築のコストは含みません（CC本体のみの集計）</li><li>Lv31〜35の資源量は計算ツールの表示値から復元した概数です。実機の最終確認を推奨します</li></ul></div>
+</div></div>
+
+<div class="sec"><div class="sec-head navy"><h2>関連リンク</h2></div><div class="blk">
+<a class="svc-link" href="kensetsu.html">施設の上げ方 <span class="arr">›</span></a>
+<a class="svc-link" href="kensetsu-numbers.html">建設と前提（数値表） <span class="arr">›</span></a>
+<a class="svc-link" href="heishi.html">兵士・訓練データ <span class="arr">›</span></a>
+<a class="more-link" href="index.html"><span class="tri">◀</span>パズル＆サバイバル攻略トップへ戻る</a>
+</div></div>
+
+<footer class="footer">
+  <div class="flinks"><a href="#">ゲーム一覧</a><a href="#">ポイントが高い順</a><a href="#">案件条件の見方</a><a href="#">編集方針</a><a href="#">このサイトについて</a></div>
+  <p class="disc">当サイトは、ポイントサイト各社の紹介プログラムに参加しています。記事内のリンクを経由してサービスに登録・利用された場合、当サイトに紹介料が支払われることがあります。掲載しているポイント数・条件・期限は、各サービスの公式ページで確認した時点の情報です。参加前に必ず公式ページで最新の条件をご確認ください。</p>
+  <p class="copy">© ポイゲークエスト（ポイ活ゲーム攻略Wiki）</p>
+</footer>
+</div>
+
+<div class="fixed-summary"><div class="fs-bar" id="fsBar">計算中…</div></div>
+<script>
+var BASE={
+15:[4351612,4394644,291955,0,176265,"生物研究所Lv14",0],
+16:[6017196,5858060,501287,0,218687,"ガスステーションLv15",0],
+17:[7792131,6754343,763000,28200,270955,"武器庫Lv16",0],
+18:[10010777,7598899,1219691,75801,336447,"ファイターキャンプLv17",0],
+19:[12889610,8200792,1852711,153422,416498,"大使館Lv18",0],
+20:[16547578,8239442,2779067,276927,515454,"ライダーキャンプLv19",0],
+21:[21000000,7400000,4000000,466000,612156,"木材場Lv20",0],
+22:[27000000,5000000,6000000,754000,726255,"戦争ホールLv21＋建築工学",0],
+23:[36124545,6828029,7529682,1189195,873672,"ファイターキャンプLv22",0],
+24:[47828898,9224667,9261508,1840874,1050998,"ライダーキャンプLv23",0],
+25:[63755921,12453301,11197164,2787084,1263328,"科学研究所Lv24",0],
+26:[84285328,16787050,13458991,4180626,1518553,"大使館Lv25",0],
+27:[113700908,22679304,15921986,6220772,1840950,"倉庫Lv26",0],
+28:[153041422,30594381,18389894,9138314,2228190,"ファイターキャンプLv27",0],
+29:[206299837,41271821,24789578,12336724,2669952,"改造車キャンプLv28",0],
+30:[278298480,55923317,33441141,16753271,3202220,"シューターキャンプLv29",0],
+31:[376000000,75210000,45180000,22560000,4036020,"城壁Lv30・ファイターキャンプLv30・科学研究所Lv30",2000],
+32:[376000000,94550000,45180000,22560000,4934040,"城壁Lv31・ライダーキャンプLv31・スターン研究センターLv1",4000],
+33:[376000000,113840000,45180000,22560000,5896140,"城壁Lv32・シューターキャンプLv32",6000],
+34:[376000000,133140000,45180000,22560000,6922500,"城壁Lv33・改造車キャンプLv33",8000],
+35:[376000000,152500000,45180000,22560000,8012940,"城壁Lv34・補給所Lv34・生物研究所Lv34",10000]
+};
+var RES=["食料","木材","鋼材","ガス"];
+var EQ={
+weapon:{label:"武器",data:{3:{food:[1000000,5],steel:[200000,0]},4:{food:[2000000,10],steel:[400000,0]},5:{food:[4000000,20],steel:[800000,0]},6:{food:[4800000,30],steel:[1000000,0]},7:{food:[4800000,40],steel:[1000000,0]}}},
+shield:{label:"盾",data:{3:{wood:[500000,2.5],gas:[100000,0]},4:{wood:[1000000,5],gas:[200000,0]},5:{wood:[2000000,10],gas:[400000,0]},6:{wood:[2400000,15],gas:[480000,0]},7:{wood:[2400000,20],gas:[480000,0]}}},
+armor:{label:"アーマー",data:{3:{wood:[500000,2.5],gas:[100000,0]},4:{wood:[1000000,5],gas:[200000,0]},5:{wood:[2000000,10],gas:[400000,0]},6:{wood:[2400000,15],gas:[480000,0]},7:{wood:[2400000,20],gas:[480000,0]}}},
+helmet:{label:"ヘルメット",data:{3:{food:[1000000,0],steel:[200000,5]},4:{food:[2000000,0],steel:[400000,10]},5:{food:[4000000,0],steel:[800000,20]},6:{food:[4800000,0],steel:[1000000,30]},7:{food:[4800000,0],steel:[1000000,40]}}},
+ring:{label:"リング",data:{3:{wood:[500000,0],gas:[100000,2.5]},4:{wood:[1000000,0],gas:[200000,5]},5:{wood:[2000000,0],gas:[400000,10]},6:{wood:[2400000,0],gas:[480000,15]},7:{wood:[2400000,0],gas:[480000,20]}}},
+boots:{label:"靴",data:{3:{food:[1000000,0],steel:[200000,0],gas:[0,2.5]},4:{food:[2000000,0],steel:[400000,0],gas:[0,5]},5:{food:[4000000,0],steel:[800000,0],gas:[0,10]},6:{food:[4800000,0],steel:[1000000,0],gas:[0,15]},7:{food:[4800000,0],steel:[1000000,0],gas:[0,20]}}}
+};
+var PARTS=["weapon","shield","armor","helmet","ring","boots"];
+var RK={food:0,wood:1,steel:2,gas:3};
+var SABES=[20000,30000,40000,60000,80000,100000];
+var IRA_STEEL=[20000,30000,40000,60000,80000,100000];
+var IRA_GAS=[10000,15000,20000,30000,40000,50000];
+function $(id){return document.getElementById(id);}
+function fmt(n){return n.toLocaleString("ja-JP");}
+function short(n){if(n>=1000000)return (n/1000000).toFixed(1).replace(/\.0$/,"")+"M";if(n>=1000)return (n/1000).toFixed(1).replace(/\.0$/,"")+"K";return String(n);}
+function dur(s){var d=Math.floor(s/86400),h=Math.floor(s%86400/3600),m=Math.floor(s%3600/60),ss=s%60;var t="";if(d)t+=d+"日";t+=h+"時間"+m+"分";if(ss)t+=ss+"秒";return t;}
+function fillLv(sel,from,to,def){for(var i=from;i<=to;i++){var o=document.createElement("option");o.value=i;o.textContent="Lv"+i;sel.appendChild(o);}sel.value=def;}
+fillLv($("curLv"),14,34,14);fillLv($("tgtLv"),15,35,22);
+var eqGrid=$("eqGrid");
+PARTS.forEach(function(p){var d=document.createElement("div");d.className="eq-item";d.innerHTML='<label for="eq_'+p+'">'+EQ[p].label+'</label>';var s=document.createElement("select");s.id="eq_"+p;s.innerHTML='<option value="0">★なし</option><option value="3">★3</option><option value="4">★4</option><option value="5">★5</option><option value="6">★6</option><option value="7">★7</option>';d.appendChild(s);eqGrid.appendChild(d);});
+function fillHero(sel){sel.innerHTML='<option value="-1">未所持</option>';for(var i=0;i<=5;i++){var o=document.createElement("option");o.value=i;o.textContent="+"+i;sel.appendChild(o);}sel.value="-1";}
+fillHero($("sabes"));fillHero($("ira"));
+function equipTotals(){var flat={food:0,wood:0,steel:0,gas:0},pct={food:0,wood:0,steel:0,gas:0},c7=0;PARTS.forEach(function(p){var st=parseInt($("eq_"+p).value,10);if(st===7)c7++;var d=EQ[p].data[st];if(!d)return;for(var r in d){flat[r]+=d[r][0];pct[r]+=d[r][1];}});return {flat:flat,pct:pct,secretPct:c7*5,c7:c7,all7:c7===6};}
+function heroFlat(){var sb=parseInt($("sabes").value,10),ir=parseInt($("ira").value,10);return {food:sb>=0?SABES[sb]:0,wood:sb>=0?SABES[sb]:0,steel:ir>=0?IRA_STEEL[ir]:0,gas:ir>=0?IRA_GAS[ir]:0};}
+function calcLv(base,pct,flat){return Math.max(0,Math.ceil(base*(1-pct/100))-flat);}
+function compute(){
+ var cur=parseInt($("curLv").value,10),tgt=parseInt($("tgtLv").value,10);
+ if(tgt<=cur){tgt=cur+1;if(tgt>35)tgt=35;$("tgtLv").value=tgt;if(cur>=35){cur=34;$("curLv").value=cur;}}
+ var buff=parseFloat($("buff").value)||0;if(buff<0)buff=0;
+ var eq=equipTotals(),hf=heroFlat();
+ var effBuff=buff+(eq.all7?60:0);
+ var totals=[0,0,0,0],bases=[0,0,0,0],totalTime=0,secBase=0,secFinal=0,rows="";
+ for(var lv=cur+1;lv<=tgt;lv++){var b=BASE[lv];if(!b)continue;totalTime+=b[4];secBase+=b[6];
+  var cells="",vals=[];
+  for(var i=0;i<4;i++){var r=Object.keys(RK)[i];var f=calcLv(b[i],eq.pct[r],eq.flat[r]+hf[r]);vals.push(f);totals[i]+=f;bases[i]+=b[i];cells+="<td>"+fmt(f)+'<span class="red">−'+fmt(b[i]-f)+"</span></td>";}
+  var sf=b[6]>0?Math.max(0,Math.ceil(b[6]*(1-eq.secretPct/100))):0;secFinal+=sf;
+  rows+="<tr><td><b>Lv"+lv+"</b></td>"+cells+"<td>"+(b[6]>0?fmt(sf):"—")+"</td><td style='font-size:11px'>"+b[5]+"＋城壁Lv"+(lv-1)+"</td></tr>";
+ }
+ var finalTime=Math.ceil(totalTime/(1+effBuff/100));
+ $("resTitle").textContent="CC "+cur+" → "+tgt+" の合計必要資源";
+ var html="";
+ for(var i=0;i<4;i++){var saved=bases[i]-totals[i];html+='<div class="res-item"><div class="rl">'+RES[i]+'</div><div class="rv">'+short(totals[i])+'</div><div class="rx">正確な数値：<b>'+fmt(totals[i])+'</b></div><div class="rs">基準 '+fmt(bases[i])+(saved>0?'（−'+fmt(saved)+' 削減）':'（削減なし）')+'</div>'+(saved>0?'<span class="save-badge">削減 '+short(saved)+'</span>':'')+'</div>';}
+ if(secBase>0){html+='<div class="res-item"><div class="rl">機密図（上級素材）</div><div class="rv">'+fmt(secFinal)+'<small> 個</small></div><div class="rx">基準 '+fmt(secBase)+' 個</div><div class="rs">装備の機密図削減 '+eq.secretPct+'% のみ適用（英雄定額は効きません）</div></div>';}
+ $("resGrid").innerHTML=html;
+ $("resTime").textContent=dur(finalTime);
+ $("resTimeSub").textContent="基礎時間合計 "+dur(totalTime)+" ／ 適用バフ "+effBuff+"%"+(eq.all7?"（セットボーナス+60%含む）":"");
+ $("detailTable").innerHTML="<tr><th>Lv</th><th>食料</th><th>木材</th><th>鋼材</th><th>ガス</th><th>機密図</th><th>前提（代表）</th></tr>"+rows;
+ var es=[];for(var i=0;i<4;i++){var r=Object.keys(RK)[i];if(eq.flat[r]>0||eq.pct[r]>0)es.push(RES[i]+" 定額"+short(eq.flat[r])+"・"+eq.pct[r]+"%");}
+ $("eqSummary").innerHTML="装備の合計削減（1回分）："+(es.length?es.join(" ／ "):"未装備（削減なし）")+(eq.secretPct>0?"<br>機密図削減："+eq.secretPct+"%（★7×"+eq.c7+"部位）":"")+(eq.all7?"<br><b>全6部位★7：セットボーナスで建造速度+60%</b>":"");
+ $("fsBar").innerHTML="<b>CC "+cur+"→"+tgt+"</b> 食料 "+short(totals[0])+"／木材 "+short(totals[1])+"／鋼材 "+short(totals[2])+"／ガス "+short(totals[3])+(secBase>0?"／機密図 "+fmt(secFinal):"")+' <span class="fs-time">'+dur(finalTime)+"</span>";
+ var q=new URLSearchParams();q.set("c",cur);q.set("t",tgt);q.set("b",buff);PARTS.forEach(function(p){q.set(p,$("eq_"+p).value);});q.set("sb",$("sabes").value);q.set("ir",$("ira").value);
+ history.replaceState(null,"",location.pathname+"?"+q.toString());
+}
+function restore(){var q=new URLSearchParams(location.search);if(!q.toString())return;if(q.get("c"))$("curLv").value=q.get("c");if(q.get("t"))$("tgtLv").value=q.get("t");if(q.get("b")!==null)$("buff").value=q.get("b");PARTS.forEach(function(p){if(q.get(p)!==null)$("eq_"+p).value=q.get(p);});if(q.get("sb")!==null)$("sabes").value=q.get("sb");if(q.get("ir")!==null)$("ira").value=q.get("ir");}
+document.querySelectorAll("select,input").forEach(function(el){el.addEventListener("change",compute);el.addEventListener("input",compute);});
+$("all3").addEventListener("click",function(){PARTS.forEach(function(p){$("eq_"+p).value="3";});compute();});
+$("all5").addEventListener("click",function(){PARTS.forEach(function(p){$("eq_"+p).value="5";});compute();});
+$("eqReset").addEventListener("click",function(){PARTS.forEach(function(p){$("eq_"+p).value="0";});compute();});
+$("copyUrl").addEventListener("click",function(){var u=location.href;if(navigator.clipboard){navigator.clipboard.writeText(u).then(function(){$("copyMsg").textContent="コピーしました";},function(){$("copyMsg").textContent=u;});}else{$("copyMsg").textContent=u;}});
+document.querySelectorAll('.acc>button').forEach(function(b){b.addEventListener('click',function(){var acc=b.parentElement,open=acc.classList.toggle('open');b.querySelector('.pm').textContent=open?'－':'＋';});});
+restore();compute();
+</script>
+</body></html>

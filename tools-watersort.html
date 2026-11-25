@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>パズサバ 試験管ソルバー｜ポイゲークエスト</title><style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{background:#e8e8e8;scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",sans-serif;color:#333;font-size:14px;line-height:1.6;-webkit-text-size-adjust:100%}
+.page{max-width:420px;margin:0 auto;background:#fff;min-height:100vh;box-shadow:0 0 12px rgba(0,0,0,.18)}
+a{color:inherit;text-decoration:none}
+img{display:block}
+.header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid #e5e5e5}
+.header-top{display:flex;align-items:center;justify-content:space-between;padding:8px 12px 6px}
+.logo{font-size:20px;font-weight:900;color:#333;white-space:nowrap}
+.logo .lg-mark{display:inline-block;background:#ff6900;color:#fff;border-radius:5px;padding:0 6px;margin-right:5px;font-size:18px}
+.logo .lg-sub{font-size:9px;font-weight:700;color:#ff6900;vertical-align:super;margin-left:3px}
+.header-icons{display:flex;gap:13px;color:#555;font-size:10px;text-align:center}
+.header-icons .ic{font-size:18px;line-height:1.1;display:block}
+.searchbar{padding:2px 12px 9px}
+.searchbar .box{display:flex;align-items:center;background:#f2f2f2;border-radius:16px;padding:0 12px}
+.searchbar input{flex:1;border:0;background:transparent;font-size:13px;padding:7px 6px;outline:none;color:#333;font-family:inherit}
+.gnav{display:flex;border-top:1px solid #f0f0f0;overflow-x:auto;white-space:nowrap}
+.gnav a{flex:1;text-align:center;font-size:12px;font-weight:700;padding:8px 6px;color:#444;border-bottom:2px solid transparent}
+.gnav a.on{color:#ff6900;border-bottom-color:#ff6900}
+.crumbs{font-size:11px;color:#888;padding:8px 12px 0}
+.crumbs a{color:#3977B8}
+.ghead{display:flex;gap:12px;padding:12px;align-items:center}
+.ghead img,.ghead .fallback-icon{width:76px;height:76px;border-radius:20%;object-fit:cover;font-size:34px}
+.ghead h1{font-size:19px;font-weight:900;line-height:1.35}
+.ghead .gmeta{font-size:11.5px;color:#888;margin-top:3px}
+.dates{font-size:11px;color:#999;padding:0 12px;display:flex;gap:12px;flex-wrap:wrap}
+.dates b{color:#777;font-weight:700}
+.lead{padding:10px 12px 0;font-size:13px;color:#444}
+.sec{margin-top:22px;scroll-margin-top:118px}
+.sec-head{display:flex;align-items:center;justify-content:space-between;background:#172B49;border-left:5px solid #3977B8;padding:8px 10px;margin:0 0 10px}
+.sec-head h2{font-size:16px;font-weight:800;color:#fff}
+.sec-head .cnt{font-size:11px;color:#c9def2;font-weight:700}
+.blk{padding:0 12px}
+.blk h3{font-size:15px;font-weight:800;border-bottom:2px solid #3977B8;padding-bottom:3px;margin:16px 0 8px;color:#172B49}
+.blk p{font-size:13.5px;margin-bottom:8px}
+.note{font-size:11.5px;color:#888}
+.cards{padding:0 12px}
+.card{border:1px solid #dbe6f2;border-radius:8px;padding:10px 12px;margin:10px 0;background:#fff;box-shadow:0 1px 3px rgba(23,43,73,.08)}
+.card h4{font-size:14px;font-weight:800;margin-bottom:6px;color:#172B49}
+.card ul{margin:0 0 2px 18px;font-size:12.5px}
+.card li{margin-bottom:4px;line-height:1.55}
+.card .cnote{font-size:11px;color:#888;margin-top:6px;line-height:1.55}
+.hook{background:#EAF2FC;border:1px solid #c9def2;border-radius:8px;padding:10px 12px;margin:10px 12px;font-size:12.5px;line-height:1.75;color:#333}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin:6px 0}
+.bd{display:inline-block;font-size:10.5px;font-weight:800;border-radius:10px;padding:1px 8px;line-height:1.6;vertical-align:middle;white-space:nowrap}
+.bd-buy{background:#E9F5EF;color:#137333;border:1px solid #a3d9b1}
+.bd-no{background:#fdecea;color:#b3261e;border:1px solid #f0b8b2}
+.bd-warn{background:#FFF1E4;color:#a35b00;border:1px solid #f2cf8f}
+.bd-info{background:#EAF2FC;color:#2f5f8f;border:1px solid #bcd6f2}
+.bd-gray{background:#f0f0f0;color:#666;border:1px solid #ddd}
+.bd-sub{background:#F0ECFA;color:#5b4a8a;border:1px solid #d5cbf0}
+.bd-navy{background:#172B49;color:#fff;border:1px solid #172B49}
+.more-link{display:block;padding:10px 12px;font-weight:700;font-size:13.5px;border-bottom:1px solid #eee;color:#172B49}
+.more-link .tri{color:#3977B8;margin-right:6px}
+.footer{margin-top:30px;background:#f7f7f7;border-top:1px solid #e5e5e5;padding:16px 12px 28px}
+.footer .flinks{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:#555;margin-bottom:10px}
+.footer .disc{font-size:11px;color:#888;line-height:1.7;margin-bottom:10px}
+.footer .copy{font-size:11px;color:#aaa;text-align:center}
+.svc-link{display:flex;justify-content:space-between;align-items:center;border:1.5px solid #bcd6f2;background:#EAF2FC;border-radius:8px;padding:12px 14px;margin:8px 0;font-weight:800;font-size:13.5px;color:#172B49}
+.svc-link .arr{color:#3977B8;font-weight:900}
+.pts{margin:0 0 8px 18px;font-size:13px}
+.pts li{margin-bottom:5px;line-height:1.55}
+/* ===== ソルバー専用 ===== */
+.stepcards{display:grid;grid-template-columns:1fr;gap:8px;padding:0 12px}
+.stepcard{display:flex;gap:10px;border:1px solid #dbe6f2;border-radius:8px;padding:10px;background:#fff;box-shadow:0 1px 2px rgba(23,43,73,.06)}
+.stepnum{flex:none;width:30px;height:30px;border-radius:50%;background:#172B49;color:#fff;font-weight:900;display:flex;align-items:center;justify-content:center;font-size:15px}
+.stepcard b{color:#172B49}
+.stepcard p{font-size:12.5px;color:#555;line-height:1.6}
+.mode-tabs{display:flex;gap:6px;padding:0 12px;margin-bottom:4px}
+.mode-tabs button{flex:1;border:1px solid #bcd6f2;background:#EAF2FC;border-radius:8px 8px 0 0;padding:9px 4px;font-size:13px;font-weight:800;color:#2f5f8f;cursor:pointer;font-family:inherit;border-bottom:3px solid #bcd6f2}
+.mode-tabs button.on{background:#fff;color:#172B49;border-bottom:3px solid #3977B8}
+.modepanel{display:none;padding:4px 12px 0}
+.modepanel.on{display:block}
+.tool-card{border:1px solid #dbe6f2;border-radius:8px;padding:10px 12px;margin:10px 0;background:#fff;box-shadow:0 1px 3px rgba(23,43,73,.08)}
+.tool-card h4{font-size:14px;font-weight:800;color:#172B49;margin-bottom:6px}
+.ctl-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px 10px;margin:8px 0}
+.ctl label{display:block;font-size:11px;font-weight:800;color:#172B49;margin-bottom:2px}
+.ctl input[type=number],.ctl select{width:100%;border:1px solid #bcd6f2;border-radius:6px;padding:7px 8px;font-size:13px;font-family:inherit;background:#fff;color:#333}
+.ctl input[type=range]{width:100%;accent-color:#3977B8}
+.ctl .val{font-size:11px;color:#3977B8;font-weight:800}
+.btn{display:inline-block;border:0;border-radius:8px;padding:10px 14px;font-size:13.5px;font-weight:900;cursor:pointer;font-family:inherit;text-align:center}
+.btn-main{background:#172B49;color:#fff;width:100%}
+.btn-blue{background:#3977B8;color:#fff}
+.btn-sub{background:#F0ECFA;color:#5b4a8a;border:1px solid #d5cbf0}
+.btn-ghost{background:#fff;color:#3977B8;border:1.5px solid #3977B8}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn-row{display:flex;gap:8px;margin:8px 0;flex-wrap:wrap}
+.btn-row .btn{flex:1}
+.filebox{border:2px dashed #bcd6f2;background:#EAF2FC;border-radius:8px;padding:12px;text-align:center;font-size:12.5px;color:#2f5f8f;font-weight:700}
+.shot-wrap{position:relative;margin:10px 0;border:1px solid #dbe6f2;border-radius:8px;overflow:hidden;background:#172B49}
+.shot-wrap img{width:100%;height:auto}
+#gridOverlay{position:absolute;inset:0;pointer-events:none}
+.gcell{position:absolute;border:1.5px solid rgba(255,255,255,.9);border-radius:3px;box-shadow:0 0 0 1px rgba(23,43,73,.55);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.8);overflow:hidden}
+.palette{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.pal-btn{display:flex;align-items:center;gap:5px;border:2px solid #ddd;background:#fff;border-radius:999px;padding:3px 9px 3px 4px;font-size:11.5px;font-weight:800;cursor:pointer;font-family:inherit;color:#333}
+.pal-btn.on{border-color:#172B49;box-shadow:0 0 0 2px #bcd6f2}
+.pal-dot{width:18px;height:18px;border-radius:50%;border:1px solid rgba(0,0,0,.25);flex:none;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900}
+.tubes-editor{display:flex;gap:8px;overflow-x:auto;padding:10px 4px 6px;align-items:flex-end}
+.tube-col{flex:none;text-align:center}
+.tube-num{font-size:11px;font-weight:900;color:#172B49;margin-bottom:4px}
+.tube-body{border:2px solid #9dbede;border-top:0;border-radius:0 0 14px 14px;padding:3px;background:#fbfdff;display:flex;flex-direction:column;gap:3px}
+.ecell{width:44px;height:26px;border-radius:5px;border:1px solid rgba(0,0,0,.18);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.45)}
+.ecell.light{color:#333;text-shadow:none}
+.ecell.empty{background:repeating-linear-gradient(45deg,#fff,#fff 5px,#eef3f9 5px,#eef3f9 10px);color:#9dbede;text-shadow:none;border:1px dashed #bcd6f2}
+.ecell.unknown{background:#fff;color:#b3261e;border:2px dashed #e88;text-shadow:none}
+.result-box{border-radius:8px;padding:10px 12px;margin:10px 0;font-size:13px;line-height:1.7;display:none}
+.result-box.ok{display:block;background:#E9F5EF;border:1px solid #a3d9b1;color:#1d4d2e}
+.result-box.warn{display:block;background:#FFF1E4;border:1px solid #f2cf8f;color:#6d4510}
+.result-box.err{display:block;background:#fdecea;border:1px solid #f0b8b2;color:#7a1d16}
+.result-box.info{display:block;background:#EAF2FC;border:1px solid #bcd6f2;color:#2f5f8f}
+.steps-list{margin:8px 0}
+.step-row{display:flex;gap:8px;align-items:center;border:1px solid #e5e5e5;border-radius:6px;padding:7px 9px;margin:5px 0;font-size:12.5px;background:#fff}
+.step-row.cur{border-color:#3977B8;background:#EAF2FC;font-weight:800}
+.step-row.reveal{background:#ffecec;border-color:#e88}
+.step-row .sno{flex:none;background:#172B49;color:#fff;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900}
+.sim-tubes{display:flex;gap:8px;overflow-x:auto;padding:10px 4px;align-items:flex-end;justify-content:flex-start}
+.sim-cell{width:44px;height:22px;border-radius:4px;border:1px solid rgba(0,0,0,.15)}
+.sim-cell.empty{background:transparent;border:1px dashed #dbe6f2}
+.sim-cell.unknown{background:#fff;border:2px dashed #e88;display:flex;align-items:center;justify-content:center;color:#b3261e;font-weight:900;font-size:11px}
+.sim-nav{display:flex;align-items:center;gap:8px;justify-content:center;margin:8px 0}
+.sim-nav .pos{font-weight:900;color:#172B49;font-size:13px;min-width:86px;text-align:center}
+.warn-note{font-size:12px;color:#7a3b00;background:#FFF1E4;border-left:4px solid #f2cf8f;border-radius:0 6px 6px 0;padding:8px 10px;margin:8px 0;line-height:1.65}
+.ok-note{font-size:12px;color:#1d4d2e;background:#E9F5EF;border-left:4px solid #a3d9b1;border-radius:0 6px 6px 0;padding:8px 10px;margin:8px 0;line-height:1.65}
+.sub-note{font-size:12px;color:#5b4a8a;background:#F0ECFA;border-left:4px solid #d5cbf0;border-radius:0 6px 6px 0;padding:8px 10px;margin:8px 0;line-height:1.65}
+</style></head><body><div class="page">
+<header class="header">
+  <div class="header-top">
+    <div class="logo"><span class="lg-mark">ポ</span>ポイゲークエスト<span class="lg-sub">POIKATSU GAME WIKI</span></div>
+    <div class="header-icons"><div><span class="ic">🔍</span>検索</div><div><span class="ic">☰</span>メニュー</div></div>
+  </div>
+  <div class="searchbar"><div class="box"><span>🔍</span><input id="q" type="search" placeholder="ゲーム名で検索"></div></div>
+  <nav class="gnav"><a href="index.html" class="on">人気ゲーム</a><a href="index.html">新着・更新</a><a href="index.html">ランキング</a><a href="index.html">ゲーム一覧</a><a href="index.html">攻略メニュー</a></nav>
+</header>
+<div class="crumbs"><a href="index.html">トップ</a> ＞ <a href="index.html">ゲーム一覧</a> ＞ <a href="index.html">パズル＆サバイバル</a> ＞ <b>試験管ソルバー</b></div>
+<div class="ghead"><img src="img/app-icon.jpg" alt="パズル＆サバイバル" loading="lazy"><div><h1>パズル＆サバイバル<br>試験管ソルバー</h1><div class="gmeta">37GAMES｜iOS/Android｜ミニゲーム「エヴァの試験管実験」用ツール</div></div></div>
+<p class="dates"><span>最終確認日：<b>2026年11月25日</b></span></p>
+<p class="lead">ミニゲーム「エヴァの試験管実験」（ウォーターソートパズル）の解答ツールです。スクリーンショットから色を読み取るか、タップで色を入力すると、最短手順を計算して1手ずつシミュレーションで確認できます。計算はすべてこのページの中で完結し、画像や入力内容が外部に送信されることはありません。</p>
+<div class="hook"><b>このツールの要点</b><br>スクショ読み取り＋手動修正の両対応です。色が読み取れなかったマスは「？」になり、色の仮定を自動で試して解を探します。「？」が多いときは「？開放優先」モードで、まず「？」を露出させる手順だけを出すこともできます。</div>
+<div class="blk"><div class="chips"><span class="bd bd-info">スクショ対応</span><span class="bd bd-navy">最短手順（BFS）</span><span class="bd bd-warn">「？」仮定探索あり</span><span class="bd bd-sub">「？」開放優先モード</span><span class="bd bd-buy">外部送信なし</span></div></div>
+
+<div class="sec"><div class="sec-head"><h2>使い方</h2><span class="cnt">3ステップ＋解く</span></div>
+<div class="stepcards">
+  <div class="stepcard"><div class="stepnum">1</div><div><b>スクショを読み込む</b><p>「スクショから読み取る」タブで、試験管実験の画面のスクリーンショットを選ぶか貼り付けます。画像なしで解きたい場合は「タップで手入力」タブでも使えます。</p></div></div>
+  <div class="stepcard"><div class="stepnum">2</div><div><b>グリッドを合わせて色取得</b><p>段数・1段の本数・グリッドの位置と間隔をスライダーで合わせ、「色を取得する」を押します。ずれたマスは、下のパレットで色を選んでマスをタップすれば手動で直せます。</p></div></div>
+  <div class="stepcard"><div class="stepnum">3</div><div><b>解く → 手順どおりに進める</b><p>「最短手順を解く」を押すと手順の一覧とシミュレーションが出ます。「次へ／前へ」で1手ずつ確認しながら、ゲーム内でそのとおりに注いでください。</p></div></div>
+</div>
+<div class="blk"><div class="warn-note"><b>コツ：「？」が多い場合</b> ― 色が判定できない「？」マスが多いときは、そのままでは解けないことがあります。ソルバーのモードを「？開放優先」に切り替えて解くと、「？」を覆っている上の色をどかして「？」を露出させる手順が出ます。その手順を進めてから画面を撮り直し、もう一度読み取ると正確に解けます。</div></div>
+</div>
+
+<div class="sec"><div class="sec-head"><h2>試験管ソルバー</h2><span class="cnt">入力 → 解く → 手順確認</span></div>
+<div class="mode-tabs">
+  <button type="button" id="tabShot" class="on">📷 スクショから読み取る</button>
+  <button type="button" id="tabManual">👆 タップで手入力</button>
+</div>
+
+<div class="modepanel on" id="panelShot">
+  <div class="tool-card"><h4>1. スクリーンショット</h4>
+    <div class="filebox">ファイルを選ぶか、このページに画像を貼り付け（ペースト）してください<br><input type="file" id="fileInput" accept="image/*" style="margin-top:8px;font-family:inherit"></div>
+    <div class="shot-wrap" id="shotWrap" style="display:none"><img id="shotImg" alt="読み込んだスクリーンショット"><div id="gridOverlay"></div></div>
+    <p class="cnote" style="font-size:11px;color:#888">画像はこのページの中だけで処理します。外部サーバーへは送信しません。</p>
+  </div>
+  <div class="tool-card"><h4>2. グリッド合わせ</h4>
+    <div class="ctl-grid">
+      <div class="ctl"><label>段数（1〜3）</label><input type="number" id="gRows" min="1" max="3" value="2"></div>
+      <div class="ctl"><label>1段の本数</label><input type="number" id="gCols" min="1" max="10" value="5"></div>
+      <div class="ctl"><label>空の試験管の数（目安・表示用）</label><input type="number" id="gEmpty" min="0" max="5" value="2"></div>
+      <div class="ctl"><label>試験管の容量（マス数）</label><input type="number" id="gCap" min="2" max="6" value="4"></div>
+      <div class="ctl"><label>グリッド左端 X <span class="val" id="vOx"></span></label><input type="range" id="gOx" min="0" max="80" value="6"></div>
+      <div class="ctl"><label>グリッド上端 Y <span class="val" id="vOy"></span></label><input type="range" id="gOy" min="0" max="80" value="18"></div>
+      <div class="ctl"><label>セル幅 <span class="val" id="vCw"></span></label><input type="range" id="gCw" min="2" max="20" value="9"></div>
+      <div class="ctl"><label>セル高さ <span class="val" id="vCh"></span></label><input type="range" id="gCh" min="2" max="20" value="7"></div>
+      <div class="ctl"><label>試験管の間隔（横） <span class="val" id="vGx"></span></label><input type="range" id="gGx" min="0" max="10" value="3"></div>
+      <div class="ctl"><label>段の間隔（縦） <span class="val" id="vGy"></span></label><input type="range" id="gGy" min="0" max="25" value="10"></div>
+    </div>
+    <div class="btn-row"><button type="button" class="btn btn-blue" id="btnSample">色を取得する</button><button type="button" class="btn btn-ghost" id="btnOverlay">グリッドを更新</button></div>
+    <p class="cnote" style="font-size:11px;color:#888">グリッドの枠が各試験管の色水のマスに重なるよう調整してください。各マスの中心周辺の平均色を読み取り、パレットに最も近い色へ割り当てます。距離が遠い・暗すぎるマスは「？」になります。</p>
+  </div>
+</div>
+
+<div class="modepanel" id="panelManual">
+  <div class="tool-card"><h4>タップ手入力の準備</h4>
+    <div class="ctl-grid">
+      <div class="ctl"><label>試験管の本数</label><input type="number" id="mTubes" min="2" max="16" value="6"></div>
+      <div class="ctl"><label>空の試験管の数</label><input type="number" id="mEmpty" min="0" max="5" value="2"></div>
+      <div class="ctl"><label>試験管の容量（マス数）</label><input type="number" id="mCap" min="2" max="6" value="4"></div>
+    </div>
+    <button type="button" class="btn btn-blue" id="btnBuild" style="width:100%">空のグリッドを作る</button>
+    <p class="cnote" style="font-size:11px;color:#888">下のパレットで色を選んでからマスをタップすると、その色で塗れます。分からないマスは「？」、空のマスは「空」を選んでタップしてください。</p>
+  </div>
+</div>
+
+<div class="cards"><div class="tool-card" style="margin-left:-12px;margin-right:-12px;border-left:0;border-right:0;border-radius:0;padding-left:12px;padding-right:12px"><h4>3. 色の確認・修正（パレット → マスをタップ）</h4>
+  <div class="palette" id="palette"></div>
+  <div class="tubes-editor" id="tubesEditor"></div>
+  <div class="btn-row"><button type="button" class="btn btn-sub" id="btnClearAll">全部クリア</button><button type="button" class="btn btn-sub" id="btnSampleTube">入力例を入れる</button></div>
+  <p class="cnote" style="font-size:11px;color:#888">マスは下が試験管の底、上が口です。色は下から詰めて入力してください（途中の空マスは詰め直して扱います）。</p>
+</div></div>
+
+<div class="cards"><div class="tool-card" style="margin-left:-12px;margin-right:-12px;border-left:0;border-right:0;border-radius:0;padding-left:12px;padding-right:12px"><h4>4. 解く</h4>
+  <div class="ctl-grid">
+    <div class="ctl"><label>モード</label><select id="solveMode"><option value="normal">通常（最短で全色そろえる）</option><option value="open">？開放優先（？を露出させる）</option></select></div>
+    <div class="ctl"><label>「？」の仮定を試す上限（回）</label><input type="number" id="assumeLimit" min="1" max="500" value="50"></div>
+  </div>
+  <button type="button" class="btn btn-main" id="btnSolve">最短手順を解く</button>
+  <div class="result-box" id="resultBox"></div>
+  <div id="simArea" style="display:none">
+    <div class="sub-note" id="assumeNote" style="display:none"></div>
+    <div class="sim-tubes" id="simTubes"></div>
+    <div class="sim-nav"><button type="button" class="btn btn-ghost" id="btnPrev">◀ 前へ</button><span class="pos" id="simPos">0 / 0 手</span><button type="button" class="btn btn-blue" id="btnNext">次へ ▶</button></div>
+    <div class="steps-list" id="stepsList"></div>
+    <p class="cnote" style="font-size:11px;color:#888">薄い赤背景の手順は、その手で「？」がめくれて見えるようになる手です。ゲーム内でもそのタイミングで色を確認してください。</p>
+  </div>
+</div></div>
+</div>
+
+<div class="sec"><div class="sec-head"><h2>解けないときの確認</h2></div>
+<div class="cards">
+  <div class="card"><h4>よくある原因</h4><ul>
+    <li><b>色の数え違い</b>：同じ色は原則として容量（基本4マス）分だけ存在します。1色が5マス以上ある・3マスしかない場合は、どこかのマスの色が間違っている可能性が高いです</li>
+    <li><b>「？」の残り</b>：「？」がある配置は仮定探索で解を探しますが、試行上限（初期値50回）を超えると解けない場合があります。上限を上げるか、「？開放優先」で露出させてから撮り直してください</li>
+    <li><b>探索上限</b>：本数が多い配置は計算量が大きく、探索上限に達すると「解が見つかりませんでした（上限到達）」と表示します。入力ミスがないか確認してから再試行してください</li>
+  </ul></div>
+</div>
+</div>
+
+<div class="sec"><div class="sec-head"><h2>関連リンク</h2></div>
+<div class="blk">
+  <a class="svc-link" href="joban.html"><span>序盤の進め方</span><span class="arr">›</span></a>
+  <a class="svc-link" href="event.html"><span>イベント攻略</span><span class="arr">›</span></a>
+  <a class="more-link" href="index.html"><span class="tri">◀</span>パズル＆サバイバル攻略トップへ戻る</a>
+</div>
+</div>
+
+<footer class="footer">
+  <div class="flinks"><a href="#">ゲーム一覧</a><a href="#">ポイントが高い順</a><a href="#">案件条件の見方</a><a href="#">編集方針</a><a href="#">このサイトについて</a></div>
+  <p class="disc">当サイトは、ポイントサイト各社の紹介プログラムに参加しています。記事内のリンクを経由してサービスに登録・利用された場合、当サイトに紹介料が支払われることがあります。掲載しているポイント数・条件・期限は、各サービスの公式ページで確認した時点の情報です。参加前に必ず公式ページで最新の条件をご確認ください。</p>
+  <p class="copy">© ポイゲークエスト（ポイ活ゲーム攻略Wiki）</p>
+</footer>
+</div>
+<canvas id="sampleCanvas" style="display:none"></canvas>
+<script>
+// ===== パレット定義 =====
+var PALETTE=[
+ {id:'red',name:'赤',css:'#E53935',rgb:[229,57,53]},
+ {id:'blue',name:'青',css:'#1E88E5',rgb:[30,136,229]},
+ {id:'green',name:'緑',css:'#43A047',rgb:[67,160,71]},
+ {id:'yellow',name:'黄',css:'#FDD835',rgb:[253,216,53],light:true},
+ {id:'purple',name:'紫',css:'#8E24AA',rgb:[142,36,170]},
+ {id:'orange',name:'オレンジ',css:'#FB8C00',rgb:[251,140,0]},
+ {id:'pink',name:'ピンク',css:'#F48FB1',rgb:[244,143,177],light:true},
+ {id:'sky',name:'水色',css:'#4FC3F7',rgb:[79,195,247],light:true},
+ {id:'brown',name:'茶色',css:'#6D4C41',rgb:[109,76,65]},
+ {id:'gray',name:'グレー',css:'#9E9E9E',rgb:[158,158,158]},
+ {id:'lime',name:'黄緑',css:'#9CCC65',rgb:[156,204,101],light:true},
+ {id:'navy',name:'紺',css:'#283593',rgb:[40,53,147]},
+ {id:'black',name:'黒',css:'#212121',rgb:[33,33,33]},
+ {id:'white',name:'白系',css:'#F5F5F5',rgb:[245,245,245],light:true}
+];
+var PALMAP={}; PALETTE.forEach(function(c){PALMAP[c.id]=c;});
+function colorName(id){ if(id==='?')return '？'; if(id===null||id===undefined)return '空'; var c=PALMAP[id]; return c?c.name:id; }
+function colorCss(id){ var c=PALMAP[id]; return c?c.css:'#fff'; }
+function isLight(id){ var c=PALMAP[id]; return !!(c&&c.light); }
+
+// SOLVER_START
+// 状態: tubes = 配列の配列（下→上の順、要素は色id文字列。空きは含めない＝長さが液量）
+// '?' は未知色として含み得る（通常ソルバーには渡す前に仮定で置換する）
+function tubeTopRun(tube){
+  if(tube.length===0) return {color:null,count:0};
+  var col=tube[tube.length-1], n=0;
+  for(var i=tube.length-1;i>=0;i--){ if(tube[i]===col)n++; else break; }
+  return {color:col,count:n};
+}
+function isCompleteTube(tube,cap){
+  if(tube.length!==cap) return false;
+  for(var i=1;i<tube.length;i++) if(tube[i]!==tube[0]) return false;
+  return true;
+}
+function isGoalState(tubes,cap){
+  for(var i=0;i<tubes.length;i++){
+    if(tubes[i].length===0) continue;
+    if(!isCompleteTube(tubes[i],cap)) return false;
+  }
+  return true;
+}
+function stateHash(tubes){ return tubes.map(function(t){return t.join(',');}).join('|'); }
+function legalMoves(tubes,cap){
+  var moves=[];
+  for(var i=0;i<tubes.length;i++){
+    var src=tubes[i];
+    if(src.length===0) continue;
+    if(isCompleteTube(src,cap)) continue; // 完成管からは出さない
+    var run=tubeTopRun(src);
+    var srcUniform = run.count===src.length;
+    for(var j=0;j<tubes.length;j++){
+      if(i===j) continue;
+      var dst=tubes[j];
+      if(dst.length>=cap) continue;
+      if(dst.length>0 && dst[dst.length-1]!==run.color) continue;
+      if(dst.length===0 && srcUniform) continue; // 単色管→空管は無意味
+      var amount=Math.min(run.count, cap-dst.length);
+      if(amount<=0) continue;
+      moves.push({from:i,to:j,color:run.color,amount:amount});
+    }
+  }
+  return moves;
+}
+function applyMove(tubes,move){
+  var next=tubes.map(function(t){return t.slice();});
+  for(var k=0;k<move.amount;k++){ next[move.to].push(next[move.from].pop()); }
+  return next;
+}
+function solveBFS(start,cap,nodeLimit,timeLimitMs){
+  nodeLimit=nodeLimit||200000; timeLimitMs=timeLimitMs||8000;
+  var t0=Date.now();
+  if(isGoalState(start,cap)) return {solved:true,path:[],states:[start],nodes:0};
+  var startHash=stateHash(start);
+  var visited={}; visited[startHash]=true;
+  var parent={}; // hash -> {prevHash, move, state}
+  var queue=[start]; var qhead=0; var nodes=0;
+  while(qhead<queue.length){
+    var cur=queue[qhead++]; nodes++;
+    if(nodes>nodeLimit || (Date.now()-t0)>timeLimitMs){
+      return {solved:false,limit:true,nodes:nodes};
+    }
+    var curHash=stateHash(cur);
+    var moves=legalMoves(cur,cap);
+    for(var m=0;m<moves.length;m++){
+      var nxt=applyMove(cur,moves[m]);
+      var h=stateHash(nxt);
+      if(visited[h]) continue;
+      visited[h]=true;
+      parent[h]={prev:curHash,move:moves[m],state:nxt};
+      if(isGoalState(nxt,cap)){
+        // 経路復元
+        var path=[], states=[]; var hh=h;
+        while(hh!==startHash){ var p=parent[hh]; path.unshift(p.move); states.unshift(p.state); hh=p.prev; }
+        states.unshift(start);
+        return {solved:true,path:path,states:states,nodes:nodes};
+      }
+      queue.push(nxt);
+    }
+  }
+  return {solved:false,limit:false,nodes:nodes};
+}
+function exposedUnknowns(tubes){
+  // 上に何も乗っていない '?' の数（各管の最上段が '?' のもの）
+  var n=0;
+  for(var i=0;i<tubes.length;i++){ if(tubes[i].length>0 && tubes[i][tubes[i].length-1]==='?') n++; }
+  return n;
+}
+function totalUnknowns(tubes){ var n=0; tubes.forEach(function(t){t.forEach(function(c){if(c==='?')n++;});}); return n; }
+function solveOpenUnknowns(start,cap,nodeLimit,timeLimitMs){
+  nodeLimit=nodeLimit||120000; timeLimitMs=timeLimitMs||8000;
+  var t0=Date.now();
+  var total=totalUnknowns(start);
+  var bestExposed=exposedUnknowns(start);
+  var best={path:[],states:[start],exposed:bestExposed};
+  if(bestExposed>=total) return {found:true,path:[],states:[start],exposed:bestExposed,total:total,nodes:0};
+  var visited={}; visited[stateHash(start)]=true;
+  var parent={}; var queue=[start]; var qhead=0; var nodes=0;
+  while(qhead<queue.length){
+    var cur=queue[qhead++]; nodes++;
+    if(nodes>nodeLimit || (Date.now()-t0)>timeLimitMs) break;
+    var curHash=stateHash(cur);
+    var moves=legalMoves(cur,cap);
+    for(var m=0;m<moves.length;m++){
+      var mv=moves[m];
+      // '?' 自体は色として扱い、同色扱いで注げる範囲で探索する
+      var nxt=applyMove(cur,mv);
+      var h=stateHash(nxt);
+      if(visited[h]) continue;
+      visited[h]=true;
+      parent[h]={prev:curHash,move:mv,state:nxt};
+      var ex=exposedUnknowns(nxt);
+      if(ex>bestExposed){
+        var path=[], states=[]; var hh=h;
+        while(hh!==stateHash(start)){ var p=parent[hh]; path.unshift(p.move); states.unshift(p.state); hh=p.prev; }
+        states.unshift(start);
+        best={path:path,states:states,exposed:ex};
+        bestExposed=ex;
+        if(ex>=total) return {found:true,path:path,states:states,exposed:ex,total:total,nodes:nodes};
+      }
+      queue.push(nxt);
+    }
+  }
+  return {found:bestExposed>exposedUnknowns(start),path:best.path,states:best.states,exposed:bestExposed,total:total,nodes:nodes,limit:nodes>nodeLimit};
+}
+function generateAssumptions(tubes,cap,limit){
+  // 既知色の不足分（容量−既知数）を '?' へ割り当てる組合せを列挙
+  var known={}; var unknownPos=[];
+  tubes.forEach(function(t,ti){ t.forEach(function(c,ci){ if(c==='?') unknownPos.push([ti,ci]); else known[c]=(known[c]||0)+1; }); });
+  var deficits=[];
+  Object.keys(known).forEach(function(col){ var d=cap-known[col]; for(var i=0;i<d;i++) deficits.push(col); });
+  var results=[];
+  if(deficits.length!==unknownPos.length){
+    // 不足分の合計と '?' 数が合わない場合は仮定を生成しない（呼び出し側で案内）
+    return {assignments:[],unknownPos:unknownPos,deficits:deficits,mismatch:true};
+  }
+  var used=new Array(deficits.length).fill(false);
+  var cur=new Array(unknownPos.length);
+  var seen={};
+  function bt(pos){
+    if(results.length>=limit) return;
+    if(pos===unknownPos.length){
+      var key=cur.join(',');
+      if(seen[key]) return; seen[key]=true;
+      results.push(cur.slice()); return;
+    }
+    for(var i=0;i<deficits.length;i++){
+      if(used[i]) continue;
+      // 同色の重複順列を抑える
+      if(i>0 && deficits[i]===deficits[i-1] && !used[i-1]) continue;
+      used[i]=true; cur[pos]=deficits[i]; bt(pos+1); used[i]=false;
+      if(results.length>=limit) return;
+    }
+  }
+  bt(0);
+  return {assignments:results,unknownPos:unknownPos,deficits:deficits,mismatch:false};
+}
+function applyAssumption(tubes,unknownPos,assignment){
+  var next=tubes.map(function(t){return t.slice();});
+  unknownPos.forEach(function(pos,i){ next[pos[0]][pos[1]]=assignment[i]; });
+  return next;
+}
+// SOLVER_END
+
+// ===== 編集状態 =====
+var CAP=4;
+var editTubes=[]; // 各管: 長さCAPの配列（下→上、null=空、'?'=未知、他は色id）
+var selectedPaint='red';
+function makeEmptyTubes(n,cap){ var a=[]; for(var i=0;i<n;i++){ var t=[]; for(var k=0;k<cap;k++)t.push(null); a.push(t);} return a; }
+function normalizeTube(t){ // nullを除いて下詰めした液配列を返す
+  return t.filter(function(c){return c!==null;});
+}
+function getSolveState(){ return editTubes.map(normalizeTube); }
+
+function renderPalette(){
+  var pal=document.getElementById('palette'); pal.innerHTML='';
+  PALETTE.forEach(function(c){
+    var b=document.createElement('button'); b.type='button'; b.className='pal-btn'+(selectedPaint===c.id?' on':'');
+    b.innerHTML='<span class="pal-dot" style="background:'+c.css+'"></span>'+c.name;
+    b.addEventListener('click',function(){ selectedPaint=c.id; renderPalette(); });
+    pal.appendChild(b);
+  });
+  var bq=document.createElement('button'); bq.type='button'; bq.className='pal-btn'+(selectedPaint==='?'?' on':'');
+  bq.innerHTML='<span class="pal-dot" style="background:#fff;color:#b3261e;border:2px dashed #e88">？</span>？（不明）';
+  bq.addEventListener('click',function(){ selectedPaint='?'; renderPalette(); });
+  pal.appendChild(bq);
+  var be=document.createElement('button'); be.type='button'; be.className='pal-btn'+(selectedPaint===null?' on':'');
+  be.innerHTML='<span class="pal-dot" style="background:repeating-linear-gradient(45deg,#fff,#fff 3px,#eef3f9 3px,#eef3f9 6px)"></span>空';
+  be.addEventListener('click',function(){ selectedPaint=null; renderPalette(); });
+  pal.appendChild(be);
+}
+function renderEditor(){
+  var wrap=document.getElementById('tubesEditor'); wrap.innerHTML='';
+  editTubes.forEach(function(tube,ti){
+    var col=document.createElement('div'); col.className='tube-col';
+    var num=document.createElement('div'); num.className='tube-num'; num.textContent=(ti+1)+'番'; col.appendChild(num);
+    var body=document.createElement('div'); body.className='tube-body';
+    for(var k=CAP-1;k>=0;k--){
+      (function(ti2,k2){
+        var cell=document.createElement('div');
+        var v=tube[k2];
+        if(v===null){ cell.className='ecell empty'; cell.textContent='空'; }
+        else if(v==='?'){ cell.className='ecell unknown'; cell.textContent='？'; }
+        else { cell.className='ecell'+(isLight(v)?' light':''); cell.style.background=colorCss(v); cell.textContent=colorName(v); }
+        cell.title=(ti2+1)+'番 '+(CAP-k2)+'段目';
+        cell.addEventListener('click',function(){ editTubes[ti2][k2]=selectedPaint; renderEditor(); });
+        body.appendChild(cell);
+      })(ti,k);
+    }
+    col.appendChild(body); wrap.appendChild(col);
+  });
+}
+function rebuildEditor(n,cap){ CAP=cap; editTubes=makeEmptyTubes(n,cap); renderEditor(); }
+
+// ===== モード切替 =====
+var tabShot=document.getElementById('tabShot'), tabManual=document.getElementById('tabManual');
+function setMode(shot){
+  tabShot.classList.toggle('on',shot); tabManual.classList.toggle('on',!shot);
+  document.getElementById('panelShot').classList.toggle('on',shot);
+  document.getElementById('panelManual').classList.toggle('on',!shot);
+}
+tabShot.addEventListener('click',function(){setMode(true);});
+tabManual.addEventListener('click',function(){setMode(false);});
+document.getElementById('btnBuild').addEventListener('click',function(){
+  var n=parseInt(document.getElementById('mTubes').value,10)||6;
+  var cap=parseInt(document.getElementById('mCap').value,10)||4;
+  rebuildEditor(Math.max(2,Math.min(16,n)),Math.max(2,Math.min(6,cap)));
+});
+document.getElementById('btnClearAll').addEventListener('click',function(){ rebuildEditor(editTubes.length||6,CAP); });
+document.getElementById('btnSampleTube').addEventListener('click',function(){
+  CAP=4;
+  editTubes=[
+    ['red','red','blue','blue'],
+    ['blue','blue','red','red'],
+    [null,null,null,null],
+    [null,null,null,null]
+  ];
+  renderEditor();
+});
+
+// ===== スクショ読み込み =====
+var shotImg=document.getElementById('shotImg');
+var sampleCanvas=document.getElementById('sampleCanvas');
+var imgLoaded=false;
+function loadImageURL(url){
+  shotImg.onload=function(){ imgLoaded=true; document.getElementById('shotWrap').style.display='block'; drawOverlay(); };
+  shotImg.src=url;
+}
+document.getElementById('fileInput').addEventListener('change',function(e){
+  var f=e.target.files&&e.target.files[0]; if(!f)return;
+  loadImageURL(URL.createObjectURL(f));
+});
+document.addEventListener('paste',function(e){
+  var items=e.clipboardData&&e.clipboardData.items; if(!items)return;
+  for(var i=0;i<items.length;i++){ if(items[i].type.indexOf('image')===0){ loadImageURL(URL.createObjectURL(items[i].getAsFile())); break; } }
+});
+function gridParams(){
+  return {
+    rows:Math.max(1,Math.min(3,parseInt(document.getElementById('gRows').value,10)||1)),
+    cols:Math.max(1,Math.min(10,parseInt(document.getElementById('gCols').value,10)||1)),
+    cap:Math.max(2,Math.min(6,parseInt(document.getElementById('gCap').value,10)||4)),
+    ox:parseFloat(document.getElementById('gOx').value), oy:parseFloat(document.getElementById('gOy').value),
+    cw:parseFloat(document.getElementById('gCw').value), ch:parseFloat(document.getElementById('gCh').value),
+    gx:parseFloat(document.getElementById('gGx').value), gy:parseFloat(document.getElementById('gGy').value)
+  };
+}
+function cellRect(p,r,c,k){ // %座標: 試験管(r,c)の上からk段目
+  var x=p.ox + c*(p.cw+p.gx);
+  var y=p.oy + r*(p.cap*p.ch+p.gy) + k*p.ch;
+  return {x:x,y:y,w:p.cw,h:p.ch};
+}
+function drawOverlay(sampled){
+  var ov=document.getElementById('gridOverlay'); ov.innerHTML='';
+  if(!imgLoaded) return;
+  var p=gridParams();
+  var idx=0;
+  for(var r=0;r<p.rows;r++) for(var c=0;c<p.cols;c++){
+    for(var k=0;k<p.cap;k++){
+      var rc=cellRect(p,r,c,k);
+      var d=document.createElement('div'); d.className='gcell';
+      d.style.left=rc.x+'%'; d.style.top=rc.y+'%'; d.style.width=rc.w+'%'; d.style.height=rc.h+'%';
+      if(sampled && sampled[idx]){ var v=sampled[idx]; if(v==='?'){ d.textContent='？'; d.style.background='rgba(255,255,255,.35)'; } else if(v){ d.style.background=colorCss(v); d.textContent=''; } }
+      ov.appendChild(d); idx++;
+    }
+  }
+  // スライダー値表示
+  document.getElementById('vOx').textContent=document.getElementById('gOx').value+'%';
+  document.getElementById('vOy').textContent=document.getElementById('gOy').value+'%';
+  document.getElementById('vCw').textContent=document.getElementById('gCw').value+'%';
+  document.getElementById('vCh').textContent=document.getElementById('gCh').value+'%';
+  document.getElementById('vGx').textContent=document.getElementById('gGx').value+'%';
+  document.getElementById('vGy').textContent=document.getElementById('gGy').value+'%';
+}
+['gOx','gOy','gCw','gCh','gGx','gGy','gRows','gCols','gCap'].forEach(function(id){
+  document.getElementById(id).addEventListener('input',function(){drawOverlay();});
+});
+document.getElementById('btnOverlay').addEventListener('click',function(){drawOverlay();});
+function nearestColor(r,g,b){
+  var best=null,bestD=1e18;
+  PALETTE.forEach(function(c){
+    var dr=r-c.rgb[0], dg=g-c.rgb[1], db=b-c.rgb[2];
+    var d=0.30*dr*dr+0.59*dg*dg+0.11*db*db;
+    if(d<bestD){bestD=d;best=c;}
+  });
+  return {color:best,dist:Math.sqrt(bestD)};
+}
+document.getElementById('btnSample').addEventListener('click',function(){
+  if(!imgLoaded){ showResult('warn','先にスクリーンショットを読み込んでください。ファイル選択か貼り付けで画像を追加できます。'); return; }
+  var p=gridParams();
+  sampleCanvas.width=shotImg.naturalWidth; sampleCanvas.height=shotImg.naturalHeight;
+  var ctx=sampleCanvas.getContext('2d'); ctx.drawImage(shotImg,0,0);
+  var W=sampleCanvas.width,H=sampleCanvas.height;
+  var total=p.rows*p.cols;
+  CAP=p.cap; editTubes=makeEmptyTubes(total,p.cap);
+  var flat=[];
+  var ti=0;
+  for(var r=0;r<p.rows;r++) for(var c=0;c<p.cols;c++){
+    for(var k=0;k<p.cap;k++){
+      var rc=cellRect(p,r,c,k);
+      var cx=(rc.x+rc.w/2)/100*W, cy=(rc.y+rc.h/2)/100*H;
+      var rad=Math.max(2,Math.floor(Math.min(rc.w/100*W,rc.h/100*H)*0.22));
+      var x0=Math.max(0,Math.floor(cx-rad)), y0=Math.max(0,Math.floor(cy-rad));
+      var w=Math.min(W-x0,rad*2), h=Math.min(H-y0,rad*2);
+      var data; try{ data=ctx.getImageData(x0,y0,w,h).data; }catch(e){ data=null; }
+      var val='?';
+      if(data){
+        var sr=0,sg=0,sb=0,cnt=0;
+        for(var i=0;i<data.length;i+=4){ sr+=data[i]; sg+=data[i+1]; sb+=data[i+2]; cnt++; }
+        var ar=sr/cnt, ag=sg/cnt, ab=sb/cnt;
+        var bright=(ar+ag+ab)/3;
+        var near=nearestColor(ar,ag,ab);
+        if(near.dist>95 || bright<18){ val='?'; } else { val=near.color.id; }
+      }
+      flat.push(val);
+      // 上からk段目 → 下から (cap-1-k)
+      editTubes[ti][p.cap-1-k]=val;
+    }
+    ti++;
+  }
+  renderEditor(); drawOverlay(flat);
+  var q=flat.filter(function(v){return v==='?';}).length;
+  showResult('info','色を取得しました（試験管 '+total+' 本）。「？」は '+q+' マスです。ずれているマスはパレットで色を選んでタップし、手動で直してから解いてください。');
+});
+
+// ===== 結果・シミュレーション =====
+var simStates=null, simPath=null, simIdx=0, revealFlags=[];
+function showResult(kind,html){
+  var box=document.getElementById('resultBox');
+  box.className='result-box '+kind; box.innerHTML=html;
+}
+function renderSimTubes(state){
+  var wrap=document.getElementById('simTubes'); wrap.innerHTML='';
+  state.forEach(function(tube,ti){
+    var col=document.createElement('div'); col.className='tube-col';
+    var num=document.createElement('div'); num.className='tube-num'; num.textContent=(ti+1)+'番'; col.appendChild(num);
+    var body=document.createElement('div'); body.className='tube-body';
+    for(var k=CAP-1;k>=0;k--){
+      var d=document.createElement('div');
+      if(k<tube.length){
+        var v=tube[k];
+        if(v==='?'){ d.className='sim-cell unknown'; d.textContent='？'; }
+        else { d.className='sim-cell'; d.style.background=colorCss(v); }
+      } else { d.className='sim-cell empty'; }
+      body.appendChild(d);
+    }
+    col.appendChild(body); wrap.appendChild(col);
+  });
+}
+function renderSim(){
+  if(!simStates) return;
+  renderSimTubes(simStates[simIdx]);
+  document.getElementById('simPos').textContent=simIdx+' / '+simPath.length+' 手';
+  document.getElementById('btnPrev').disabled=simIdx<=0;
+  document.getElementById('btnNext').disabled=simIdx>=simPath.length;
+  var list=document.getElementById('stepsList'); list.innerHTML='';
+  simPath.forEach(function(mv,i){
+    var row=document.createElement('div');
+    row.className='step-row'+(i===simIdx-1?' cur':'')+(revealFlags[i]?' reveal':'');
+    row.innerHTML='<span class="sno">'+(i+1)+'</span><span>'+(mv.from+1)+'番から '+colorName(mv.color)+' を '+(mv.to+1)+'番へ（'+mv.amount+'マス）'+(revealFlags[i]?' ― この手で「？」が見えます':'')+'</span>';
+    row.addEventListener('click',function(){ simIdx=i+1; renderSim(); });
+    list.appendChild(row);
+  });
+}
+document.getElementById('btnPrev').addEventListener('click',function(){ if(simIdx>0){simIdx--;renderSim();} });
+document.getElementById('btnNext').addEventListener('click',function(){ if(simStates&&simIdx<simPath.length){simIdx++;renderSim();} });
+function computeRevealFlags(states){
+  var flags=[];
+  for(var i=0;i<states.length-1;i++){
+    var before=exposedUnknowns(states[i]), after=exposedUnknowns(states[i+1]);
+    // 状態内に '?' がある場合（開放優先モード等）のみ意味を持つ
+    flags.push(after>before);
+  }
+  return flags;
+}
+function presentSolution(states,path,extraHtml){
+  simStates=states; simPath=path; simIdx=0;
+  revealFlags=computeRevealFlags(states);
+  document.getElementById('simArea').style.display='block';
+  if(extraHtml!==undefined){ var an=document.getElementById('assumeNote'); if(extraHtml){ an.style.display='block'; an.innerHTML=extraHtml; } else { an.style.display='none'; } }
+  renderSim();
+}
+
+document.getElementById('btnSolve').addEventListener('click',function(){
+  var state=getSolveState();
+  var mode=document.getElementById('solveMode').value;
+  var assumeLimit=Math.max(1,parseInt(document.getElementById('assumeLimit').value,10)||50);
+  document.getElementById('simArea').style.display='none';
+  if(state.every(function(t){return t.length===0;})){ showResult('warn','マスがすべて空です。スクショから色を取得するか、タップで色を入力してください。'); return; }
+
+  if(mode==='open'){
+    if(totalUnknowns(state)===0){ showResult('warn','「？」マスがありません。「？開放優先」は「？」がある配置用です。通常モードで解いてください。'); return; }
+    showResult('info','「？開放優先」で探索中です…');
+    setTimeout(function(){
+      var res=solveOpenUnknowns(state,CAP,120000,8000);
+      if(res.found && res.path.length>0){
+        showResult('ok','「？」を <b>'+res.exposed+' / '+res.total+' 個</b> 露出できる手順が見つかりました（'+res.path.length+'手）。この手順を進めたら撮り直して、通常モードで解いてください。');
+        presentSolution(res.states,res.path,'');
+      } else if(res.found){
+        showResult('ok','「？」はすでに露出しています（'+res.exposed+' / '+res.total+' 個）。撮り直して色を取得してください。');
+      } else {
+        showResult('err','「？」を露出させる手順が見つかりませんでした'+(res.limit?'（上限到達）':'')+'。入力した色に間違いがないか確認してください。');
+      }
+    },30);
+    return;
+  }
+
+  // 通常モード
+  if(totalUnknowns(state)===0){
+    showResult('info','最短手順を探索中です…');
+    setTimeout(function(){
+      var res=solveBFS(state,CAP,200000,8000);
+      if(res.solved){ showResult('ok','解けました。最短 <b>'+res.path.length+' 手</b> です（探索 '+res.nodes+' ノード）。下のシミュレーションで1手ずつ確認できます。'); presentSolution(res.states,res.path,''); }
+      else if(res.limit){ showResult('err','解が見つかりませんでした（上限到達）。入力した色に間違いがないか確認してください。'); }
+      else { showResult('err','解が見つかりませんでした。この配置は解けないか、入力した色に間違いがある可能性があります。各色のマス数（基本は1色＝容量分）を確認してください。'); }
+    },30);
+    return;
+  }
+
+  // 「？」仮定探索
+  var gen=generateAssumptions(state,CAP,assumeLimit);
+  if(gen.mismatch){
+    showResult('err','「？」の仮定を作れませんでした。各色の既知マス数から計算した不足分（'+gen.deficits.length+' マス）と「？」の数（'+gen.unknownPos.length+' マス）が合いません。色の入力ミスがないか確認するか、「？開放優先」モードをお試しください。');
+    return;
+  }
+  showResult('info','「？」の仮定を最大 '+assumeLimit+' 通りまで試して探索中です…');
+  setTimeout(function(){
+    var tried=0, foundRes=null, foundAssign=null, hitLimit=false;
+    for(var a=0;a<gen.assignments.length;a++){
+      tried++;
+      var assumed=applyAssumption(state,gen.unknownPos,gen.assignments[a]);
+      var r=solveBFS(assumed,CAP,50000,3000);
+      if(r.solved){ foundRes=r; foundAssign=gen.assignments[a]; break; }
+      if(r.limit) hitLimit=true;
+    }
+    if(foundRes){
+      var desc=gen.unknownPos.map(function(pos,i){ return (pos[0]+1)+'番の「？」＝'+colorName(foundAssign[i]); }).join('、');
+      showResult('ok','「？」の仮定で解けました。最短 <b>'+foundRes.path.length+' 手</b> です（仮定 '+tried+' 通り目で発見）。');
+      presentSolution(foundRes.states,foundRes.path,'<b>仮定した色：</b>'+desc+'<br>実際の色と違う場合は、そのマスを正しい色に直してから解き直してください。');
+    } else {
+      showResult('err','「？」の仮定を '+tried+' 通り試しましたが、解は見つかりませんでした'+(hitLimit?'（一部は探索上限到達）':'')+'。仮定の試行上限を上げるか、「？開放優先」で露出させてから撮り直してください。');
+    }
+  },30);
+});
+
+// 初期表示
+rebuildEditor(4,4);
+editTubes=[
+  ['red','red','blue','blue'],
+  ['blue','blue','red','red'],
+  [null,null,null,null],
+  [null,null,null,null]
+];
+renderPalette(); renderEditor(); drawOverlay();
+</script>
+</body></html>

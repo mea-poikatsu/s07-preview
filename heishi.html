@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>パズル＆サバイバル 兵士・部隊｜ポイゲークエスト</title><style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{background:#e8e8e8;scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",sans-serif;color:#333;font-size:14px;line-height:1.6;-webkit-text-size-adjust:100%}
+.page{max-width:420px;margin:0 auto;background:#fff;min-height:100vh;box-shadow:0 0 12px rgba(0,0,0,.18)}
+a{color:inherit;text-decoration:none}
+img{display:block}
+.header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid #e5e5e5}
+.header-top{display:flex;align-items:center;justify-content:space-between;padding:8px 12px 6px}
+.logo{font-size:20px;font-weight:900;color:#333;white-space:nowrap}
+.logo .lg-mark{display:inline-block;background:#ff6900;color:#fff;border-radius:5px;padding:0 6px;margin-right:5px;font-size:18px}
+.logo .lg-sub{font-size:9px;font-weight:700;color:#ff6900;vertical-align:super;margin-left:3px}
+.header-icons{display:flex;gap:13px;color:#555;font-size:10px;text-align:center}
+.header-icons .ic{font-size:18px;line-height:1.1;display:block}
+.searchbar{padding:2px 12px 9px}
+.searchbar .box{display:flex;align-items:center;background:#f2f2f2;border-radius:16px;padding:0 12px}
+.searchbar input{flex:1;border:0;background:transparent;font-size:13px;padding:7px 6px;outline:none;color:#333;font-family:inherit}
+.gnav{display:flex;border-top:1px solid #f0f0f0;overflow-x:auto;white-space:nowrap}
+.gnav a{flex:1;text-align:center;font-size:12px;font-weight:700;padding:8px 6px;color:#444;border-bottom:2px solid transparent}
+.gnav a.on{color:#ff6900;border-bottom-color:#ff6900}
+.crumbs{font-size:11px;color:#888;padding:8px 12px 0}
+.sec{margin-top:22px;scroll-margin-top:118px}
+.sec-head{display:flex;align-items:center;justify-content:space-between;background:#fdf3e3;border-left:5px solid #ff6900;padding:7px 10px 7px 9px;margin:0 0 10px}
+.sec-head h2{font-size:16px;font-weight:800}
+.sec-head a{font-size:12px;color:#ff6900;font-weight:700}
+.sec-head .cnt{font-size:11px;color:#999;font-weight:700}
+.lead{padding:10px 12px 0;font-size:13px;color:#444}
+/* 記事リスト行 */
+.rows{padding:0 12px}
+.row{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid #eee;align-items:flex-start}
+.row img,.row .fallback-icon{width:64px;height:64px;border-radius:14%;flex:none;object-fit:cover;font-size:28px}
+.row .rtitle{font-size:13.5px;font-weight:700;line-height:1.45}
+.row .rmeta{margin-top:4px;font-size:11px;color:#999;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.row .rsum{margin-top:3px;font-size:11.5px;color:#666;line-height:1.5}
+.chip{display:inline-block;background:#fff1de;color:#e05e00;font-weight:800;font-size:10.5px;border-radius:3px;padding:1px 5px}
+.chip.gray{background:#f0f0f0;color:#777}
+/* 表 */
+.tscroll{overflow-x:auto;padding:0 12px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;margin:6px 0 4px}
+th,td{border:1px solid #ddd;padding:6px 8px;text-align:left;vertical-align:middle}
+th{background:#f7f3ec;font-weight:800;white-space:nowrap}
+td.pt,th.pt{text-align:right}
+td.pt{font-weight:800;color:#e05e00;white-space:nowrap}
+/* スペック早見表 */
+.spec th{width:34%;background:#fdf3e3;white-space:normal}
+.spec td{line-height:1.55}
+.spec td b{color:#e05e00}
+/* 攻略メニュー */
+.menu-label{text-align:center;font-weight:800;font-size:13px;color:#666;margin:14px 0 8px}
+.menu{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:0 12px}
+.menu a{border:1px solid #e3e3e3;border-radius:6px;background:#fff;text-align:center;padding:10px 2px 8px;font-size:12px;font-weight:700;color:#444;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.menu a .mi{display:block;font-size:19px;margin-bottom:3px}
+.menu a.hot{border-color:#ffb066;background:#fff8f0;color:#e05e00}
+/* ゲームページ */
+.ghead{display:flex;gap:12px;padding:12px;align-items:center}
+.ghead img,.ghead .fallback-icon{width:76px;height:76px;border-radius:20%;object-fit:cover;font-size:34px}
+.ghead h1{font-size:19px;font-weight:900;line-height:1.35}
+.ghead .gmeta{font-size:11.5px;color:#888;margin-top:3px}
+.ghead .gmax{margin-top:5px;font-size:13px;font-weight:900;color:#ff6900}
+.dates{font-size:11px;color:#999;padding:0 12px;display:flex;gap:12px;flex-wrap:wrap}
+.dates b{color:#777;font-weight:700}
+.toc{position:sticky;top:104px;z-index:55;display:flex;background:#333;overflow-x:auto;white-space:nowrap}
+.toc a{flex:1;text-align:center;color:#fff;font-size:12px;font-weight:700;padding:8px 10px}
+.toc a:active,.toc a.on{background:#ff6900}
+/* タブ */
+.tabs{display:flex;gap:6px;padding:0 12px;margin-bottom:4px;scroll-margin-top:160px}
+.tabs button{flex:1;border:1px solid #ddd;background:#f7f7f7;border-radius:8px 8px 0 0;padding:9px 4px;font-size:13px;font-weight:800;color:#777;cursor:pointer;font-family:inherit;border-bottom:3px solid #ddd}
+.tabs button.on{background:#fff;color:#e05e00;border-color:#ddd;border-bottom:3px solid #ff6900}
+.tabs button .tt{display:block;font-size:11px;font-weight:800;color:#ff6900}
+.tabpanel{display:none;padding:4px 12px 0}
+.tabpanel.on{display:block}
+/* アコーディオン */
+.acc{border:1px solid #e5e5e5;border-radius:6px;margin:8px 0;overflow:hidden}
+.acc button{width:100%;background:#fafafa;border:0;text-align:left;font-size:13px;font-weight:800;color:#444;padding:10px 12px;cursor:pointer;font-family:inherit;display:flex;justify-content:space-between;align-items:center}
+.acc button .pm{color:#ff6900;font-size:15px}
+.acc .acc-body{display:none;padding:10px 12px;font-size:12px;color:#555;border-top:1px solid #eee;line-height:1.7}
+.acc.open .acc-body{display:block}
+.acc-body ul{margin:0 0 0 18px}
+.acc-body li{margin-bottom:4px;line-height:1.6}
+.kv{font-size:12px;color:#555;margin:2px 0}
+.kv b{color:#333}
+.blk{padding:0 12px}
+.blk h3{font-size:15px;font-weight:800;border-bottom:2px solid #ffb066;padding-bottom:3px;margin:16px 0 8px}
+.blk p{font-size:13.5px;margin-bottom:8px}
+.blk ol{margin:0 0 8px 20px;font-size:13.5px}
+.blk li{margin-bottom:5px}
+.note{font-size:11.5px;color:#888}
+.more-link{display:block;padding:10px 12px;font-weight:700;font-size:13.5px;border-bottom:1px solid #eee}
+.more-link .tri{color:#ff6900;margin-right:6px}
+/* モンスター型の追加部品 */
+.anchor-jump{display:block;margin:10px 12px 2px;background:#ff6900;color:#fff;font-weight:800;font-size:13px;text-align:center;border-radius:6px;padding:10px 8px}
+.read-note{font-size:11.5px;color:#777;background:#fafafa;border:1px solid #eee;border-radius:6px;padding:8px 10px;margin:6px 0 8px;line-height:1.65}
+.upd-note{font-size:11.5px;color:#8a6d1a;background:#fffbe8;border:1px solid #f0df9a;border-radius:6px;padding:8px 10px;margin:8px 0;line-height:1.65}
+.upd-note b{color:#6d5510}
+.risk-note{font-size:12px;color:#a33;background:#fff5f5;border-left:4px solid #e88;border-radius:0 6px 6px 0;padding:8px 10px;margin:8px 0;line-height:1.65}
+.hist td{font-size:12px;line-height:1.55}
+.hist td.hd{white-space:nowrap;font-weight:700}
+.hist .old{color:#999}
+.hist .arrw{color:#ff6900;font-weight:800}
+.footer{margin-top:30px;background:#f7f7f7;border-top:1px solid #e5e5e5;padding:16px 12px 28px}
+.footer .flinks{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:#555;margin-bottom:10px}
+.footer .disc{font-size:11px;color:#888;line-height:1.7;margin-bottom:10px}
+.footer .copy{font-size:11px;color:#aaa;text-align:center}
+.grow td{padding:2px 6px 8px;background:#fffdf7}
+.grow .acc{margin:2px 0 0}
+.hidden{display:none!important}
+/* ===== 図解・バー・バッジ ===== */
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin:6px 0}
+.bd{display:inline-block;font-size:10.5px;font-weight:800;border-radius:10px;padding:1px 8px;line-height:1.6;vertical-align:middle;white-space:nowrap}
+.bd-buy{background:#e6f4ea;color:#137333;border:1px solid #a3d9b1}
+.bd-no{background:#fdecea;color:#b3261e;border:1px solid #f0b8b2}
+.bd-warn{background:#fff4e0;color:#a35b00;border:1px solid #f2cf8f}
+.bd-info{background:#eaf2fc;color:#2f5f8f;border:1px solid #bcd6f2}
+.bd-gray{background:#f0f0f0;color:#666;border:1px solid #ddd}
+.bars{margin:8px 0 2px}
+.barrow{display:flex;align-items:center;gap:8px;margin:7px 0}
+.barrow .bl{width:52px;flex:none;font-size:11.5px;font-weight:800;color:#555;text-align:right}
+.barrow .bt{flex:1;background:#f0f0f0;border-radius:4px;height:20px;overflow:hidden}
+.barrow .bf{height:100%;background:#ff6900;border-radius:4px}
+.barrow .bf.free{background:#3977b8}
+.barrow .bv{flex:none;font-size:14px;font-weight:900;color:#333}
+.bar-note{margin-left:60px}
+/* ステップフロー */
+.flow{display:flex;align-items:center;gap:3px;overflow-x:auto;padding:8px 12px 2px}
+.fbox{flex:none;border:1.5px solid #ffb066;background:#fff8f0;border-radius:6px;padding:5px 8px;font-size:12px;font-weight:800;text-align:center;color:#333}
+.fbox small{display:block;font-size:10px;color:#888;font-weight:700}
+.fbox.plus{border-color:#cdd9e5;background:#f4f8fc}
+.farr{color:#ff6900;font-weight:900;flex:none}
+/* タイムライン */
+.tl{display:flex;overflow-x:auto;padding:12px 12px 4px}
+.tl .node{flex:1;min-width:88px;text-align:center;position:relative;padding:0 3px}
+.tl .node:before{content:"";position:absolute;top:8px;left:-50%;width:100%;height:2px;background:#ffd9ae}
+.tl .node:first-child:before{display:none}
+.tl .dot{width:16px;height:16px;border-radius:50%;background:#ff6900;margin:0 auto;position:relative;z-index:1;box-shadow:0 0 0 2px #ffb066}
+.tl .node.blue .dot{background:#3977b8;box-shadow:0 0 0 2px #9dbede}
+.tl .node.red .dot{background:#c0392b;box-shadow:0 0 0 2px #e5a49e}
+.tl .tt2{font-size:11px;font-weight:900;margin-top:6px;color:#333}
+.tl .td2{font-size:10.5px;color:#777;line-height:1.45;margin-top:2px}
+/* 前提ツリー */
+.tree{font-size:12px;margin:8px 0}
+.tnode{border:1.5px solid #ffb066;background:#fff8f0;border-radius:6px;padding:5px 9px;font-weight:800;color:#333;display:inline-block;margin:2px 0}
+.tnode small{display:block;font-weight:700;color:#888;font-size:10.5px}
+.tkids{margin:2px 0 8px 14px;border-left:2px solid #ffd9ae;padding-left:10px}
+.tkids .tnode{border-color:#cdd9e5;background:#f4f8fc}
+.tarr{color:#ff6900;font-weight:900;margin:0 2px}
+/* カード */
+.cards{padding:0 12px}
+.card{border:1px solid #e5e5e5;border-radius:8px;padding:10px 12px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.hook{background:#EAF2FC;border:1px solid #c9def2;border-radius:8px;padding:10px 12px;margin:10px 0;font-size:12.5px;line-height:1.75;color:#333}
+.card h4{font-size:14px;font-weight:800;margin-bottom:6px}
+.card ul{margin:0 0 2px 18px;font-size:12.5px}
+.card li{margin-bottom:4px;line-height:1.55}
+.card .cnote{font-size:11px;color:#888;margin-top:6px;line-height:1.55}
+.card table{font-size:12px}
+.sub{font-size:12.5px;font-weight:800;margin:10px 0 4px}
+/* 価格vs還元などの小バー */
+.cmp{font-size:10.5px;min-width:132px}
+.cmp .crow{display:flex;align-items:center;gap:5px;margin:2px 0}
+.cmp .cl{font-size:10px;font-weight:800;color:#888;width:24px;flex:none}
+.cmp .ct{flex:1;background:#f0f0f0;height:9px;border-radius:3px;overflow:hidden;min-width:44px}
+.cmp .cf{height:100%}
+.cmp .cf.p{background:#c0392b}
+.cmp .cf.r{background:#2e9e5b}
+.cmp .cf.o{background:#ff6900}
+.cmp .cf.b{background:#3977b8}
+.cmp .cv{font-weight:700;color:#555;white-space:nowrap}
+.pts{margin:0 0 8px 18px;font-size:13px}
+.pts li{margin-bottom:5px;line-height:1.55}
+.chk{list-style:none;margin:0 0 2px}
+.chk li{position:relative;padding-left:22px;margin-bottom:5px;font-size:12.5px;line-height:1.55}
+.chk li:before{content:"\2610";position:absolute;left:0;color:#ff6900;font-weight:900}
+.svc-link{display:flex;justify-content:space-between;align-items:center;border:1.5px solid #ddd;background:#fff;border-radius:8px;padding:12px 14px;margin:8px 0;font-weight:800;font-size:13.5px;color:#444}
+.svc-link .arr{color:#ff6900;font-weight:900}
+
+/* 追従バナー：画面下固定・スクロール50%超で候補A（ゴールド＋キラキラ）に変化 */
+body{padding-bottom:104px}
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:80;padding:0 10px calc(10px + env(safe-area-inset-bottom));pointer-events:none}
+.sticky-cta-bar{pointer-events:auto;position:relative;display:flex;align-items:center;justify-content:center;gap:6px;max-width:420px;margin:0 auto;padding:15px 18px 14px;border-radius:999px;background:linear-gradient(180deg,#f0563f,#d42a1e);color:#fff;font-weight:900;font-size:15.5px;letter-spacing:.02em;white-space:nowrap;box-shadow:0 6px 18px rgba(0,0,0,.35);transition:background .45s ease,color .45s ease,box-shadow .45s ease}
+.sticky-cta.alt .sticky-cta-bar{background:linear-gradient(135deg,#fff3b0 0%,#ffd94d 30%,#f5b800 55%,#ffe680 80%,#ffc400 100%);color:#5b4300;box-shadow:0 6px 22px rgba(245,184,0,.65)}
+.sticky-cta-bubble{position:absolute;top:-13px;left:22px;background:#fff;color:#d42a1e;font-size:11.5px;font-weight:900;padding:3px 12px;border-radius:999px;box-shadow:0 2px 6px rgba(0,0,0,.22);transition:color .45s ease,background .45s ease;z-index:3}
+.sticky-cta.alt .sticky-cta-bubble{color:#a87b00;background:linear-gradient(180deg,#fffbe8,#ffedb0)}
+.sticky-cta-text{position:relative;z-index:1}
+.sticky-cta-arrow{font-size:19px;font-weight:900;line-height:1;position:relative;z-index:1}
+.sticky-cta .sparkle{position:absolute;color:#fff;font-size:13px;text-shadow:0 0 6px #ffdf4d,0 0 2px #fff;opacity:0;pointer-events:none;z-index:2}
+.sticky-cta.alt .sparkle{animation:twinkle 1.6s ease-in-out infinite}
+.sticky-cta .sparkle.s1{top:2px;left:16%}
+.sticky-cta .sparkle.s2{top:16px;right:14%;animation-delay:.4s}
+.sticky-cta .sparkle.s3{bottom:3px;left:38%;animation-delay:.8s;font-size:10px}
+.sticky-cta .sparkle.s4{top:6px;right:34%;animation-delay:1.1s;font-size:10px}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(.6) rotate(0deg)}50%{opacity:1;transform:scale(1.25) rotate(25deg)}}
+.sticky-cta.alt .sticky-cta-bar::after{content:"";position:absolute;inset:0;border-radius:999px;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.75) 50%,transparent 70%);background-size:250% 100%;animation:shine 2.6s ease-in-out infinite;pointer-events:none}
+@keyframes shine{0%{background-position:120% 0}55%,100%{background-position:-60% 0}}
+@media (max-width:380px){.sticky-cta-bar{font-size:13.5px;padding:14px 12px 13px}}
+</style></head>
+<body><div class="page">
+
+<header class="header">
+  <div class="header-top">
+    <div class="logo"><span class="lg-mark">ポ</span>ポイゲークエスト<span class="lg-sub">POIKATSU GAME WIKI</span></div>
+    <div class="header-icons"><div><span class="ic">🔍</span>検索</div><div><span class="ic">☰</span>メニュー</div></div>
+  </div>
+  <div class="searchbar"><div class="box"><span>🔍</span><input id="q" type="search" placeholder="ゲーム名で検索"></div></div>
+  <nav class="gnav"><a href="index.html" class="on">人気ゲーム</a><a href="index.html">新着・更新</a><a href="index.html">ランキング</a><a href="index.html">ゲーム一覧</a><a href="index.html">攻略メニュー</a></nav>
+</header>
+<div class="crumbs"><a href="index.html">トップ</a> ＞ <a href="index.html">ゲーム一覧</a> ＞ <a href="index.html">パズル＆サバイバル</a> ＞ <b>兵士・部隊</b></div><div class="ghead"><img src="img/app-icon.jpg" alt="パズル＆サバイバル" loading="lazy"><div><h1>パズル＆サバイバル<br>兵士・部隊</h1><div class="gmeta">37GAMES｜iOS/Android</div></div></div><p class="dates"><span>最終確認日：<b>2026年11月25日</b></span></p><p class="lead">兵士の戦力・積載量・ティア解放・兵種相性から、病院容量・部隊規模・訓練コスト（100,000人分）まで、兵士と部隊まわりの数値をまとめたページです。未取得の数値は「未取得」と明記し、推測では埋めていません。</p><div class="blk"><div class="sub">このページの要点</div><div class="chips"><span class="bd bd-info">戦力は全兵種共通</span><span class="bd bd-info">訓練時間はティアで決まる</span><span class="bd bd-warn">T11・T12の解放Lvは両論</span><span class="bd bd-gray">治療コスト表は未取得</span></div><ul class="pts"><li>戦力（Might）は<b>全兵種共通</b>で、ティアだけで決まります。積載量は兵種ごとに違います</li><li>訓練時間は<b>ティアで決まり、兵種差はありません</b></li><li>病院の収容は<b>ファイター＞ライダー＞シューター＞改造車</b>の順で、容量を溢れた負傷兵は死亡します</li></ul></div><div class="blk"><div class="sub">目次</div><ul class="pts"><li><a href="#b1" style="color:#3977b8;text-decoration:underline">戦力と積載量／ティア解放</a></li><li><a href="#b2" style="color:#3977b8;text-decoration:underline">兵種相性／病院容量と部隊規模</a></li><li><a href="#b3" style="color:#3977b8;text-decoration:underline">訓練の仕様／訓練コスト表（100,000人分）</a></li><li><a href="#b4" style="color:#3977b8;text-decoration:underline">エースコマンダー合わせ／タクシーの使い道／治療コスト</a></li></ul></div>
+<div class="sec"><div id="b1"><div class="cards">
+<div class="card"><h4>戦力（Might）と積載量</h4>
+<p class="kv">戦力は全兵種共通です。積載量は兵種ごとに異なり、採集や略奪で運べる資源量に影響します。</p>
+<div class="tscroll" style="padding:0"><table><tr><th>ティア</th><th>戦力（全兵種共通）</th><th>ファイター積載</th><th>ライダー積載</th><th>シューター積載</th><th>改造車積載</th></tr><tr><td><b>T1</b></td><td class="pt">4</td><td>10</td><td>8</td><td>10</td><td>15</td></tr><tr><td><b>T2</b></td><td class="pt">6</td><td>12</td><td>8</td><td>12</td><td>17</td></tr><tr><td><b>T3</b></td><td class="pt">8</td><td>14</td><td>10</td><td>14</td><td>19</td></tr><tr><td><b>T4</b></td><td class="pt">12</td><td>16</td><td>12</td><td>16</td><td>21</td></tr><tr><td><b>T5</b></td><td class="pt">15</td><td>18</td><td>12</td><td>18</td><td>23</td></tr><tr><td><b>T6</b></td><td class="pt">20</td><td>18</td><td>14</td><td>18</td><td>25</td></tr><tr><td><b>T7</b></td><td class="pt">25</td><td>20</td><td>14</td><td>20</td><td>27</td></tr><tr><td><b>T8</b></td><td class="pt">33</td><td>22</td><td>16</td><td>22</td><td>29</td></tr><tr><td><b>T9</b></td><td class="pt">45</td><td>24</td><td>16</td><td>25</td><td>31</td></tr><tr><td><b>T10</b></td><td class="pt">60</td><td>25</td><td>18</td><td>26</td><td>33</td></tr><tr><td><b>T11</b></td><td class="pt">80</td><td>28</td><td>20</td><td>28</td><td>35</td></tr><tr><td><b>T12</b></td><td class="pt">100</td><td>30</td><td>22</td><td>30</td><td>40</td></tr><tr><td><b>T13</b></td><td class="pt">125</td><td>34</td><td>25</td><td>34</td><td>50</td></tr><tr><td><b>T14</b></td><td class="pt">180</td><td>42</td><td>28</td><td>42</td><td>60</td></tr></table></div>
+<p class="cnote">積載量は改造車が全ティアで最大級です（タクシーの使い道は下のカード参照）。</p></div>
+<div class="card"><h4>ティア解放（キャンプLv）</h4>
+<div style="overflow-x:auto"><table><tr><th>ティア</th><th>解放条件</th></tr><tr><td><b>T1</b></td><td>キャンプLv1</td></tr><tr><td><b>T2</b></td><td>キャンプLv4</td></tr><tr><td><b>T3</b></td><td>キャンプLv7</td></tr><tr><td><b>T4</b></td><td>キャンプLv10</td></tr><tr><td><b>T5</b></td><td>キャンプLv13</td></tr><tr><td><b>T6</b></td><td>キャンプLv16</td></tr><tr><td><b>T7</b></td><td>キャンプLv19</td></tr><tr><td><b>T8</b></td><td>キャンプLv22</td></tr><tr><td><b>T9</b></td><td>キャンプLv26</td></tr><tr><td><b>T10</b></td><td>キャンプLv30</td></tr><tr><td><b>T11</b></td><td>キャンプLv35（別説：34）</td></tr><tr><td><b>T12</b></td><td>キャンプLv40（別説：38）</td></tr><tr><td><b>T13</b></td><td>キャンプLv40</td></tr><tr><td><b>T14</b></td><td>キャンプLv44</td></tr></table></div>
+<ul>
+<li>T1〜T10の解放Lvは出典が一致しています</li>
+<li><span class="bd bd-warn">両論</span> T11・T12は <b>35／40説</b> と <b>34／38説</b> の両論があり、決着していません。表では前者を主に、別説を併記しています</li>
+<li>T13＝40、T14＝44 は ZombieBBQ の Troop Reference による値です</li>
+</ul></div>
+</div></div>
+<div id="b2"><div class="cards">
+<div class="card"><h4>兵種相性（三すくみ＋改造車）</h4>
+<div class="flow" style="padding:8px 0 2px"><span class="fbox">ファイター<small>シューターに強い</small></span><span class="farr">▶</span><span class="fbox">シューター<small>ライダーに強い</small></span><span class="farr">▶</span><span class="fbox">ライダー<small>ファイターに強い</small></span><span class="farr">▶</span><span class="fbox">ファイターへ戻る<small>三すくみ</small></span></div>
+<ul>
+<li><b>ファイター</b>：シューターに強く、ライダーに弱い</li>
+<li><b>ライダー</b>：ファイターに強く、シューターに弱い</li>
+<li><b>シューター</b>：ライダーに強く、ファイターに弱い</li>
+<li><b>改造車</b>：三すくみの外で、ダメージ吸収役として扱われます</li>
+</ul></div>
+<div class="card"><h4>病院容量と部隊規模</h4>
+<div class="sub">病院容量の目安（CC連動の基礎値）</div>
+<div style="overflow-x:auto"><table><tr><th>CC</th><th>病院容量</th></tr>
+<tr><td><b>CC4</b></td><td>36,000</td></tr><tr><td><b>CC10</b></td><td>48,000</td></tr><tr><td><b>CC16</b></td><td>60,000</td></tr><tr><td><b>CC22</b></td><td>72,000</td></tr><tr><td><b>CC30</b></td><td>100,000</td></tr><tr><td><b>CC31</b></td><td>105,000</td></tr></table></div>
+<div class="sub">1進軍の部隊規模</div>
+<div style="overflow-x:auto"><table><tr><th>CC</th><th>部隊規模</th></tr>
+<tr><td><b>CC16</b></td><td>41,000</td></tr><tr><td><b>CC22</b></td><td>63,000</td></tr><tr><td><b>CC30</b></td><td>97,500</td></tr></table></div>
+<ul>
+<li>収容の優先順位は <b>ファイター ＞ ライダー ＞ シューター ＞ 改造車</b> です</li>
+<li>容量を溢れた負傷兵は<b>死亡</b>します（同盟病院があれば、そちらへ回ります）</li>
+</ul>
+<p class="cnote">病院容量はCC連動の基礎値です。施設側の増加分との合算関係は未確認のため、合計値としては掲載していません。</p></div>
+</div></div>
+<div id="b3"><div class="cards">
+<div class="card"><h4>訓練の仕様</h4>
+<ul>
+<li>訓練時間は<b>ティアで決まり、兵種差はありません</b></li>
+<li>T1の訓練コストは食料のみ判明しています（単独出典）。他の資源は未取得です</li>
+</ul>
+<div style="overflow-x:auto"><table><tr><th>T1 兵種</th><th>訓練コスト（食料）</th></tr>
+<tr><td>改造車</td><td>30</td></tr><tr><td>シューター</td><td>50</td></tr><tr><td>ライダー</td><td>53</td></tr><tr><td>ファイター</td><td>60</td></tr></table></div></div>
+<div class="card"><h4>訓練コスト表（100,000人分）</h4>
+<div class="read-note"><b>固定条件：</b>UG（昇格）元ティアなし・訓練速度100%・コスト軽減15%・1回の訓練数1,000人で、100,000人分を訓練した場合の、海外計算ツール（MIT）の表示値です（2026年11月25日取得）。条件を変えた場合の値は未取得です。</div>
+<div class="sub">ティア共通値</div>
+<div class="tscroll" style="padding:0"><table><tr><th>ティア</th><th>エスコマPt</th><th>必要ブースト合計</th><th>1回1,000人あたりの訓練時間</th></tr><tr><td><b>T1</b></td><td>1.2M</td><td>10日10時間0分</td><td>2時間30分0秒</td></tr><tr><td><b>T2</b></td><td>1.53M</td><td>13日7時間26分</td><td>3時間11分40秒</td></tr><tr><td><b>T3</b></td><td>2M</td><td>17日8時間40分</td><td>4時間10分0秒</td></tr><tr><td><b>T4</b></td><td>2.6M</td><td>22日13時間40分</td><td>5時間25分0秒</td></tr><tr><td><b>T5</b></td><td>3.4M</td><td>29日12時間20分</td><td>7時間5分0秒</td></tr><tr><td><b>T6</b></td><td>4.47M</td><td>38日18時間33分</td><td>9時間18分20秒</td></tr><tr><td><b>T7</b></td><td>5.87M</td><td>50日22時間13分</td><td>12時間13分20秒</td></tr><tr><td><b>T8</b></td><td>7.67M</td><td>66日13時間13分</td><td>15時間58分20秒</td></tr><tr><td><b>T9</b></td><td>10M</td><td>86日19時間20分</td><td>20時間50分0秒</td></tr><tr><td><b>T10</b></td><td>13.13M</td><td>114日0時間6分</td><td>1日3時間21分</td></tr><tr><td><b>T11</b></td><td>17.33M</td><td>150日11時間6分</td><td>1日12時間6分</td></tr><tr><td><b>T12</b></td><td>26.67M</td><td>231日11時間33分</td><td>2日7時間33分</td></tr><tr><td><b>T13</b></td><td>40M</td><td>347日5時間20分</td><td>3日11時間20分</td></tr><tr><td><b>T14</b></td><td>53.33M</td><td>462日23時間6分</td><td>4日15時間6分</td></tr></table></div>
+<div class="sub">資源コスト全量（単位：M）</div>
+<p class="kv">左4列＝消費ダウンなし／右4列＝消費ダウンあり（-25%）。列の並びはどちらも 食料・木材・鋼材・ガス の順です。</p>
+<div class="tscroll" style="padding:0"><table><tr><th>ティア 兵種</th><th>食料（なし）</th><th>木材（なし）</th><th>鋼材（なし）</th><th>ガス（なし）</th><th>食料（あり）</th><th>木材（あり）</th><th>鋼材（あり）</th><th>ガス（あり）</th></tr><tr><td><b>T1 ファイター</b></td><td>5.1</td><td>0</td><td>0</td><td>0</td><td>3.6</td><td>0</td><td>0</td><td>0</td></tr><tr><td><b>T1 ライダー</b></td><td>4.51</td><td>0</td><td>0</td><td>0</td><td>3.18</td><td>0</td><td>0</td><td>0</td></tr><tr><td><b>T1 シューター</b></td><td>4.25</td><td>0</td><td>0</td><td>0</td><td>3</td><td>0</td><td>0</td><td>0</td></tr><tr><td><b>T1 改造車</b></td><td>2.55</td><td>0</td><td>0</td><td>0</td><td>1.8</td><td>0</td><td>0</td><td>0</td></tr><tr><td><b>T2 ファイター</b></td><td>5.78</td><td>1.78</td><td>0</td><td>0</td><td>4.08</td><td>1.26</td><td>0</td><td>0</td></tr><tr><td><b>T2 ライダー</b></td><td>6.38</td><td>1.45</td><td>0</td><td>0</td><td>4.5</td><td>1.02</td><td>0</td><td>0</td></tr><tr><td><b>T2 シューター</b></td><td>5.78</td><td>1.78</td><td>0</td><td>0</td><td>4.08</td><td>1.26</td><td>0</td><td>0</td></tr><tr><td><b>T2 改造車</b></td><td>4.68</td><td>2.89</td><td>0</td><td>0</td><td>3.3</td><td>2.04</td><td>0</td><td>0</td></tr><tr><td><b>T3 ファイター</b></td><td>13.69</td><td>2.72</td><td>0</td><td>0</td><td>9.66</td><td>1.92</td><td>0</td><td>0</td></tr><tr><td><b>T3 ライダー</b></td><td>8.84</td><td>2.04</td><td>0</td><td>0</td><td>6.24</td><td>1.44</td><td>0</td><td>0</td></tr><tr><td><b>T3 シューター</b></td><td>8.42</td><td>2.47</td><td>0</td><td>0</td><td>5.94</td><td>1.74</td><td>0</td><td>0</td></tr><tr><td><b>T3 改造車</b></td><td>5.1</td><td>4.08</td><td>0</td><td>0</td><td>3.6</td><td>2.88</td><td>0</td><td>0</td></tr><tr><td><b>T4 ファイター</b></td><td>11.39</td><td>3.57</td><td>0.17</td><td>0</td><td>8.04</td><td>2.52</td><td>0.12</td><td>0</td></tr><tr><td><b>T4 ライダー</b></td><td>11.9</td><td>2.98</td><td>0.17</td><td>0</td><td>8.4</td><td>2.1</td><td>0.12</td><td>0</td></tr><tr><td><b>T4 シューター</b></td><td>11.39</td><td>3.91</td><td>0.17</td><td>0</td><td>8.04</td><td>2.76</td><td>0.12</td><td>0</td></tr><tr><td><b>T4 改造車</b></td><td>9.18</td><td>5.95</td><td>0.17</td><td>0</td><td>6.48</td><td>4.2</td><td>0.12</td><td>0</td></tr><tr><td><b>T5 ファイター</b></td><td>18.62</td><td>4.25</td><td>0.43</td><td>0</td><td>13.14</td><td>3</td><td>0.3</td><td>0</td></tr><tr><td><b>T5 ライダー</b></td><td>17</td><td>4.25</td><td>0.34</td><td>0</td><td>12</td><td>3</td><td>0.24</td><td>0</td></tr><tr><td><b>T5 シューター</b></td><td>15.39</td><td>5.1</td><td>0.34</td><td>0</td><td>10.86</td><td>3.6</td><td>0.24</td><td>0</td></tr><tr><td><b>T5 改造車</b></td><td>9.35</td><td>8.5</td><td>0.25</td><td>0</td><td>6.6</td><td>6</td><td>0.18</td><td>0</td></tr><tr><td><b>T6 ファイター</b></td><td>20.91</td><td>7.06</td><td>0.6</td><td>0</td><td>14.76</td><td>4.98</td><td>0.42</td><td>0</td></tr><tr><td><b>T6 ライダー</b></td><td>21.93</td><td>5.87</td><td>0.6</td><td>0</td><td>15.48</td><td>4.14</td><td>0.42</td><td>0</td></tr><tr><td><b>T6 シューター</b></td><td>20.91</td><td>7.06</td><td>0.6</td><td>0</td><td>14.76</td><td>4.98</td><td>0.42</td><td>0</td></tr><tr><td><b>T6 改造車</b></td><td>16.66</td><td>11.73</td><td>0.43</td><td>0</td><td>11.76</td><td>8.28</td><td>0.3</td><td>0</td></tr><tr><td><b>T7 ファイター</b></td><td>32.3</td><td>8.16</td><td>1.11</td><td>0.09</td><td>22.8</td><td>5.76</td><td>0.78</td><td>0.06</td></tr><tr><td><b>T7 ライダー</b></td><td>29.5</td><td>8.16</td><td>1.02</td><td>0.09</td><td>20.82</td><td>5.76</td><td>0.72</td><td>0.06</td></tr><tr><td><b>T7 シューター</b></td><td>26.78</td><td>10.63</td><td>0.94</td><td>0.09</td><td>18.9</td><td>7.5</td><td>0.66</td><td>0.06</td></tr><tr><td><b>T7 改造車</b></td><td>20.57</td><td>16.32</td><td>0.77</td><td>0.09</td><td>14.52</td><td>11.52</td><td>0.54</td><td>0.06</td></tr><tr><td><b>T8 ファイター</b></td><td>34.77</td><td>13.43</td><td>1.53</td><td>0.17</td><td>24.54</td><td>9.48</td><td>1.08</td><td>0.12</td></tr><tr><td><b>T8 ライダー</b></td><td>36.55</td><td>11.22</td><td>1.61</td><td>0.17</td><td>25.8</td><td>7.92</td><td>1.14</td><td>0.12</td></tr><tr><td><b>T8 シューター</b></td><td>34.77</td><td>14.62</td><td>1.53</td><td>0.17</td><td>24.54</td><td>10.32</td><td>1.08</td><td>0.12</td></tr><tr><td><b>T8 改造車</b></td><td>20.91</td><td>22.44</td><td>0.94</td><td>0.09</td><td>14.76</td><td>15.84</td><td>0.66</td><td>0.06</td></tr><tr><td><b>T9 ファイター</b></td><td>52.95</td><td>15.39</td><td>2.81</td><td>0.43</td><td>37.38</td><td>10.86</td><td>1.98</td><td>0.3</td></tr><tr><td><b>T9 ライダー</b></td><td>48.45</td><td>15.39</td><td>2.55</td><td>0.34</td><td>34.2</td><td>10.86</td><td>1.8</td><td>0.24</td></tr><tr><td><b>T9 シューター</b></td><td>44.12</td><td>18.62</td><td>2.38</td><td>0.34</td><td>31.14</td><td>13.14</td><td>1.68</td><td>0.24</td></tr><tr><td><b>T9 改造車</b></td><td>30.94</td><td>30.94</td><td>1.87</td><td>0.25</td><td>21.84</td><td>21.84</td><td>1.32</td><td>0.18</td></tr><tr><td><b>T10 ファイター</b></td><td>55.17</td><td>25.42</td><td>3.65</td><td>0.6</td><td>38.94</td><td>17.94</td><td>2.58</td><td>0.42</td></tr><tr><td><b>T10 ライダー</b></td><td>60.69</td><td>21.17</td><td>3.99</td><td>0.68</td><td>42.84</td><td>14.94</td><td>2.82</td><td>0.48</td></tr><tr><td><b>T10 シューター</b></td><td>55.17</td><td>27.46</td><td>3.65</td><td>0.6</td><td>38.94</td><td>19.38</td><td>2.58</td><td>0.42</td></tr><tr><td><b>T10 改造車</b></td><td>33.06</td><td>42.25</td><td>2.21</td><td>0.43</td><td>23.34</td><td>29.82</td><td>1.56</td><td>0.3</td></tr><tr><td><b>T11 ファイター</b></td><td>78.46</td><td>27.71</td><td>6.38</td><td>1.19</td><td>55.38</td><td>19.56</td><td>4.5</td><td>0.84</td></tr><tr><td><b>T11 ライダー</b></td><td>68.6</td><td>27.71</td><td>5.61</td><td>1.11</td><td>48.42</td><td>19.56</td><td>3.96</td><td>0.78</td></tr><tr><td><b>T11 シューター</b></td><td>65.37</td><td>30.09</td><td>5.36</td><td>1.02</td><td>46.14</td><td>21.24</td><td>3.78</td><td>0.72</td></tr><tr><td><b>T11 改造車</b></td><td>52.28</td><td>55.5</td><td>4.25</td><td>0.85</td><td>36.9</td><td>39.18</td><td>3</td><td>0.6</td></tr><tr><td><b>T12 ファイター</b></td><td>101.66</td><td>30.18</td><td>9.1</td><td>1.78</td><td>71.76</td><td>21.3</td><td>6.42</td><td>1.26</td></tr><tr><td><b>T12 ライダー</b></td><td>101.66</td><td>30.18</td><td>9.1</td><td>1.78</td><td>71.76</td><td>21.3</td><td>6.42</td><td>1.26</td></tr><tr><td><b>T12 シューター</b></td><td>101.66</td><td>30.18</td><td>9.1</td><td>1.78</td><td>71.76</td><td>21.3</td><td>6.42</td><td>1.26</td></tr><tr><td><b>T12 改造車</b></td><td>76.16</td><td>55.68</td><td>9.1</td><td>1.78</td><td>53.76</td><td>39.3</td><td>6.42</td><td>1.26</td></tr><tr><td><b>T13 ファイター</b></td><td>127.5</td><td>34</td><td>12.75</td><td>2.98</td><td>90</td><td>24</td><td>9</td><td>2.1</td></tr><tr><td><b>T13 ライダー</b></td><td>127.5</td><td>34</td><td>12.75</td><td>2.98</td><td>90</td><td>24</td><td>9</td><td>2.1</td></tr><tr><td><b>T13 シューター</b></td><td>127.5</td><td>34</td><td>12.75</td><td>2.98</td><td>90</td><td>24</td><td>9</td><td>2.1</td></tr><tr><td><b>T13 改造車</b></td><td>127.5</td><td>55.68</td><td>12.75</td><td>2.98</td><td>90</td><td>39.3</td><td>9</td><td>2.1</td></tr><tr><td><b>T14 ファイター</b></td><td>192.61</td><td>51</td><td>19.13</td><td>4.42</td><td>135.96</td><td>36</td><td>13.5</td><td>3.12</td></tr><tr><td><b>T14 ライダー</b></td><td>192.61</td><td>51</td><td>19.13</td><td>4.42</td><td>135.96</td><td>36</td><td>13.5</td><td>3.12</td></tr><tr><td><b>T14 シューター</b></td><td>192.61</td><td>51</td><td>19.13</td><td>4.42</td><td>135.96</td><td>36</td><td>13.5</td><td>3.12</td></tr><tr><td><b>T14 改造車</b></td><td>192.61</td><td>83.64</td><td>19.13</td><td>4.42</td><td>135.96</td><td>59.04</td><td>13.5</td><td>3.12</td></tr></table></div>
+<ul>
+<li><b>T14は全兵種で機密図100,000個が別途必要</b>です（軽減・消費ダウンの対象外）</li>
+<li>高ティアでは複数兵種の表示値が同一になる組み合わせがあります（ツール側の表示どおりに掲載しています）</li>
+</ul></div>
+<div class="card"><h4>条件を変えて計算したい場合</h4>
+<a class="svc-link" href="tools-training.html"><span>訓練コスト計算機</span><span>条件を変えた訓練コストはこちら ›</span></a>
+<p class="cnote">上の表は固定条件での表示値です。自分の条件で計算したい場合は計算機を使ってください。</p></div>
+</div></div>
+<div id="b4"><div class="cards">
+<div class="card"><h4>エースコマンダー合わせ（訓練）</h4>
+<div class="sub">日曜：新規訓練のポイント</div>
+<div style="overflow-x:auto"><table><tr><th>ティア</th><th>ポイント</th></tr><tr><td><b>T1</b></td><td class="pt">5pt</td></tr><tr><td><b>T2</b></td><td class="pt">10pt</td></tr><tr><td><b>T3</b></td><td class="pt">15pt</td></tr><tr><td><b>T4</b></td><td class="pt">22pt</td></tr><tr><td><b>T5</b></td><td class="pt">30pt</td></tr><tr><td><b>T6</b></td><td class="pt">40pt</td></tr><tr><td><b>T7</b></td><td class="pt">55pt</td></tr><tr><td><b>T8</b></td><td class="pt">70pt</td></tr><tr><td><b>T9</b></td><td class="pt">85pt</td></tr><tr><td><b>T10</b></td><td class="pt">110pt</td></tr><tr><td><b>T11</b></td><td class="pt">125pt</td></tr><tr><td><b>T12</b></td><td class="pt">150pt</td></tr></table></div>
+<ul>
+<li>昇格（UG）によるポイントは、新規訓練より低率です</li>
+<li><b>木曜</b>は訓練ブースト1分使用＝<b>80pt</b> です</li>
+</ul>
+<a class="svc-link" href="event-ace.html"><span>エースコマンダーの詳細</span><span>イベントページはこちら ›</span></a></div>
+<div class="card"><h4>タクシー（T1改造車）の使い道</h4>
+<ul>
+<li>T1改造車（通称タクシー）は、<b>積載量が全ティア最大級</b>で、訓練コストも安いのが特徴です。採集・運搬用として大量に抱える運用が定番です</li>
+<li>数量の目安：ポイ活帯では<b>2万台</b>、長期運営の完成形では<b>数百万〜1,000万台以上</b>という整理があります</li>
+<li><span class="bd bd-warn">注意</span> 病院では収容順位が<b>最後</b>です。容量を溢れた場合は、先に死ぬ側になります</li>
+</ul></div>
+<div class="card"><h4>治療コスト <span class="bd bd-gray">未取得</span></h4>
+<ul>
+<li>1体あたりの治療コスト・治療時間の数値表は<b>未取得</b>です。確認できたのは、タクシー（T1改造車）の治療費＝<b>食料8</b> のみです</li>
+<li>他の兵種・ティアの治療コストは、確認が取れ次第追加します。推測値では埋めていません</li>
+</ul></div>
+<div class="card"><h4>関連リンク</h4>
+<a class="svc-link" href="kensetsu.html"><span>施設の上げ方</span><span>前提ツリーと建設の運用 ›</span></a>
+<a class="svc-link" href="kenkyu.html"><span>研究の進め方</span><span>研究の優先順位と進め方 ›</span></a>
+<a class="svc-link" href="event-ace.html"><span>エースコマンダー</span><span>イベントの詳細 ›</span></a>
+<a class="svc-link" href="tools-training.html"><span>訓練コスト計算機</span><span>条件を変えて計算 ›</span></a></div>
+<div class="card"><h4>出典</h4>
+<ul>
+<li>ZombieBBQ Troop Reference</li>
+<li>Fandom（Puzzles &amp; Survival Wiki）</li>
+<li>海外計算ツール（MIT）</li>
+<li>PuzzlesAndSurvivalPro</li>
+<li>HighGroundGaming</li>
+</ul>
+<p class="cnote">確認日：2026年11月25日。出典ごとに値が割れている項目は、本文中で両論として併記しています。</p></div>
+</div></div></div><div class="blk"><a class="more-link" href="index.html"><span class="tri">◀</span>パズル＆サバイバル攻略トップへ戻る</a></div>
+<div class="blk"><a class="more-link" href="kensetsu-numbers.html"><span class="tri">◀</span>前：施設の上げ方（数値編）</a><a class="more-link" href="kenkyu.html"><span class="tri">▶</span>次：研究の進め方</a></div>
+<footer class="footer">
+  <div class="flinks"><a href="#">ゲーム一覧</a><a href="#">ポイントが高い順</a><a href="#">案件条件の見方</a><a href="#">編集方針</a><a href="#">このサイトについて</a></div>
+  <p class="disc">当サイトは、ポイントサイト各社の紹介プログラムに参加しています。記事内のリンクを経由してサービスに登録・利用された場合、当サイトに紹介料が支払われることがあります。掲載しているポイント数・条件・期限は、各サービスの公式ページで確認した時点の情報です。参加前に必ず公式ページで最新の条件をご確認ください。</p>
+  <p class="copy">© ポイゲークエスト（ポイ活ゲーム攻略Wiki）</p>
+</footer>
+</div>
+<!-- 追従バナー -->
+<div class="sticky-cta" id="stickyCta">
+  <a class="sticky-cta-bar" href="https://hapitas.jp/appinvite?i=26164523" target="_blank" rel="noopener">
+    <span class="sticky-cta-bubble">＼ 今すぐチェック ／</span>
+    <span class="sparkle s1">✦</span><span class="sparkle s2">✦</span><span class="sparkle s3">✦</span><span class="sparkle s4">✦</span>
+    <span class="sticky-cta-text">【パズサバ】最大42,530円のポイントGET</span>
+    <span class="sticky-cta-arrow">›</span>
+  </a>
+</div>
+<script>
+document.querySelectorAll('.acc>button').forEach(function(b){b.addEventListener('click',function(){var acc=b.parentElement,open=acc.classList.toggle('open');b.querySelector('.pm').textContent=open?'－':'＋';});});
+
+// 追従バナー：スクロール割合が50%を超えたら色を変える
+var stickyCta=document.getElementById('stickyCta');
+function stickyCtaUpdate(){
+  if(!stickyCta)return;
+  var max=document.documentElement.scrollHeight-window.innerHeight;
+  var ratio=max>0?window.scrollY/max:0;
+  stickyCta.classList.toggle('alt',ratio>0.5);
+}
+window.addEventListener('scroll',stickyCtaUpdate,{passive:true});
+window.addEventListener('resize',stickyCtaUpdate);
+stickyCtaUpdate();
+</script>
+</body></html>
