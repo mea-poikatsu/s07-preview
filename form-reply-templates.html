@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>フォーム返信テンプレート集（確認用プレビュー）｜ポイゲークエスト</title>
+<style>
+* { box-sizing: border-box;}
+body { margin: 0; background: #eef1f5; color: #1c2733; font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", sans-serif; font-size: 15px; line-height: 1.7;}
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 12px 48px;}
+header { background: #172B49; color: #fff; padding: 22px 16px 18px; margin: 0 -12px 16px;}
+header h1 { font-size: 19px; margin: 0 0 6px; line-height: 1.4;}
+header p { margin: 0; font-size: 12.5px; color: #c8d4e4;}
+.note { background: #fff8e6; border: 1px solid #ecd28a; border-radius: 8px; padding: 10px 14px; font-size: 13px; margin-bottom: 16px;}
+.toc { background: #fff; border-radius: 10px; padding: 14px 18px; margin-bottom: 20px;}
+.toc h2 { font-size: 15px; margin: 0 0 8px;}
+.toc ul { margin: 0; padding-left: 18px; font-size: 13.5px;}
+.toc a { color: #3977B8; text-decoration: none;}
+h2.group { font-size: 16px; margin: 26px 0 10px; padding-left: 8px; border-left: 5px solid #172B49;}
+.card { background: #fff; border-radius: 10px; padding: 16px; margin-bottom: 14px; box-shadow: 0 1px 3px rgba(23,43,73,.08);}
+.card h3 { font-size: 15.5px; margin: 0 0 8px; line-height: 1.5;}
+.badges { margin-bottom: 8px;}
+.badge { display: inline-block; font-size: 11.5px; font-weight: 700; border-radius: 999px; padding: 2px 10px; margin-right: 6px;}
+.b-auto { background: #E9F5EF; color: #1e6b45; border: 1px solid #9fd3b6;}
+.b-draft { background: #FFF1E4; color: #9a5410; border: 1px solid #f0c491;}
+.b-none { background: #eceff3; color: #55606c; border: 1px solid #c3ccd5;}
+.b-esc { background: #fdecec; color: #a02c22; border: 1px solid #efa9a2;}
+.b-live { background: #EAF2FC; color: #2c5a8a; border: 1px solid #a9c8ec;}
+.meta { font-size: 12.5px; color: #44505c; background: #f5f7fa; border-radius: 6px; padding: 8px 10px; margin-bottom: 10px;}
+.meta b { color: #1c2733;}
+.subject { font-size: 13.5px; font-weight: 700; margin: 0 0 6px;}
+.letter { background: #fdfdfe; border: 1px solid #dde3ea; border-radius: 8px; padding: 12px 14px; white-space: pre-wrap; font-size: 13.5px; line-height: 1.85; word-break: break-word;}
+.rule { font-size: 13px;}
+.rule li { margin-bottom: 4px;}
+footer { font-size: 12px; color: #66727f; text-align: center; margin-top: 28px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<h1>フォーム返信テンプレート集（確認用プレビュー）</h1>
+<p>ポイゲークエスト お問い合わせフォームへの返信定型文の一覧です。人格は「ポイゲークエスト運営事務局」、すべて丁寧語で統一しています。</p>
+</header>
+
+<div class="note">これは確認用のプレビューです。本番サイト・本番フォームへの反映はまだ行っていません。自動で送信されるのは「T-00 受付確認」のみで、それ以外はすべて下書き（確認してから送信）です。</div>
+
+<div class="toc">
+<h2>類型一覧</h2>
+<ul>
+<li><a href="#t00">T-00 受付確認（運用中）</a>／<a href="#k01">K-01 かわし定型（運用中）</a></li>
+<li><a href="#t01a">T-01a 情報提供へのお礼（掲載した場合）</a>／<a href="#t01b">T-01b 情報提供へのお礼（見送る場合）</a></li>
+<li><a href="#t02">T-02 誤り指摘・確認中</a>／<a href="#t03">T-03 誤り指摘・修正完了</a>／<a href="#t04">T-04 誤り指摘・相違なかった場合</a></li>
+<li><a href="#t05">T-05 出典の質問（承認済み）</a>／<a href="#t06">T-06 掲載内容への質問への回答</a>／<a href="#t07">T-07 追加情報の依頼</a></li>
+<li><a href="#t08a">T-08a 投稿の削除・本人確認の案内</a>／<a href="#t08b">T-08b 投稿の削除完了</a></li>
+<li><a href="#t09">T-09 権利関係・受領連絡</a>／<a href="#t10a">T-10a 権利関係・対応した場合</a>／<a href="#t10b">T-10b 権利関係・対応できない場合</a></li>
+<li><a href="#t11">T-11 個人情報の手続き案内</a>／<a href="#t12">T-12 発信者情報開示への案内</a></li>
+<li><a href="#t13a">T-13a 営業・提携（検討する場合のみ返信）</a>／<a href="#t13b">T-13b 営業・提携（お断り）</a></li>
+<li><a href="#t14a">T-14a 案件・紹介コード（範囲外の案内）</a>／<a href="#t14b">T-14b ゲーム自体への問い合わせ（対象外）</a></li>
+<li><a href="#t15">T-15 対応終了宣言</a>／<a href="#t16">T-16 返信不要・スパムの運用規定</a></li>
+<li><a href="#t17">T-17 催促・再送への返信</a>／<a href="#t18">T-18 広告のご報告</a>／<a href="#t19">T-19 ご意見・ご要望へのお礼</a></li>
+<li><a href="#esc">エスカレーション条件（定型で閉じない線引き）</a></li>
+</ul>
+</div>
+
+<h2 class="group">運用中</h2>
+
+<div class="card" id="t00">
+<h3>T-00 受付確認</h3>
+<div class="badges"><span class="badge b-auto">自動送信可</span><span class="badge b-live">運用中</span></div>
+<div class="meta"><b>条件：</b>返信先メールアドレスが記入されている場合のみ送信。スパム・宣伝・テスト送信・「返信不要」の送信には送らない。</div>
+<p class="subject">件名：お問い合わせを受け付けました</p>
+<div class="letter">{name} 様
+
+このたびは、ポイゲークエストへお問い合わせいただき、誠にありがとうございます。
+ご送信いただいた内容を受け付けいたしました。
+
+内容を確認のうえ、必要に応じて、ご記入いただいたメールアドレスへご連絡いたします。
+ご連絡までお時間をいただく場合がございますので、あらかじめご了承くださいますようお願い申し上げます。
+
+今後ともポイゲークエストをよろしくお願いいたします。
+
+ポイゲークエスト運営事務局</div>
+</div>
+
+<div class="card" id="k01">
+<h3>K-01 かわし定型（内側の事情を聞かれた場合）</h3>
+<div class="badges"><span class="badge b-draft">下書き</span><span class="badge b-live">運用中</span></div>
+<div class="meta"><b>使い方：</b>運営の体制・判断の詳細を直接聞かれた場合に、回答の下書きへ組み合わせて使う部分文。</div>
+<div class="letter">ご質問いただき、ありがとうございます。
+運営の体制や判断の詳細につきましては、ご案内を差し控えさせていただいております。
+ご案内できる範囲で対応いたしますので、ご用件をお知らせいただけますと幸いです。</div>
+</div>
+
+<h2 class="group">情報提供・誤り指摘</h2>
+
+<div class="card" id="t01a">
+<h3>T-01a 情報提供へのお礼（掲載した場合）</h3>
+<div class="badges"><span class="badge b-draft">下書き止まり</span></div>
+<div class="meta"><b>線引き：</b>掲載した事実と掲載先だけを伝える。裏取りの方法・判断基準の詳細は書かない。</div>
+<p class="subject">件名：情報提供のお礼と掲載のご連絡</p>
+<div class="letter">{name} 様
+
+このたびは、ポイゲークエストへ情報をお寄せいただき、誠にありがとうございます。
+
+お送りいただいた内容を確認し、{page}へ掲載いたしました。
+ご協力いただき、心よりお礼申し上げます。
+
+今後ともポイゲークエストをよろしくお願いいたします。
+
+ポイゲークエスト運営事務局</div>
+</div>
+
+<div class="card" id="t01b">
+<h3>T-01b 情報提供へのお礼（掲載を見送る場合）</h3>
+<div class="badges"><span class="badge b-draft">下書き止まり</span></div>
+<div class="meta"><b>線引き：</b>見送りの理由の詳細は書かない。「確認したが見送った」まで。</div>
+<p class="subject">件名：情報提供のお礼</p>
+<div class="letter">{name} 様
+
+このたびは、ポイゲークエストへ情報をお寄せいただき、誠にありがとうございます。
+
+お送りいただいた内容は確認いたしましたが、現時点では掲載を見送らせていただきました。
+せっかくお寄せいただいたところ、申し訳ございません。
+いただいた情報は、今後の更新の参考にさせていただきます。
+
+今後ともポイゲークエストをよろしくお願いいたします。
+
+ポイゲークエスト運営事務局</div>
+</div>
+
+<div class="card" id="t02">
+<h3>T-02 誤り指摘・確認中の中間連絡</h3>
+<div class="badges"><span class="badge b-draft">下書き止まり</span></div>
+<div class="meta"><b>線引き：</b>「確認中」まで。修正の可否・時期は約束しない。</div>
+<p class="subject">件名：ご指摘の確認状況について</p>
+<div class="letter">{name} 様
+
+このたびは、ポイゲークエストへお問い合わせいただき、誠にありがとうございます。
+また、掲載内容の誤りのご指摘をいただき、重ねてお礼申し上げます。
+
+ご指摘いただいた{page}の内容につきまして、現在確認を進めております。
+確認が終わり次第、必要に応じて修正し、改めてご連絡いたします。
+
+今後ともポイゲークエストをよろしくお願いいたします。
+
+ポイゲークエスト運営事務局</div>
+</div>
+
+<div class="card" id="t03">
+<h3>T-03 誤り指摘・修正完了の報告</h3>
+<div class="badges"><span class="badge b-draft">下書き止まり</span></div>
+<p class="subject">件名：掲載内容の修正完了のご連絡</p>
+<div class="letter">{name} 様
+
+このたびは、掲載内容の誤りをご指摘いただき、誠にありがとうございます。
+
+ご指摘いただいた{page}につきまして、内容を確認し、修正いたしました。
+ご不便をおかけし、申し訳ございませんでした。
+
+他にもお気づきの点がございましたら、お知らせいただけますと幸いです。
+
+今後ともポイゲークエストをよろしくお願いいたします。
+
+ポイゲークエスト運営事務局</div>
+</div>
+
+<div class="card" id="t04">
+<h3>T-04 誤り指摘・確認したが相違なかった場合</h3>
+<div class="badges"><span class="badge b-draft">下書き止まり</span></div>
+<div class="meta"><b>線引き：</b>断定しすぎず、時期・状況で異なる可能性を残す。再度の連絡の余地を閉ざさない。</div>
+<p class="subject">件名：ご指摘内容の確認結果について</p>
+<div class="letter">{name} 様
+
+このたびは、ポイゲークエストへお問い合わせいただき、誠にありがとうございます。
+
+ご指摘いただいた{page}の内容につきまして確認いたしましたところ、現在の掲載内容で相違ないことを確認いたしました。
+ご心配をおかけし、申し訳ございません。
+
+なお、ご覧になった時期や状況により、内容が異なる場合もございます。
+お気づきの点がございましたら、改めてお知らせいただけますと幸いです。
+
+今後ともポイゲークエストをよろしくお願いいたします。
+
+ポイゲークエスト運営事務局</div>
+</div>
+
+<h2 class="group">質問・出典・追加情報</h2>
+
+<div class="card" id="t05">
+<h3>T-05 出典の質問</h3>
+<div class="badges"><span class="badge b-draft">下書き止まり</span><span class="badge b-live">承認済み文面</span></div>
+<div class="meta"><b>線引き：</b>独自の調査と利用者からの情報提供をもとにしている旨まで。個別の参照先は案内しない。</div>
+<p class="subject">件名：Re: 情報の出典について</p>
+<div class="letter">{name} 様
+
+このたびは、ポイゲークエストへお問い合わせいただき、誠にありがとうございます。
+
+掲載内容につきましては、独自の調査と、利用者の皆様からお寄せいただいた情報提供をもとに、確認のうえ掲載しております。個別の参照先の詳細につきましては、ご案内を差し控えておりますので、あらかじめご了承くださいますようお願い申し上げます。
+
+内容に誤りにお気づきの場合は、該当ページとあわせてお知らせいただけますと幸いです。確認のうえ、対応いたします。
+
+今後ともポイゲークエストをよろしくお願いいたします。
+
+ポイゲークエスト運営事務局</div>
+</div>
+
+<div class="card" id="t06">
+<h3>T-06 掲載内容への質問への回答（枠）</h3>
+<div class="badges"><span class="badge b-draft">下書き止まり</span></div>
+<div class="meta"><b>線引き：</b>｛answer｝には公開されている掲載内容の範囲の事実だけを書く。掲載内容にない事項、内部の判断・基準は書かない。</div>
+<p class="subject">件名：ご質問への回答</p>
+<div class="letter">{name} 様
+
+このたびは、ポイゲークエストへお問い合わせいただき、誠にありがとうございます。
+
+ご質問いただいた件につきまして、ご案内いたします。
+
+{answer}
+
+他にもお気づきの点がございましたら、お知らせいただけますと幸いです。
+
+今後ともポイゲークエストをよろしくお願いいたします。
+
+ポイゲークエスト運営事務局</div>
+</div>
+
+<div class="card" id="t07">
+<h3>T-07 追加情報の依頼（情報不足）</h3>
+<div class="badges"><span class="badge b-draft">下書き止まり</span></div>
+<div class="meta"><b>想定：</b>対象ページ・箇所が特定できず、確認に入れない場合。</div>
+<p class="subject">件名：内容確認のための追加のお願い</p>
+<div class="letter">{name} 様
+
+このたびは、ポイゲークエストへお問い合わせいただき、誠にありがとうございます。
+
+ご連絡いただいた内容を確認するため、差し支えなければ、次の点をお知らせいただけますでしょうか。
+
+・対象のページ（URLまたはページ名）
+・該当する箇所と、具体的な内容
+・不具合のご報告の場合は、ご利用の端末・ブラウザと、発生した日時
+
+お手数をおかけし恐縮ですが、ご協力いただけますと幸いです。
+
+今後ともポイゲークエストをよろしくお願いいたします。
+
+ポイゲークエスト運営事務局</div>
+</div>
+
+<h2 class="group">削除・権利・個人情報</h2>
+
+<div class="card" id="t08a">
+<h3>T-08a 自分の投稿の削除依頼・本人確認の案内</h3>
+<div class="badges"><span class="badge b-draft">下書き止まり</span></div>
+<div class="meta"><b>線引き：</b>本人確認が取れるまでは削除しない・削除したとも言わない。</div>
+<p class="subject">件名：投稿の削除に関するご案内</p>
+<div class="letter">{name} 様
+
+このたびは、ポイゲークエストへお問い合わせいただき、誠にありがとうございます。
+投稿の削除のご依頼を承りました。
+
+ご本人様からのご依頼であることを確認するため、対象の投稿が分かる情報（対象ページ、投稿日時、投稿時の表示名）をお知らせいただけますでしょうか。
+確認が取れ次第、対応いたします。
+
+なお、ご本人様確認が取れない場合は、対応いたしかねる場合がございます。あらかじめご了承くださいますようお願い申し上げます。
+
+今後ともポイゲークエストをよろしくお願いいたします。
+
+ポイゲークエスト運営事務局</div>
+</div>
+
+<div class="card" id="t08b">
+<h3>T-08b 自分の投稿の削除完了</h3>
+<div class="badges"><span class="badge b-draft">下書き止まり</span></div>
+<p class="subject">件名：投稿の削除完了のご連絡</p>
+<div class="letter">{name} 様
+
+このたびは、ポイゲークエストへお問い合わせいただき、誠にありがとうございます。
+
+ご依頼いただいた投稿につきまして、削除が完了いたしましたので、ご連絡いたします。
+
+今後ともポイゲークエストをよろしくお願いいたします。
+
+ポイゲークエスト運営事務局</div>
+</div>
+
+<div class="card" id="t09">
+<h3>T-09 権利関係の申し出・受領連絡</h3>
+<div class="badges"><span class="badge b-draft">下書き止まり</span></div>
+<div class="meta"><b>線引き：</b>受付と確認中である旨まで。削除・対応の可否には一切触れない。</div>
+<p class="subject">件名：権利に関するお申し出の受付について</p>
+<div class="letter">{name} 様
+
+このたびは、ポイゲークエストへご連絡いただき、ありがとうございます。
+
+お申し出の内容を受け付けいたしました。
+内容を確認のうえ、対応を検討いたします。
+
+確認のため、次の情報が不足している場合は、追加でお知らせいただけますと幸いです。
+
+・対象となるページのURL
+・権利の内容（著作権・商標権など）と、権利者様とのご関係
+・問題となる箇所の具体的な内容
+
+なお、本メールは受付のご連絡であり、対応の可否をお約束するものではございません。あらかじめご了承くださいますようお願い申し上げます。
+
+ポイゲークエスト運営事務局</div>
+</div>
+
+<div class="card" id="t10a">
+<h3>T-10a 権利関係・結果通知（対応した場合）</h3>
+<div class="badges"><span class="badge b-draft">下書き止まり</span><span class="badge b-esc">エスカレーション必須</span></div>
+<div class="meta"><b>条件：</b>対応（削除・修正）が実施された後にのみ使う。</div>
+<p class="subject">件名：権利に関するお申し出への対応完了のご連絡</p>
+<div class="letter">{name} 様
+
+このたびは、ポイゲークエストへご連絡いただき、ありがとうございます。
+
+お申し出いただいた{page}につきまして、ご指摘の箇所を対応いたしましたので、ご連絡いたします。
+
+ご連絡いただき、ありがとうございました。
+
+ポイゲークエスト運営事務局</div>
+</div>
+
+<div class="card" id="t10b">
+<h3>T-10b 権利関係・結果通知（対応できない場合）</h3>
+<div class="badges"><span class="badge b-draft">下書き止まり</span><span class="badge b-esc">エスカレーション必須</span></div>
+<div class="meta"><b>線引き：</b>理由の詳細・法的見解は文面に出さない。</div>
+<p class="subject">件名：権利に関するお申し出へのご連絡</p>
+<div class="letter">{name} 様
+
+このたびは、ポイゲークエストへご連絡いただき、ありがとうございます。
+
+お申し出の内容を確認いたしましたが、現時点ではご希望に沿う対応はいたしかねる結果となりました。
+ご理解いただけますと幸いです。
+
+ポイゲークエスト運営事務局</div>
+</div>
+
+<div class="card" id="t11">
+<h3>T-11 個人情報の開示・訂正・削除請求・手続き案内</h3>
+<div class="badges"><span class="badge b-draft">下書き止まり</span></div>
+<div class="meta"><b>線引き：</b>その場で開示・削除はしない。本人確認と対象特定のための案内まで。</div>
+<p class="subject">件名：個人情報に関するお手続きのご案内</p>
+<div class="letter">{name} 様
+
+このたびは、ポイゲークエストへご連絡いただき、ありがとうございます。
+個人情報に関するご請求を承りました。
+
+ご本人様確認が必要なお手続きとなりますため、まずは、ご請求の対象となる情報（ご投稿・お問い合わせの内容、日時など、対象を特定できる情報）をお知らせいただけますでしょうか。
+確認のうえ、お手続きの進め方をご案内いたします。
+
+なお、ご本人様確認が取れない場合は、対応いたしかねる場合がございます。あらかじめご了承くださいますようお願い申し上げます。
+
+ポイゲークエスト運営事務局</div>
+</div>
+
+<div class="card" id="t12">
+<h3>T-12 発信者情報開示請求への案内</h3>
+<div class="badges"><span class="badge b-draft">下書き止まり</span><span class="badge b-esc">エスカレーション必須</span></div>
+<div class="meta"><b>線引き：</b>フォームでは受け付けない。書面手続きの案内まで。開示の可否には触れない。</div>
+<p class="subject">件名：発信者情報の開示に関するご案内</p>
+<div class="letter">{name} 様
+
+このたびは、ポイゲークエストへご連絡いただき、ありがとうございます。
+発信者情報の開示に関するご連絡を承りました。
+
+発信者情報の開示につきましては、法令に基づくお手続きが必要となりますため、本フォームではお受けしておりません。
+お手数ですが、所定の手続きによりご請求いただけますようお願い申し上げます。
+
+ご不明な場合は、弁護士等の専門家へご相談されることをおすすめいたします。
+
+ポイゲークエスト運営事務局</div>
+</div>
+
+<h2 class="group">営業・範囲外・その他</h2>
+
+<div class="card" id="t13a">
+<h3>T-13a 営業・提携・広告掲載（検討する場合のみ返信）</h3>
+<div class="badges"><span class="badge b-none">原則は無返信</span><span class="badge b-draft">送る場合は下書き</span></div>
+<div class="meta"><b>線引き：</b>営業類型への自動返信はしない。返信するかどうか自体を確認のうえ判断する。</div>
+<p class="subject">件名：ご提案の受付について</p>
+<div class="letter">ご提案をいただき、ありがとうございます。
+
+内容を確認し、検討する場合のみ、改めてご連絡いたします。
+ご連絡がない場合は、ご縁がなかったものとしてご了承いただけますと幸いです。
+
+ポイゲークエスト運営事務局</div>
+</div>
+
+<div class="card" id="t13b">
+<h3>T-13b 営業・提携・広告掲載（お断り）</h3>
+<div class="badges"><span class="badge b-none">原則は無返信</span><span class="badge b-draft">送る場合は下書き</span></div>
+<div class="meta"><b>線引き：</b>理由の詳細は書かず短く1通。繰り返しの場合は送らない。</div>
+<p class="subject">件名：ご提案について</p>
+<div class="letter">ご提案をいただき、ありがとうございます。
+
+誠に恐れ入りますが、今回はご提案をお受けいたしかねる結果となりました。
+せっかくご連絡いただいたところ、申し訳ございません。
+
+ポイゲークエスト運営事務局</div>
+</div>
+
+<div class="card" id="t14a">
+<h3>T-14a ポイ活案件・紹介コード（受け付け範囲外の案内）</h3>
+<div class="badges"><span class="badge b-draft">下書き止まり</span></div>
+<div class="meta"><b>線引き：</b>金額・条件の変更は約束しない。成果・付与の判定は各ポイントサイト側。「掲載内容が事実と違う」という指摘は誤り報告として受け付ける余地を残す。</div>
+<p class="subject">件名：ポイ活案件に関するお問い合わせについて</p>
+<div class="letter">{name} 様
+
+このたびは、ポイゲークエストへお問い合わせいただき、誠にありがとうございます。
+
+ポイ活案件の金額・条件・紹介コードにつきましては、各ポイントサイト・サービス側で定められているものであり、当サイトでは変更や追加の受け付けを行っておりません。
+
+また、ポイントの付与や成果の判定につきましても、各ポイントサイト・サービス側の判断となります。
+お手数ですが、詳細はご利用のポイントサイト・サービスへお問い合わせいただけますようお願い申し上げます。
+
+なお、掲載内容に事実と異なる点がございましたら、対象ページとあわせてお知らせいただけますと幸いです。確認のうえ、対応いたします。
+
+今後ともポイゲークエストをよろしくお願いいたします。
+
+ポイゲークエスト運営事務局</div>
+</div>
+
+<div class="card" id="t14b">
+<h3>T-14b ゲーム自体への問い合わせ（対象外の案内）</h3>
+<div class="badges"><span class="badge b-draft">下書き止まり</span></div>
+<div class="meta"><b>想定：</b>ゲームの不具合、データの引き継ぎ、課金、アカウントに関する連絡。</div>
+<p class="subject">件名：ゲームに関するお問い合わせについて</p>
+<div class="letter">{name} 様
+
+このたびは、ポイゲークエストへお問い合わせいただき、誠にありがとうございます。
+
+当サイトは、ゲームの攻略情報を掲載する非公式の情報サイトです。
+ゲームの不具合、データの引き継ぎ、課金、アカウントに関するお問い合わせにつきましては、当サイトでは対応いたしかねます。
+
+お手数ですが、各ゲームの公式サポートへお問い合わせいただけますようお願い申し上げます。
+
+今後ともポイゲークエストをよろしくお願いいたします。
+
+ポイゲークエスト運営事務局</div>
+</div>
+
+<div class="card" id="t15">
+<h3>T-15 強い調子の連絡への対応終了宣言</h3>
+<div class="badges"><span class="badge b-draft">下書き止まり</span><span class="badge b-esc">エスカレーション必須</span></div>
+<div class="meta"><b>線引き：</b>出すかどうか自体を確認のうえ判断する。事務的に1通のみ。相手の主張への反論・評価は書かない。危害予告・恐喝等にはこの文面を送らず、記録のうえ上位判断へ上げる。</div>
+<p class="subject">件名：本件への対応について</p>
+<div class="letter">ご連絡いただいた内容は拝見いたしました。
+
+本件への対応は、本メールをもって終了とさせていただきます。
+同内容のご連絡につきましては、今後ご返信いたしかねますので、あらかじめご了承ください。
+
+ポイゲークエスト運営事務局</div>
+</div>
+
+<div class="card" id="t16">
+<h3>T-16 返信不要・スパム等の運用規定（文面なし）</h3>
+<div class="badges"><span class="badge b-none">無返信</span></div>
+<ul class="rule">
+<li>「返信不要」と明示された意見・感想：返信しない。受付確認（T-00）も送らない。内容の仕分け・要約のみ記録する。</li>
+<li>スパム・宣伝・自動送信・無関係な内容・テスト送信：返信しない。通知もしない。本文中のリンクは開かない。</li>
+<li>同一の営業・勧誘の繰り返し：初回のみ T-13 の判断対象とし、2回目以降は無返信。</li>
+<li>誹謗中傷のみで具体的な用件がないもの：原則無返信で記録のみ。終了宣言（T-15）を出すかは個別判断。</li>
+</ul>
+</div>
+
+<div class="card" id="t17">
+<h3>T-17 催促・再送への返信</h3>
+<div class="badges"><span class="badge b-draft">下書き止まり</span></div>
+<p class="subject">件名：ご連絡の確認状況について</p>
+<div class="letter">{name} 様
+
+このたびは、ポイゲークエストへお問い合わせいただき、誠にありがとうございます。
+また、ご返信までお時間をいただき、申し訳ございません。
+
+いただいた内容は受け付けており、現在確認を進めております。
+確認が終わり次第、ご連絡いたしますので、今しばらくお待ちいただけますと幸いです。
+
+今後ともポイゲークエストをよろしくお願いいたします。
+
+ポイゲークエスト運営事務局</div>
+</div>
+
+<div class="card" id="t18">
+<h3>T-18 広告に関するご報告へのお礼と案内</h3>
+<div class="badges"><span class="badge b-draft">下書き止まり</span></div>
+<div class="meta"><b>線引き：</b>広告内容は配信側で決まる旨まで。配信事業者名・契約条件など内側の事情は出さない。</div>
+<p class="subject">件名：広告に関するご報告について</p>
+<div class="letter">{name} 様
+
+このたびは、ポイゲークエストへお問い合わせいただき、誠にありがとうございます。
+広告に関するご報告をいただき、重ねてお礼申し上げます。
+
+掲載されている広告は、広告配信サービスを通じて配信されているもので、内容は配信側で決まりますため、当サイトで個別の広告内容を指定することはできません。
+いただいたご報告は、今後の確認の参考にさせていただきます。
+
+差し支えなければ、表示されたページと日時をお知らせいただけますと幸いです。
+
+今後ともポイゲークエストをよろしくお願いいたします。
+
+ポイゲークエスト運営事務局</div>
+</div>
+
+<div class="card" id="t19">
+<h3>T-19 ご意見・ご要望へのお礼</h3>
+<div class="badges"><span class="badge b-draft">下書き止まり</span></div>
+<p class="subject">件名：ご意見・ご要望のお礼</p>
+<div class="letter">{name} 様
+
+このたびは、ポイゲークエストへご意見・ご要望をお寄せいただき、誠にありがとうございます。
+
+いただいた内容は、今後のサイト運営の参考にさせていただきます。
+なお、ご意見・ご要望への個別のご返信はいたしかねる場合がございます。あらかじめご了承くださいますようお願い申し上げます。
+
+今後ともポイゲークエストをよろしくお願いいたします。
+
+ポイゲークエスト運営事務局</div>
+</div>
+
+<h2 class="group">エスカレーション条件</h2>
+
+<div class="card" id="esc">
+<h3>定型で閉じず、上位判断へ上げる線引き</h3>
+<ul class="rule">
+<li><b>権利関係：</b>権利者本人または弁護士・代理人を名乗り、対象URLと根拠資料が揃っている申告。公的機関からの照会、内容証明・訴訟予告を含むもの。個人情報の晒し等、先行対応を検討すべきもの。</li>
+<li><b>個人情報：</b>本人確認書類が提出された開示・削除請求。当サイトから個人情報が漏れた可能性を示す指摘。</li>
+<li><b>強い調子の連絡：</b>殺害・危害の予告、自傷・他害のほのめかし、住所等を特定した脅し（返信せず証拠保全）。暴露を条件に金銭・特別対応を要求するもの。同一人物から同内容が3回以上。</li>
+<li><b>営業・事業者：</b>案件提供元・広告事業者からの条件変更、掲載停止、成果否認に関する連絡。契約判断が必要なもの。</li>
+<li><b>事実関係：</b>金額・条件の誤り指摘が複数件・複数ページに及ぶもの。当サイトの記載が原因で金銭的損害を受けたという申し出。</li>
+</ul>
+</div>
+
+<footer>ポイゲークエスト運営事務局 ／ フォーム返信テンプレート集・確認用プレビュー（本番未反映）</footer>
+
+</div>
+</body>
+</html>
