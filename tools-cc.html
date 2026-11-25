@@ -285,12 +285,12 @@ body{padding-bottom:86px}
 <div class="crumbs"><a href="index.html">トップ</a> ＞ <a href="index.html">ゲーム一覧</a> ＞ <a href="index.html">パズル＆サバイバル</a> ＞ <b>CC必要資源計算機</b></div>
 
 <div class="ghead"><img src="img/app-icon.jpg" alt="パズル＆サバイバル" loading="lazy"><div><h1>パズル＆サバイバル<br>CC必要資源計算機</h1><div class="gmeta">37GAMES｜iOS/Android｜計算ツール</div></div></div>
-<p class="dates"><span>最終確認日：<b>2026年11月25日</b></span></p>
+<p class="dates"><span>更新日：<b>2026年11月25日</b></span></p>
 <div class="hero-img"><img src="img/building-headquarters.webp" alt="コントロールセンター（本部）" loading="lazy"><div class="cap">コントロールセンター（CC）。レベルを上げるほど必要資源と前提施設が一気に重くなります。</div></div>
 <p class="lead">CC（コントロールセンター）のレベル区間を選ぶと、建築装備（建築士セット）と英雄の削減スキルを差し引いた「実際に必要な資源」と合計建造時間を計算します。計算式はゲーム内の表示式に合わせています。</p>
 <div class="blk"><div class="sub">このツールの対象範囲</div>
 <div class="chips"><span class="bd bd-info">対応：CC Lv15〜35へのアップグレード</span><span class="bd bd-gray">対象外：Lv1〜14／Lv36〜45</span><span class="bd bd-warn">集計はCC本体のみ</span></div>
-<ul class="pts"><li>前提建築（城壁・各施設）のコスト基礎データが未取得のため、<b>前提建築分は集計に含みません</b>。前提の名前だけ明細に併記します</li><li>ナノ炭素繊維管は基礎個数が未取得のため<b>計算対象外</b>です</li><li>Lv31〜35の資源量は計算ツールの表示値から復元した<b>概数</b>です</li></ul></div>
+<ul class="pts"><li>前提建築（城壁・各施設）のコスト基礎データが未取得のため、<b>前提建築分は集計に含みません</b>。前提の名前だけ明細に併記します</li><li>ナノ炭素繊維管は基礎個数が未取得のため<b>計算対象外</b>です</li><li>Lv31〜35の資源量は表示値から復元した<b>概数</b>です</li></ul></div>
 
 <div class="sec"><div class="sec-head navy"><h2>条件を入力する</h2><span class="cnt">3ステップ</span></div>
 
@@ -321,7 +321,7 @@ body{padding-bottom:86px}
 <div class="result-head"><div class="rh-title" id="resTitle">CC 14 → 22 の合計必要資源</div><div class="rh-sub">削減適用後の実際に必要な量です。「基準」は削減前の基礎量の合計です。</div></div>
 <div class="res-grid" id="resGrid"></div>
 <div class="time-big"><div class="tl2">合計建造時間（バフ適用後）</div><div class="tv2" id="resTime">—</div><div class="ts2" id="resTimeSub"></div></div>
-<div class="trust"><span class="bd bd-info">データ確認日 2026-11-25</span><span class="bd bd-buy">出典：実機表示と照合済みの計算ツールデータ</span><span class="bd bd-gray" id="approxBadge">Lv31〜35は概数</span></div>
+<div class="trust"><span class="bd bd-info">更新日 2026-11-25</span><span class="bd bd-gray" id="approxBadge">Lv31〜35は概数</span></div>
 <div class="copy-row"><button type="button" class="btn primary" id="copyUrl">この条件のURLをコピー</button> <span class="note" id="copyMsg"></span></div>
 </div>
 <div class="detail-wrap"><div class="acc" id="detailAcc"><button type="button">Lv別明細・前提を見る <span class="pm">＋</span></button><div class="acc-body" style="padding:0"><div class="tscroll" style="padding:0"><table id="detailTable"></table></div><p class="cnote" style="padding:6px 10px">各セルは「削減後の値」と、その下に削減量を表示しています。前提には常に城壁Lv（目標−1）も含まれます。Lv31〜35の資源量は概数です。</p></div></div></div>
@@ -331,7 +331,7 @@ body{padding-bottom:86px}
 <div class="card"><h4>計算式（ゲーム内式）</h4><div class="formula">最終量 ＝ max(0, 切り上げ(基礎量 × (1 − 割合削減% ÷ 100)) − (装備定額 ＋ 英雄定額))</div>
 <ul><li><b>適用順序</b>：①割合削減（装備の%のみ）を基礎量に掛けて切り上げ → ②定額（装備＋英雄）を引く → ③0未満は0に丸める、の順です</li><li><b>割合削減</b>は建築装備の%だけです。英雄スキルに割合削減はありません</li><li><b>建造時間</b>：合計基礎時間 ÷ (1 ＋ 建造速度バフ% ÷ 100) を切り上げます。固定短縮（秒数短縮）は扱いません。全6部位★7のとき、セットボーナスとして建造速度+60%をバフに加算します</li></ul></div>
 <div class="card"><h4>上級素材の扱い</h4><ul><li><b>機密図</b>：英雄の定額は効きません。効くのは装備の機密図%（★7の部位1つにつき5%、最大30%）だけです。基礎個数は Lv31＝2,000／32＝4,000／33＝6,000／34＝8,000／35＝10,000、その他のLvは0です</li><li><b>ナノ炭素繊維管</b>：基礎個数が未取得のため計算対象外です</li></ul></div>
-<div class="card"><h4>対象外・注意</h4><ul><li>対応範囲は <b>Lv15〜35へのアップグレード分のみ</b>。Lv1〜14とLv36〜45は基礎データ未取得のため対象外です</li><li>前提建築のコストは含みません（CC本体のみの集計）</li><li>Lv31〜35の資源量は計算ツールの表示値から復元した概数です。実機の最終確認を推奨します</li></ul></div>
+<div class="card"><h4>対象外・注意</h4><ul><li>対応範囲は <b>Lv15〜35へのアップグレード分のみ</b>。Lv1〜14とLv36〜45は基礎データ未取得のため対象外です</li><li>前提建築のコストは含みません（CC本体のみの集計）</li><li>Lv31〜35の資源量は表示値から復元した概数です。実機の最終確認を推奨します</li></ul></div>
 </div></div>
 
 <div class="sec"><div class="sec-head navy"><h2>関連リンク</h2></div><div class="blk">
