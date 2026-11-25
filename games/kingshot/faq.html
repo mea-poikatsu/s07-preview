@@ -256,6 +256,25 @@ a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
 .xmedia-card{display:block;background:#F0ECFA;border-radius:10px;padding:12px 14px;margin:0 0 8px;text-decoration:none}
 .xmedia-card-name{display:block;font-size:14px;font-weight:700;color:#463a75}
 .xmedia-card-desc{display:block;font-size:12px;color:#555;margin-top:2px;line-height:1.5}
+
+/* 画像部品（生成器の keyart／figure／shots／icongrid。仕様は EXPANSION_BASE/IMAGE_PARTS.md）
+   .fig／.figc／.shotrow／.fcap は既存定義をそのまま使う。ここでは枠の外形と
+   画像が無い場合のプレースホルダだけを定義する */
+.keyart{margin:2px 0 4px}
+.keyart img{width:100%;height:auto;display:block}
+.keyart-noimg{display:flex;align-items:center;justify-content:center;aspect-ratio:16/9;background:linear-gradient(135deg,#dcebfb,#f2f7fd);color:#3977b8}
+.keyart-noimg span{font-size:44px;font-weight:900;opacity:.45}
+.fig-noimg{display:flex;align-items:center;justify-content:center;aspect-ratio:16/9;background:#f2f7fd;border:1px dashed #bcd6f2;border-radius:10px;color:#7aa5cf;font-size:12px;font-weight:700}
+.shots{padding:0 12px}
+.icongrid{display:grid;gap:10px 8px;padding:2px 12px 4px}
+.icongrid.cols3{grid-template-columns:repeat(3,1fr)}
+.icongrid.cols4{grid-template-columns:repeat(4,1fr)}
+.icongrid .ig-item{display:block;text-decoration:none;color:#444}
+.icongrid .ig-item img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:top center;border-radius:12px;display:block;background:#eef3f9}
+.icongrid .ig-noimg{display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;border-radius:12px;background:linear-gradient(135deg,#dcebfb,#f2f7fd);color:#3977b8}
+.icongrid .ig-noimg span{font-size:26px;font-weight:900;opacity:.5}
+.icongrid .ig-label{font-size:11.5px;font-weight:800;text-align:center;margin-top:4px;line-height:1.3}
+.icongrid .ig-sub{font-size:10px;color:#999;text-align:center;line-height:1.3}
 </style></head>
 <body><div class="page">
 <header class="header">
@@ -269,6 +288,7 @@ a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
 <div class="ghead"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a5/64/dc/a564dcf6-cac2-946b-0032-fb9dc7ab9432/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt=""><div><h1>FAQ・つまずき</h1>
 <div class="gmeta">キングショット（Century Games）／iOS/Android</div>
 <div class="gmax">ポイ活案件 最大215,469円（Freecash・iOS版）</div></div></div>
+
 <div class="dates"><span>更新日：<b>2026-11-26</b></span></div>
 
 <section class="sec" id="faq"><div class="sec-head"><h2>よくある質問</h2></div><div class="acc"><button>リセマラは必要ですか？<span class="pm">＋</span></button><div class="acc-body">不要です。ガチャ解放まで時間がかかるうえ、強力な騎兵のジェベルがログイン2日目に無料で入手できます。リセマラよりチャプターと役場を進める方が到達が早くなります。</div></div><div class="acc"><button>無課金で役場Lv30まで到達できますか？<span class="pm">＋</span></button><div class="acc-body">到達報告は2026-11-26の収集では確認できていません。役場の基礎時間の累積（Lv30単体で40日超、前提側も含めると35日期限を大きく超える）からは、加速アイテムと同盟支援を総動員する前提の設計と推定されます。到達可否を断定できる材料はないため、「未確認」として扱います。途中ステップでもポイントは入るため、撤退ラインを先に決めて始めるのが安全です。</div></div><div class="acc"><button>学院はいつ解放されますか？<span class="pm">＋</span></button><div class="acc-body">国内ガイドは役場8、海外の役場要件表では役場9の解放物とされており、出典で食い違っています。「役場8〜9で使えるようになる」と見てください。</div></div><div class="acc"><button>英雄レベルの上限80はいつ解放されますか？<span class="pm">＋</span></button><div class="acc-body">国内ガイドは役場25、海外ガイドは役場26としており未確定です。ポイ活期間の進行には大きく影響しません。</div></div><div class="acc"><button>iOSでギフトコードを交換するには？<span class="pm">＋</span></button><div class="acc-body">ゲーム内のギフトコードボタンはAndroidのみとする出典が複数あります。iOSは公式ウェブ「Gift Code Center」でプレイヤーIDとコードを入力してください（報酬はゲーム内メールに届きます）。</div></div><div class="acc"><button>条件達成の判定タイミングは？<span class="pm">＋</span></button><div class="acc-body">「レベルアップ完了時ではなく建設開始のタイミングで達成扱いになった」という実践報告がありますが、判定仕様は案件ごとに異なります。自分の参加する案件の条件表記を確認してください。</div></div><div class="acc"><button>外部ツール（自動化・マクロ）は使えますか？<span class="pm">＋</span></button><div class="acc-body">公式の明文は確認できていません。海外の効率ガイドも「ゲーム内手段のみ」を前提にしており、当サイトでは自動化ツールの利用は推奨しません。</div></div><div class="acc"><button>どこで区切るのが良いですか？<span class="pm">＋</span></button><div class="acc-body">StepUp型は到達した段階分だけポイントが入ります。ワラウ集計では「Lv16までは余裕、Lv20は短期集中が必要」という整理があり、中途半端なプレイならLv16での区切りも選択肢です。課金800円のみの実践報告では「Lv24で区切るのが最も効率が良い」という結論でした。</div></div></section><section class="sec" id="trouble"><div class="sec-head"><h2>つまずきと対処</h2></div><div class="blk"><h3>資源が足りずに止まる</h3><p>役場Lv15を超えると要求資源が急増し、領地内の生産だけでは賄えません。対処は、高レベル資源地への採集部隊の常時派遣と、巨熊狩猟などのイベント報酬です。特に鉄鉱の不足が口コミで名指しされています。在庫バランスの目安は「パン20：木材20：石材4：鉄1」です。</p></div><div class="blk"><h3>役場が前提待ちで止まる</h3><p>Lv16以降は前提建物の基礎時間自体が1日を超えます。第2建築枠で前提ローテーション（大使館＋兵営／射撃場／騎兵営／学院）を先行建築してください。前提の順序は「役場の上げ方・要件表」にまとめています。</p></div><div class="blk"><h3>ポイントが反映されない</h3><p>トラッキング条件（案件ページをタップしてから1時間以内に初回起動する等）を満たしていないと対象外になります。実践報告には、ポイントが反映されず問い合わせと広告IDの提出を経て後日全額反映された例もあります。まずは参加したサービスの案件ページで判定状態を確認してください。</p></div></section><section class="sec" id="related"><div class="sec-head"><h2>関連ページ</h2></div><ul class="rel"><li><a href="index.html">キングショット 攻略・案件まとめ</a></li><li><a href="joban.html">序盤の進め方</a></li><li><a href="towncenter.html">役場の上げ方・要件表</a></li><li><a href="heroes.html">英雄の育成・Tier</a></li><li><a href="alliance.html">同盟・巨熊狩猟・イベント</a></li><li><a href="giftcode.html">ギフトコード</a></li><li><a href="kakin.html">課金ステップと現実的プラン</a></li><li><a href="conditions.html">案件条件の詳細</a></li></ul></section>

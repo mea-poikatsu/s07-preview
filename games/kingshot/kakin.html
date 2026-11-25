@@ -256,6 +256,25 @@ a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
 .xmedia-card{display:block;background:#F0ECFA;border-radius:10px;padding:12px 14px;margin:0 0 8px;text-decoration:none}
 .xmedia-card-name{display:block;font-size:14px;font-weight:700;color:#463a75}
 .xmedia-card-desc{display:block;font-size:12px;color:#555;margin-top:2px;line-height:1.5}
+
+/* 画像部品（生成器の keyart／figure／shots／icongrid。仕様は EXPANSION_BASE/IMAGE_PARTS.md）
+   .fig／.figc／.shotrow／.fcap は既存定義をそのまま使う。ここでは枠の外形と
+   画像が無い場合のプレースホルダだけを定義する */
+.keyart{margin:2px 0 4px}
+.keyart img{width:100%;height:auto;display:block}
+.keyart-noimg{display:flex;align-items:center;justify-content:center;aspect-ratio:16/9;background:linear-gradient(135deg,#dcebfb,#f2f7fd);color:#3977b8}
+.keyart-noimg span{font-size:44px;font-weight:900;opacity:.45}
+.fig-noimg{display:flex;align-items:center;justify-content:center;aspect-ratio:16/9;background:#f2f7fd;border:1px dashed #bcd6f2;border-radius:10px;color:#7aa5cf;font-size:12px;font-weight:700}
+.shots{padding:0 12px}
+.icongrid{display:grid;gap:10px 8px;padding:2px 12px 4px}
+.icongrid.cols3{grid-template-columns:repeat(3,1fr)}
+.icongrid.cols4{grid-template-columns:repeat(4,1fr)}
+.icongrid .ig-item{display:block;text-decoration:none;color:#444}
+.icongrid .ig-item img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:top center;border-radius:12px;display:block;background:#eef3f9}
+.icongrid .ig-noimg{display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;border-radius:12px;background:linear-gradient(135deg,#dcebfb,#f2f7fd);color:#3977b8}
+.icongrid .ig-noimg span{font-size:26px;font-weight:900;opacity:.5}
+.icongrid .ig-label{font-size:11.5px;font-weight:800;text-align:center;margin-top:4px;line-height:1.3}
+.icongrid .ig-sub{font-size:10px;color:#999;text-align:center;line-height:1.3}
 </style></head>
 <body><div class="page">
 <header class="header">
@@ -269,6 +288,7 @@ a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
 <div class="ghead"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a5/64/dc/a564dcf6-cac2-946b-0032-fb9dc7ab9432/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt=""><div><h1>課金ステップと現実的プラン</h1>
 <div class="gmeta">キングショット（Century Games）／iOS/Android</div>
 <div class="gmax">ポイ活案件 最大215,469円（Freecash・iOS版）</div></div></div>
+
 <div class="dates"><span>更新日：<b>2026-11-26</b></span></div>
 <div class="tocwrap"><button type="button" class="tocbtn" aria-expanded="false">目次を開く<span class="pm">＋</span></button><nav class="toclist toc-closed"><a href="#steps">課金ステップの仕組み<span class="arr">›</span></a><a href="#plan">現実的課金プラン<span class="arr">›</span></a><a href="#gems">ジェム・加速の配分<span class="arr">›</span></a></nav></div>
 <section class="sec" id="steps"><div class="sec-head"><h2>課金ステップの仕組み</h2></div><p class="lead">国内StepUp型の課金ステップは段階制で、後段は「先に役場レベル到達」が条件です。順序を間違えて先に課金すると成果にならない構造なので、課金のタイミング管理が重要です。</p><div class="blk"><h3>ワラウの課金ステップ（公式の掲載値）</h3></div><div class="tscroll"><table><tr><th>条件</th><th>報酬</th></tr><tr><td>30日以内：800円以上1,600円未満の一括課金</td><td>800pt</td></tr><tr><td>30日以内：1,600円以上3,200円未満の一括課金</td><td>1,400pt</td></tr><tr><td>30日以内：役場Lv24到達後に3,200円以上5,000円未満の一括課金</td><td>3,400pt</td></tr><tr><td>30日以内：役場Lv28到達後に5,000円以上の一括課金</td><td>5,000pt</td></tr></table></div><p class="note" style="padding:0 12px">ハピタスの掲載も同型です（金額・ポイントは案件条件の詳細ページ参照）。「到達後」と付くステップは、対象レベルに到達してから課金してください。</p></section><section class="sec" id="plan"><div class="sec-head"><h2>現実的課金プラン</h2></div><div class="cards"><div class="card"><h4>裏付けがあるのは「第2建築枠」のみ</h4><ul><li>建設枠2枠の確保は「必須条件」級とされ、150円程度の微課金パックで増やせるという口コミ整理が複数ある</li><li>同額程度が還元されるステップがある案件では、相殺で持ち出しゼロ〜プラスになりやすい</li><li>前提建物の先行建築ができるようになり、役場Lv16以降の停滞を防げる</li></ul><p class="cnote">海外ガイドでは恒久パック（US$2.99）やジェム1,000個での2日間レンタルも案内されていますが、国内の150円級パックと同一商品かは未確認です。それ以外の課金（英雄・資源パック等）は、ポイ活期間での回収裏付けがないため現実的プランには入れていません。</p></div></div><div class="blk"><p>課金ステップ自体は「買うと報酬が課金額を上回るステップ」として案件側が設計しています。やるかどうかは、到達しているステップと残り期限を見て判断してください。実践報告では、課金800円のみ（上位の課金ステップは全て見送り）で役場Lv24を28日でクリアし、「微課金枠としてはLv24で区切るのが最も効率が良い」という整理もあります。</p></div></section><section class="sec" id="gems"><div class="sec-head"><h2>ジェム・加速の配分</h2></div><div class="blk"><p>10日期限型では「ダイヤは資源購入ではなく加速に全投入し、終盤の役場・大使館の長時間アップグレードを飛ばすために温存」が口コミの定石です。加速アイテムは「序盤は行軍枠が増えるLv12程度まで一気に使って採集効率を上げる→残りは建築時間が跳ね上がるLv17以降のために計算して使う」という配分論もあります。</p><p>一方、海外の無課金ガイドではジェムの優先先は「第2建築枠→行軍枠の拡張→英雄ルーレット」とされ、考え方が異なります。案件の期限（10日型か100日型か）で使い分けるのが現実的です。Freecash型には少額の課金枠（限定ステップ）も別立てであり、報酬が購入額の目安を下回らない設計のものがあります（実際の購入価格はストア表記で変わるため、収支の断定はしません）。</p></div></section><section class="sec" id="related"><div class="sec-head"><h2>関連ページ</h2></div><ul class="rel"><li><a href="index.html">キングショット 攻略・案件まとめ</a></li><li><a href="joban.html">序盤の進め方</a></li><li><a href="towncenter.html">役場の上げ方・要件表</a></li><li><a href="heroes.html">英雄の育成・Tier</a></li><li><a href="alliance.html">同盟・巨熊狩猟・イベント</a></li><li><a href="giftcode.html">ギフトコード</a></li><li><a href="conditions.html">案件条件の詳細</a></li><li><a href="faq.html">FAQ・つまずき</a></li></ul></section>

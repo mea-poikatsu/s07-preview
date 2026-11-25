@@ -256,6 +256,25 @@ a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
 .xmedia-card{display:block;background:#F0ECFA;border-radius:10px;padding:12px 14px;margin:0 0 8px;text-decoration:none}
 .xmedia-card-name{display:block;font-size:14px;font-weight:700;color:#463a75}
 .xmedia-card-desc{display:block;font-size:12px;color:#555;margin-top:2px;line-height:1.5}
+
+/* 画像部品（生成器の keyart／figure／shots／icongrid。仕様は EXPANSION_BASE/IMAGE_PARTS.md）
+   .fig／.figc／.shotrow／.fcap は既存定義をそのまま使う。ここでは枠の外形と
+   画像が無い場合のプレースホルダだけを定義する */
+.keyart{margin:2px 0 4px}
+.keyart img{width:100%;height:auto;display:block}
+.keyart-noimg{display:flex;align-items:center;justify-content:center;aspect-ratio:16/9;background:linear-gradient(135deg,#dcebfb,#f2f7fd);color:#3977b8}
+.keyart-noimg span{font-size:44px;font-weight:900;opacity:.45}
+.fig-noimg{display:flex;align-items:center;justify-content:center;aspect-ratio:16/9;background:#f2f7fd;border:1px dashed #bcd6f2;border-radius:10px;color:#7aa5cf;font-size:12px;font-weight:700}
+.shots{padding:0 12px}
+.icongrid{display:grid;gap:10px 8px;padding:2px 12px 4px}
+.icongrid.cols3{grid-template-columns:repeat(3,1fr)}
+.icongrid.cols4{grid-template-columns:repeat(4,1fr)}
+.icongrid .ig-item{display:block;text-decoration:none;color:#444}
+.icongrid .ig-item img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:top center;border-radius:12px;display:block;background:#eef3f9}
+.icongrid .ig-noimg{display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;border-radius:12px;background:linear-gradient(135deg,#dcebfb,#f2f7fd);color:#3977b8}
+.icongrid .ig-noimg span{font-size:26px;font-weight:900;opacity:.5}
+.icongrid .ig-label{font-size:11.5px;font-weight:800;text-align:center;margin-top:4px;line-height:1.3}
+.icongrid .ig-sub{font-size:10px;color:#999;text-align:center;line-height:1.3}
 </style></head>
 <body><div class="page">
 <header class="header">
@@ -269,6 +288,7 @@ a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
 <div class="ghead"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a5/64/dc/a564dcf6-cac2-946b-0032-fb9dc7ab9432/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt=""><div><h1>同盟・巨熊狩猟・イベント</h1>
 <div class="gmeta">キングショット（Century Games）／iOS/Android</div>
 <div class="gmax">ポイ活案件 最大215,469円（Freecash・iOS版）</div></div></div>
+
 <div class="dates"><span>更新日：<b>2026-11-26</b></span></div>
 <div class="tocwrap"><button type="button" class="tocbtn" aria-expanded="false">目次を開く<span class="pm">＋</span></button><nav class="toclist toc-closed"><a href="#join">同盟への加入<span class="arr">›</span></a><a href="#bear">巨熊狩猟<span class="arr">›</span></a><a href="#cycle">イベント周期の骨格<span class="arr">›</span></a><a href="#double">進捗との二重取り<span class="arr">›</span></a></nav></div>
 <section class="sec" id="join"><div class="sec-head"><h2>同盟への加入</h2></div><p class="lead">同盟は役場6で解放されます。解放直後に、活発な上位同盟へ加入することが到達の成否を分けます。</p><div class="blk"><p>国内ガイドの流れは「役場6で加入→役場8で支援を強める→役場10で集結面を伸ばす」です。同盟支援（ヘルプ）は建設・研究の時間を短縮するため、毎回送受するのが日課の基本動作になります。既存の実践でも「同盟レベル5以上・アクティブな同盟を選ぶ」ことが推奨されています。</p></div></section><section class="sec" id="bear"><div class="sec-head"><h2>巨熊狩猟（ベアトラップ）</h2></div><div class="blk"><p>同盟Lv5以上で開催される同盟イベントで、報酬は資源確保で最大級とされます（ワラウ利用者集計側でも最重要視）。2日に1回開催され、個人ダメージで報酬の段階が決まります。</p><ul><li>行軍を返したら即再送する「回転率」が勝負</li><li>編成は歩兵／弓兵 80／20 型の提示あり（海外ガイド）</li><li>病院の空きを保ち、負傷兵を再送しない</li><li>英雄の従者スキル（遠征スキル1）が集結の火力に効く</li></ul></div></section><section class="sec" id="cycle"><div class="sec-head"><h2>イベント周期の骨格</h2></div><div class="tscroll"><table><tr><th>周期</th><th>主なイベント</th></tr><tr><td>2日に1回</td><td>巨熊狩猟</td></tr><tr><td>毎週</td><td>同盟選手権（月曜開始）／英雄ホール（日曜〜火曜）／同盟決闘（6日間）</td></tr><tr><td>隔週</td><td>城戦（土曜）／剣の地対決（日曜）／英雄集結</td></tr><tr><td>約月1回・28日周期</td><td>王国の力（KvK）／三同盟衝突／最強領主・領主ホール／商人帝国</td></tr><tr><td>主要イベント連動</td><td>英雄ルーレット（3日間）</td></tr></table></div><p class="note" style="padding:0 12px">開催周期はサーバー年齢・世代で変わる観測パターンです。実際の開催はゲーム内のイベントタブで確認してください。初回の王国の力の後は「剣の地週→最強領主週→同盟総動員週→KvK準備週」の4週サイクルで回ります。</p></section><section class="sec" id="double"><div class="sec-head"><h2>進捗との二重取り</h2></div><div class="blk"><p>育成・建設・研究の実行は、対応するイベントのスコア期間に寄せると「進捗＋イベント点」の二重取りができます。最強領主／領主ホールは7日間・1日1ステージで、建設・研究・訓練・英雄育成など日替わりのカテゴリがスコア対象になるため、加速と資源の使用日をステージに合わせるのが定石です。王国の力（KvK）でも、準備フェーズのスコア日に建設・研究を寄せます。</p><p>逆に、スコア対象でない日に加速アイテムをまとめて使うのは効率が落ちます。加速は「イベントのスコア日」と「役場・前提の長時間アップグレード」の2か所に絞って使うのが基本です。</p></div></section><section class="sec" id="related"><div class="sec-head"><h2>関連ページ</h2></div><ul class="rel"><li><a href="index.html">キングショット 攻略・案件まとめ</a></li><li><a href="joban.html">序盤の進め方</a></li><li><a href="towncenter.html">役場の上げ方・要件表</a></li><li><a href="heroes.html">英雄の育成・Tier</a></li><li><a href="giftcode.html">ギフトコード</a></li><li><a href="kakin.html">課金ステップと現実的プラン</a></li><li><a href="conditions.html">案件条件の詳細</a></li><li><a href="faq.html">FAQ・つまずき</a></li></ul></section>
