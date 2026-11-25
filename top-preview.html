@@ -153,6 +153,26 @@ footer.site .sns{font-size:12.5px;display:flex;gap:14px;flex-wrap:wrap;margin-to
 .cmp-svc.top .cmp-amt{color:var(--navy);font-size:15.5px;font-weight:900}
 .cmp-svc.top .cmp-svcname{color:var(--navy);font-weight:800}
 .cmp-meta{font-size:11.5px;color:var(--mut)}
+.bigcta{margin-top:2px;background:linear-gradient(180deg,#fff8f0,#fff);border:1.5px solid #ffd9ae;border-radius:16px;padding:18px 14px 16px;text-align:center}
+.svctabs{display:flex;gap:6px;margin-bottom:14px}
+.svctabs button{flex:1;border:1px solid #ddd;background:#f7f7f7;border-radius:10px;padding:8px 2px;font-size:13px;font-weight:800;color:#777;cursor:pointer;font-family:inherit}
+.svctabs button .tt{display:block;font-size:10px;font-weight:700;color:#999;margin-top:2px}
+.svctabs button.on{background:#fff;color:#e05e00;border-color:#ff6900;box-shadow:0 2px 8px rgba(255,105,0,.18)}
+.svctabs button.on .tt{color:#e05e00}
+.cta-catch{font-weight:900;font-size:16.5px;color:#ff6900;letter-spacing:.02em;margin:0 0 12px;line-height:1.5}
+.cta-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(180deg,#ff8a3d,#ff6900);color:#fff;font-weight:900;font-size:17px;line-height:1.45;text-decoration:none;border-radius:999px;padding:16px 38px 15px 22px;position:relative;box-shadow:0 5px 0 #d15400,0 10px 22px rgba(255,105,0,.35)}
+.cta-btn .arr{position:absolute;right:20px;font-size:22px;font-weight:900}
+.cta-sub{margin:14px 0 0;font-size:14.5px;line-height:1.6}
+.cmp-svc.hl{background:#FFF4E0;border-radius:6px}
+.bd-info{background:#dcebfb;color:#2F5F8F}
+.bd-gray{background:#eceff3;color:#5b6b7d}
+.gtiles{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.gtile{display:flex;align-items:center;gap:10px;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:13px 12px;color:var(--ink)}
+.gtile .gt-ic{font-size:22px}
+.gtile .gt-name{font-weight:800;font-size:14.5px;display:block}
+.gtile .gt-desc{font-size:11.5px;color:var(--mut);display:block;margin-top:2px;line-height:1.5}
+.gtile .gt-arr{margin-left:auto;color:#463a75;font-weight:900}
+.b7{background:linear-gradient(135deg,#3977B8,#2F5F8F)}.b8{background:linear-gradient(135deg,#c96a1e,#8a4510)}
 .sim{background:var(--green);border:1px solid #bfe3cc;border-radius:12px;padding:13px 14px;margin-top:12px}
 .sim-title{font-weight:800;font-size:13.5px;color:#137333;margin-bottom:5px}
 .sim-body{font-size:13.5px;margin:0;line-height:1.8}
@@ -204,7 +224,7 @@ footer.site .sns{font-size:12.5px;display:flex;gap:14px;flex-wrap:wrap;margin-to
 <section class="blk">
   <h2>ゲーム検索<span class="h2sub">ゲーム名で探す</span></h2>
   <div class="searchbox">
-    <input id="q" type="search" placeholder="ゲーム名を入力（例：パズサバ）" autocomplete="off">
+    <input id="q" type="search" placeholder="ゲーム名で攻略を探す（例：パズサバ）" autocomplete="off">
     <div class="sres" id="sres"></div>
   </div>
   <div class="chips">
@@ -269,38 +289,48 @@ footer.site .sns{font-size:12.5px;display:flex;gap:14px;flex-wrap:wrap;margin-to
   <p class="note" style="margin:0 0 10px">同じゲームでも、掲載しているポイントサイトによって金額が違います。金額は各サイトの掲載案件の合計（全ステップ達成時）です。</p>
   <div class="cmp-row">
       <a class="cmp-game" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/slot-mate/"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d8/a1/ae/d8a1aefd-df29-5dbe-2c12-8588b8c398cc/AppIcon-live-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>Slot Mate - 3Dスロットカジノゲーム</span></a>
-      <div class="cmp-svcs"><div class="cmp-svc top"><span class="cmp-svcname"><span class="svc-badge sb-moppy">モッピー</span></span><span class="cmp-amt">188,976円</span><span class="bd bd-pt" style="margin-left:6px">最高</span></div><div class="cmp-svc"><span class="cmp-svcname"><span class="svc-badge sb-warau">ワラウ</span></span><span class="cmp-amt">113,308円</span></div></div>
+      <div class="cmp-svcs"><div class="cmp-svc top" data-svc="モッピー"><span class="cmp-svcname"><span class="svc-badge sb-moppy">モッピー</span></span><span class="cmp-amt">188,976円</span><span class="bd bd-pt" style="margin-left:6px">最高</span></div><div class="cmp-svc" data-svc="ワラウ"><span class="cmp-svcname"><span class="svc-badge sb-warau">ワラウ</span></span><span class="cmp-amt">113,308円</span></div></div>
       <div class="cmp-meta">サイト間の差：75,668円分／最終確認 2026/11/25</div>
     </div><div class="cmp-row">
       <a class="cmp-game" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/the-grand-mafia/"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/56/a6/13/56a613e8-939f-5eb5-00ac-6e16288d1f3a/AppIcon-0-0-1x_U007emarketing-0-5-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>ザ・グランドマフィア</span></a>
-      <div class="cmp-svcs"><div class="cmp-svc top"><span class="cmp-svcname"><span class="svc-badge sb-moppy">モッピー</span></span><span class="cmp-amt">112,906円</span><span class="bd bd-pt" style="margin-left:6px">最高</span></div><div class="cmp-svc"><span class="cmp-svcname"><span class="svc-badge sb-hapitas">ハピタス</span></span><span class="cmp-amt">106,171円</span></div><div class="cmp-svc"><span class="cmp-svcname"><span class="svc-badge sb-warau">ワラウ</span></span><span class="cmp-amt">55,000円</span></div></div>
+      <div class="cmp-svcs"><div class="cmp-svc top" data-svc="モッピー"><span class="cmp-svcname"><span class="svc-badge sb-moppy">モッピー</span></span><span class="cmp-amt">112,906円</span><span class="bd bd-pt" style="margin-left:6px">最高</span></div><div class="cmp-svc hl" data-svc="ハピタス"><span class="cmp-svcname"><span class="svc-badge sb-hapitas">ハピタス</span></span><span class="cmp-amt">106,171円</span></div><div class="cmp-svc" data-svc="ワラウ"><span class="cmp-svcname"><span class="svc-badge sb-warau">ワラウ</span></span><span class="cmp-amt">55,000円</span></div></div>
       <div class="cmp-meta">サイト間の差：6,735円分／最終確認 2026/11/25</div>
     </div><div class="cmp-row">
       <a class="cmp-game" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-chaos/"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e2/bd/5a/e2bd5a82-47df-4f6f-0578-3ef3fdab2862/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>パズル＆カオス</span></a>
-      <div class="cmp-svcs"><div class="cmp-svc top"><span class="cmp-svcname"><span class="svc-badge sb-warau">ワラウ</span></span><span class="cmp-amt">45,410円</span><span class="bd bd-pt" style="margin-left:6px">最高</span></div><div class="cmp-svc"><span class="cmp-svcname"><span class="svc-badge sb-hapitas">ハピタス</span></span><span class="cmp-amt">23,834円</span></div></div>
+      <div class="cmp-svcs"><div class="cmp-svc top" data-svc="ワラウ"><span class="cmp-svcname"><span class="svc-badge sb-warau">ワラウ</span></span><span class="cmp-amt">45,410円</span><span class="bd bd-pt" style="margin-left:6px">最高</span></div><div class="cmp-svc hl" data-svc="ハピタス"><span class="cmp-svcname"><span class="svc-badge sb-hapitas">ハピタス</span></span><span class="cmp-amt">23,834円</span></div></div>
       <div class="cmp-meta">サイト間の差：21,576円分／最終確認 2026/11/25</div>
     </div><div class="cmp-row">
       <a class="cmp-game" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bd/24/5e/bd245e4e-b9c6-014c-dc10-de86ab61c260/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>パズル＆サバイバル</span></a>
-      <div class="cmp-svcs"><div class="cmp-svc top"><span class="cmp-svcname"><span class="svc-badge sb-hapitas">ハピタス</span></span><span class="cmp-amt">42,530円</span><span class="bd bd-pt" style="margin-left:6px">最高</span></div><div class="cmp-svc"><span class="cmp-svcname"><span class="svc-badge sb-moppy">モッピー</span></span><span class="cmp-amt">27,037円</span></div></div>
+      <div class="cmp-svcs"><div class="cmp-svc top hl" data-svc="ハピタス"><span class="cmp-svcname"><span class="svc-badge sb-hapitas">ハピタス</span></span><span class="cmp-amt">42,530円</span><span class="bd bd-pt" style="margin-left:6px">最高</span></div><div class="cmp-svc" data-svc="モッピー"><span class="cmp-svcname"><span class="svc-badge sb-moppy">モッピー</span></span><span class="cmp-amt">27,037円</span></div></div>
       <div class="cmp-meta">サイト間の差：15,493円分／最終確認 2026/11/25</div>
     </div><div class="cmp-row">
       <a class="cmp-game" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/bingo-blitz/"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7d/75/7b/7d757b77-eafb-3707-3b31-b8bf0a6af4b9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>Bingo Blitz</span></a>
-      <div class="cmp-svcs"><div class="cmp-svc top"><span class="cmp-svcname"><span class="svc-badge sb-hapitas">ハピタス</span></span><span class="cmp-amt">37,488円</span><span class="bd bd-pt" style="margin-left:6px">最高</span></div><div class="cmp-svc"><span class="cmp-svcname"><span class="svc-badge sb-moppy">モッピー</span></span><span class="cmp-amt">21,915円</span></div><div class="cmp-svc"><span class="cmp-svcname"><span class="svc-badge sb-warau">ワラウ</span></span><span class="cmp-amt">21,600円</span></div></div>
+      <div class="cmp-svcs"><div class="cmp-svc top hl" data-svc="ハピタス"><span class="cmp-svcname"><span class="svc-badge sb-hapitas">ハピタス</span></span><span class="cmp-amt">37,488円</span><span class="bd bd-pt" style="margin-left:6px">最高</span></div><div class="cmp-svc" data-svc="モッピー"><span class="cmp-svcname"><span class="svc-badge sb-moppy">モッピー</span></span><span class="cmp-amt">21,915円</span></div><div class="cmp-svc" data-svc="ワラウ"><span class="cmp-svcname"><span class="svc-badge sb-warau">ワラウ</span></span><span class="cmp-amt">21,600円</span></div></div>
       <div class="cmp-meta">サイト間の差：15,573円分／最終確認 2026/11/25</div>
     </div><div class="cmp-row">
       <a class="cmp-game" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/township/"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/31/1b/52/311b52d8-1de2-5561-cad2-4c4643ac1fb0/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>タウンシップ</span></a>
-      <div class="cmp-svcs"><div class="cmp-svc top"><span class="cmp-svcname"><span class="svc-badge sb-moppy">モッピー</span></span><span class="cmp-amt">36,968円</span><span class="bd bd-pt" style="margin-left:6px">最高</span></div><div class="cmp-svc"><span class="cmp-svcname"><span class="svc-badge sb-hapitas">ハピタス</span></span><span class="cmp-amt">27,874円</span></div><div class="cmp-svc"><span class="cmp-svcname"><span class="svc-badge sb-warau">ワラウ</span></span><span class="cmp-amt">17,530円</span></div></div>
+      <div class="cmp-svcs"><div class="cmp-svc top" data-svc="モッピー"><span class="cmp-svcname"><span class="svc-badge sb-moppy">モッピー</span></span><span class="cmp-amt">36,968円</span><span class="bd bd-pt" style="margin-left:6px">最高</span></div><div class="cmp-svc hl" data-svc="ハピタス"><span class="cmp-svcname"><span class="svc-badge sb-hapitas">ハピタス</span></span><span class="cmp-amt">27,874円</span></div><div class="cmp-svc" data-svc="ワラウ"><span class="cmp-svcname"><span class="svc-badge sb-warau">ワラウ</span></span><span class="cmp-amt">17,530円</span></div></div>
       <div class="cmp-meta">サイト間の差：9,094円分／最終確認 2026/11/25</div>
     </div><div class="cmp-row">
       <a class="cmp-game" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-conquest/"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b4/1f/74/b41f74a0-4204-6e73-0256-e81bdd65de16/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>パズル＆コンクエスト</span></a>
-      <div class="cmp-svcs"><div class="cmp-svc top"><span class="cmp-svcname"><span class="svc-badge sb-hapitas">ハピタス</span></span><span class="cmp-amt">31,929円</span><span class="bd bd-pt" style="margin-left:6px">最高</span></div><div class="cmp-svc"><span class="cmp-svcname"><span class="svc-badge sb-warau">ワラウ</span></span><span class="cmp-amt">24,460円</span></div></div>
+      <div class="cmp-svcs"><div class="cmp-svc top hl" data-svc="ハピタス"><span class="cmp-svcname"><span class="svc-badge sb-hapitas">ハピタス</span></span><span class="cmp-amt">31,929円</span><span class="bd bd-pt" style="margin-left:6px">最高</span></div><div class="cmp-svc" data-svc="ワラウ"><span class="cmp-svcname"><span class="svc-badge sb-warau">ワラウ</span></span><span class="cmp-amt">24,460円</span></div></div>
       <div class="cmp-meta">サイト間の差：7,469円分／最終確認 2026/11/25</div>
     </div><div class="cmp-row">
       <a class="cmp-game" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/kingshot/"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a5/64/dc/a564dcf6-cac2-946b-0032-fb9dc7ab9432/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>キングショット</span></a>
-      <div class="cmp-svcs"><div class="cmp-svc top"><span class="cmp-svcname"><span class="svc-badge sb-hapitas">ハピタス</span></span><span class="cmp-amt">25,562円</span><span class="bd bd-pt" style="margin-left:6px">最高</span></div><div class="cmp-svc"><span class="cmp-svcname"><span class="svc-badge sb-warau">ワラウ</span></span><span class="cmp-amt">21,600円</span></div></div>
+      <div class="cmp-svcs"><div class="cmp-svc top hl" data-svc="ハピタス"><span class="cmp-svcname"><span class="svc-badge sb-hapitas">ハピタス</span></span><span class="cmp-amt">25,562円</span><span class="bd bd-pt" style="margin-left:6px">最高</span></div><div class="cmp-svc" data-svc="ワラウ"><span class="cmp-svcname"><span class="svc-badge sb-warau">ワラウ</span></span><span class="cmp-amt">21,600円</span></div></div>
       <div class="cmp-meta">サイト間の差：3,962円分／最終確認 2026/11/25</div>
     </div>
   <div class="sim"><div class="sim-title">案件の組み合わせ例（掲載中の実在案件）</div><p class="sim-body">天地英雄伝（<span class="svc-badge sb-moppy">モッピー</span>）380,497円 ＋ ザ・グランドマフィア（<span class="svc-badge sb-hapitas">ハピタス</span>）106,171円 ＋ Slot Mate - 3Dスロットカジノゲーム（<span class="svc-badge sb-warau">ワラウ</span>）113,308円 ＝ <b>合計599,976円相当</b></p><p class="note">金額は各案件の全ステップ達成時の合計です。組み合わせの一例であり、成果をお約束するものではありません。</p></div>
+</section>
+
+<section class="blk">
+  <div class="bigcta">
+  <div class="chips" style="justify-content:center;margin-bottom:12px"><span class="bd bd-info">サイトを選ぶと比較表の行とボタンの行き先が切り替わります</span></div>
+  <div class="svctabs"><button type="button" class="on" data-svc="ハピタス">ハピタス<span class="tt">初回特典 最大2,300円</span></button><button type="button" data-svc="ワラウ">ワラウ<span class="tt">初回特典 最大2,500円</span></button><button type="button" data-svc="モッピー">モッピー<span class="tt">初回特典 最大7,000円</span></button></div>
+  <p class="cta-catch" id="bcCatch">＼ 初回特典 最大<span class="cta-bonus">2,300円</span> GET ／</p>
+  <a class="cta-btn" id="bcBtn" href="https://hapitas.jp/appinvite?i=26164523" target="_blank" rel="noopener sponsored" data-ref-service="ハピタス" data-ref-placement="top_bigcta"><span class="cta-label">登録無料！「ハピタス」招待URLはコチラ！</span><span class="arr">›</span></a>
+  <p class="cta-sub" id="bcSub">「ハピタス」を経由後、ザ・グランドマフィアをプレイして<b class="cta-amt">106,171円</b>ゲット！</p>
+</div>
 </section>
 
 <section class="blk" id="svc">
@@ -373,6 +403,8 @@ footer.site .sns{font-size:12.5px;display:flex;gap:14px;flex-wrap:wrap;margin-to
     <a class="feat" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/"><span class="band b4">ギフトコードがあるゲーム</span><span class="fdesc">コードを入力して特典がもらえるゲーム</span></a>
     <a class="feat" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/"><span class="band b5">全ゲーム一覧</span><span class="fdesc">掲載中の全ゲームをまとめて確認できます</span></a>
     <a class="feat" href="https://mea-poikatsu.github.io/mea-game-poikatsu/how-to-read/"><span class="band b6">ポイ活の仕組みと注意点</span><span class="fdesc">始める前に知っておきたい条件と期限の話</span></a>
+    <a class="feat" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/tools-cc.html"><span class="band b7">攻略ツール・計算機</span><span class="fdesc">パズル＆サバイバルの育成に必要な資源をその場で計算できます</span></a>
+    <a class="feat" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/event-calendar.html"><span class="band b8">イベントカレンダー</span><span class="fdesc">パズル＆サバイバルの曜日ごとの開催イベントを早見できます</span></a>
   </div>
 </section>
 
@@ -388,9 +420,9 @@ footer.site .sns{font-size:12.5px;display:flex;gap:14px;flex-wrap:wrap;margin-to
 
 <section class="blk">
   <h2>全ゲーム一覧・ジャンルで探す</h2>
-  <div class="genre">
-    <a href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/">パズルゲーム</a>
-    <a href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/">放置ゲーム</a>
+  <div class="gtiles">
+    <a class="gtile" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/"><span class="gt-ic">🧩</span><span><span class="gt-name">パズルゲーム</span><span class="gt-desc">パズル系の攻略・案件を探す</span></span><span class="gt-arr">›</span></a>
+    <a class="gtile" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/"><span class="gt-ic">🌱</span><span><span class="gt-name">放置ゲーム</span><span class="gt-desc">放置系の攻略・案件を探す</span></span><span class="gt-arr">›</span></a>
   </div>
   <ul class="allgames"><li><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/">パズル＆サバイバル</a></li><li><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/royal-match/">ロイヤルマッチ</a></li><li><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/kingshot/">キングショット</a></li><li><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/memento-mori/">メメントモリ</a></li><li><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/last-asylum-plague/">ラストアサイラム：プレイグ</a></li><li><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/monopoly-go/">MONOPOLY GO!</a></li><li><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/the-grand-mafia/">ザ・グランドマフィア</a></li><li><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/wild-survival/">Wild Survival</a></li><li><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-conquest/">パズル＆コンクエスト</a></li><li><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/bingo-blitz/">Bingo Blitz</a></li><li><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/township/">タウンシップ</a></li><li><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/mafia-city/">マフィア・シティ-極道風雲</a></li><li><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-chaos/">パズル＆カオス</a></li><li><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/doomsday-last-survivors/">ドゥームズデイ：ラストサバイバー</a></li><li><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/kinoko-densetsu/">キノコ伝説</a></li><li><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/shukka-buta/">出荷ぶた</a></li><li><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/viking-rise/">ヴァイキングライズ</a></li><li><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/hero-wars-alliance/">ヒーローウォーズ：アライアンス - 放置系RPG</a></li><li><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/top-war/">トップウォー</a></li><li><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/slot-mate/">Slot Mate - 3Dスロットカジノゲーム</a></li><li><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/disney-solitaire/">Disney Solitaire ディズニー ソリティア</a></li><li><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/blade-war-three-kingdoms/">ブレードウォー（ブレードウォー三国）</a></li><li><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/zombie-panic/">ゾンビ・パニック</a></li><li><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/war-of-towers/">War of Towers</a></li><li><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/shonin-horoki/">商人放浪記：あきんどの成り上がり道</a></li><li><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/merge-cooking/">Merge Cooking®</a></li><li><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/western-farm-klondike/">ウエスタン農場 - クロンダイクの冒険</a></li><li><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/tenchi-eiyuden/">天地英雄伝</a></li><li><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/rock-n-cash-casino/">ロックンキャッシュカジノ-スロットゲーム</a></li><li><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/gourmet-journey/">グルメ・ジャーニー(Tasty Travels)</a></li><li><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/color-link/">Color Link</a></li><li><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/whiteout-survival/">ホワイトアウト・サバイバル</a></li><li><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/the-ants/">ザ・アンツ</a></li></ul>
   <div class="chips" style="margin-top:14px">
@@ -480,6 +512,20 @@ document.querySelectorAll('.tab').forEach(function(b){
 });
 document.querySelectorAll('[data-goto-tab]').forEach(function(a){
   a.addEventListener('click', function(){ setTab(a.dataset.gotoTab); });
+});
+var SVCCTA = {"ハピタス": {"catch": "＼ 初回特典 最大<span class=\"cta-bonus\">2,300円</span> GET ／", "href": "https://hapitas.jp/appinvite?i=26164523", "game": "ザ・グランドマフィア", "amt": "106,171円"}, "ワラウ": {"catch": "＼ 初回特典 最大<span class=\"cta-bonus\">2,500円</span> GET ／", "href": "https://www.warau.jp/friend/reg/bEs5", "game": "Slot Mate - 3Dスロットカジノゲーム", "amt": "113,308円"}, "モッピー": {"catch": "＼ 初回特典 最大<span class=\"cta-bonus\">7,000円</span> GET ／", "href": "https://pc.moppy.jp/entry/invite.php?invite=7xaGA123", "game": "天地英雄伝", "amt": "380,497円"}};
+function setSvcCta(name){
+  var d = SVCCTA[name]; if(!d) return;
+  document.getElementById('bcCatch').innerHTML = d.catch;
+  var b = document.getElementById('bcBtn');
+  b.href = d.href; b.setAttribute('data-ref-service', name);
+  b.querySelector('.cta-label').textContent = '登録無料！「' + name + '」招待URLはコチラ！';
+  document.getElementById('bcSub').innerHTML = '「' + name + '」を経由後、' + d.game + 'をプレイして<b class="cta-amt">' + d.amt + '</b>ゲット！';
+  document.querySelectorAll('.svctabs button').forEach(function(x){ x.classList.toggle('on', x.getAttribute('data-svc') === name); });
+  document.querySelectorAll('.cmp-svc').forEach(function(r){ r.classList.toggle('hl', r.getAttribute('data-svc') === name); });
+}
+document.querySelectorAll('.svctabs button').forEach(function(b){
+  b.addEventListener('click', function(){ setSvcCta(b.getAttribute('data-svc')); });
 });
 </script>
 </body>
