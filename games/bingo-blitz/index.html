@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bingo Blitz（ビンゴブリッツ）攻略・ポイ活案件まとめ｜ポイゲークエスト</title><style>
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{background:#e8e8e8;scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",sans-serif;color:#333;font-size:14px;line-height:1.6;-webkit-text-size-adjust:100%}
+.page{max-width:420px;margin:0 auto;background:#fff;min-height:100vh;box-shadow:0 0 12px rgba(0,0,0,.18)}
+a{color:inherit;text-decoration:none}
+img{display:block}
+.header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid #e5e5e5}
+.header-top{display:flex;align-items:center;justify-content:space-between;padding:8px 12px 6px}
+.logo{font-size:20px;font-weight:900;color:#333;white-space:nowrap}
+.logo .lg-mark{display:inline-block;background:#ff6900;color:#fff;border-radius:5px;padding:0 6px;margin-right:5px;font-size:18px}
+.logo .lg-sub{font-size:9px;font-weight:700;color:#ff6900;vertical-align:super;margin-left:3px}
+.header-icons{display:flex;gap:13px;color:#555;font-size:10px;text-align:center}
+.header-icons .ic{font-size:18px;line-height:1.1;display:block}
+.searchbar{padding:2px 12px 9px}
+.searchbar .box{display:flex;align-items:center;background:#f2f2f2;border-radius:16px;padding:0 12px}
+.searchbar input{flex:1;border:0;background:transparent;font-size:13px;padding:7px 6px;outline:none;color:#333;font-family:inherit}
+.gnav{display:flex;border-top:1px solid #f0f0f0;overflow-x:auto;white-space:nowrap}
+.gnav a{flex:1;text-align:center;font-size:12px;font-weight:700;padding:8px 6px;color:#444;border-bottom:2px solid transparent}
+.gnav a.on{color:#ff6900;border-bottom-color:#ff6900}
+.crumbs{font-size:11px;color:#888;padding:8px 12px 0}
+.sec{margin-top:22px;scroll-margin-top:118px}
+.sec-head{display:flex;align-items:center;justify-content:space-between;background:#fdf3e3;border-left:5px solid #ff6900;padding:7px 10px 7px 9px;margin:0 0 10px}
+.sec-head h2{font-size:16px;font-weight:800}
+.sec-head a{font-size:12px;color:#ff6900;font-weight:700}
+.sec-head .cnt{font-size:11px;color:#999;font-weight:700}
+.lead{padding:10px 12px 0;font-size:13px;color:#444}
+/* 記事リスト行 */
+.rows{padding:0 12px}
+.row{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid #eee;align-items:flex-start}
+.row img,.row .fallback-icon{width:64px;height:64px;border-radius:14%;flex:none;object-fit:cover;font-size:28px}
+.row .rtitle{font-size:13.5px;font-weight:700;line-height:1.45}
+.row .rmeta{margin-top:4px;font-size:11px;color:#999;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.row .rsum{margin-top:3px;font-size:11.5px;color:#666;line-height:1.5}
+.chip{display:inline-block;background:#fff1de;color:#e05e00;font-weight:800;font-size:11.5px;border-radius:3px;padding:1px 5px}
+.chip.gray{background:#f0f0f0;color:#777}
+/* 表 */
+.tscroll{overflow-x:auto;padding:0 12px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;margin:6px 0 4px}
+th,td{border:1px solid #ddd;padding:6px 8px;text-align:left;vertical-align:middle}
+th{background:#f7f3ec;font-weight:800;white-space:nowrap}
+td.pt,th.pt{text-align:right}
+td.pt{font-weight:800;color:#e05e00;white-space:nowrap}
+/* スペック早見表 */
+.spec th{width:34%;background:#fdf3e3;white-space:normal}
+.spec td{line-height:1.55}
+.spec td b{color:#e05e00}
+/* 攻略メニュー */
+.menu-label{text-align:center;font-weight:800;font-size:13px;color:#666;margin:14px 0 8px}
+.menu{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:0 12px}
+.menu.folded a:nth-child(n+7){display:none}
+.menu-toggle{display:block;margin:8px auto 2px;padding:8px 26px;border:1px solid #d9d9d9;border-radius:999px;background:#fff;font-size:13px;font-weight:700;color:#3977b8;cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.menu a{border:1px solid #e3e3e3;border-radius:6px;background:#fff;text-align:center;padding:10px 2px 8px;font-size:12px;font-weight:700;color:#444;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.menu a .mi{display:block;font-size:19px;margin-bottom:3px}
+.menu a.hot{border-color:#ffb066;background:#fff8f0;color:#e05e00}
+/* ゲームページ */
+.ghead{display:flex;gap:12px;padding:12px;align-items:center}
+.ghead img,.ghead .fallback-icon{width:76px;height:76px;border-radius:20%;object-fit:cover;font-size:34px}
+.ghead h1{font-size:19px;font-weight:900;line-height:1.35}
+.ghead .gmeta{font-size:11.5px;color:#888;margin-top:3px}
+.ghead .gmax{margin-top:5px;font-size:13px;font-weight:900;color:#ff6900}
+.dates{font-size:11px;color:#999;padding:0 12px;display:flex;gap:12px;flex-wrap:wrap}
+.dates b{color:#777;font-weight:700}
+.toc{position:sticky;top:104px;z-index:55;display:flex;background:#333;overflow-x:auto;white-space:nowrap}
+.toc a{flex:1;text-align:center;color:#fff;font-size:12px;font-weight:700;padding:8px 10px}
+.toc a:active,.toc a.on{background:#ff6900}
+/* タブ */
+.tabs{display:flex;gap:6px;padding:0 12px;margin-bottom:4px;scroll-margin-top:160px}
+.tabs button{flex:1;border:1px solid #ddd;background:#f7f7f7;border-radius:8px 8px 0 0;padding:9px 4px;font-size:13px;font-weight:800;color:#777;cursor:pointer;font-family:inherit;border-bottom:3px solid #ddd}
+.tabs button.on{background:#fff;color:#e05e00;border-color:#ddd;border-bottom:3px solid #ff6900}
+.tabs button .tt{display:block;font-size:11px;font-weight:800;color:#ff6900}
+.tabpanel{display:none;padding:4px 12px 0}
+.tabpanel.on{display:block}
+.svc-diff{margin:2px 12px 8px;font-size:12.5px;font-weight:800;color:#e05e00;text-align:center}
+.svc-diff.hide{display:none}
+/* アコーディオン */
+.acc{border:1px solid #e5e5e5;border-radius:6px;margin:8px 0;overflow:hidden}
+.acc button{width:100%;background:#fafafa;border:0;text-align:left;font-size:13px;font-weight:800;color:#444;padding:10px 12px;cursor:pointer;font-family:inherit;display:flex;justify-content:space-between;align-items:center}
+.acc button .pm{color:#ff6900;font-size:15px}
+.acc .acc-body{display:none;padding:10px 12px;font-size:12px;color:#555;border-top:1px solid #eee;line-height:1.7}
+.acc.open .acc-body{display:block}
+.acc-body ul{margin:0 0 0 18px}
+.acc-body li{margin-bottom:4px;line-height:1.6}
+.ditem{padding:8px 0;border-bottom:1px dashed #e5e5e5}
+.ditem:last-child{border-bottom:0}
+.ditem .dname{font-weight:800;font-size:13px}
+.ditem .dmeta{font-size:12px;color:#444;margin:2px 0}
+.ditem .dreason{font-size:11.5px;color:#888;line-height:1.55}
+.kv{font-size:12px;color:#555;margin:2px 0}
+.kv b{color:#333}
+.blk{padding:0 12px}
+.blk h3{font-size:15px;font-weight:800;border-bottom:2px solid #ffb066;padding-bottom:3px;margin:16px 0 8px}
+.blk p{font-size:13.5px;margin-bottom:8px}
+.blk ol{margin:0 0 8px 20px;font-size:13.5px}
+.blk li{margin-bottom:5px}
+.note{font-size:11.5px;color:#888}
+.more-link{display:block;padding:10px 12px;font-weight:700;font-size:13.5px;border-bottom:1px solid #eee}
+.more-link .tri{color:#ff6900;margin-right:6px}
+/* モンスター型の追加部品 */
+.anchor-jump{display:block;margin:10px 12px 2px;background:#ff6900;color:#fff;font-weight:800;font-size:13px;text-align:center;border-radius:6px;padding:10px 8px}
+.read-note{font-size:11.5px;color:#777;background:#fafafa;border:1px solid #eee;border-radius:6px;padding:8px 10px;margin:6px 0 8px;line-height:1.65}
+.upd-note{font-size:11.5px;color:#8a6d1a;background:#fffbe8;border:1px solid #f0df9a;border-radius:6px;padding:8px 10px;margin:8px 0;line-height:1.65}
+.upd-note b{color:#6d5510}
+.risk-note{font-size:12px;color:#a33;background:#fff5f5;border-left:4px solid #e88;border-radius:0 6px 6px 0;padding:8px 10px;margin:8px 0;line-height:1.65}
+.hist td{font-size:12px;line-height:1.55}
+.hist td.hd{white-space:nowrap;font-weight:700}
+.hist .old{color:#999}
+.hist .arrw{color:#ff6900;font-weight:800}
+.footer{margin-top:30px;background:#f7f7f7;border-top:1px solid #e5e5e5;padding:16px 12px 28px}
+.footer .flinks{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:#555;margin-bottom:10px}
+.footer .disc{font-size:11px;color:#888;line-height:1.7;margin-bottom:10px}
+.footer .copy{font-size:11px;color:#aaa;text-align:center}
+.grow td{padding:2px 6px 8px;background:#fffdf7}
+.grow .acc{margin:2px 0 0}
+.hidden{display:none!important}
+/* ===== 図解・バー・バッジ ===== */
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin:6px 0}
+.bd{display:inline-block;font-size:10.5px;font-weight:800;border-radius:10px;padding:1px 8px;line-height:1.6;vertical-align:middle;white-space:nowrap}
+.bd-buy{background:#e6f4ea;color:#137333;border:1px solid #a3d9b1}
+.bd-no{background:#fdecea;color:#b3261e;border:1px solid #f0b8b2}
+.bd-warn{background:#fff4e0;color:#a35b00;border:1px solid #f2cf8f}
+.bd-info{background:#eaf2fc;color:#2f5f8f;border:1px solid #bcd6f2}
+.bd-gray{background:#f0f0f0;color:#666;border:1px solid #ddd}
+.bars{margin:8px 0 2px}
+.barrow{display:flex;align-items:center;gap:8px;margin:7px 0}
+.barrow .bl{width:52px;flex:none;font-size:11.5px;font-weight:800;color:#555;text-align:right}
+.barrow .bt{flex:1;background:#f0f0f0;border-radius:4px;height:20px;overflow:hidden}
+.barrow .bf{height:100%;background:#ff6900;border-radius:4px}
+.barrow .bf.free{background:#3977b8}
+.barrow .bv{flex:none;font-size:14px;font-weight:900;color:#333}
+.bar-note{margin-left:60px}
+/* ステップフロー */
+.flow{display:flex;align-items:center;gap:3px;overflow-x:auto;padding:8px 12px 2px}
+.fbox{flex:none;border:1.5px solid #ffb066;background:#fff8f0;border-radius:6px;padding:5px 8px;font-size:12px;font-weight:800;text-align:center;color:#333}
+.fbox small{display:block;font-size:10px;color:#888;font-weight:700}
+.fbox.plus{border-color:#cdd9e5;background:#f4f8fc}
+.farr{color:#ff6900;font-weight:900;flex:none}
+/* タイムライン */
+.tl{display:flex;overflow-x:auto;padding:12px 12px 4px}
+.tl .node{flex:1;min-width:88px;text-align:center;position:relative;padding:0 3px}
+.tl .node:before{content:"";position:absolute;top:8px;left:-50%;width:100%;height:2px;background:#ffd9ae}
+.tl .node:first-child:before{display:none}
+.tl .dot{width:16px;height:16px;border-radius:50%;background:#ff6900;margin:0 auto;position:relative;z-index:1;box-shadow:0 0 0 2px #ffb066}
+.tl .node.blue .dot{background:#3977b8;box-shadow:0 0 0 2px #9dbede}
+.tl .node.red .dot{background:#c0392b;box-shadow:0 0 0 2px #e5a49e}
+.tl .tt2{font-size:11px;font-weight:900;margin-top:6px;color:#333}
+.tl .td2{font-size:10.5px;color:#777;line-height:1.45;margin-top:2px}
+/* 前提ツリー */
+.tree{font-size:12px;margin:8px 0}
+.tnode{border:1.5px solid #ffb066;background:#fff8f0;border-radius:6px;padding:5px 9px;font-weight:800;color:#333;display:inline-block;margin:2px 0}
+.tnode small{display:block;font-weight:700;color:#888;font-size:10.5px}
+.tkids{margin:2px 0 8px 14px;border-left:2px solid #ffd9ae;padding-left:10px}
+.tkids .tnode{border-color:#cdd9e5;background:#f4f8fc}
+.tarr{color:#ff6900;font-weight:900;margin:0 2px}
+/* カード */
+.cards{padding:0 12px}
+.card{border:1px solid #e5e5e5;border-radius:8px;padding:10px 12px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.hook{background:#EAF2FC;border:1px solid #c9def2;border-radius:8px;padding:10px 12px;margin:10px 0;font-size:12.5px;line-height:1.75;color:#333}
+.card h4{font-size:14px;font-weight:800;margin-bottom:6px}
+.card ul{margin:0 0 2px 18px;font-size:12.5px}
+.card li{margin-bottom:4px;line-height:1.55}
+.card .cnote{font-size:11px;color:#888;margin-top:6px;line-height:1.55}
+.card table{font-size:12px}
+.sub{font-size:12.5px;font-weight:800;margin:10px 0 4px}
+/* 価格vs還元などの小バー */
+.cmp{font-size:10.5px;min-width:132px}
+.cmp .crow{display:flex;align-items:center;gap:5px;margin:2px 0}
+.cmp .cl{font-size:10px;font-weight:800;color:#888;width:24px;flex:none}
+.cmp .ct{flex:1;background:#f0f0f0;height:9px;border-radius:3px;overflow:hidden;min-width:44px}
+.cmp .cf{height:9px}
+.cmp .cf.p{background:#c0392b}
+.cmp .cf.r{background:#2e9e5b}
+.cmp .cf.o{background:#ff6900}
+.cmp .cf.b{background:#3977b8}
+.cmp .cv{font-weight:700;color:#555;white-space:nowrap}
+.pts{margin:0 0 8px 18px;font-size:13px}
+.pts li{margin-bottom:5px;line-height:1.55}
+.figimg{width:100%;height:auto;border-radius:8px;border:1px solid #e5e5e5}
+/* CTAブロック（型L）：本文末尾・フッター直前の出口 */
+.cta{margin:26px 0 8px;text-align:center;padding:0 12px}
+.cta-catch{font-weight:900;font-size:16.5px;color:#ff6900;letter-spacing:.02em;margin:0 0 12px;line-height:1.5}
+.cta-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(180deg,#ff8a3d,#ff6900);color:#fff;font-weight:900;font-size:17.5px;line-height:1.45;text-decoration:none;border-radius:999px;padding:18px 38px 17px 22px;position:relative;box-shadow:0 5px 0 #d15400,0 10px 22px rgba(255,105,0,.35)}
+.cta-btn:active{transform:translateY(2px);box-shadow:0 3px 0 #d15400,0 6px 14px rgba(255,105,0,.3)}
+.cta-btn .cta-label{text-align:center}
+.cta-btn .arr{position:absolute;right:20px;font-size:22px;font-weight:900}
+.cta-sub{margin:14px 0 0;font-size:14.5px}
+
+.fig{margin:10px 0}
+.fig img{width:100%;height:auto;display:block;border-radius:10px}
+.figc{margin:10px 0;text-align:center}
+.figc img{max-width:100%;height:auto;border-radius:10px}
+.fcap{font-size:12px;color:#667;margin-top:4px;text-align:left}
+.shotrow{display:flex;gap:8px;overflow-x:auto;padding:2px 0 6px}
+.shotrow img{height:250px;width:auto;flex:none;border-radius:10px}
+.bannergrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.bannergrid a{display:block;text-decoration:none}
+.bannergrid img{width:100%;height:auto;display:block;border-radius:10px}
+.bannergrid .bcap{display:block;font-size:12.5px;font-weight:700;color:#3977b8;margin-top:4px}
+.bgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0}
+.bgrid figure{margin:0}
+.bgrid img{width:100%;height:110px;object-fit:cover;border-radius:8px;display:block}
+.bgrid figcaption{font-size:12px;color:#555;margin-top:3px}
+.prow{display:flex;gap:10px;margin:10px 0}
+.prow figure{flex:1;margin:0}
+.prow img{width:100%;height:210px;object-fit:cover;object-position:top center;border-radius:10px;display:block}
+.prow figcaption{font-size:12px;color:#555;margin-top:3px;text-align:center}
+.hicon{width:34px;height:34px;border-radius:8px;vertical-align:-10px;margin-right:6px;object-fit:cover}
+a.bannerlink{display:block;margin:10px 0}
+a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
+.fig.hero-art img{aspect-ratio:2.15/1;object-fit:cover;object-position:center 35%}
+</style></head>
+<body><div class="page">
+<header class="header">
+  <div class="header-top">
+    <div class="logo"><span class="lg-mark">ポ</span>ポイゲークエスト<span class="lg-sub">POIKATSU GAME WIKI</span></div>
+    <div class="header-icons"><div><span class="ic">🔍</span>検索</div><div><span class="ic">☰</span>メニュー</div></div>
+  </div>
+  <nav class="gnav"><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">人気ゲーム</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">新着・更新</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">ランキング</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">ゲーム一覧</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">攻略メニュー</a></nav>
+</header>
+<div class="crumbs"><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">トップ</a> ＞ <a href="index.html">ゲーム攻略</a> ＞ Bingo Blitz</div>
+<div class="ghead"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7d/75/7b/7d757b77-eafb-3707-3b31-b8bf0a6af4b9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt=""><div><h1>Bingo Blitz 攻略・案件まとめ</h1>
+<div class="gmeta">Bingo Blitz（Playtika Santa Monica）／iOS/Android</div>
+<div class="gmax">ポイ活案件 最大338,847円（Freecash・iOS版）</div></div></div>
+<div class="dates"><span>更新日：<b>2026年11月26日</b></span></div>
+<nav class="toc"><a href="#campaign">案件</a><a href="#about">概要</a><a href="#meyasu">到達目安</a><a href="#guide">進め方</a><a href="#topics">攻略トピック</a></nav>
+<section class="sec" id="campaign"><div class="sec-head"><h2>ポイ活案件</h2></div><p class="lead">Bingo Blitzのポイ活案件は、世界各地の都市（ビンゴルーム）をクリアしていく「都市クリア型」のステップ案件が中心です。序盤の都市は数日で抜けられますが、後半の都市は達成率が大きく下がるため、案件ごとに「どこまでを現実的な目標にするか」を見極めるのが大事です。</p><div class="tscroll"><table><tr><th>ポイントサイト</th><th>対象OS</th><th class="pt">報酬（合計）</th><th>期限</th></tr><tr><td>ワラウ</td><td>Android</td><td class="pt">最大21,600pt</td><td>段階ごとに設定（最長85日）</td></tr><tr><td>ワラウ</td><td>iOS</td><td class="pt">最大15,200pt</td><td>段階ごとに設定（最長85日）</td></tr><tr><td>ハピタス</td><td>Android</td><td class="pt">合計37,488pt</td><td>期限の日数明記なし（公式詳細ページに記載なし）</td></tr><tr><td>モッピー</td><td>iOS</td><td class="pt">合計21,915P</td><td>インストール後90日以内（ステップごとに1日・5日・10日・20日・40日・90日の区分あり）</td></tr><tr><td>ハピタス</td><td>iOS</td><td class="pt">合計23,870pt</td><td>特記のあるステップ以外はインストール後90日以内（連携先の表示で確認）</td></tr><tr><td>Freecash</td><td>Android</td><td class="pt">合計¥255,716</td><td>全体期限の明示なし</td></tr><tr><td>Freecash</td><td>iOS</td><td class="pt">合計¥338,847</td><td>全体期限の明示なし</td></tr></table></div><p class="note" style="padding:0 12px">金額・条件は各サービスの公式ページで確認した時点の情報です。参加前に必ず公式ページで最新の条件をご確認ください。</p><div class="blk"><div class="hook">最高額はFreecash（iOS版）の合計338,847円です。ただしFreecashの表示合計は「予想報酬」で、進行に応じて解放される非表示タスクを含む金額です。可視ステップだけの合計とは一致しない仕様なので、条件の詳細ページで内訳の見方を確認してから参加してください。</div></div><div class="blk"><p>サービスごとの全ステップ表・除外条件・期限は「案件条件の詳細」にまとめています。</p><p class="note">案件は新規インストールが条件です。ポイントサイトの案件ページを経由せずにストアから直接インストールすると対象外になります。</p></div></section><section class="sec" id="about"><div class="sec-head"><h2>ゲーム概要</h2></div><p class="lead">世界各地のルームを巡って遊ぶオンラインビンゴゲーム。各都市でビンゴを繰り返してコレクションアイテム（写真・お土産）を集めると都市クリアとなり、次の都市へ進みます。</p><div class="tscroll"><table class="spec"><tr><th>正式タイトル</th><td>Bingo Blitz</td></tr><tr><th>運営</th><td>Playtika Santa Monica</td></tr><tr><th>対応OS</th><td>iOS/Android</td></tr><tr><th>進行の単位</th><td>都市（ビンゴルーム）。各都市のコレクションを集めてクリア</td></tr><tr><th>プレイに使う通貨</th><td>クレジット（プレイヤー間でBコイン／BCとも呼ばれる）。カード購入に使う</td></tr><tr><th>副通貨</th><td>コイン（ゴールド）。Chef（料理）やパワーアップ購入などに使い、クレジットへの直接交換はできない</td></tr><tr><th>カード</th><td>最大4枚まで同時プレイ。数字はタップでマークし、レベルが上がるとオートダブが使える</td></tr></table></div></section><section class="sec" id="meyasu"><div class="sec-head"><h2>到達目安・達成データ</h2></div><div class="blk"><p>到達の見込みは、ワラウ利用者の達成データ（集計値）をもとに整理しています。序盤の都市はほぼ全員が数日以内に到達できる範囲ですが、中盤以降は達成率が急落します。</p><p>課金・無課金を分けた到達日数の目安は、裏付けのある報告が揃っていないため断定していません。無課金で最終都市（アルプス）まで完走した報告は、本調査では確認できていません。</p></div><div class="blk"><div class="bars"><div class="barrow"><div class="bl">カタリーナ</div><div class="bt"><div class="bf" style="width:89%"></div></div><div class="bv">89%</div></div><div class="barrow"><div class="bl">ニューヨーク</div><div class="bt"><div class="bf" style="width:85%"></div></div><div class="bv">85%</div></div><div class="barrow"><div class="bl">シドニー</div><div class="bt"><div class="bf" style="width:81%"></div></div><div class="bv">81%</div></div><div class="barrow"><div class="bl">アトランティック</div><div class="bt"><div class="bf" style="width:73%"></div></div><div class="bv">73%</div></div><div class="barrow"><div class="bl">ロンドン</div><div class="bt"><div class="bf" style="width:70%"></div></div><div class="bv">70%</div></div><div class="barrow"><div class="bl">ヴェネツィア</div><div class="bt"><div class="bf" style="width:62%"></div></div><div class="bv">62%</div></div><div class="barrow"><div class="bl">リオ</div><div class="bt"><div class="bf" style="width:36%"></div></div><div class="bv">36%</div></div><div class="barrow"><div class="bl">セーシェル</div><div class="bt"><div class="bf" style="width:5%"></div></div><div class="bv">5%</div></div></div><p class="chips bar-note"><span class="note">都市クリアの達成率（ワラウ利用者データの集計値。課金の有無は考慮されていない）。平均達成期間はカタリーナ約3時間、ニューヨーク約6時間、シドニー約18時間、ロンドン約2日、セーシェル約13日。</span></p></div><div class="blk"><h3>ゾーン別の見込み</h3></div><div class="tscroll"><table><tr><th>ゾーン</th><th>都市の例</th><th>見込み</th></tr><tr><td>序盤</td><td>ニューヨーク〜トーキョー</td><td>ほぼ全員が数日以内に到達できる範囲</td></tr><tr><td>中盤</td><td>ムンバイ〜カサブランカ</td><td>クレジット管理ができれば到達圏。最初の枯渇が来る山場</td></tr><tr><td>後半</td><td>イエローストーン〜モントリオール</td><td>達成率は大きく下がる。トレード活用と無料分の継続回収が前提</td></tr><tr><td>最終</td><td>アルプス</td><td>90日フル活用＋効率プレイでも少数派。挑戦枠として位置づけるのが正確</td></tr></table></div><p class="note" style="padding:0 12px">調査・体験談等をもとにした見込みです。達成率・平均期間は達成できた人の中での数値で、未達成者を含めた全体像ではありません。</p></section><section class="sec" id="guide"><div class="sec-head"><h2>効率的な進め方</h2></div><div class="flow"><div class="fbox">無料サブスク<small>Plusの無料期間を活用</small></div><span class="farr">→</span><div class="fbox">4枚×SUPER<small>プレイの基本形</small></div><span class="farr">→</span><div class="fbox">無料回収<small>デイリー＋2時間ごと</small></div><span class="farr">→</span><div class="fbox">トレード<small>写真を交換で集める</small></div></div><div class="blk"><p>定石は「カードは4枚同時プレイ、ベットはSUPER基準」です。1ゲームあたりのビンゴ確率・経験値・写真のドロップ効率が最も高くなります。MEGA以上の高ベットは連敗でクレジットが一気に溶けるため、写真があと少しの局面に限ります。</p><p>クレジット枯渇が最大の脱落原因です。デイリーボーナス、2時間ごとの無料Power Pack、フレンドギフトなど、無料で回収できる分を毎日積み上げるのが長く続けるコツです。</p></div></section><section class="sec" id="topics"><div class="sec-head"><h2>攻略トピック</h2></div><div class="menu-label">攻略メニュー</div><div class="menu"><a href="joban.html" class="hot"><span class="mi">🚀</span>序盤の進め方</a><a href="cities.html"><span class="mi">🌍</span>都市と案件ステップ</a><a href="credits.html"><span class="mi">🎟️</span>クレジットの集め方</a><a href="kakin.html"><span class="mi">💰</span>課金判断</a><a href="conditions.html" class="hot"><span class="mi">📋</span>案件条件の詳細</a><a href="faq.html"><span class="mi">❓</span>つまずき・FAQ</a></div></section><section class="sec" id="history"><div class="sec-head"><h2>条件の変更履歴・確認記録</h2></div><div class="tscroll"><table class="hist"><tr><td class="hd">2026年11月25日</td><td>案件7件（ワラウ／ハピタス／モッピー／Freecash）を公式ページ・ログイン実読で確認し登録</td></tr><tr><td class="hd">2026年11月26日</td><td>ワラウ・ハピタス・モッピーの掲載を実読で再確認。金額・ステップ・期限に変更なし</td></tr></table></div></section>
+<footer class="footer">
+  <div class="flinks"><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">ゲーム一覧</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">ポイントが高い順</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/how-to-read/">案件条件の見方</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/editorial-policy/">編集方針</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/about/">このサイトについて</a></div>
+  <p class="disc">当サイトは、ポイントサイト各社の紹介プログラムに参加しています。記事内のリンクを経由してサービスに登録・利用された場合、当サイトに紹介料が支払われることがあります。掲載しているポイント数・条件・期限は、各サービスの公式ページで確認した時点の情報です。参加前に必ず公式ページで最新の条件をご確認ください。</p>
+  <p class="copy">© ポイゲークエスト（ポイ活ゲーム攻略Wiki）</p>
+</footer>
+</div>
+<script>
+document.querySelectorAll('.acc>button').forEach(function(b){
+  b.addEventListener('click',function(){
+    var acc=b.parentElement,open=acc.classList.toggle('open');
+    b.querySelector('.pm').textContent=open?'－':'＋';
+  });
+});
+</script>
+</body></html>
