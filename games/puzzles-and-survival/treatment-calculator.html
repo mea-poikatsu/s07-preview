@@ -2,9 +2,9 @@
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>パズサバ 治療コスト計算機｜ポイゲークエスト</title><style>
 *{margin:0;padding:0;box-sizing:border-box}
-html{background:#e8e8e8;scroll-behavior:smooth}
+html{background:#fff;scroll-behavior:smooth}
 body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",sans-serif;color:#333;font-size:14px;line-height:1.6;-webkit-text-size-adjust:100%}
-.page{max-width:420px;margin:0 auto;background:#fff;min-height:100vh;box-shadow:0 0 12px rgba(0,0,0,.18)}
+.page{margin:0 auto;background:#fff;min-height:100vh}
 a{color:inherit;text-decoration:none}
 img{display:block}
 .header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid #e5e5e5}
@@ -246,9 +246,9 @@ h4[id],div.acc[id],div[id^="b"]{scroll-margin-top:118px}
 </style>
 <style>
 .theme-toggle{cursor:pointer}
-html[data-theme="dark"]{color-scheme:dark;background:#0d0b0a}
+html[data-theme="dark"]{color-scheme:dark;background:#1a1714}
 html[data-theme="dark"] body{color:#e8e2dc}
-html[data-theme="dark"] .page{background:#1a1714;box-shadow:0 0 12px rgba(0,0,0,.6)}
+html[data-theme="dark"] .page{background:#1a1714}
 html[data-theme="dark"] .header{background:#1a1714;border-bottom-color:#3a332c}
 html[data-theme="dark"] .logo{color:#f2ede8}
 html[data-theme="dark"] .header-icons{color:#b8b0a6}
@@ -329,7 +329,7 @@ html[data-theme="dark"] .hist td.hd{background:#262019}
   <nav class="gnav"><a href="/mea-game-poikatsu/#popular" class="on">人気ゲーム</a><a href="/mea-game-poikatsu/#updates">新着・更新</a><a href="/mea-game-poikatsu/#ranking">ランキング</a><a href="/mea-game-poikatsu/games/">ゲーム一覧</a><a href="/mea-game-poikatsu/games/puzzles-and-survival/">攻略メニュー</a></nav>
 </header>
 <main>
-<div class="crumbs"><a href="/mea-game-poikatsu/">トップ</a> ＞ <a href="/mea-game-poikatsu/games/">ゲーム一覧</a> ＞ <a href="index.html">パズル＆サバイバル</a> ＞ <b>治療コスト計算機</b></div><div class="ghead"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/app-icon.jpg" alt="パズル＆サバイバル" loading="lazy"><div><h1>パズル＆サバイバル<br>治療コスト計算機</h1><div class="gmeta">37GAMES｜iOS/Android</div></div></div><p class="dates"><span>更新日：<b>2026年11月26日</b></span></p><p class="lead">病院で治療する際の資源コストを、ティア・兵種・人数から合算する計算機です。単価は兵士1体あたりで、兵士・部隊ページの治療コスト表（T1〜T14・確認済み）と同じデータを使っています。入力はこのページの中だけで計算され、外部に送信されません。</p><div class="blk"><div class="sub">このページの要点</div><div class="chips"><span class="bd bd-info">単価はT1〜T14の確定表</span><span class="bd bd-info">複数ティア・兵種を合算可</span></div><ul class="pts"><li>戦闘で負傷兵がまとまって出たときに、<b>治療に必要な資源の合計</b>がすぐ分かります</li><li>行を追加すると、ティアや兵種が混ざった治療でも合算できます</li></ul></div><div class="sec" id="calc"><div class="sec-head"><h2>計算機</h2></div><div class="blk"><div class="card"><h4>治療コスト計算機</h4>
+<div class="crumbs"><a href="/mea-game-poikatsu/">トップ</a> ＞ <a href="/mea-game-poikatsu/games/">ゲーム一覧</a> ＞ <a href="index.html">パズル＆サバイバル</a> ＞ <b>治療コスト計算機</b></div><div class="ghead"><img src="img/app-icon.jpg" alt="パズル＆サバイバル" loading="lazy"><div><h1>パズル＆サバイバル<br>治療コスト計算機</h1><div class="gmeta">37GAMES｜iOS/Android</div></div></div><p class="dates"><span>更新日：<b>2026年11月26日</b></span></p><p class="lead">病院で治療する際の資源コストを、ティア・兵種・人数から合算する計算機です。単価は兵士1体あたりで、兵士・部隊ページの治療コスト表（T1〜T14・確認済み）と同じデータを使っています。入力はこのページの中だけで計算され、外部に送信されません。</p><div class="blk"><div class="sub">このページの要点</div><div class="chips"><span class="bd bd-info">単価はT1〜T14の確定表</span><span class="bd bd-info">複数ティア・兵種を合算可</span></div><ul class="pts"><li>戦闘で負傷兵がまとまって出たときに、<b>治療に必要な資源の合計</b>がすぐ分かります</li><li>行を追加すると、ティアや兵種が混ざった治療でも合算できます</li></ul></div><div class="sec" id="calc"><div class="sec-head"><h2>計算機</h2></div><div class="blk"><div class="card"><h4>治療コスト計算機</h4>
 <div class="calcbox" id="calcBox">
 <div class="calcrow"><select class="ct"><option value="T1">T1</option><option value="T2">T2</option><option value="T3">T3</option><option value="T4">T4</option><option value="T5">T5</option><option value="T6">T6</option><option value="T7">T7</option><option value="T8">T8</option><option value="T9">T9</option><option value="T10">T10</option><option value="T11">T11</option><option value="T12">T12</option><option value="T13">T13</option><option value="T14">T14</option></select><select class="cb"><option>ファイター</option><option>ライダー</option><option>シューター</option><option>改造車</option></select><input class="cn" type="number" min="0" value="1000" inputmode="numeric"><span>人</span></div>
 </div>
