@@ -34,7 +34,7 @@ img{display:block}
 .row .rtitle{font-size:13.5px;font-weight:700;line-height:1.45}
 .row .rmeta{margin-top:4px;font-size:11px;color:#999;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
 .row .rsum{margin-top:3px;font-size:11.5px;color:#666;line-height:1.5}
-.chip{display:inline-block;background:#fff1de;color:#e05e00;font-weight:800;font-size:10.5px;border-radius:3px;padding:1px 5px}
+.chip{display:inline-block;background:#fff1de;color:#e05e00;font-weight:800;font-size:11.5px;border-radius:3px;padding:1px 5px}
 .chip.gray{background:#f0f0f0;color:#777}
 /* 表 */
 .tscroll{overflow-x:auto;padding:0 12px}
@@ -176,13 +176,13 @@ td.pt{font-weight:800;color:#e05e00;white-space:nowrap}
 
 /* 追従バナー：画面下固定・スクロール50%超で候補A（ゴールド＋キラキラ）に変化 */
 body{padding-bottom:104px}
-.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:80;padding:0 10px calc(10px + env(safe-area-inset-bottom));pointer-events:none}
-.sticky-cta-bar{pointer-events:auto;position:relative;display:flex;align-items:center;justify-content:center;gap:6px;max-width:420px;margin:0 auto;padding:15px 18px 14px;border-radius:999px;background:linear-gradient(180deg,#f0563f,#d42a1e);color:#fff;font-weight:900;font-size:15.5px;letter-spacing:.02em;white-space:nowrap;box-shadow:0 6px 18px rgba(0,0,0,.35);transition:background .45s ease,color .45s ease,box-shadow .45s ease}
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:80;padding:0 10px calc(7px + env(safe-area-inset-bottom));pointer-events:none}
+.sticky-cta-bar{pointer-events:auto;position:relative;display:flex;align-items:center;justify-content:center;gap:6px;max-width:420px;margin:0 auto;padding:9px 14px 8px;border-radius:999px;background:linear-gradient(180deg,#f0563f,#d42a1e);color:#fff;font-weight:900;font-size:13.5px;letter-spacing:.02em;white-space:nowrap;box-shadow:0 6px 18px rgba(0,0,0,.35);transition:background .45s ease,color .45s ease,box-shadow .45s ease}
 .sticky-cta.alt .sticky-cta-bar{background:linear-gradient(135deg,#fff3b0 0%,#ffd94d 30%,#f5b800 55%,#ffe680 80%,#ffc400 100%);color:#5b4300;box-shadow:0 6px 22px rgba(245,184,0,.65)}
-.sticky-cta-bubble{position:absolute;top:-13px;left:22px;background:#fff;color:#d42a1e;font-size:11.5px;font-weight:900;padding:3px 12px;border-radius:999px;box-shadow:0 2px 6px rgba(0,0,0,.22);transition:color .45s ease,background .45s ease;z-index:3}
+.sticky-cta-bubble{position:absolute;top:-10px;left:22px;background:#fff;color:#d42a1e;font-size:10.5px;font-weight:900;padding:2px 10px;border-radius:999px;box-shadow:0 2px 6px rgba(0,0,0,.22);transition:color .45s ease,background .45s ease;z-index:3}
 .sticky-cta.alt .sticky-cta-bubble{color:#a87b00;background:linear-gradient(180deg,#fffbe8,#ffedb0)}
 .sticky-cta-text{position:relative;z-index:1}
-.sticky-cta-arrow{font-size:19px;font-weight:900;line-height:1;position:relative;z-index:1}
+.sticky-cta-arrow{font-size:15px;font-weight:900;line-height:1;position:relative;z-index:1}
 .sticky-cta .sparkle{position:absolute;color:#fff;font-size:13px;text-shadow:0 0 6px #ffdf4d,0 0 2px #fff;opacity:0;pointer-events:none;z-index:2}
 .sticky-cta.alt .sparkle{animation:twinkle 1.6s ease-in-out infinite}
 .sticky-cta .sparkle.s1{top:2px;left:16%}
@@ -192,7 +192,7 @@ body{padding-bottom:104px}
 @keyframes twinkle{0%,100%{opacity:0;transform:scale(.6) rotate(0deg)}50%{opacity:1;transform:scale(1.25) rotate(25deg)}}
 .sticky-cta.alt .sticky-cta-bar::after{content:"";position:absolute;inset:0;border-radius:999px;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.75) 50%,transparent 70%);background-size:250% 100%;animation:shine 2.6s ease-in-out infinite;pointer-events:none}
 @keyframes shine{0%{background-position:120% 0}55%,100%{background-position:-60% 0}}
-@media (max-width:380px){.sticky-cta-bar{font-size:13.5px;padding:14px 12px 13px}}
+@media (max-width:380px){.sticky-cta-bar{font-size:12.5px;padding:8px 12px 7px}}
 .rel2{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 12px;margin:14px 0 4px}.rel2-cell{display:block;border:1px solid #e3e3e3;border-radius:8px;overflow:hidden;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.05)} .rel2-cell img{width:100%;height:84px;object-fit:cover} .rel2-cell span{display:block;font-size:12.5px;font-weight:800;color:#3977b8;padding:7px 9px}
 
 /* 目次ボタン */
