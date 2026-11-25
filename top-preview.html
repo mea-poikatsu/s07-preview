@@ -229,6 +229,29 @@ footer.site .sns{font-size:12.5px;display:flex;gap:14px;flex-wrap:wrap;margin-to
 .qa{border:1px solid var(--line);border-radius:10px;padding:11px 13px;margin-top:10px;background:#fbfdff}
 .qa summary{font-weight:700;font-size:14px;color:var(--navy);cursor:pointer}
 .qa p{font-size:13px;margin:8px 0 2px;line-height:1.75}
+.camp-strip{background:linear-gradient(90deg,#FFF6DE,#FFF1DE);border:1.5px solid #f2cf8f;border-radius:10px;padding:9px 12px;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:12px;line-height:1.7}
+.camp-strip .star{color:#E8A90C}
+.camp-strip .svc-badge{margin:0 2px}
+.camp-grid{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:640px){.camp-grid{grid-template-columns:1fr 1fr}}
+.camp-card{border:1px solid var(--line);border-radius:12px;padding:14px;background:#fff;display:flex;flex-direction:column}
+.camp-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;min-height:28px}
+.camp-title{margin:0;font-size:15.5px;color:var(--navy)}
+.camp-amt{margin:4px 0 8px;font-size:21px;font-weight:900;color:var(--skydeep);line-height:1.35}
+.camp-lines{margin:0 0 12px;padding-left:18px;font-size:12.5px;color:#33475e;line-height:1.7}
+.camp-card .cta{margin-top:auto}
+.car-progress{height:4px;background:#dcebfb;border-radius:999px;margin-top:8px;overflow:hidden}
+.car-progress-fill{height:100%;background:linear-gradient(90deg,var(--sky),var(--skydeep));border-radius:999px;width:0;transition:width .3s}
+.car-count{font-size:11px;color:var(--mut);text-align:center;margin-top:4px;font-weight:700}
+.svc-car-card{flex:0 0 238px;scroll-snap-align:start;border:1px solid var(--line);border-radius:12px;background:#fff;padding:13px 13px 14px;display:flex;flex-direction:column}
+.svc-car-top{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:24px}
+.svc-car-name{font-weight:900;font-size:16px;color:var(--navy)}
+.svc-car-benefit{margin:8px 0 6px;font-size:17px;font-weight:900;color:var(--skydeep);line-height:1.4}
+.svc-car-cond{margin:0 0 8px;font-size:11.5px;color:#33475e;line-height:1.6}
+.svc-car-code{margin:0 0 10px;font-size:12.5px}
+.svc-car-code b{font-size:14px;letter-spacing:.03em}
+.svc-car-card .cta{margin-top:auto;padding:9px 8px;font-size:12.5px;line-height:1.4}
+.svc-car-note{margin:auto 0 0;font-size:11.5px;color:var(--mut);background:var(--lblue);border-radius:8px;padding:8px 10px;line-height:1.55}
 </style>
 </head>
 <body>
@@ -276,6 +299,7 @@ footer.site .sns{font-size:12.5px;display:flex;gap:14px;flex-wrap:wrap;margin-to
     <a class="chip" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/the-ants/">ザアンツ ポイ活</a>
   </div>
   <div class="state-row"><span class="state-label">状態で探す</span>
+    <a class="schip" href="#campaign">キャンペーン</a>
     <a class="schip" href="#boost">増量中（11件）</a>
     <a class="schip" href="#news">新着・更新</a>
     <a class="schip" href="#ranking" data-goto-tab="deadline">期限が近い順</a>
@@ -379,6 +403,162 @@ footer.site .sns{font-size:12.5px;display:flex;gap:14px;flex-wrap:wrap;margin-to
   <a class="cta-btn" id="bcBtn" href="https://hapitas.jp/appinvite?i=26164523" target="_blank" rel="noopener sponsored" data-ref-service="ハピタス" data-ref-placement="top_bigcta"><span class="cta-label">登録無料！「ハピタス」招待URLはコチラ！</span><span class="arr">›</span></a>
   <p class="cta-sub" id="bcSub">「ハピタス」を経由後、ザ・グランドマフィアをプレイして<b class="cta-amt">106,171円</b>ゲット！</p>
 </div>
+</section>
+
+<section class="blk" id="svcrail">
+  <h2>紹介コードがあるサービス<span class="h2sub">招待リンク・コードで特典がもらえます</span></h2>
+  <div class="rail" id="autoRail"><article class="svc-car-card">
+      <div class="svc-car-top"><span class="svc-car-name">Freecash</span></div>
+      <p class="svc-car-benefit">初回DLで1,430円分</p>
+      <p class="svc-car-cond">招待コード入力後、初回DLで1,430円分ゲット</p>
+      <p class="svc-car-code">招待コード：<b>3BQLXB</b></p>
+      <a class="cta cta-freecash" href="https://freecash.com/r/3BQLXB" target="_blank" rel="noopener sponsored" data-ref-service="Freecash" data-ref-placement="top_svcrail">Freecashの招待リンクを開く</a>
+    </article><article class="svc-car-card">
+      <div class="svc-car-top"><span class="svc-car-name">ワラウ</span><span class="bd bd-dl">2026-11-30まで</span></div>
+      <p class="svc-car-benefit">最大2,500円分</p>
+      <p class="svc-car-cond">1pt＝1円、最低交換300pt（300円分）から</p>
+      <p class="svc-car-code">招待コード：<b>bEs7</b></p>
+      <a class="cta cta-warau" href="https://www.warau.jp/friend/reg/bEs5" target="_blank" rel="noopener sponsored" data-ref-service="ワラウ" data-ref-placement="top_svcrail">ワラウの招待リンクを開く</a>
+    </article><article class="svc-car-card">
+      <div class="svc-car-top"><span class="svc-car-name">TikTok</span></div>
+      <p class="svc-car-benefit">最大6,000円分</p>
+      <p class="svc-car-cond">新規登録＋条件達成で最大6,000円分の報酬獲得チャンス</p>
+      <p class="svc-car-code">招待コード：<b>284097117</b></p>
+      <a class="cta " href="https://www.tiktok.com/d/2/ZS9f73DUaTHEE-3fczb/" target="_blank" rel="noopener sponsored" data-ref-service="TikTok" data-ref-placement="top_svcrail">TikTokの招待リンクを開く</a>
+    </article><article class="svc-car-card">
+      <div class="svc-car-top"><span class="svc-car-name">TikTok Lite</span></div>
+      <p class="svc-car-benefit">1,400円分</p>
+      <p class="svc-car-cond">新規登録で1,400円分の報酬獲得チャンス</p>
+      <p class="svc-car-code">招待コード：<b>890270647</b></p>
+      <a class="cta " href="https://lite.tiktok.com/t/ZS9f73unLbRXS-wsJMe/" target="_blank" rel="noopener sponsored" data-ref-service="TikTok Lite" data-ref-placement="top_svcrail">TikTok Liteの招待リンクを開く</a>
+    </article><article class="svc-car-card">
+      <div class="svc-car-top"><span class="svc-car-name">モッピー</span></div>
+      <p class="svc-car-benefit">最大7,000円分</p>
+      <p class="svc-car-cond">対象広告5,000P以上の承認で紹介特典＋2,000P</p>
+      <p class="svc-car-code">招待コード：<b>7xaGA123</b></p>
+      <a class="cta cta-moppy" href="https://pc.moppy.jp/entry/invite.php?invite=7xaGA123" target="_blank" rel="noopener sponsored" data-ref-service="モッピー" data-ref-placement="top_svcrail">モッピーの招待リンクを開く</a>
+    </article><article class="svc-car-card">
+      <div class="svc-car-top"><span class="svc-car-name">ハピタス</span><span class="bd bd-dl">2026-11-30まで</span></div>
+      <p class="svc-car-benefit">最大2,300円分</p>
+      <p class="svc-car-cond">新規登録＋メール認証＋3日連続ログインで100P</p>
+      <p class="svc-car-code">招待コード：<b>INXAHV</b></p>
+      <a class="cta cta-hapitas" href="https://hapitas.jp/appinvite?i=26164523" target="_blank" rel="noopener sponsored" data-ref-service="ハピタス" data-ref-placement="top_svcrail">ハピタスの招待リンクを開く</a>
+    </article><article class="svc-car-card">
+      <div class="svc-car-top"><span class="svc-car-name">オリくじ</span></div>
+      <p class="svc-car-benefit">双方に500pt</p>
+      <p class="svc-car-cond">新規登録後24時間以内に招待コードを入力すると、招待した人・された人の両方に500pt</p>
+      <p class="svc-car-code">招待コード：<b>AZ3pOY</b></p>
+      <a class="cta " href="https://bit.ly/4fEUA8S" target="_blank" rel="noopener sponsored" data-ref-service="オリくじ" data-ref-placement="top_svcrail">オリくじの招待リンクを開く</a>
+    </article><article class="svc-car-card">
+      <div class="svc-car-top"><span class="svc-car-name">ポケカツ</span></div>
+      <p class="svc-car-benefit">初回チャージ90%OFF</p>
+      <p class="svc-car-cond">登録は無料</p>
+      <p class="svc-car-code">招待コード：<b>2BGZ325P</b></p>
+      <p class="svc-car-note">リンクはありません（コードのみの紹介です）</p>
+    </article><article class="svc-car-card">
+      <div class="svc-car-top"><span class="svc-car-name">楽天モバイル</span></div>
+      <p class="svc-car-benefit">最大13,000ポイント</p>
+      <p class="svc-car-cond">他社から乗り換え（MNP）なら13,000ポイント、乗り換え以外なら12,000ポイント</p>
+      <p class="svc-car-code">リンク型の紹介（コードなし）</p>
+      <a class="cta " href="https://r10.to/hgZk3d" target="_blank" rel="noopener sponsored" data-ref-service="楽天モバイル" data-ref-placement="top_svcrail">楽天モバイルの招待リンクを開く</a>
+    </article><article class="svc-car-card">
+      <div class="svc-car-top"><span class="svc-car-name">PayPay</span></div>
+      <p class="svc-car-benefit">双方に300pt</p>
+      <p class="svc-car-cond">紹介コード入力と1,000円以上の決済で、紹介者・被紹介者それぞれ300pt</p>
+      <p class="svc-car-code">招待コード：<b>02-49XLFP8</b></p>
+      <a class="cta " href="https://s.paypay.ne.jp/5HWsZW" target="_blank" rel="noopener sponsored" data-ref-service="PayPay" data-ref-placement="top_svcrail">PayPayの招待リンクを開く</a>
+    </article><article class="svc-car-card">
+      <div class="svc-car-top"><span class="svc-car-name">SMBC Olive</span></div>
+      <p class="svc-car-benefit">Vポイント1,000円相当</p>
+      <p class="svc-car-cond">紹介コードを入力してエントリー</p>
+      <p class="svc-car-code">招待コード：<b>FF89103-3439377</b></p>
+      <a class="cta " href="https://www.smbc.co.jp/kojin/redirect/referral04/index.html" target="_blank" rel="noopener sponsored" data-ref-service="SMBC Olive" data-ref-placement="top_svcrail">SMBC Oliveの招待リンクを開く</a>
+    </article><article class="svc-car-card">
+      <div class="svc-car-top"><span class="svc-car-name">エアウォレット</span><span class="bd bd-dl">2026-12-21まで</span></div>
+      <p class="svc-car-benefit">COIN+残高300円分（双方）</p>
+      <p class="svc-car-cond">招待する側がキャンペーンにエントリーしていること</p>
+      <p class="svc-car-code">招待コード：<b>6nzih9k</b></p>
+      <a class="cta " href="https://coinplus.go.link/jH372" target="_blank" rel="noopener sponsored" data-ref-service="エアウォレット" data-ref-placement="top_svcrail">エアウォレットの招待リンクを開く</a>
+    </article><article class="svc-car-card">
+      <div class="svc-car-top"><span class="svc-car-name">メルカリ</span></div>
+      <p class="svc-car-benefit">500円分</p>
+      <p class="svc-car-cond">アプリをインストールして、登録時に招待コードを入力</p>
+      <p class="svc-car-code">招待コード：<b>HKRDNM</b></p>
+      <a class="cta " href="https://link.jp.mercari.com/70tO/lpthbfqe" target="_blank" rel="noopener sponsored" data-ref-service="メルカリ" data-ref-placement="top_svcrail">メルカリの招待リンクを開く</a>
+    </article><article class="svc-car-card">
+      <div class="svc-car-top"><span class="svc-car-name">Muse</span></div>
+      <p class="svc-car-benefit">10億Museトークン</p>
+      <p class="svc-car-cond">参加後48時間以内に、設定で招待コードを入力</p>
+      <p class="svc-car-code">招待コード：<b>WYKA9Y</b></p>
+      <p class="svc-car-note">リンクはありません（コードのみの紹介です）</p>
+    </article><article class="svc-car-card">
+      <div class="svc-car-top"><span class="svc-car-name">サンポ</span></div>
+      <p class="svc-car-benefit">双方4,000pt（約36円分）</p>
+      <p class="svc-car-cond">招待コード入力で双方4,000pt（約36円分、110pt≒1円）</p>
+      <p class="svc-car-code">招待コード：<b>GTKZ6E</b></p>
+      <p class="svc-car-note">リンクはありません（コードのみの紹介です）</p>
+    </article><article class="svc-car-card">
+      <div class="svc-car-top"><span class="svc-car-name">ぶたまる</span></div>
+      <p class="svc-car-benefit">双方500pt（50円分）</p>
+      <p class="svc-car-cond">招待コード入力＋ブタップ10回＋アカウント作成で双方500pt（50円相当）</p>
+      <p class="svc-car-code">招待コード：<b>JUTN9FH</b></p>
+      <a class="cta " href="https://app.moneypig.gy/friend_code?friend_code=JUTN9FH" target="_blank" rel="noopener sponsored" data-ref-service="ぶたまる" data-ref-placement="top_svcrail">ぶたまるの招待リンクを開く</a>
+    </article><article class="svc-car-card">
+      <div class="svc-car-top"><span class="svc-car-name">ミラポイ</span></div>
+      <p class="svc-car-benefit">招待コード入力で400pt</p>
+      <p class="svc-car-cond">招待コードは登録時に入力</p>
+      <p class="svc-car-code">招待コード：<b>P3CQCWG3</b></p>
+      <a class="cta " href="https://mirapoi.go.link?adj_t=2582zjy0&amp;adj_deep_link=mirapoi%3A%2F%2Fref%3Fcode%3DP3CQCWG3&amp;adj_fallback=https%3A%2F%2Fmirapoi.jp%2F%3Fref%3DP3CQCWG3&amp;adj_redirect_macos=https%3A%2F%2Fmirapoi.jp%2F%3Fref%3DP3CQCWG3" target="_blank" rel="noopener sponsored" data-ref-service="ミラポイ" data-ref-placement="top_svcrail">ミラポイの招待リンクを開く</a>
+    </article><article class="svc-car-card">
+      <div class="svc-car-top"><span class="svc-car-name">トクエル</span></div>
+      <p class="svc-car-benefit">双方5,000ポイント</p>
+      <p class="svc-car-cond">登録時に招待コードを入力すると、登録した方・紹介した方の両方に5,000ポイント</p>
+      <p class="svc-car-code">招待コード：<b>9459GJ</b></p>
+      <a class="cta " href="https://tokueru.jp/invitations/9459GJ" target="_blank" rel="noopener sponsored" data-ref-service="トクエル" data-ref-placement="top_svcrail">トクエルの招待リンクを開く</a>
+    </article><article class="svc-car-card">
+      <div class="svc-car-top"><span class="svc-car-name">dipsファーム</span></div>
+      <p class="svc-car-benefit">水1,000g＋高級肥料10個</p>
+      <p class="svc-car-cond">メア特別コード（インフルエンサーコード）MEAPOIを登録から24時間以内に入力すると、水1,000g＋高級肥料10個</p>
+      <p class="svc-car-code">招待コード：<b>MEAPOI</b></p>
+      <a class="cta " href="https://dips.underduck.io/farm/invite" target="_blank" rel="noopener sponsored" data-ref-service="dipsファーム" data-ref-placement="top_svcrail">dipsファームの招待リンクを開く</a>
+    </article></div>
+  <div class="car-progress" aria-hidden="true"><div class="car-progress-fill" id="autoProg"></div></div>
+  <div class="car-count" id="autoCount" aria-hidden="true"></div>
+</section>
+
+<section class="blk" id="campaign">
+  <h2>キャンペーン<span class="h2sub">ポイントサイトの紹介キャンペーン・特典</span></h2>
+  <div class="camp-strip"><span class="star">✦</span> 期限が近いキャンペーン：<span class="svc-badge sb-warau">ワラウ</span><span class="svc-badge sb-hapitas">ハピタス</span>の紹介キャンペーンは<b>2026年11月30日まで</b></div>
+  <div class="camp-grid"><article class="camp-card">
+      <div class="camp-top"><span><span class="svc-badge sb-warau big">ワラウ</span></span><span class="bd bd-dl">2026-11-30まで</span></div>
+      <h3 class="camp-title">紹介キャンペーン</h3>
+      <p class="camp-amt">最大2,500円分</p>
+      <ul class="camp-lines"><li>紹介経由の登録で、初回ボーナスが300円分→500円分にアップ</li><li>内訳：はじめての方限定500円分＋はじめてのお買い物500円分＋アプリ広告最大500円分＋あんしん保証1,000円分</li></ul>
+      <a class="cta cta-warau" href="https://www.warau.jp/friend/reg/bEs5" target="_blank" rel="noopener sponsored" data-ref-service="ワラウ" data-ref-placement="top_campaign">ワラウに無料登録する</a>
+      <p class="svc-checked">特典・条件は2026年11月23日に公式確認</p>
+    </article><article class="camp-card">
+      <div class="camp-top"><span><span class="svc-badge sb-hapitas big">ハピタス</span></span><span class="bd bd-dl">2026-11-30まで</span></div>
+      <h3 class="camp-title">紹介キャンペーン</h3>
+      <p class="camp-amt">最大2,300円分</p>
+      <ul class="camp-lines"><li>新規登録＋メール認証＋3日連続ログインで100円分</li><li>広告利用で最大1,400円分／新規登録者向けキャンペーンで最大500円分／スマート設定で300円分</li></ul>
+      <a class="cta cta-hapitas" href="https://hapitas.jp/appinvite?i=26164523" target="_blank" rel="noopener sponsored" data-ref-service="ハピタス" data-ref-placement="top_campaign">ハピタスに無料登録する</a>
+      <p class="svc-checked">特典・条件は2026年11月23日に公式確認</p>
+    </article><article class="camp-card">
+      <div class="camp-top"><span><span class="svc-badge sb-moppy big">モッピー</span></span></div>
+      <h3 class="camp-title">招待特典</h3>
+      <p class="camp-amt">最大7,000円分</p>
+      <ul class="camp-lines"><li>対象広告5,000円分以上の承認で紹介特典＋2,000円分</li><li>達成期限は入会月の翌々月末まで</li></ul>
+      <a class="cta cta-moppy" href="https://pc.moppy.jp/entry/invite.php?invite=7xaGA123" target="_blank" rel="noopener sponsored" data-ref-service="モッピー" data-ref-placement="top_campaign">モッピーに無料登録する</a>
+      <p class="svc-checked">特典・条件は2026年11月23日に公式確認</p>
+    </article><article class="camp-card">
+      <div class="camp-top"><span><span class="svc-badge sb-freecash big">Freecash</span></span></div>
+      <h3 class="camp-title">招待特典・ボーナス</h3>
+      <p class="camp-amt">初回DLで1,430円分</p>
+      <ul class="camp-lines"><li>毎日のルーレットで無条件ボーナス</li><li>ゲームにログインするだけでもらえる報酬</li><li>高額案件が沢山</li></ul>
+      <a class="cta cta-freecash" href="https://freecash.com/r/3BQLXB" target="_blank" rel="noopener sponsored" data-ref-service="Freecash" data-ref-placement="top_campaign">Freecashを始める（無料）</a>
+      <p class="svc-checked">特典・条件は2026年11月24日に公式確認</p>
+    </article></div>
+  <p class="note">キャンペーンの内容・期限は各ポイントサイトの公式確認に基づきます。詳しい条件は<a href="#svc">主要ポイントサイト</a>の各カードでも確認できます。</p>
 </section>
 
 <section class="blk" id="svc">
@@ -581,6 +761,53 @@ function setSvcCta(name){
 document.querySelectorAll('.svctabs button').forEach(function(b){
   b.addEventListener('click', function(){ setSvcCta(b.getAttribute('data-svc')); });
 });
+// Referral-services carousel autoplay: advance one card every 4.5s, loop
+// back to the first card (instant jump on wrap-around), pause while the
+// user is interacting and resume after 8s idle. Native scroll-snap stays
+// in place, so finger swipes keep working. Position is shown as a progress
+// bar + counter (19 cards are too many for dots).
+(function(){
+  var rail = document.getElementById('autoRail');
+  if(!rail) return;
+  var n = rail.children.length;
+  if(n < 2) return;
+  var prog = document.getElementById('autoProg');
+  var count = document.getElementById('autoCount');
+  function step(){ return rail.children[1].offsetLeft - rail.children[0].offsetLeft; }
+  function idx(){ return Math.min(n - 1, Math.max(0, Math.round(rail.scrollLeft / step()))); }
+  function paint(){
+    var c = idx();
+    if(prog) prog.style.width = ((c + 1) / n * 100) + '%';
+    if(count) count.textContent = (c + 1) + ' / ' + n;
+  }
+  paint();
+  var timer = null, resume = null, visible = true;
+  function play(){ if(timer || !visible) return; timer = setInterval(function(){
+    var nx = (idx() + 1) % n;
+    rail.scrollTo({left: nx * step(), behavior: nx === 0 ? 'auto' : 'smooth'});
+  }, 4500); }
+  function stop(){ if(timer){ clearInterval(timer); timer = null; } }
+  function idle(){ stop(); if(resume) clearTimeout(resume); resume = setTimeout(play, 8000); }
+  ['pointerdown', 'touchstart', 'wheel'].forEach(function(ev){
+    rail.addEventListener(ev, idle, {passive: true});
+  });
+  var st = null;
+  rail.addEventListener('scroll', function(){
+    paint();
+    if(st) clearTimeout(st);
+    st = setTimeout(paint, 120);
+  }, {passive: true});
+  document.addEventListener('visibilitychange', function(){
+    if(document.hidden){ stop(); } else { idle(); }
+  });
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){
+      visible = es[0].isIntersecting;
+      if(visible){ idle(); } else { stop(); }
+    }).observe(rail);
+  }
+  if(!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches){ play(); }
+})();
 </script>
 </body>
 </html>
