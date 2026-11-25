@@ -192,6 +192,9 @@ body{padding-bottom:104px}
 .sticky-cta.alt .sticky-cta-bar::after{content:"";position:absolute;inset:0;border-radius:999px;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.75) 50%,transparent 70%);background-size:250% 100%;animation:shine 2.6s ease-in-out infinite;pointer-events:none}
 @keyframes shine{0%{background-position:120% 0}55%,100%{background-position:-60% 0}}
 @media (max-width:380px){.sticky-cta-bar{font-size:13.5px;padding:14px 12px 13px}}
+.stack{border:1px solid #ddd;border-radius:6px;overflow:hidden;margin:8px 0;background:#fff}
+.stack .shead{background:#fdf3e3;font-weight:800;font-size:13.5px;color:#333;padding:7px 10px;border-bottom:1px solid #eee}
+.stack .sbody{padding:8px 10px;font-size:13px;line-height:1.65;color:#444}
 </style></head><body><div class="page">
 <header class="header">
   <div class="header-top">
@@ -208,12 +211,10 @@ body{padding-bottom:104px}
 <li>ギルドテクの効果は避難所の位置に関係なく全員に反映される（領地系のギルドバフとは別）。移転できない事情があってもテクの恩恵は受けられる</li>
 </ul></div>
 <div class="card"><h4>ヘルプとギルドコインの数値</h4>
-<div style="overflow-x:auto"><table><tr><th>項目</th><th>内容</th></tr>
-<tr><td>ヘルプ1回の短縮</td><td>大使館Lvで変わる固定時間（Lv1＝1回1分30秒・受けられる回数4回／Lv5＝1分42秒・6回）。序盤は建設時間自体が短いため、固定短縮の効きが大きい</td></tr>
-<tr><td>ギルドコイン</td><td>ヘルプ1回＝1,000コイン、1日の上限5万（＝ヘルプ50回分相当）</td></tr>
-<tr><td>ギルドショップ</td><td>VIPポイント100＝15,000ギルドコイン。人気商品で売り切れやすく、在庫がない場合はR4以上の管理者に補充を依頼できる</td></tr>
-<tr><td>テク寄付</td><td>ダイヤ寄付は10ダイヤから+10ずつ（上限200）・回数無制限で、2倍〜20倍のランダム倍率つき。資源寄付には回数制限がある。ポイ活帯ではダイヤ温存が優先のため、使うのはイベントのダイヤ任務と重なったときだけが現実解</td></tr>
-</table></div>
+<div class="stack"><div class="shead">ヘルプ1回の短縮</div><div class="sbody">大使館Lvで変わる固定時間（Lv1＝1回1分30秒・受けられる回数4回／Lv5＝1分42秒・6回）。序盤は建設時間自体が短いため、固定短縮の効きが大きい</div></div>
+<div class="stack"><div class="shead">ギルドコイン</div><div class="sbody">ヘルプ1回＝1,000コイン、1日の上限5万（＝ヘルプ50回分相当）</div></div>
+<div class="stack"><div class="shead">ギルドショップ</div><div class="sbody">VIPポイント100＝15,000ギルドコイン。人気商品で売り切れやすく、在庫がない場合はR4以上の管理者に補充を依頼できる</div></div>
+<div class="stack"><div class="shead">テク寄付</div><div class="sbody">ダイヤ寄付は10ダイヤから+10ずつ（上限200）・回数無制限で、2倍〜20倍のランダム倍率つき。資源寄付には回数制限がある。ポイ活帯ではダイヤ温存が優先のため、使うのはイベントのダイヤ任務と重なったときだけが現実解</div></div>
 <p class="cnote">ヘルプの短縮量には「2分固定」という別説もあります（高Lv帯の値の可能性）。このページでは大使館Lv依存の整理を軸にしています。</p></div>
 <div class="card"><h4>ギャザー（集結）の作法</h4>
 <ul>
