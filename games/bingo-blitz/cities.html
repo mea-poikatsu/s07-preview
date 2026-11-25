@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Bingo Blitz 都市・ルーム一覧と案件ステップ対応｜ポイゲークエスト</title><style>
+<title>Bingo Blitz 都市・ルーム一覧と案件ステップ対応｜ポイゲークエスト</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8BB8V3DRW8"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8BB8V3DRW8');</script>
+<link rel="canonical" href="https://mea-poikatsu.github.io/s07-preview/games/bingo-blitz/cities.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ポイゲークエスト">
+<meta property="og:title" content="Bingo Blitz 都市・ルーム一覧と案件ステップ対応｜ポイゲークエスト">
+<meta property="og:description" content="Bingo Blitzの攻略とポイ活案件の条件・到達目安まとめ">
+<meta property="og:url" content="https://mea-poikatsu.github.io/s07-preview/games/bingo-blitz/cities.html">
+<meta property="og:image" content="https://mea-poikatsu.github.io/mea-game-poikatsu/img/hero-main-a.webp">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bingo Blitz 都市・ルーム一覧と案件ステップ対応｜ポイゲークエスト">
+<meta name="twitter:description" content="Bingo Blitzの攻略とポイ活案件の条件・到達目安まとめ">
+<meta name="twitter:image" content="https://mea-poikatsu.github.io/mea-game-poikatsu/img/hero-main-a.webp">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "トップ", "item": "https://mea-poikatsu.github.io/mea-game-poikatsu/"}, {"@type": "ListItem", "position": 2, "name": "ゲーム攻略", "item": "https://mea-poikatsu.github.io/s07-preview/games/bingo-blitz/index.html"}, {"@type": "ListItem", "position": 3, "name": "Bingo Blitz", "item": "https://mea-poikatsu.github.io/s07-preview/games/bingo-blitz/index.html"}, {"@type": "ListItem", "position": 4, "name": "都市と案件ステップ", "item": "https://mea-poikatsu.github.io/s07-preview/games/bingo-blitz/cities.html"}]}</script><style>
 
 *{margin:0;padding:0;box-sizing:border-box}
 html{background:#e8e8e8;scroll-behavior:smooth}
@@ -21,7 +39,8 @@ img{display:block}
 .gnav{display:flex;border-top:1px solid #f0f0f0;overflow-x:auto;white-space:nowrap}
 .gnav a{flex:1;text-align:center;font-size:12px;font-weight:700;padding:8px 6px;color:#444;border-bottom:2px solid transparent}
 .gnav a.on{color:#ff6900;border-bottom-color:#ff6900}
-.crumbs{font-size:11px;color:#888;padding:8px 12px 0}
+.breadcrumb{font-size:11px;color:#888;padding:8px 12px 0;line-height:1.6}
+.breadcrumb a{color:#3977b8;text-decoration:none}
 .sec{margin-top:22px;scroll-margin-top:118px}
 .sec-head{display:flex;align-items:center;justify-content:space-between;background:#fdf3e3;border-left:5px solid #ff6900;padding:7px 10px 7px 9px;margin:0 0 10px}
 .sec-head h2{font-size:16px;font-weight:800}
@@ -64,9 +83,16 @@ td.pt{font-weight:800;color:#e05e00;white-space:nowrap}
 .ghead .gmax{margin-top:5px;font-size:13px;font-weight:900;color:#ff6900}
 .dates{font-size:11px;color:#999;padding:0 12px;display:flex;gap:12px;flex-wrap:wrap}
 .dates b{color:#777;font-weight:700}
-.toc{position:sticky;top:104px;z-index:55;display:flex;background:#333;overflow-x:auto;white-space:nowrap}
-.toc a{flex:1;text-align:center;color:#fff;font-size:12px;font-weight:700;padding:8px 10px}
-.toc a:active,.toc a.on{background:#ff6900}
+/* 目次（折りたたみ式・初期は畳む。パズサバ完璧版のトピックページが正。
+   2026-11-26 キングショットパイロットで旧リンクバー .toc から準拠） */
+.tocwrap{padding:0 12px}
+.tocbtn{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;background:#eaf2fc;border:1px solid #bcd6f2;border-radius:8px;padding:10px 12px;font-size:13.5px;font-weight:800;color:#2f5f8f;font-family:inherit;cursor:pointer;margin:2px 0 10px}
+.tocbtn .pm{color:#3977b8;font-weight:900;flex:none}
+.toclist{display:flex;flex-direction:column;gap:6px;margin:4px 0 10px}
+.toclist.toc-closed{display:none}
+.toclist a{display:flex;align-items:center;justify-content:space-between;gap:8px;background:#eaf2fc;border:1px solid #bcd6f2;border-radius:8px;padding:10px 12px;font-size:13.5px;font-weight:800;color:#2f5f8f;line-height:1.45;text-decoration:none}
+.toclist a .arr{flex:none;color:#3977b8;font-weight:900}
+.toclist a:active{background:#d9e9fb}
 /* タブ */
 .tabs{display:flex;gap:6px;padding:0 12px;margin-bottom:4px;scroll-margin-top:160px}
 .tabs button{flex:1;border:1px solid #ddd;background:#f7f7f7;border-radius:8px 8px 0 0;padding:9px 4px;font-size:13px;font-weight:800;color:#777;cursor:pointer;font-family:inherit;border-bottom:3px solid #ddd}
@@ -216,6 +242,20 @@ a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
 .rel{list-style:none;margin:0;padding:4px 12px 10px}
 .rel li{border-bottom:1px solid #e3ecf7}
 .rel a{display:block;padding:10px 2px;color:#3977b8;text-decoration:none;font-weight:700}
+
+/* 他媒体導線（foundation-parts 部品1。マスターは foundation-parts-2026-11-26/parts/crossmedia-shelf.css） */
+.xmedia{margin:14px 0 10px;padding:12px 12px 0;border-top:1px solid #e3e9f2}
+.xmedia-h{font-size:12px;font-weight:700;color:#555;margin:0 0 8px}
+.xmedia-list{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 16px}
+.xmedia-list li{font-size:12px;line-height:1.5}
+.xmedia-list a{color:#3977B8;text-decoration:none;padding:4px 0;display:inline-block}
+.xmedia-sns{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:10px;font-size:12px}
+.xmedia-sns a{color:#555;text-decoration:none;padding:4px 0}
+.xmedia-cards{margin:20px 12px 8px}
+.xmedia-cards h2{font-size:15px;margin:0 0 10px}
+.xmedia-card{display:block;background:#F0ECFA;border-radius:10px;padding:12px 14px;margin:0 0 8px;text-decoration:none}
+.xmedia-card-name{display:block;font-size:14px;font-weight:700;color:#463a75}
+.xmedia-card-desc{display:block;font-size:12px;color:#555;margin-top:2px;line-height:1.5}
 </style></head>
 <body><div class="page">
 <header class="header">
@@ -225,15 +265,34 @@ a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
   </div>
   <nav class="gnav"><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">人気ゲーム</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">新着・更新</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">ランキング</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">ゲーム一覧</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">攻略メニュー</a></nav>
 </header>
-<div class="crumbs"><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">トップ</a> ＞ <a href="index.html">ゲーム攻略</a> ＞ 都市と案件ステップ</div>
+<nav class="breadcrumb" aria-label="パンくず"><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">トップ</a> &gt; <a href="index.html">ゲーム攻略</a> &gt; <a href="index.html">Bingo Blitz</a> &gt; 都市と案件ステップ</nav>
 <div class="ghead"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7d/75/7b/7d757b77-eafb-3707-3b31-b8bf0a6af4b9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt=""><div><h1>都市と案件ステップ</h1>
 <div class="gmeta">Bingo Blitz（Playtika Santa Monica）／iOS/Android</div>
 <div class="gmax">ポイ活案件 最大338,847円（Freecash・iOS版）</div></div></div>
 <div class="dates"><span>更新日：<b>2026年11月26日</b></span></div>
-<nav class="toc"><a href="#system">都市クリア</a><a href="#rooms">ルーム順</a><a href="#diff">案件ごとの違い</a><a href="#rooms-full">全ルーム一覧</a></nav>
+<div class="tocwrap"><button type="button" class="tocbtn" aria-expanded="false">目次を開く<span class="pm">＋</span></button><nav class="toclist toc-closed"><a href="#system">都市クリア<span class="arr">›</span></a><a href="#rooms">ルーム順<span class="arr">›</span></a><a href="#diff">案件ごとの違い<span class="arr">›</span></a><a href="#rooms-full">全ルーム一覧<span class="arr">›</span></a></nav></div>
 <section class="sec" id="system"><div class="sec-head"><h2>「都市クリア」の中身</h2></div><p class="lead">案件のステップは「全都市を順に踏む」のではなく、途中の都市を抜粋したマイルストーンです。ステップ対象の都市に到達するには、手前の対象外の都市もすべてクリアして進む必要があります。</p><div class="blk"><p>各都市では、ビンゴを繰り返してコレクションアイテム（写真・お土産）を必要数集めるとコンプリート（クリア）になり、次の都市へ進みます。iOS版の最終ステップであるアルプスは、ゲーム内では76番目のルーム（Swiss Alps）に相当し、距離としては相当に長い位置です。</p><p>案件ごとに「何番目の都市か」の数え方や対象都市が異なります。他案件の番号・対象を流用せず、参加する案件のステップ表記を正としてください。</p></div></section><section class="sec" id="rooms"><div class="sec-head"><h2>ゲーム内ルーム順（主要都市）</h2></div><div class="tscroll"><table><tr><th>順番</th><th>都市</th><th>案件ステップ対象の例</th></tr><tr><td>1</td><td>カタリーナ</td><td>序盤の到達ステップに出ることがある</td></tr><tr><td>2</td><td>ニューヨーク</td><td>ほぼ全案件の最初のステップ</td></tr><tr><td>3</td><td>マドリード</td><td>—</td></tr><tr><td>4</td><td>シドニー</td><td>ワラウiOS／ハピタスiOS 等</td></tr><tr><td>5</td><td>香港</td><td>—</td></tr><tr><td>6</td><td>アトランティックシティ</td><td>ワラウAndroid／iOS</td></tr><tr><td>7</td><td>ロンドン</td><td>—</td></tr><tr><td>8</td><td>アテネ</td><td>ワラウiOS／ハピタスiOS</td></tr><tr><td>11</td><td>トーキョー</td><td>ワラウ（短い個別期限つき）</td></tr><tr><td>21</td><td>ムンバイ</td><td>高難易度ステップ（個別期限つき）</td></tr><tr><td>31</td><td>ドバイ</td><td>高難易度ステップ（個別期限つき）</td></tr><tr><td>41</td><td>カサブランカ</td><td>ワラウ／ハピタスiOS 等</td></tr><tr><td>51</td><td>イエローストーン</td><td>高難易度ステップ（個別期限つき）</td></tr><tr><td>61</td><td>モントリオール</td><td>ワラウiOS／ハピタスiOS</td></tr><tr><td>76</td><td>スイスアルプス</td><td>最終ステップ（ワラウiOS 4,000pt 等）</td></tr><tr><td>83</td><td>ベリーズ</td><td>ゲーム内はさらに先まで続く</td></tr></table></div><p class="note" style="padding:0 12px">ルーム順は Fandom の BINGO Blitz Wiki で照合した主要都市の抜粋です。全ルーム（372）の一覧は次のセクションに掲載しています。</p></section><section class="sec" id="diff"><div class="sec-head"><h2>案件ごとにステップ対象が違う</h2></div><div class="blk"><p>同じ都市クリア型でも、OSやサービスでステップの組み立てが変わります。たとえばワラウAndroid版の終盤ステップはメデジン（2,500pt）・ベイジン（5,000pt）・キョート（7,500pt）で、iOS版の最終ステップはアルプス（4,000pt）です。「アルプスまで」という言い方はiOS版側の構成で、Android版では同じ進み方でも対象都市が異なります。</p><p>また、全体期限（85〜90日）とは別に、都市ごとに短い個別期限が付くステップがあります（ムンバイ10日以内、ドバイ20日以内、イエローストーン40日以内など）。序盤をのんびり進めると、個別期限切れで取り逃がすので注意してください。</p></div></section><section class="sec" id="rooms-full"><div class="sec-head"><h2>全ルーム一覧（372ルーム）</h2></div><div class="blk"><p>2025年7月10日版の Fandom 一覧で確認した全ルームです。島は4〜5ルームで1組になっています。「*」はスペシャルルームの注記があるルームです。それ以降に追加されたルームは未確認です。都市名はゲーム内表記（英語）です。</p></div><div class="tscroll"><table><tr><th>番号の範囲</th><th>ルーム（番号：名称）</th></tr><tr><td>1</td><td>1 Catalina、2 New York、3 Madrid、4 Sydney、5 Hong Kong、6 Atlantic City、7 London、8 Athens、9 Venice、10 Berlin</td></tr><tr><td>11</td><td>11 Tokyo、12 Dublin、13 Toronto、14 Jamaica、15 Hollywood、16 Nashville、17 Honolulu、18 Paris、19 Rio、20 Tahiti</td></tr><tr><td>21</td><td>21 Mumbai、22 Anchorage、23 Cairo、24 Vienna、25 Rome、26 Istanbul、27 Moscow、28 Amsterdam、29 Miami、30 Cape Town</td></tr><tr><td>31</td><td>31 Dubai、32 Nairobi、33 Mexico City、34 New Orleans、35 Buenos Aires、36 Prague、37 Galapagos Islands*、38 Pompeii*、39 Monte Carlo*、40 North Pole*</td></tr><tr><td>41</td><td>41 Casablanca*、42 Area 51*、43 Madagascar*、44 Grand Canyon*、45 Moon Colony*、46 Seychelles*、47 Count Bingo&#x27;s Castle*、48 Shanghai、49 Keukenhof Gardens、50 Mount Everest</td></tr><tr><td>51</td><td>51 Yellowstone Park、52 Great Barrier Reef、53 Buckingham Palace、54 Machu Picchu、55 Copenhagen、56 Wellington、57 Havana、58 Glasgow、59 Washington DC、60 Bangkok</td></tr><tr><td>61</td><td>61 Montreal、62 Lisbon、63 Stockholm、64 Las Vegas、65 Barcelona、66 Fiji、67 Houston、68 Tanzania、69* St. Petersburg、70 Reykjavik</td></tr><tr><td>71</td><td>71 Boston、72 Amazon Rainforest、73 Vancouver、74 Petra Jordan、75 Hanoi、76 Swiss Alps、77 Chicago、78 Phnom Penh、79 Maldives、80 Sapporo</td></tr><tr><td>81</td><td>81 Vientiane、82 Kathmandu、83 Belize、84 Barbados、85 St. Lucia、86 British Virgin Islands、87 Aruba、88 Tikal、89 Panama City、90 Lima</td></tr><tr><td>91</td><td>91 Medellin、92 Easter Island、93 San Francisco、94 Chiang Mai、95 Naples、96 Santa Cruz、97 Portland、98 Brussels、99 Jaipur、100 Johannesburg</td></tr><tr><td>101</td><td>101 Seoul、102 Melbourne、103 Manila、104 Warsaw、105 Marrakech、106 Beijing、107 Seattle、108 Auckland、109 Oslo、110 San Diego</td></tr><tr><td>111</td><td>111 Xi&#x27;an、112 Doha、113 Kuala Lumpur、114 Zurich、115 Budapest、116 Williamsburg、117 Sequim、118 Cleveland、119 Hobart、120 Delhi</td></tr><tr><td>121</td><td>121 Antwerp、122 Sao Paulo、123 Albuquerque、124 Edinburgh、125 Singapore、126 Cusco、127 San Jose、128 Bucharest、129 Austin、130 Santa Clara</td></tr><tr><td>131</td><td>131 Stone Town、132 Bali、133 Lagos、134 Suchitoto、135 Rapid City、136 Zagreb、137 Luang Prabang、138 Cincinnati、139 Luxor、140 Perth</td></tr><tr><td>141</td><td>141 Kyoto、142 Topeka、143 Dubrovnik、144 Phoenix、145 Antigua、146 Yangon、147 Baku、148 Philadelphia、149 Ibiza、150 Milwaukee</td></tr><tr><td>151</td><td>151 Colombo、152 Cardiff、153 Jerusalem、154 Florence、155 Denver、156 Marseille、157 Phuket、158 Windhoek、159 Orlando、160 Munich</td></tr><tr><td>161</td><td>161 Los Angeles、162 Manchester、163 Strasbourg、164 Santa Fe、165 Bora Bora、166 Santiago、167 Minneapolis、168 Porto、169 Atlanta、170 Bogota</td></tr><tr><td>171</td><td>171 Larnaca、172 Juneau、173 Sarajevo、174 Asheville、175 Darwin、176 Thessaloniki、177 Tucson、178 Cheyenne、179 Charlottesville、180 Des Moines</td></tr><tr><td>181</td><td>181 Pittsburgh、182 Detroit、183 Quebec、184 Addis Ababa、185 Valletta、186 Cancun、187 Springfield、188 Salzburg、189 Baltimore、190 Ho Chi Minh</td></tr><tr><td>191</td><td>191 Djenne、192 Savannah、193 St. Louis、194 San Juan、195 Brisbane、196 Thimphu、197 Milan、198 Montevideo、199 Columbia、200 Tbilisi</td></tr><tr><td>201</td><td>201 Antalya、202 Versailles、203 Riga、204 Kingston、205 Algiers、206 Oklahoma City、207 Bangalore、208 Haiti、209 Salt Lake、210 Almaty</td></tr><tr><td>211</td><td>211 Indianapolis、212 Bilbao、213 Helsinki、214 Granada、215 Santa Claus、216 Bern、217 Tampa、218 Belfast、219 Halifax、220 Quito</td></tr><tr><td>221</td><td>221 Cetinje、222 Memphis、223 Providence、224 Cordoba、225 Liverpool、226 Eilat、227 Key West、228 Hartford、229 Lusaka、230 Greenland</td></tr><tr><td>231</td><td>231 Dallas、232 Asuncion、233 Vaduz、234 Louisville、235 Wrexham、236 Fargo、237 Durban、238 Little Rock、239 Dortmund、240 Adelaide</td></tr><tr><td>241</td><td>241 Birmingham、242 Windsor、243 Osaka、244 Tijuana、245 San Antonio、246 Rotterdam、247 Charlotte、248 Jackson、249 Busan、250 Omaha</td></tr><tr><td>251</td><td>251 Bordeaux、252 Bruges、253 Billings、254 Gothenburg、255 Moresby、256 Paramaribo、257 Boise、258 Concord、259 Curitiba、260 Praia</td></tr><tr><td>261</td><td>261 Charleston、262 Sofia、263 Lewiston、264 Kansas City、265 Dover、266 Newark、267 Montpelier、268 Pokhara、269 Jacksonville、270 Luanda</td></tr><tr><td>271</td><td>271 Guam、272 Palermo、273 Boulder、274 Nassau、275 Skopje、276 Christchurch、277 Sacramento、278 Buffalo、279 Yaoundé、280 Winnipeg</td></tr><tr><td>281</td><td>281 Ljubljana、282 Riyadh、283 Richmond、284 Newcastle、285 Canberra、286 Tulsa、287 Santo Domingo、288 Luxembourg、289 El Paso、290 Yerevan</td></tr><tr><td>291</td><td>291 Kyiv、292 Saint Paul、293 Ajaccio、294 Spokane、295 Bratislava、296 Knoxville、297 Honiara、298 Reno、299 Kolkata、300 Madison</td></tr><tr><td>301</td><td>301 Frankfurt、302 Gaborone、303 Baton Rouge、304 Belgrade、305 Geneva、306 Huntsville、307 Guangzhou、308 Nagoya、309 Sioux Falls、310 Aberdeen</td></tr><tr><td>311</td><td>311 Alexandria、312 Hilo、313 Scottsdale、314 Jakarta、315 Seville、316 Pago Pago、317 Vilnius、318 San Salvador、319 Turin、320 Fairbanks</td></tr><tr><td>321</td><td>321 La Paz、322 Dakar、323 Grenoble、324 Montego Bay、325 Siem Reap、326 Pasadena、327 Muscat、328 Raleigh、329 Tallinn、330 Ottawa</td></tr><tr><td>331</td><td>331 Amman、332 Kraków、333 Wichita、334 Guatemala City、335 Tierra del Fuego、336 Graz、337 Mobile、338 Oulu、339 Taipei、340 Stamford</td></tr><tr><td>341</td><td>341 Bridgetown、342 San Marino、343 Cluj、344 Tunis、345 Colorado Springs、346 Brasília、347 Burlington、348 Tuvalu、349 Bergen、350 Fort Wayne</td></tr><tr><td>351</td><td>351 Valdivia、352 Cork、353 Plymouth、354 Brooklyn、355 Newport、356 Erie、357 Yorktown、358 Salem、359 Coimbra、360 St. John&#x27;s、361 Hamburg、362 Heraklion、363 Bariloche、364 Tel-Aviv、365 Tallahassee、366 Accra、367 Goa、368 Ko Samui、369 Malaga、370 Incheon、371 Birmingham、372 Nicosia</td></tr></table></div><p class="note" style="padding:0 12px">案件の終点である Swiss Alps は76番目で、全体（372）の約2割の位置です。St. Petersburg は原表で番号未記載のため「69*」としています。</p></section><section class="sec" id="related"><div class="sec-head"><h2>このゲームの他のページ</h2></div><ul class="rel"><li><a href="index.html">ゲームトップ</a></li><li><a href="joban.html">序盤の進め方</a></li><li><a href="credits.html">クレジットの集め方</a></li><li><a href="kakin.html">課金判断</a></li><li><a href="conditions.html">案件条件の詳細</a></li><li><a href="faq.html">FAQ・つまずき</a></li></ul></section>
+
 <footer class="footer">
   <div class="flinks"><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">ゲーム一覧</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">ポイントが高い順</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/how-to-read/">案件条件の見方</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/editorial-policy/">編集方針</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/about/">このサイトについて</a></div>
+  <div class="xmedia">
+  <h3 class="xmedia-h">運営メディア</h3>
+  <ul class="xmedia-list">
+    <li><a href="https://mea-poikatsu.github.io/mea-poikatsu-media/" data-cross-media="s01" data-ref-placement="footer">ポイ活ポータル（全体の入口）</a></li>
+    <li><a href="https://mea-poikatsu.github.io/mea-ranking/" data-cross-media="s03" data-ref-placement="footer">ポイランク（案件をポイント順に比べる）</a></li>
+    <li><a href="https://mea-poikatsu.github.io/mea-code-search/" data-cross-media="s04" data-ref-placement="footer">コードサーチ（招待コードをサービス名で探す）</a></li>
+    <li><a href="https://mea-poikatsu.github.io/mea-code-matome/" data-cross-media="s08" data-ref-placement="footer">招待コード図鑑（コードの一覧）</a></li>
+    <li><a href="https://mea-poikatsu.github.io/mea-kantan-guide/" data-cross-media="s06" data-ref-placement="footer">ポイ活のトリセツ（始め方ガイド）</a></li>
+    <li><a href="https://mea-poikatsu.github.io/mea-poikatsu-blog/" data-cross-media="s02" data-ref-placement="footer">ポイ活レビュー帖（体験レビュー）</a></li>
+    <li><a href="https://mea-poikatsu.github.io/mea-poikatsu-magazine/" data-cross-media="s05" data-ref-placement="footer">ポイレーダー（新着・特集）</a></li>
+    <li><a href="https://mea-poikatsu.github.io/mea-keijiban/" data-cross-media="s09" data-ref-placement="footer">ポイ活ひろば（掲示板）</a></li>
+  </ul>
+  <div class="xmedia-sns">
+    <a href="https://x.com/pppppuririn" data-cross-media="x" data-ref-placement="footer_sns">X（@pppppuririn）</a>
+    <a href="https://www.instagram.com/mea.poikatsu/" data-cross-media="instagram" data-ref-placement="footer_sns">Instagram（@mea.poikatsu）</a>
+    <a href="https://note.com/k_n702" data-cross-media="note" data-ref-placement="footer_sns">note</a>
+  </div>
+</div>
   <p class="disc">当サイトは、ポイントサイト各社の紹介プログラムに参加しています。記事内のリンクを経由してサービスに登録・利用された場合、当サイトに紹介料が支払われることがあります。掲載しているポイント数・条件・期限は、各サービスの公式ページで確認した時点の情報です。参加前に必ず公式ページで最新の条件をご確認ください。</p>
   <p class="copy">© ポイゲークエスト（ポイ活ゲーム攻略Wiki）</p>
 </footer>
@@ -244,6 +303,27 @@ document.querySelectorAll('.acc>button').forEach(function(b){
     var acc=b.parentElement,open=acc.classList.toggle('open');
     b.querySelector('.pm').textContent=open?'－':'＋';
   });
+});
+document.querySelectorAll('.tocbtn').forEach(function(b){
+  b.addEventListener('click',function(){
+    var n=b.nextElementSibling,c=n.classList.toggle('toc-closed');
+    b.setAttribute('aria-expanded',String(!c));
+    b.childNodes[0].textContent=c?'目次を開く':'目次を閉じる';
+    b.querySelector('.pm').textContent=c?'＋':'－';
+  });
+});
+
+document.addEventListener('click', function (ev) {
+  var t = ev.target;
+  var a = t && t.closest ? t.closest('a[data-cross-media]') : null;
+  if (!a) return;
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', 'cross_media_click', {
+      media: a.getAttribute('data-cross-media') || '',
+      placement: a.getAttribute('data-ref-placement') || '',
+      site_id: 's07'
+    });
+  }
 });
 </script>
 </body></html>

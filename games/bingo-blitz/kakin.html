@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Bingo Blitz 課金判断（課金回数ステップの扱い）｜ポイゲークエスト</title><style>
+<title>Bingo Blitz 課金判断（課金回数ステップの扱い）｜ポイゲークエスト</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8BB8V3DRW8"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8BB8V3DRW8');</script>
+<link rel="canonical" href="https://mea-poikatsu.github.io/s07-preview/games/bingo-blitz/kakin.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ポイゲークエスト">
+<meta property="og:title" content="Bingo Blitz 課金判断（課金回数ステップの扱い）｜ポイゲークエスト">
+<meta property="og:description" content="Bingo Blitzの攻略とポイ活案件の条件・到達目安まとめ">
+<meta property="og:url" content="https://mea-poikatsu.github.io/s07-preview/games/bingo-blitz/kakin.html">
+<meta property="og:image" content="https://mea-poikatsu.github.io/mea-game-poikatsu/img/hero-main-a.webp">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bingo Blitz 課金判断（課金回数ステップの扱い）｜ポイゲークエスト">
+<meta name="twitter:description" content="Bingo Blitzの攻略とポイ活案件の条件・到達目安まとめ">
+<meta name="twitter:image" content="https://mea-poikatsu.github.io/mea-game-poikatsu/img/hero-main-a.webp">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "トップ", "item": "https://mea-poikatsu.github.io/mea-game-poikatsu/"}, {"@type": "ListItem", "position": 2, "name": "ゲーム攻略", "item": "https://mea-poikatsu.github.io/s07-preview/games/bingo-blitz/index.html"}, {"@type": "ListItem", "position": 3, "name": "Bingo Blitz", "item": "https://mea-poikatsu.github.io/s07-preview/games/bingo-blitz/index.html"}, {"@type": "ListItem", "position": 4, "name": "課金判断", "item": "https://mea-poikatsu.github.io/s07-preview/games/bingo-blitz/kakin.html"}]}</script><style>
 
 *{margin:0;padding:0;box-sizing:border-box}
 html{background:#e8e8e8;scroll-behavior:smooth}
@@ -21,7 +39,8 @@ img{display:block}
 .gnav{display:flex;border-top:1px solid #f0f0f0;overflow-x:auto;white-space:nowrap}
 .gnav a{flex:1;text-align:center;font-size:12px;font-weight:700;padding:8px 6px;color:#444;border-bottom:2px solid transparent}
 .gnav a.on{color:#ff6900;border-bottom-color:#ff6900}
-.crumbs{font-size:11px;color:#888;padding:8px 12px 0}
+.breadcrumb{font-size:11px;color:#888;padding:8px 12px 0;line-height:1.6}
+.breadcrumb a{color:#3977b8;text-decoration:none}
 .sec{margin-top:22px;scroll-margin-top:118px}
 .sec-head{display:flex;align-items:center;justify-content:space-between;background:#fdf3e3;border-left:5px solid #ff6900;padding:7px 10px 7px 9px;margin:0 0 10px}
 .sec-head h2{font-size:16px;font-weight:800}
@@ -64,9 +83,16 @@ td.pt{font-weight:800;color:#e05e00;white-space:nowrap}
 .ghead .gmax{margin-top:5px;font-size:13px;font-weight:900;color:#ff6900}
 .dates{font-size:11px;color:#999;padding:0 12px;display:flex;gap:12px;flex-wrap:wrap}
 .dates b{color:#777;font-weight:700}
-.toc{position:sticky;top:104px;z-index:55;display:flex;background:#333;overflow-x:auto;white-space:nowrap}
-.toc a{flex:1;text-align:center;color:#fff;font-size:12px;font-weight:700;padding:8px 10px}
-.toc a:active,.toc a.on{background:#ff6900}
+/* 目次（折りたたみ式・初期は畳む。パズサバ完璧版のトピックページが正。
+   2026-11-26 キングショットパイロットで旧リンクバー .toc から準拠） */
+.tocwrap{padding:0 12px}
+.tocbtn{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;background:#eaf2fc;border:1px solid #bcd6f2;border-radius:8px;padding:10px 12px;font-size:13.5px;font-weight:800;color:#2f5f8f;font-family:inherit;cursor:pointer;margin:2px 0 10px}
+.tocbtn .pm{color:#3977b8;font-weight:900;flex:none}
+.toclist{display:flex;flex-direction:column;gap:6px;margin:4px 0 10px}
+.toclist.toc-closed{display:none}
+.toclist a{display:flex;align-items:center;justify-content:space-between;gap:8px;background:#eaf2fc;border:1px solid #bcd6f2;border-radius:8px;padding:10px 12px;font-size:13.5px;font-weight:800;color:#2f5f8f;line-height:1.45;text-decoration:none}
+.toclist a .arr{flex:none;color:#3977b8;font-weight:900}
+.toclist a:active{background:#d9e9fb}
 /* タブ */
 .tabs{display:flex;gap:6px;padding:0 12px;margin-bottom:4px;scroll-margin-top:160px}
 .tabs button{flex:1;border:1px solid #ddd;background:#f7f7f7;border-radius:8px 8px 0 0;padding:9px 4px;font-size:13px;font-weight:800;color:#777;cursor:pointer;font-family:inherit;border-bottom:3px solid #ddd}
@@ -216,6 +242,20 @@ a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
 .rel{list-style:none;margin:0;padding:4px 12px 10px}
 .rel li{border-bottom:1px solid #e3ecf7}
 .rel a{display:block;padding:10px 2px;color:#3977b8;text-decoration:none;font-weight:700}
+
+/* 他媒体導線（foundation-parts 部品1。マスターは foundation-parts-2026-11-26/parts/crossmedia-shelf.css） */
+.xmedia{margin:14px 0 10px;padding:12px 12px 0;border-top:1px solid #e3e9f2}
+.xmedia-h{font-size:12px;font-weight:700;color:#555;margin:0 0 8px}
+.xmedia-list{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 16px}
+.xmedia-list li{font-size:12px;line-height:1.5}
+.xmedia-list a{color:#3977B8;text-decoration:none;padding:4px 0;display:inline-block}
+.xmedia-sns{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:10px;font-size:12px}
+.xmedia-sns a{color:#555;text-decoration:none;padding:4px 0}
+.xmedia-cards{margin:20px 12px 8px}
+.xmedia-cards h2{font-size:15px;margin:0 0 10px}
+.xmedia-card{display:block;background:#F0ECFA;border-radius:10px;padding:12px 14px;margin:0 0 8px;text-decoration:none}
+.xmedia-card-name{display:block;font-size:14px;font-weight:700;color:#463a75}
+.xmedia-card-desc{display:block;font-size:12px;color:#555;margin-top:2px;line-height:1.5}
 </style></head>
 <body><div class="page">
 <header class="header">
@@ -225,15 +265,34 @@ a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
   </div>
   <nav class="gnav"><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">人気ゲーム</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">新着・更新</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">ランキング</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">ゲーム一覧</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">攻略メニュー</a></nav>
 </header>
-<div class="crumbs"><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">トップ</a> ＞ <a href="index.html">ゲーム攻略</a> ＞ 課金判断</div>
+<nav class="breadcrumb" aria-label="パンくず"><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">トップ</a> &gt; <a href="index.html">ゲーム攻略</a> &gt; <a href="index.html">Bingo Blitz</a> &gt; 課金判断</nav>
 <div class="ghead"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7d/75/7b/7d757b77-eafb-3707-3b31-b8bf0a6af4b9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt=""><div><h1>課金判断</h1>
 <div class="gmeta">Bingo Blitz（Playtika Santa Monica）／iOS/Android</div>
 <div class="gmax">ポイ活案件 最大338,847円（Freecash・iOS版）</div></div></div>
 <div class="dates"><span>更新日：<b>2026年11月26日</b></span></div>
-<nav class="toc"><a href="#free">無課金の範囲</a><a href="#steps">課金回数ステップ</a><a href="#plan">現実的な考え方</a><a href="#plus">Plusの位置づけ</a></nav>
+<div class="tocwrap"><button type="button" class="tocbtn" aria-expanded="false">目次を開く<span class="pm">＋</span></button><nav class="toclist toc-closed"><a href="#free">無課金の範囲<span class="arr">›</span></a><a href="#steps">課金回数ステップ<span class="arr">›</span></a><a href="#plan">現実的な考え方<span class="arr">›</span></a><a href="#plus">Plusの位置づけ<span class="arr">›</span></a></nav></div>
 <section class="sec" id="free"><div class="sec-head"><h2>無課金で進める範囲</h2></div><p class="lead">序盤〜中盤は無課金で到達可能というのが公開情報の共通見解です（クレジット管理と無料サブスク活用が前提）。ただし、無課金でアルプスまで完走した報告は本調査では確認できていません。</p><div class="blk"><p>実践記録では、少額の課金ステップ分を除けばジャマイカ（14番目）まで15日で到達した例があります。一方で後半都市（セーシェル以降）の達成率は利用者データでも5%以下で、無課金完走は「不可能とは言えないが、裏付けが弱い」と見るのが正確です。</p></div></section><section class="sec" id="steps"><div class="sec-head"><h2>課金回数ステップの扱い</h2></div><div class="blk"><p>多くの案件には「1回課金」「5回課金」が独立ステップとして置かれています。課金ステップの報酬が課金額を上回る設計なら、最小額のアイテム（121円のスピン等）を買って回数だけ満たす運用が、過去の案件の実践記録にあります（単独の事例です）。</p><p>課金回数を満たすための少額課金と、枯渇を補うための補充課金は分けて考えてください。補充課金を重ねた事例では合計約13,000円に達した記録があり、本人の自己評価でも5,000〜6,000円分は無駄な課金だったとされています。</p><p>課金ステップが「未承認」になることがあり、問い合わせで承認された記録があります。承認されない場合は放置せず、ポイントサイトへ問い合わせるのが実務的な注意点です。</p></div></section><section class="sec" id="plan"><div class="sec-head"><h2>現実的な考え方</h2></div><div class="cards"><div class="card"><h4>課金するなら、この順で判断する</h4><ul><li>まず課金回数ステップ：報酬が課金額を上回る分だけを、最小額アイテムで満たす</li><li>補充課金は「あと少しで都市が終わる」局面だけに限定し、上限額を先に決める</li><li>無料サブスクの自動更新は加入直後に切る（切り忘れると実費が発生する）</li></ul><p class="cnote">外部ツール（自動連打等）の使用は禁止されています。アカウント停止や成果却下のリスクがあるため、攻略として使いません。</p></div></div></section><section class="sec" id="plus"><div class="sec-head"><h2>Bingo Blitz Plus（無料トライアル）の位置づけ</h2></div><div class="blk"><p>有料サブスク「Bingo Blitz Plus」は、日本の App Store で月額1,750円（2026年11月確認）。新規加入者は1か月無料のトライアルがあります。</p><p>特典のうち案件進行に効くのは、デイリーボーナスの増額、毎月のパワーアップ配布、デイリートーナメントの無料チケット追加、ギフトセンターの追加ギフトなど「毎日の無料収入の底上げ」です。シーズンルームへの先行アクセスは、案件都市の進行には直接効きません。</p><p>無料期間だけ底上げを受け取り、期間内に解約する運用が成立します。加入直後にストア側で自動更新を切っても、無料期間は特典が継続するとされます。</p><p class="note">日本の Google Play での価格は未確認です。トライアル加入が案件の「課金回数」に数えられるかどうかも未確認のため、課金ステップの代わりに数える前提では進めないでください。</p></div></section><section class="sec" id="related"><div class="sec-head"><h2>このゲームの他のページ</h2></div><ul class="rel"><li><a href="index.html">ゲームトップ</a></li><li><a href="joban.html">序盤の進め方</a></li><li><a href="cities.html">都市と案件ステップ</a></li><li><a href="credits.html">クレジットの集め方</a></li><li><a href="conditions.html">案件条件の詳細</a></li><li><a href="faq.html">FAQ・つまずき</a></li></ul></section>
+
 <footer class="footer">
   <div class="flinks"><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">ゲーム一覧</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">ポイントが高い順</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/how-to-read/">案件条件の見方</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/editorial-policy/">編集方針</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/about/">このサイトについて</a></div>
+  <div class="xmedia">
+  <h3 class="xmedia-h">運営メディア</h3>
+  <ul class="xmedia-list">
+    <li><a href="https://mea-poikatsu.github.io/mea-poikatsu-media/" data-cross-media="s01" data-ref-placement="footer">ポイ活ポータル（全体の入口）</a></li>
+    <li><a href="https://mea-poikatsu.github.io/mea-ranking/" data-cross-media="s03" data-ref-placement="footer">ポイランク（案件をポイント順に比べる）</a></li>
+    <li><a href="https://mea-poikatsu.github.io/mea-code-search/" data-cross-media="s04" data-ref-placement="footer">コードサーチ（招待コードをサービス名で探す）</a></li>
+    <li><a href="https://mea-poikatsu.github.io/mea-code-matome/" data-cross-media="s08" data-ref-placement="footer">招待コード図鑑（コードの一覧）</a></li>
+    <li><a href="https://mea-poikatsu.github.io/mea-kantan-guide/" data-cross-media="s06" data-ref-placement="footer">ポイ活のトリセツ（始め方ガイド）</a></li>
+    <li><a href="https://mea-poikatsu.github.io/mea-poikatsu-blog/" data-cross-media="s02" data-ref-placement="footer">ポイ活レビュー帖（体験レビュー）</a></li>
+    <li><a href="https://mea-poikatsu.github.io/mea-poikatsu-magazine/" data-cross-media="s05" data-ref-placement="footer">ポイレーダー（新着・特集）</a></li>
+    <li><a href="https://mea-poikatsu.github.io/mea-keijiban/" data-cross-media="s09" data-ref-placement="footer">ポイ活ひろば（掲示板）</a></li>
+  </ul>
+  <div class="xmedia-sns">
+    <a href="https://x.com/pppppuririn" data-cross-media="x" data-ref-placement="footer_sns">X（@pppppuririn）</a>
+    <a href="https://www.instagram.com/mea.poikatsu/" data-cross-media="instagram" data-ref-placement="footer_sns">Instagram（@mea.poikatsu）</a>
+    <a href="https://note.com/k_n702" data-cross-media="note" data-ref-placement="footer_sns">note</a>
+  </div>
+</div>
   <p class="disc">当サイトは、ポイントサイト各社の紹介プログラムに参加しています。記事内のリンクを経由してサービスに登録・利用された場合、当サイトに紹介料が支払われることがあります。掲載しているポイント数・条件・期限は、各サービスの公式ページで確認した時点の情報です。参加前に必ず公式ページで最新の条件をご確認ください。</p>
   <p class="copy">© ポイゲークエスト（ポイ活ゲーム攻略Wiki）</p>
 </footer>
@@ -244,6 +303,27 @@ document.querySelectorAll('.acc>button').forEach(function(b){
     var acc=b.parentElement,open=acc.classList.toggle('open');
     b.querySelector('.pm').textContent=open?'－':'＋';
   });
+});
+document.querySelectorAll('.tocbtn').forEach(function(b){
+  b.addEventListener('click',function(){
+    var n=b.nextElementSibling,c=n.classList.toggle('toc-closed');
+    b.setAttribute('aria-expanded',String(!c));
+    b.childNodes[0].textContent=c?'目次を開く':'目次を閉じる';
+    b.querySelector('.pm').textContent=c?'＋':'－';
+  });
+});
+
+document.addEventListener('click', function (ev) {
+  var t = ev.target;
+  var a = t && t.closest ? t.closest('a[data-cross-media]') : null;
+  if (!a) return;
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', 'cross_media_click', {
+      media: a.getAttribute('data-cross-media') || '',
+      placement: a.getAttribute('data-ref-placement') || '',
+      site_id: 's07'
+    });
+  }
 });
 </script>
 </body></html>

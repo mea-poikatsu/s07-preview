@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Bingo Blitz（ビンゴブリッツ）攻略・ポイ活案件まとめ｜ポイゲークエスト</title><style>
+<title>Bingo Blitz（ビンゴブリッツ）攻略・ポイ活案件まとめ｜ポイゲークエスト</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8BB8V3DRW8"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8BB8V3DRW8');</script>
+<link rel="canonical" href="https://mea-poikatsu.github.io/s07-preview/games/bingo-blitz/index.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ポイゲークエスト">
+<meta property="og:title" content="Bingo Blitz（ビンゴブリッツ）攻略・ポイ活案件まとめ｜ポイゲークエスト">
+<meta property="og:description" content="Bingo Blitzの攻略とポイ活案件の条件・到達目安まとめ">
+<meta property="og:url" content="https://mea-poikatsu.github.io/s07-preview/games/bingo-blitz/index.html">
+<meta property="og:image" content="https://mea-poikatsu.github.io/mea-game-poikatsu/img/hero-main-a.webp">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bingo Blitz（ビンゴブリッツ）攻略・ポイ活案件まとめ｜ポイゲークエスト">
+<meta name="twitter:description" content="Bingo Blitzの攻略とポイ活案件の条件・到達目安まとめ">
+<meta name="twitter:image" content="https://mea-poikatsu.github.io/mea-game-poikatsu/img/hero-main-a.webp">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "トップ", "item": "https://mea-poikatsu.github.io/mea-game-poikatsu/"}, {"@type": "ListItem", "position": 2, "name": "ゲーム攻略", "item": "https://mea-poikatsu.github.io/s07-preview/games/bingo-blitz/index.html"}, {"@type": "ListItem", "position": 3, "name": "Bingo Blitz", "item": "https://mea-poikatsu.github.io/s07-preview/games/bingo-blitz/index.html"}]}</script><style>
 
 *{margin:0;padding:0;box-sizing:border-box}
 html{background:#e8e8e8;scroll-behavior:smooth}
@@ -21,7 +39,8 @@ img{display:block}
 .gnav{display:flex;border-top:1px solid #f0f0f0;overflow-x:auto;white-space:nowrap}
 .gnav a{flex:1;text-align:center;font-size:12px;font-weight:700;padding:8px 6px;color:#444;border-bottom:2px solid transparent}
 .gnav a.on{color:#ff6900;border-bottom-color:#ff6900}
-.crumbs{font-size:11px;color:#888;padding:8px 12px 0}
+.breadcrumb{font-size:11px;color:#888;padding:8px 12px 0;line-height:1.6}
+.breadcrumb a{color:#3977b8;text-decoration:none}
 .sec{margin-top:22px;scroll-margin-top:118px}
 .sec-head{display:flex;align-items:center;justify-content:space-between;background:#fdf3e3;border-left:5px solid #ff6900;padding:7px 10px 7px 9px;margin:0 0 10px}
 .sec-head h2{font-size:16px;font-weight:800}
@@ -64,9 +83,16 @@ td.pt{font-weight:800;color:#e05e00;white-space:nowrap}
 .ghead .gmax{margin-top:5px;font-size:13px;font-weight:900;color:#ff6900}
 .dates{font-size:11px;color:#999;padding:0 12px;display:flex;gap:12px;flex-wrap:wrap}
 .dates b{color:#777;font-weight:700}
-.toc{position:sticky;top:104px;z-index:55;display:flex;background:#333;overflow-x:auto;white-space:nowrap}
-.toc a{flex:1;text-align:center;color:#fff;font-size:12px;font-weight:700;padding:8px 10px}
-.toc a:active,.toc a.on{background:#ff6900}
+/* 目次（折りたたみ式・初期は畳む。パズサバ完璧版のトピックページが正。
+   2026-11-26 キングショットパイロットで旧リンクバー .toc から準拠） */
+.tocwrap{padding:0 12px}
+.tocbtn{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;background:#eaf2fc;border:1px solid #bcd6f2;border-radius:8px;padding:10px 12px;font-size:13.5px;font-weight:800;color:#2f5f8f;font-family:inherit;cursor:pointer;margin:2px 0 10px}
+.tocbtn .pm{color:#3977b8;font-weight:900;flex:none}
+.toclist{display:flex;flex-direction:column;gap:6px;margin:4px 0 10px}
+.toclist.toc-closed{display:none}
+.toclist a{display:flex;align-items:center;justify-content:space-between;gap:8px;background:#eaf2fc;border:1px solid #bcd6f2;border-radius:8px;padding:10px 12px;font-size:13.5px;font-weight:800;color:#2f5f8f;line-height:1.45;text-decoration:none}
+.toclist a .arr{flex:none;color:#3977b8;font-weight:900}
+.toclist a:active{background:#d9e9fb}
 /* タブ */
 .tabs{display:flex;gap:6px;padding:0 12px;margin-bottom:4px;scroll-margin-top:160px}
 .tabs button{flex:1;border:1px solid #ddd;background:#f7f7f7;border-radius:8px 8px 0 0;padding:9px 4px;font-size:13px;font-weight:800;color:#777;cursor:pointer;font-family:inherit;border-bottom:3px solid #ddd}
@@ -216,6 +242,20 @@ a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
 .rel{list-style:none;margin:0;padding:4px 12px 10px}
 .rel li{border-bottom:1px solid #e3ecf7}
 .rel a{display:block;padding:10px 2px;color:#3977b8;text-decoration:none;font-weight:700}
+
+/* 他媒体導線（foundation-parts 部品1。マスターは foundation-parts-2026-11-26/parts/crossmedia-shelf.css） */
+.xmedia{margin:14px 0 10px;padding:12px 12px 0;border-top:1px solid #e3e9f2}
+.xmedia-h{font-size:12px;font-weight:700;color:#555;margin:0 0 8px}
+.xmedia-list{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 16px}
+.xmedia-list li{font-size:12px;line-height:1.5}
+.xmedia-list a{color:#3977B8;text-decoration:none;padding:4px 0;display:inline-block}
+.xmedia-sns{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:10px;font-size:12px}
+.xmedia-sns a{color:#555;text-decoration:none;padding:4px 0}
+.xmedia-cards{margin:20px 12px 8px}
+.xmedia-cards h2{font-size:15px;margin:0 0 10px}
+.xmedia-card{display:block;background:#F0ECFA;border-radius:10px;padding:12px 14px;margin:0 0 8px;text-decoration:none}
+.xmedia-card-name{display:block;font-size:14px;font-weight:700;color:#463a75}
+.xmedia-card-desc{display:block;font-size:12px;color:#555;margin-top:2px;line-height:1.5}
 </style></head>
 <body><div class="page">
 <header class="header">
@@ -225,15 +265,34 @@ a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
   </div>
   <nav class="gnav"><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">人気ゲーム</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">新着・更新</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">ランキング</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">ゲーム一覧</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">攻略メニュー</a></nav>
 </header>
-<div class="crumbs"><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">トップ</a> ＞ <a href="index.html">ゲーム攻略</a> ＞ Bingo Blitz</div>
+<nav class="breadcrumb" aria-label="パンくず"><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">トップ</a> &gt; <a href="index.html">ゲーム攻略</a> &gt; Bingo Blitz</nav>
 <div class="ghead"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7d/75/7b/7d757b77-eafb-3707-3b31-b8bf0a6af4b9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt=""><div><h1>Bingo Blitz 攻略・案件まとめ</h1>
 <div class="gmeta">Bingo Blitz（Playtika Santa Monica）／iOS/Android</div>
 <div class="gmax">ポイ活案件 最大338,847円（Freecash・iOS版）</div></div></div>
 <div class="dates"><span>更新日：<b>2026年11月26日</b></span></div>
-<nav class="toc"><a href="#campaign">案件</a><a href="#about">概要</a><a href="#meyasu">到達目安</a><a href="#guide">進め方</a><a href="#topics">攻略トピック</a></nav>
+<div class="tocwrap"><button type="button" class="tocbtn" aria-expanded="false">目次を開く<span class="pm">＋</span></button><nav class="toclist toc-closed"><a href="#campaign">案件<span class="arr">›</span></a><a href="#about">概要<span class="arr">›</span></a><a href="#meyasu">到達目安<span class="arr">›</span></a><a href="#guide">進め方<span class="arr">›</span></a><a href="#topics">攻略トピック<span class="arr">›</span></a></nav></div>
 <section class="sec" id="campaign"><div class="sec-head"><h2>ポイ活案件</h2></div><p class="lead">Bingo Blitzのポイ活案件は、世界各地の都市（ビンゴルーム）をクリアしていく「都市クリア型」のステップ案件が中心です。序盤の都市は数日で抜けられますが、後半の都市は達成率が大きく下がるため、案件ごとに「どこまでを現実的な目標にするか」を見極めるのが大事です。</p><div class="tscroll"><table><tr><th>ポイントサイト</th><th>対象OS</th><th class="pt">報酬（合計）</th><th>期限</th></tr><tr><td>ワラウ</td><td>Android</td><td class="pt">最大21,600pt</td><td>段階ごとに設定（最長85日）</td></tr><tr><td>ワラウ</td><td>iOS</td><td class="pt">最大15,200pt</td><td>段階ごとに設定（最長85日）</td></tr><tr><td>ハピタス</td><td>Android</td><td class="pt">合計37,488pt</td><td>期限の日数明記なし（公式詳細ページに記載なし）</td></tr><tr><td>モッピー</td><td>iOS</td><td class="pt">合計21,915P</td><td>インストール後90日以内（ステップごとに1日・5日・10日・20日・40日・90日の区分あり）</td></tr><tr><td>ハピタス</td><td>iOS</td><td class="pt">合計23,870pt</td><td>特記のあるステップ以外はインストール後90日以内（連携先の表示で確認）</td></tr><tr><td>Freecash</td><td>Android</td><td class="pt">合計¥255,716</td><td>全体期限の明示なし</td></tr><tr><td>Freecash</td><td>iOS</td><td class="pt">合計¥338,847</td><td>全体期限の明示なし</td></tr></table></div><p class="note" style="padding:0 12px">金額・条件は各サービスの公式ページで確認した時点の情報です。参加前に必ず公式ページで最新の条件をご確認ください。</p><div class="blk"><div class="hook">最高額はFreecash（iOS版）の合計338,847円です。ただしFreecashの表示合計は「予想報酬」で、進行に応じて解放される非表示タスクを含む金額です。可視ステップだけの合計とは一致しない仕様なので、条件の詳細ページで内訳の見方を確認してから参加してください。</div></div><div class="blk"><p>サービスごとの全ステップ表・除外条件・期限は「案件条件の詳細」にまとめています。</p><p class="note">案件は新規インストールが条件です。ポイントサイトの案件ページを経由せずにストアから直接インストールすると対象外になります。</p></div></section><section class="sec" id="about"><div class="sec-head"><h2>ゲーム概要</h2></div><p class="lead">世界各地のルームを巡って遊ぶオンラインビンゴゲーム。各都市でビンゴを繰り返してコレクションアイテム（写真・お土産）を集めると都市クリアとなり、次の都市へ進みます。</p><div class="tscroll"><table class="spec"><tr><th>正式タイトル</th><td>Bingo Blitz</td></tr><tr><th>運営</th><td>Playtika Santa Monica</td></tr><tr><th>対応OS</th><td>iOS/Android</td></tr><tr><th>進行の単位</th><td>都市（ビンゴルーム）。各都市のコレクションを集めてクリア</td></tr><tr><th>プレイに使う通貨</th><td>クレジット（プレイヤー間でBコイン／BCとも呼ばれる）。カード購入に使う</td></tr><tr><th>副通貨</th><td>コイン（ゴールド）。Chef（料理）やパワーアップ購入などに使い、クレジットへの直接交換はできない</td></tr><tr><th>カード</th><td>最大4枚まで同時プレイ。数字はタップでマークし、レベルが上がるとオートダブが使える</td></tr></table></div></section><section class="sec" id="meyasu"><div class="sec-head"><h2>到達目安・達成データ</h2></div><div class="blk"><p>到達の見込みは、ワラウ利用者の達成データ（集計値）をもとに整理しています。序盤の都市はほぼ全員が数日以内に到達できる範囲ですが、中盤以降は達成率が急落します。</p><p>課金・無課金を分けた到達日数の目安は、裏付けのある報告が揃っていないため断定していません。無課金で最終都市（アルプス）まで完走した報告は、本調査では確認できていません。</p></div><div class="blk"><div class="bars"><div class="barrow"><div class="bl">カタリーナ</div><div class="bt"><div class="bf" style="width:89%"></div></div><div class="bv">89%</div></div><div class="barrow"><div class="bl">ニューヨーク</div><div class="bt"><div class="bf" style="width:85%"></div></div><div class="bv">85%</div></div><div class="barrow"><div class="bl">シドニー</div><div class="bt"><div class="bf" style="width:81%"></div></div><div class="bv">81%</div></div><div class="barrow"><div class="bl">アトランティック</div><div class="bt"><div class="bf" style="width:73%"></div></div><div class="bv">73%</div></div><div class="barrow"><div class="bl">ロンドン</div><div class="bt"><div class="bf" style="width:70%"></div></div><div class="bv">70%</div></div><div class="barrow"><div class="bl">ヴェネツィア</div><div class="bt"><div class="bf" style="width:62%"></div></div><div class="bv">62%</div></div><div class="barrow"><div class="bl">リオ</div><div class="bt"><div class="bf" style="width:36%"></div></div><div class="bv">36%</div></div><div class="barrow"><div class="bl">セーシェル</div><div class="bt"><div class="bf" style="width:5%"></div></div><div class="bv">5%</div></div></div><p class="chips bar-note"><span class="note">都市クリアの達成率（ワラウ利用者データの集計値。課金の有無は考慮されていない）。平均達成期間はカタリーナ約3時間、ニューヨーク約6時間、シドニー約18時間、ロンドン約2日、セーシェル約13日。</span></p></div><div class="blk"><h3>ゾーン別の見込み</h3></div><div class="tscroll"><table><tr><th>ゾーン</th><th>都市の例</th><th>見込み</th></tr><tr><td>序盤</td><td>ニューヨーク〜トーキョー</td><td>ほぼ全員が数日以内に到達できる範囲</td></tr><tr><td>中盤</td><td>ムンバイ〜カサブランカ</td><td>クレジット管理ができれば到達圏。最初の枯渇が来る山場</td></tr><tr><td>後半</td><td>イエローストーン〜モントリオール</td><td>達成率は大きく下がる。トレード活用と無料分の継続回収が前提</td></tr><tr><td>最終</td><td>アルプス</td><td>期限をフル活用＋効率プレイでも少数派。挑戦枠として位置づけるのが正確</td></tr></table></div><p class="note" style="padding:0 12px">調査・体験談等をもとにした見込みです。達成率・平均期間は達成できた人の中での数値で、未達成者を含めた全体像ではありません。</p></section><section class="sec" id="guide"><div class="sec-head"><h2>効率的な進め方</h2></div><div class="flow"><div class="fbox">無料サブスク<small>Plusの無料期間を活用</small></div><span class="farr">→</span><div class="fbox">4枚×SUPER<small>プレイの基本形</small></div><span class="farr">→</span><div class="fbox">無料回収<small>デイリー＋2時間ごと</small></div><span class="farr">→</span><div class="fbox">トレード<small>写真を交換で集める</small></div></div><div class="blk"><p>定石は「カードは4枚同時プレイ、ベットはSUPER基準」です。1ゲームあたりのビンゴ確率・経験値・写真のドロップ効率が最も高くなります。MEGA以上の高ベットは連敗でクレジットが一気に溶けるため、写真があと少しの局面に限ります。</p><p>クレジット枯渇が最大の脱落原因です。デイリーボーナス、2時間ごとの無料Power Pack、フレンドギフトなど、無料で回収できる分を毎日積み上げるのが長く続けるコツです。</p></div></section><section class="sec" id="topics"><div class="sec-head"><h2>攻略トピック</h2></div><div class="menu-label">攻略メニュー</div><div class="menu"><a href="joban.html" class="hot"><span class="mi">🚀</span>序盤の進め方</a><a href="cities.html"><span class="mi">🌍</span>都市と案件ステップ</a><a href="credits.html"><span class="mi">🎟️</span>クレジットの集め方</a><a href="kakin.html"><span class="mi">💰</span>課金判断</a><a href="conditions.html" class="hot"><span class="mi">📋</span>案件条件の詳細</a><a href="faq.html"><span class="mi">❓</span>つまずき・FAQ</a></div></section><section class="sec" id="history"><div class="sec-head"><h2>条件の変更履歴・確認記録</h2></div><div class="tscroll"><table class="hist"><tr><td class="hd">2026年11月25日</td><td>案件7件（ワラウ／ハピタス／モッピー／Freecash）を公式ページで確認し登録</td></tr><tr><td class="hd">2026年11月26日</td><td>ワラウ・ハピタス・モッピーの掲載を実読で再確認。金額・ステップ・期限に変更なし</td></tr></table></div></section>
+
 <footer class="footer">
   <div class="flinks"><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">ゲーム一覧</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/">ポイントが高い順</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/how-to-read/">案件条件の見方</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/editorial-policy/">編集方針</a><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/about/">このサイトについて</a></div>
+  <div class="xmedia">
+  <h3 class="xmedia-h">運営メディア</h3>
+  <ul class="xmedia-list">
+    <li><a href="https://mea-poikatsu.github.io/mea-poikatsu-media/" data-cross-media="s01" data-ref-placement="footer">ポイ活ポータル（全体の入口）</a></li>
+    <li><a href="https://mea-poikatsu.github.io/mea-ranking/" data-cross-media="s03" data-ref-placement="footer">ポイランク（案件をポイント順に比べる）</a></li>
+    <li><a href="https://mea-poikatsu.github.io/mea-code-search/" data-cross-media="s04" data-ref-placement="footer">コードサーチ（招待コードをサービス名で探す）</a></li>
+    <li><a href="https://mea-poikatsu.github.io/mea-code-matome/" data-cross-media="s08" data-ref-placement="footer">招待コード図鑑（コードの一覧）</a></li>
+    <li><a href="https://mea-poikatsu.github.io/mea-kantan-guide/" data-cross-media="s06" data-ref-placement="footer">ポイ活のトリセツ（始め方ガイド）</a></li>
+    <li><a href="https://mea-poikatsu.github.io/mea-poikatsu-blog/" data-cross-media="s02" data-ref-placement="footer">ポイ活レビュー帖（体験レビュー）</a></li>
+    <li><a href="https://mea-poikatsu.github.io/mea-poikatsu-magazine/" data-cross-media="s05" data-ref-placement="footer">ポイレーダー（新着・特集）</a></li>
+    <li><a href="https://mea-poikatsu.github.io/mea-keijiban/" data-cross-media="s09" data-ref-placement="footer">ポイ活ひろば（掲示板）</a></li>
+  </ul>
+  <div class="xmedia-sns">
+    <a href="https://x.com/pppppuririn" data-cross-media="x" data-ref-placement="footer_sns">X（@pppppuririn）</a>
+    <a href="https://www.instagram.com/mea.poikatsu/" data-cross-media="instagram" data-ref-placement="footer_sns">Instagram（@mea.poikatsu）</a>
+    <a href="https://note.com/k_n702" data-cross-media="note" data-ref-placement="footer_sns">note</a>
+  </div>
+</div>
   <p class="disc">当サイトは、ポイントサイト各社の紹介プログラムに参加しています。記事内のリンクを経由してサービスに登録・利用された場合、当サイトに紹介料が支払われることがあります。掲載しているポイント数・条件・期限は、各サービスの公式ページで確認した時点の情報です。参加前に必ず公式ページで最新の条件をご確認ください。</p>
   <p class="copy">© ポイゲークエスト（ポイ活ゲーム攻略Wiki）</p>
 </footer>
@@ -244,6 +303,27 @@ document.querySelectorAll('.acc>button').forEach(function(b){
     var acc=b.parentElement,open=acc.classList.toggle('open');
     b.querySelector('.pm').textContent=open?'－':'＋';
   });
+});
+document.querySelectorAll('.tocbtn').forEach(function(b){
+  b.addEventListener('click',function(){
+    var n=b.nextElementSibling,c=n.classList.toggle('toc-closed');
+    b.setAttribute('aria-expanded',String(!c));
+    b.childNodes[0].textContent=c?'目次を開く':'目次を閉じる';
+    b.querySelector('.pm').textContent=c?'＋':'－';
+  });
+});
+
+document.addEventListener('click', function (ev) {
+  var t = ev.target;
+  var a = t && t.closest ? t.closest('a[data-cross-media]') : null;
+  if (!a) return;
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', 'cross_media_click', {
+      media: a.getAttribute('data-cross-media') || '',
+      placement: a.getAttribute('data-ref-placement') || '',
+      site_id: 's07'
+    });
+  }
 });
 </script>
 </body></html>
