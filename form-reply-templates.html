@@ -45,6 +45,8 @@ footer { font-size: 12px; color: #66727f; text-align: center; margin-top: 28px;}
 
 <div class="note">これは確認用のプレビューです。本番サイト・本番フォームへの反映はまだ行っていません。自動で送信されるのは「T-00 受付確認」のみで、それ以外はすべて下書き（確認してから送信）です。</div>
 
+<div class="note">2026-11-26 更新：表記仕様を確定し、センサー（form-submission-sensor）へ組み込みました。受付番号は「PQ-」＋ランダム8桁で、送信者のメールアドレスと紐付けて管理します。件名は「【ポイゲークエスト】＋用件（受付番号）」で統一し、返信目安は通常3営業日以内、署名にはサイトURLと情報提供・お問い合わせページへの導線を付けています（{receipt_no} は実際の受付番号に置き換わります）。</div>
+
 <div class="toc">
 <h2>類型一覧</h2>
 <ul>
@@ -69,18 +71,23 @@ footer { font-size: 12px; color: #66727f; text-align: center; margin-top: 28px;}
 <h3>T-00 受付確認</h3>
 <div class="badges"><span class="badge b-auto">自動送信可</span><span class="badge b-live">運用中</span></div>
 <div class="meta"><b>条件：</b>返信先メールアドレスが記入されている場合のみ送信。スパム・宣伝・テスト送信・「返信不要」の送信には送らない。</div>
-<p class="subject">件名：お問い合わせを受け付けました</p>
+<p class="subject">件名：【ポイゲークエスト】お問い合わせを受け付けました（受付番号：{receipt_no}）</p>
 <div class="letter">{name} 様
 
 このたびは、ポイゲークエストへお問い合わせいただき、誠にありがとうございます。
 ご送信いただいた内容を受け付けいたしました。
 
-内容を確認のうえ、必要に応じて、ご記入いただいたメールアドレスへご連絡いたします。
-ご連絡までお時間をいただく場合がございますので、あらかじめご了承くださいますようお願い申し上げます。
+受付番号：{receipt_no}
+今後、本件についてお問い合わせいただく際は、この受付番号をお知らせいただけますと、確認がスムーズです。
+
+内容を確認のうえ、ご連絡が必要な場合は、通常3営業日以内に、ご記入いただいたメールアドレスへご連絡いたします。
+内容により、ご連絡までお時間をいただく場合や、ご連絡を差し控える場合がございますので、あらかじめご了承くださいますようお願い申し上げます。
 
 今後ともポイゲークエストをよろしくお願いいたします。
 
-ポイゲークエスト運営事務局</div>
+ポイゲークエスト運営事務局
+ポイゲークエスト：https://mea-poikatsu.github.io/mea-game-poikatsu/
+情報提供・お問い合わせ：https://mea-poikatsu.github.io/mea-game-poikatsu/contact.html</div>
 </div>
 
 <div class="card" id="k01">
@@ -98,7 +105,7 @@ footer { font-size: 12px; color: #66727f; text-align: center; margin-top: 28px;}
 <h3>T-01a 情報提供へのお礼（掲載した場合）</h3>
 <div class="badges"><span class="badge b-draft">下書き止まり</span></div>
 <div class="meta"><b>線引き：</b>掲載した事実と掲載先だけを伝える。裏取りの方法・判断基準の詳細は書かない。</div>
-<p class="subject">件名：情報提供のお礼と掲載のご連絡</p>
+<p class="subject">件名：【ポイゲークエスト】情報提供のお礼と掲載のご連絡（受付番号：{receipt_no}）</p>
 <div class="letter">{name} 様
 
 このたびは、ポイゲークエストへ情報をお寄せいただき、誠にありがとうございます。
@@ -108,14 +115,16 @@ footer { font-size: 12px; color: #66727f; text-align: center; margin-top: 28px;}
 
 今後ともポイゲークエストをよろしくお願いいたします。
 
-ポイゲークエスト運営事務局</div>
+ポイゲークエスト運営事務局
+ポイゲークエスト：https://mea-poikatsu.github.io/mea-game-poikatsu/
+情報提供・お問い合わせ：https://mea-poikatsu.github.io/mea-game-poikatsu/contact.html</div>
 </div>
 
 <div class="card" id="t01b">
 <h3>T-01b 情報提供へのお礼（掲載を見送る場合）</h3>
 <div class="badges"><span class="badge b-draft">下書き止まり</span></div>
 <div class="meta"><b>線引き：</b>見送りの理由の詳細は書かない。「確認したが見送った」まで。</div>
-<p class="subject">件名：情報提供のお礼</p>
+<p class="subject">件名：【ポイゲークエスト】情報提供のお礼（受付番号：{receipt_no}）</p>
 <div class="letter">{name} 様
 
 このたびは、ポイゲークエストへ情報をお寄せいただき、誠にありがとうございます。
@@ -126,31 +135,35 @@ footer { font-size: 12px; color: #66727f; text-align: center; margin-top: 28px;}
 
 今後ともポイゲークエストをよろしくお願いいたします。
 
-ポイゲークエスト運営事務局</div>
+ポイゲークエスト運営事務局
+ポイゲークエスト：https://mea-poikatsu.github.io/mea-game-poikatsu/
+情報提供・お問い合わせ：https://mea-poikatsu.github.io/mea-game-poikatsu/contact.html</div>
 </div>
 
 <div class="card" id="t02">
 <h3>T-02 誤り指摘・確認中の中間連絡</h3>
 <div class="badges"><span class="badge b-draft">下書き止まり</span></div>
 <div class="meta"><b>線引き：</b>「確認中」まで。修正の可否・時期は約束しない。</div>
-<p class="subject">件名：ご指摘の確認状況について</p>
+<p class="subject">件名：【ポイゲークエスト】ご指摘の確認状況について（受付番号：{receipt_no}）</p>
 <div class="letter">{name} 様
 
 このたびは、ポイゲークエストへお問い合わせいただき、誠にありがとうございます。
 また、掲載内容の誤りのご指摘をいただき、重ねてお礼申し上げます。
 
 ご指摘いただいた{page}の内容につきまして、現在確認を進めております。
-確認が終わり次第、必要に応じて修正し、改めてご連絡いたします。
+確認には通常3営業日以内を目安としております。確認が終わり次第、必要に応じて修正し、改めてご連絡いたします。
 
 今後ともポイゲークエストをよろしくお願いいたします。
 
-ポイゲークエスト運営事務局</div>
+ポイゲークエスト運営事務局
+ポイゲークエスト：https://mea-poikatsu.github.io/mea-game-poikatsu/
+情報提供・お問い合わせ：https://mea-poikatsu.github.io/mea-game-poikatsu/contact.html</div>
 </div>
 
 <div class="card" id="t03">
 <h3>T-03 誤り指摘・修正完了の報告</h3>
 <div class="badges"><span class="badge b-draft">下書き止まり</span></div>
-<p class="subject">件名：掲載内容の修正完了のご連絡</p>
+<p class="subject">件名：【ポイゲークエスト】掲載内容の修正完了のご連絡（受付番号：{receipt_no}）</p>
 <div class="letter">{name} 様
 
 このたびは、掲載内容の誤りをご指摘いただき、誠にありがとうございます。
@@ -162,14 +175,16 @@ footer { font-size: 12px; color: #66727f; text-align: center; margin-top: 28px;}
 
 今後ともポイゲークエストをよろしくお願いいたします。
 
-ポイゲークエスト運営事務局</div>
+ポイゲークエスト運営事務局
+ポイゲークエスト：https://mea-poikatsu.github.io/mea-game-poikatsu/
+情報提供・お問い合わせ：https://mea-poikatsu.github.io/mea-game-poikatsu/contact.html</div>
 </div>
 
 <div class="card" id="t04">
 <h3>T-04 誤り指摘・確認したが相違なかった場合</h3>
 <div class="badges"><span class="badge b-draft">下書き止まり</span></div>
 <div class="meta"><b>線引き：</b>断定しすぎず、時期・状況で異なる可能性を残す。再度の連絡の余地を閉ざさない。</div>
-<p class="subject">件名：ご指摘内容の確認結果について</p>
+<p class="subject">件名：【ポイゲークエスト】ご指摘内容の確認結果について（受付番号：{receipt_no}）</p>
 <div class="letter">{name} 様
 
 このたびは、ポイゲークエストへお問い合わせいただき、誠にありがとうございます。
@@ -182,7 +197,9 @@ footer { font-size: 12px; color: #66727f; text-align: center; margin-top: 28px;}
 
 今後ともポイゲークエストをよろしくお願いいたします。
 
-ポイゲークエスト運営事務局</div>
+ポイゲークエスト運営事務局
+ポイゲークエスト：https://mea-poikatsu.github.io/mea-game-poikatsu/
+情報提供・お問い合わせ：https://mea-poikatsu.github.io/mea-game-poikatsu/contact.html</div>
 </div>
 
 <h2 class="group">質問・出典・追加情報</h2>
@@ -191,7 +208,7 @@ footer { font-size: 12px; color: #66727f; text-align: center; margin-top: 28px;}
 <h3>T-05 出典の質問</h3>
 <div class="badges"><span class="badge b-draft">下書き止まり</span><span class="badge b-live">承認済み文面</span></div>
 <div class="meta"><b>線引き：</b>独自の調査と利用者からの情報提供をもとにしている旨まで。個別の参照先は案内しない。</div>
-<p class="subject">件名：Re: 情報の出典について</p>
+<p class="subject">件名：【ポイゲークエスト】情報の出典について（受付番号：{receipt_no}）</p>
 <div class="letter">{name} 様
 
 このたびは、ポイゲークエストへお問い合わせいただき、誠にありがとうございます。
@@ -202,14 +219,16 @@ footer { font-size: 12px; color: #66727f; text-align: center; margin-top: 28px;}
 
 今後ともポイゲークエストをよろしくお願いいたします。
 
-ポイゲークエスト運営事務局</div>
+ポイゲークエスト運営事務局
+ポイゲークエスト：https://mea-poikatsu.github.io/mea-game-poikatsu/
+情報提供・お問い合わせ：https://mea-poikatsu.github.io/mea-game-poikatsu/contact.html</div>
 </div>
 
 <div class="card" id="t06">
 <h3>T-06 掲載内容への質問への回答（枠）</h3>
 <div class="badges"><span class="badge b-draft">下書き止まり</span></div>
 <div class="meta"><b>線引き：</b>｛answer｝には公開されている掲載内容の範囲の事実だけを書く。掲載内容にない事項、内部の判断・基準は書かない。</div>
-<p class="subject">件名：ご質問への回答</p>
+<p class="subject">件名：【ポイゲークエスト】ご質問への回答（受付番号：{receipt_no}）</p>
 <div class="letter">{name} 様
 
 このたびは、ポイゲークエストへお問い合わせいただき、誠にありがとうございます。
@@ -222,14 +241,16 @@ footer { font-size: 12px; color: #66727f; text-align: center; margin-top: 28px;}
 
 今後ともポイゲークエストをよろしくお願いいたします。
 
-ポイゲークエスト運営事務局</div>
+ポイゲークエスト運営事務局
+ポイゲークエスト：https://mea-poikatsu.github.io/mea-game-poikatsu/
+情報提供・お問い合わせ：https://mea-poikatsu.github.io/mea-game-poikatsu/contact.html</div>
 </div>
 
 <div class="card" id="t07">
 <h3>T-07 追加情報の依頼（情報不足）</h3>
 <div class="badges"><span class="badge b-draft">下書き止まり</span></div>
 <div class="meta"><b>想定：</b>対象ページ・箇所が特定できず、確認に入れない場合。</div>
-<p class="subject">件名：内容確認のための追加のお願い</p>
+<p class="subject">件名：【ポイゲークエスト】内容確認のための追加のお願い（受付番号：{receipt_no}）</p>
 <div class="letter">{name} 様
 
 このたびは、ポイゲークエストへお問い合わせいただき、誠にありがとうございます。
@@ -244,7 +265,9 @@ footer { font-size: 12px; color: #66727f; text-align: center; margin-top: 28px;}
 
 今後ともポイゲークエストをよろしくお願いいたします。
 
-ポイゲークエスト運営事務局</div>
+ポイゲークエスト運営事務局
+ポイゲークエスト：https://mea-poikatsu.github.io/mea-game-poikatsu/
+情報提供・お問い合わせ：https://mea-poikatsu.github.io/mea-game-poikatsu/contact.html</div>
 </div>
 
 <h2 class="group">削除・権利・個人情報</h2>
@@ -253,7 +276,7 @@ footer { font-size: 12px; color: #66727f; text-align: center; margin-top: 28px;}
 <h3>T-08a 自分の投稿の削除依頼・本人確認の案内</h3>
 <div class="badges"><span class="badge b-draft">下書き止まり</span></div>
 <div class="meta"><b>線引き：</b>本人確認が取れるまでは削除しない・削除したとも言わない。</div>
-<p class="subject">件名：投稿の削除に関するご案内</p>
+<p class="subject">件名：【ポイゲークエスト】投稿の削除に関するご案内（受付番号：{receipt_no}）</p>
 <div class="letter">{name} 様
 
 このたびは、ポイゲークエストへお問い合わせいただき、誠にありがとうございます。
@@ -266,13 +289,15 @@ footer { font-size: 12px; color: #66727f; text-align: center; margin-top: 28px;}
 
 今後ともポイゲークエストをよろしくお願いいたします。
 
-ポイゲークエスト運営事務局</div>
+ポイゲークエスト運営事務局
+ポイゲークエスト：https://mea-poikatsu.github.io/mea-game-poikatsu/
+情報提供・お問い合わせ：https://mea-poikatsu.github.io/mea-game-poikatsu/contact.html</div>
 </div>
 
 <div class="card" id="t08b">
 <h3>T-08b 自分の投稿の削除完了</h3>
 <div class="badges"><span class="badge b-draft">下書き止まり</span></div>
-<p class="subject">件名：投稿の削除完了のご連絡</p>
+<p class="subject">件名：【ポイゲークエスト】投稿の削除完了のご連絡（受付番号：{receipt_no}）</p>
 <div class="letter">{name} 様
 
 このたびは、ポイゲークエストへお問い合わせいただき、誠にありがとうございます。
@@ -281,14 +306,16 @@ footer { font-size: 12px; color: #66727f; text-align: center; margin-top: 28px;}
 
 今後ともポイゲークエストをよろしくお願いいたします。
 
-ポイゲークエスト運営事務局</div>
+ポイゲークエスト運営事務局
+ポイゲークエスト：https://mea-poikatsu.github.io/mea-game-poikatsu/
+情報提供・お問い合わせ：https://mea-poikatsu.github.io/mea-game-poikatsu/contact.html</div>
 </div>
 
 <div class="card" id="t09">
 <h3>T-09 権利関係の申し出・受領連絡</h3>
 <div class="badges"><span class="badge b-draft">下書き止まり</span></div>
 <div class="meta"><b>線引き：</b>受付と確認中である旨まで。削除・対応の可否には一切触れない。</div>
-<p class="subject">件名：権利に関するお申し出の受付について</p>
+<p class="subject">件名：【ポイゲークエスト】権利に関するお申し出の受付について（受付番号：{receipt_no}）</p>
 <div class="letter">{name} 様
 
 このたびは、ポイゲークエストへご連絡いただき、ありがとうございます。
@@ -304,14 +331,16 @@ footer { font-size: 12px; color: #66727f; text-align: center; margin-top: 28px;}
 
 なお、本メールは受付のご連絡であり、対応の可否をお約束するものではございません。あらかじめご了承くださいますようお願い申し上げます。
 
-ポイゲークエスト運営事務局</div>
+ポイゲークエスト運営事務局
+ポイゲークエスト：https://mea-poikatsu.github.io/mea-game-poikatsu/
+情報提供・お問い合わせ：https://mea-poikatsu.github.io/mea-game-poikatsu/contact.html</div>
 </div>
 
 <div class="card" id="t10a">
 <h3>T-10a 権利関係・結果通知（対応した場合）</h3>
 <div class="badges"><span class="badge b-draft">下書き止まり</span><span class="badge b-esc">エスカレーション必須</span></div>
 <div class="meta"><b>条件：</b>対応（削除・修正）が実施された後にのみ使う。</div>
-<p class="subject">件名：権利に関するお申し出への対応完了のご連絡</p>
+<p class="subject">件名：【ポイゲークエスト】権利に関するお申し出への対応完了のご連絡（受付番号：{receipt_no}）</p>
 <div class="letter">{name} 様
 
 このたびは、ポイゲークエストへご連絡いただき、ありがとうございます。
@@ -320,14 +349,16 @@ footer { font-size: 12px; color: #66727f; text-align: center; margin-top: 28px;}
 
 ご連絡いただき、ありがとうございました。
 
-ポイゲークエスト運営事務局</div>
+ポイゲークエスト運営事務局
+ポイゲークエスト：https://mea-poikatsu.github.io/mea-game-poikatsu/
+情報提供・お問い合わせ：https://mea-poikatsu.github.io/mea-game-poikatsu/contact.html</div>
 </div>
 
 <div class="card" id="t10b">
 <h3>T-10b 権利関係・結果通知（対応できない場合）</h3>
 <div class="badges"><span class="badge b-draft">下書き止まり</span><span class="badge b-esc">エスカレーション必須</span></div>
 <div class="meta"><b>線引き：</b>理由の詳細・法的見解は文面に出さない。</div>
-<p class="subject">件名：権利に関するお申し出へのご連絡</p>
+<p class="subject">件名：【ポイゲークエスト】権利に関するお申し出へのご連絡（受付番号：{receipt_no}）</p>
 <div class="letter">{name} 様
 
 このたびは、ポイゲークエストへご連絡いただき、ありがとうございます。
@@ -335,14 +366,16 @@ footer { font-size: 12px; color: #66727f; text-align: center; margin-top: 28px;}
 お申し出の内容を確認いたしましたが、現時点ではご希望に沿う対応はいたしかねる結果となりました。
 ご理解いただけますと幸いです。
 
-ポイゲークエスト運営事務局</div>
+ポイゲークエスト運営事務局
+ポイゲークエスト：https://mea-poikatsu.github.io/mea-game-poikatsu/
+情報提供・お問い合わせ：https://mea-poikatsu.github.io/mea-game-poikatsu/contact.html</div>
 </div>
 
 <div class="card" id="t11">
 <h3>T-11 個人情報の開示・訂正・削除請求・手続き案内</h3>
 <div class="badges"><span class="badge b-draft">下書き止まり</span></div>
 <div class="meta"><b>線引き：</b>その場で開示・削除はしない。本人確認と対象特定のための案内まで。</div>
-<p class="subject">件名：個人情報に関するお手続きのご案内</p>
+<p class="subject">件名：【ポイゲークエスト】個人情報に関するお手続きのご案内（受付番号：{receipt_no}）</p>
 <div class="letter">{name} 様
 
 このたびは、ポイゲークエストへご連絡いただき、ありがとうございます。
@@ -353,14 +386,16 @@ footer { font-size: 12px; color: #66727f; text-align: center; margin-top: 28px;}
 
 なお、ご本人様確認が取れない場合は、対応いたしかねる場合がございます。あらかじめご了承くださいますようお願い申し上げます。
 
-ポイゲークエスト運営事務局</div>
+ポイゲークエスト運営事務局
+ポイゲークエスト：https://mea-poikatsu.github.io/mea-game-poikatsu/
+情報提供・お問い合わせ：https://mea-poikatsu.github.io/mea-game-poikatsu/contact.html</div>
 </div>
 
 <div class="card" id="t12">
 <h3>T-12 発信者情報開示請求への案内</h3>
 <div class="badges"><span class="badge b-draft">下書き止まり</span><span class="badge b-esc">エスカレーション必須</span></div>
 <div class="meta"><b>線引き：</b>フォームでは受け付けない。書面手続きの案内まで。開示の可否には触れない。</div>
-<p class="subject">件名：発信者情報の開示に関するご案内</p>
+<p class="subject">件名：【ポイゲークエスト】発信者情報の開示に関するご案内（受付番号：{receipt_no}）</p>
 <div class="letter">{name} 様
 
 このたびは、ポイゲークエストへご連絡いただき、ありがとうございます。
@@ -371,7 +406,9 @@ footer { font-size: 12px; color: #66727f; text-align: center; margin-top: 28px;}
 
 ご不明な場合は、弁護士等の専門家へご相談されることをおすすめいたします。
 
-ポイゲークエスト運営事務局</div>
+ポイゲークエスト運営事務局
+ポイゲークエスト：https://mea-poikatsu.github.io/mea-game-poikatsu/
+情報提供・お問い合わせ：https://mea-poikatsu.github.io/mea-game-poikatsu/contact.html</div>
 </div>
 
 <h2 class="group">営業・範囲外・その他</h2>
@@ -380,33 +417,37 @@ footer { font-size: 12px; color: #66727f; text-align: center; margin-top: 28px;}
 <h3>T-13a 営業・提携・広告掲載（検討する場合のみ返信）</h3>
 <div class="badges"><span class="badge b-none">原則は無返信</span><span class="badge b-draft">送る場合は下書き</span></div>
 <div class="meta"><b>線引き：</b>営業類型への自動返信はしない。返信するかどうか自体を確認のうえ判断する。</div>
-<p class="subject">件名：ご提案の受付について</p>
+<p class="subject">件名：【ポイゲークエスト】ご提案の受付について（受付番号：{receipt_no}）</p>
 <div class="letter">ご提案をいただき、ありがとうございます。
 
 内容を確認し、検討する場合のみ、改めてご連絡いたします。
 ご連絡がない場合は、ご縁がなかったものとしてご了承いただけますと幸いです。
 
-ポイゲークエスト運営事務局</div>
+ポイゲークエスト運営事務局
+ポイゲークエスト：https://mea-poikatsu.github.io/mea-game-poikatsu/
+情報提供・お問い合わせ：https://mea-poikatsu.github.io/mea-game-poikatsu/contact.html</div>
 </div>
 
 <div class="card" id="t13b">
 <h3>T-13b 営業・提携・広告掲載（お断り）</h3>
 <div class="badges"><span class="badge b-none">原則は無返信</span><span class="badge b-draft">送る場合は下書き</span></div>
 <div class="meta"><b>線引き：</b>理由の詳細は書かず短く1通。繰り返しの場合は送らない。</div>
-<p class="subject">件名：ご提案について</p>
+<p class="subject">件名：【ポイゲークエスト】ご提案について（受付番号：{receipt_no}）</p>
 <div class="letter">ご提案をいただき、ありがとうございます。
 
 誠に恐れ入りますが、今回はご提案をお受けいたしかねる結果となりました。
 せっかくご連絡いただいたところ、申し訳ございません。
 
-ポイゲークエスト運営事務局</div>
+ポイゲークエスト運営事務局
+ポイゲークエスト：https://mea-poikatsu.github.io/mea-game-poikatsu/
+情報提供・お問い合わせ：https://mea-poikatsu.github.io/mea-game-poikatsu/contact.html</div>
 </div>
 
 <div class="card" id="t14a">
 <h3>T-14a ポイ活案件・紹介コード（受け付け範囲外の案内）</h3>
 <div class="badges"><span class="badge b-draft">下書き止まり</span></div>
 <div class="meta"><b>線引き：</b>金額・条件の変更は約束しない。成果・付与の判定は各ポイントサイト側。「掲載内容が事実と違う」という指摘は誤り報告として受け付ける余地を残す。</div>
-<p class="subject">件名：ポイ活案件に関するお問い合わせについて</p>
+<p class="subject">件名：【ポイゲークエスト】ポイ活案件に関するお問い合わせについて（受付番号：{receipt_no}）</p>
 <div class="letter">{name} 様
 
 このたびは、ポイゲークエストへお問い合わせいただき、誠にありがとうございます。
@@ -420,14 +461,16 @@ footer { font-size: 12px; color: #66727f; text-align: center; margin-top: 28px;}
 
 今後ともポイゲークエストをよろしくお願いいたします。
 
-ポイゲークエスト運営事務局</div>
+ポイゲークエスト運営事務局
+ポイゲークエスト：https://mea-poikatsu.github.io/mea-game-poikatsu/
+情報提供・お問い合わせ：https://mea-poikatsu.github.io/mea-game-poikatsu/contact.html</div>
 </div>
 
 <div class="card" id="t14b">
 <h3>T-14b ゲーム自体への問い合わせ（対象外の案内）</h3>
 <div class="badges"><span class="badge b-draft">下書き止まり</span></div>
 <div class="meta"><b>想定：</b>ゲームの不具合、データの引き継ぎ、課金、アカウントに関する連絡。</div>
-<p class="subject">件名：ゲームに関するお問い合わせについて</p>
+<p class="subject">件名：【ポイゲークエスト】ゲームに関するお問い合わせについて（受付番号：{receipt_no}）</p>
 <div class="letter">{name} 様
 
 このたびは、ポイゲークエストへお問い合わせいただき、誠にありがとうございます。
@@ -439,20 +482,24 @@ footer { font-size: 12px; color: #66727f; text-align: center; margin-top: 28px;}
 
 今後ともポイゲークエストをよろしくお願いいたします。
 
-ポイゲークエスト運営事務局</div>
+ポイゲークエスト運営事務局
+ポイゲークエスト：https://mea-poikatsu.github.io/mea-game-poikatsu/
+情報提供・お問い合わせ：https://mea-poikatsu.github.io/mea-game-poikatsu/contact.html</div>
 </div>
 
 <div class="card" id="t15">
 <h3>T-15 強い調子の連絡への対応終了宣言</h3>
 <div class="badges"><span class="badge b-draft">下書き止まり</span><span class="badge b-esc">エスカレーション必須</span></div>
 <div class="meta"><b>線引き：</b>出すかどうか自体を確認のうえ判断する。事務的に1通のみ。相手の主張への反論・評価は書かない。危害予告・恐喝等にはこの文面を送らず、記録のうえ上位判断へ上げる。</div>
-<p class="subject">件名：本件への対応について</p>
+<p class="subject">件名：【ポイゲークエスト】本件への対応について（受付番号：{receipt_no}）</p>
 <div class="letter">ご連絡いただいた内容は拝見いたしました。
 
 本件への対応は、本メールをもって終了とさせていただきます。
 同内容のご連絡につきましては、今後ご返信いたしかねますので、あらかじめご了承ください。
 
-ポイゲークエスト運営事務局</div>
+ポイゲークエスト運営事務局
+ポイゲークエスト：https://mea-poikatsu.github.io/mea-game-poikatsu/
+情報提供・お問い合わせ：https://mea-poikatsu.github.io/mea-game-poikatsu/contact.html</div>
 </div>
 
 <div class="card" id="t16">
@@ -469,25 +516,27 @@ footer { font-size: 12px; color: #66727f; text-align: center; margin-top: 28px;}
 <div class="card" id="t17">
 <h3>T-17 催促・再送への返信</h3>
 <div class="badges"><span class="badge b-draft">下書き止まり</span></div>
-<p class="subject">件名：ご連絡の確認状況について</p>
+<p class="subject">件名：【ポイゲークエスト】ご連絡の確認状況について（受付番号：{receipt_no}）</p>
 <div class="letter">{name} 様
 
 このたびは、ポイゲークエストへお問い合わせいただき、誠にありがとうございます。
 また、ご返信までお時間をいただき、申し訳ございません。
 
 いただいた内容は受け付けており、現在確認を進めております。
-確認が終わり次第、ご連絡いたしますので、今しばらくお待ちいただけますと幸いです。
+確認が終わり次第（通常3営業日以内を目安に）、ご連絡いたしますので、今しばらくお待ちいただけますと幸いです。
 
 今後ともポイゲークエストをよろしくお願いいたします。
 
-ポイゲークエスト運営事務局</div>
+ポイゲークエスト運営事務局
+ポイゲークエスト：https://mea-poikatsu.github.io/mea-game-poikatsu/
+情報提供・お問い合わせ：https://mea-poikatsu.github.io/mea-game-poikatsu/contact.html</div>
 </div>
 
 <div class="card" id="t18">
 <h3>T-18 広告に関するご報告へのお礼と案内</h3>
 <div class="badges"><span class="badge b-draft">下書き止まり</span></div>
 <div class="meta"><b>線引き：</b>広告内容は配信側で決まる旨まで。配信事業者名・契約条件など内側の事情は出さない。</div>
-<p class="subject">件名：広告に関するご報告について</p>
+<p class="subject">件名：【ポイゲークエスト】広告に関するご報告について（受付番号：{receipt_no}）</p>
 <div class="letter">{name} 様
 
 このたびは、ポイゲークエストへお問い合わせいただき、誠にありがとうございます。
@@ -500,13 +549,15 @@ footer { font-size: 12px; color: #66727f; text-align: center; margin-top: 28px;}
 
 今後ともポイゲークエストをよろしくお願いいたします。
 
-ポイゲークエスト運営事務局</div>
+ポイゲークエスト運営事務局
+ポイゲークエスト：https://mea-poikatsu.github.io/mea-game-poikatsu/
+情報提供・お問い合わせ：https://mea-poikatsu.github.io/mea-game-poikatsu/contact.html</div>
 </div>
 
 <div class="card" id="t19">
 <h3>T-19 ご意見・ご要望へのお礼</h3>
 <div class="badges"><span class="badge b-draft">下書き止まり</span></div>
-<p class="subject">件名：ご意見・ご要望のお礼</p>
+<p class="subject">件名：【ポイゲークエスト】ご意見・ご要望のお礼（受付番号：{receipt_no}）</p>
 <div class="letter">{name} 様
 
 このたびは、ポイゲークエストへご意見・ご要望をお寄せいただき、誠にありがとうございます。
@@ -516,7 +567,9 @@ footer { font-size: 12px; color: #66727f; text-align: center; margin-top: 28px;}
 
 今後ともポイゲークエストをよろしくお願いいたします。
 
-ポイゲークエスト運営事務局</div>
+ポイゲークエスト運営事務局
+ポイゲークエスト：https://mea-poikatsu.github.io/mea-game-poikatsu/
+情報提供・お問い合わせ：https://mea-poikatsu.github.io/mea-game-poikatsu/contact.html</div>
 </div>
 
 <h2 class="group">エスカレーション条件</h2>
