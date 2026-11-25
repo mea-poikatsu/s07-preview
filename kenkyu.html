@@ -170,8 +170,9 @@ td.pt{font-weight:800;color:#e05e00;white-space:nowrap}
 .chk{list-style:none;margin:0 0 2px}
 .chk li{position:relative;padding-left:22px;margin-bottom:5px;font-size:12.5px;line-height:1.55}
 .chk li:before{content:"\2610";position:absolute;left:0;color:#ff6900;font-weight:900}
-.svc-link{display:flex;justify-content:space-between;align-items:center;border:1.5px solid #ddd;background:#fff;border-radius:8px;padding:12px 14px;margin:8px 0;font-weight:800;font-size:13.5px;color:#444}
-.svc-link .arr{color:#ff6900;font-weight:900}
+.svc-link{display:flex;justify-content:space-between;align-items:center;gap:10px;border:1.5px solid #cfc4ec;background:#f0ecfa;border-radius:8px;padding:12px 14px;margin:8px 0;font-weight:800;font-size:13.5px;color:#463a75;text-decoration:none}
+.svc-link span+span{color:#6e639e;font-weight:600;font-size:12px}
+.svc-link .arr{color:#7a68c4;font-weight:900}
 
 /* 追従バナー：画面下固定・スクロール50%超で候補A（ゴールド＋キラキラ）に変化 */
 body{padding-bottom:104px}
@@ -200,6 +201,10 @@ body{padding-bottom:104px}
 .toclist a .arr{flex:none;color:#3977b8;font-weight:900}
 .toclist a:active{background:#d9e9fb}
 h4[id],div.acc[id],div[id^="b"]{scroll-margin-top:118px}
+
+.tocbtn{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;background:#eaf2fc;border:1px solid #bcd6f2;border-radius:8px;padding:10px 12px;font-size:13.5px;font-weight:800;color:#2f5f8f;font-family:inherit;cursor:pointer;margin:2px 0 10px}
+.tocbtn .pm{color:#3977b8;font-weight:900;flex:none}
+.toclist.toc-closed{display:none}
 </style></head><body><div class="page">
 <header class="header">
   <div class="header-top">
@@ -209,7 +214,7 @@ h4[id],div.acc[id],div[id^="b"]{scroll-margin-top:118px}
   <div class="searchbar"><div class="box"><span>🔍</span><input id="q" type="search" placeholder="ゲーム名で検索"></div></div>
   <nav class="gnav"><a href="index.html" class="on">人気ゲーム</a><a href="index.html">新着・更新</a><a href="index.html">ランキング</a><a href="index.html">ゲーム一覧</a><a href="index.html">攻略メニュー</a></nav>
 </header>
-<div class="crumbs"><a href="index.html">トップ</a> ＞ <a href="index.html">ゲーム一覧</a> ＞ <a href="index.html">パズル＆サバイバル</a> ＞ <b>研究の進め方</b></div><div class="ghead"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bd/24/5e/bd245e4e-b9c6-014c-dc10-de86ab61c260/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="パズル＆サバイバル" loading="lazy"><div><h1>パズル＆サバイバル<br>研究の進め方</h1><div class="gmeta">37GAMES｜iOS/Android</div></div></div><p class="dates"><span>更新日：<b>2026年11月25日</b></span></p><p class="lead">研究ツリーの優先順位と進軍枠の解放階段をまとめたページです。期限内にCC到達を狙う期間を前提に、「何を先に取り、何をやらないか」の判断を整理しています。</p><div class="blk"><div class="sub">このページの要点</div><div class="chips"><span class="bd bd-buy">発展ツリー最優先</span><span class="bd bd-info">進軍枠は研究所Lv6／12／20</span><span class="bd bd-gray">防衛ツリーは基本触らない</span></div><ul class="pts"><li>最優先は<b>発展ツリーの「スタミナ回復」</b>。次に建築・研究・訓練の速度系</li><li><b>進軍枠</b>は研究所Lv6／12／20で解放。部隊数が採集効率に直結する</li><li>進軍枠IIIへ進む際、途中の非特化兵種バフは<b>Lv1止め</b>で通過すると最短</li><li>VIP8（進軍枠+1）は推進・否定の両論あり。ダイヤ残量と残り日数で判断</li></ul></div><div class="blk"><div class="sub">目次</div><nav class="toclist"><a href="#b1">研究の優先順位（全体像）<span class="arr">›</span></a><a href="#b2-1">発展ツリー<span class="arr">›</span></a><a href="#b2-2">進軍枠の解放階段<span class="arr">›</span></a><a href="#b2-3">やらない判断<span class="arr">›</span></a><a href="#b2-4">VIP8の両論<span class="arr">›</span></a></nav></div><div class="sec"><div id="b1"><div class="flow"><span class="fbox">発展<small>最優先</small></span><span class="farr">→</span><span class="fbox">戦闘<small>進軍枠・部隊規模のみ</small></span><span class="farr">→</span><span class="fbox">経済<small>採集系</small></span><span class="farr">→</span><span class="fbox plus">防衛<small>基本触らない</small></span></div></div>
+<div class="crumbs"><a href="index.html">トップ</a> ＞ <a href="index.html">ゲーム一覧</a> ＞ <a href="index.html">パズル＆サバイバル</a> ＞ <b>研究の進め方</b></div><div class="ghead"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bd/24/5e/bd245e4e-b9c6-014c-dc10-de86ab61c260/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="パズル＆サバイバル" loading="lazy"><div><h1>パズル＆サバイバル<br>研究の進め方</h1><div class="gmeta">37GAMES｜iOS/Android</div></div></div><p class="dates"><span>更新日：<b>2026年11月25日</b></span></p><p class="lead">研究ツリーの優先順位と進軍枠の解放階段をまとめたページです。期限内にCC到達を狙う期間を前提に、「何を先に取り、何をやらないか」の判断を整理しています。</p><div class="blk"><div class="sub">このページの要点</div><div class="chips"><span class="bd bd-buy">発展ツリー最優先</span><span class="bd bd-info">進軍枠は研究所Lv6／12／20</span><span class="bd bd-gray">防衛ツリーは基本触らない</span></div><ul class="pts"><li>最優先は<b>発展ツリーの「スタミナ回復」</b>。次に建築・研究・訓練の速度系</li><li><b>進軍枠</b>は研究所Lv6／12／20で解放。部隊数が採集効率に直結する</li><li>進軍枠IIIへ進む際、途中の非特化兵種バフは<b>Lv1止め</b>で通過すると最短</li><li>VIP8（進軍枠+1）は推進・否定の両論あり。ダイヤ残量と残り日数で判断</li></ul></div><div class="blk"><div class="sub">目次</div><button type="button" class="tocbtn" aria-expanded="false">目次を開く<span class="pm">＋</span></button><nav class="toclist toc-closed"><a href="#b1">研究の優先順位（全体像）<span class="arr">›</span></a><a href="#b2-1">発展ツリー<span class="arr">›</span></a><a href="#b2-2">進軍枠の解放階段<span class="arr">›</span></a><a href="#b2-3">やらない判断<span class="arr">›</span></a><a href="#b2-4">VIP8の両論<span class="arr">›</span></a></nav></div><div class="sec"><div id="b1"><div class="flow"><span class="fbox">発展<small>最優先</small></span><span class="farr">→</span><span class="fbox">戦闘<small>進軍枠・部隊規模のみ</small></span><span class="farr">→</span><span class="fbox">経済<small>採集系</small></span><span class="farr">→</span><span class="fbox plus">防衛<small>基本触らない</small></span></div></div>
 <div id="b2"><div class="cards"><div class="card"><h4 id="b2-1">発展ツリーの取り方</h4>
 <ul>
 <li><b>最優先は「スタミナ回復」</b>。回復が早まる分だけ巣窟への参加回数が増え、英雄の欠片・血清の入手量が増える（＝英雄育成の速度に直結）</li>
@@ -289,4 +294,5 @@ window.addEventListener('scroll',stickyCtaUpdate,{passive:true});
 window.addEventListener('resize',stickyCtaUpdate);
 stickyCtaUpdate();
 </script>
+<script>document.querySelectorAll('.tocbtn').forEach(function(b){b.addEventListener('click',function(){var n=b.nextElementSibling;var c=n.classList.toggle('toc-closed');b.setAttribute('aria-expanded',String(!c));b.childNodes[0].textContent=c?'\u76ee\u6b21\u3092\u958b\u304f':'\u76ee\u6b21\u3092\u9589\u3058\u308b';b.querySelector('.pm').textContent=c?'\uff0b':'\uff0d';});});</script>
 </body></html>

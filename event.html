@@ -170,8 +170,9 @@ td.pt{font-weight:800;color:#e05e00;white-space:nowrap}
 .chk{list-style:none;margin:0 0 2px}
 .chk li{position:relative;padding-left:22px;margin-bottom:5px;font-size:12.5px;line-height:1.55}
 .chk li:before{content:"\2610";position:absolute;left:0;color:#ff6900;font-weight:900}
-.svc-link{display:flex;justify-content:space-between;align-items:center;border:1.5px solid #ddd;background:#fff;border-radius:8px;padding:12px 14px;margin:8px 0;font-weight:800;font-size:13.5px;color:#444}
-.svc-link .arr{color:#ff6900;font-weight:900}
+.svc-link{display:flex;justify-content:space-between;align-items:center;gap:10px;border:1.5px solid #cfc4ec;background:#f0ecfa;border-radius:8px;padding:12px 14px;margin:8px 0;font-weight:800;font-size:13.5px;color:#463a75;text-decoration:none}
+.svc-link span+span{color:#6e639e;font-weight:600;font-size:12px}
+.svc-link .arr{color:#7a68c4;font-weight:900}
 
 /* 追従バナー：画面下固定・スクロール50%超で候補A（ゴールド＋キラキラ）に変化 */
 body{padding-bottom:104px}
@@ -223,6 +224,10 @@ a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
 .toclist a .arr{flex:none;color:#3977b8;font-weight:900}
 .toclist a:active{background:#d9e9fb}
 h4[id],div.acc[id],div[id^="b"]{scroll-margin-top:118px}
+
+.tocbtn{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;background:#eaf2fc;border:1px solid #bcd6f2;border-radius:8px;padding:10px 12px;font-size:13.5px;font-weight:800;color:#2f5f8f;font-family:inherit;cursor:pointer;margin:2px 0 10px}
+.tocbtn .pm{color:#3977b8;font-weight:900;flex:none}
+.toclist.toc-closed{display:none}
 </style></head><body><div class="page">
 <header class="header">
   <div class="header-top">
@@ -232,7 +237,7 @@ h4[id],div.acc[id],div[id^="b"]{scroll-margin-top:118px}
   <div class="searchbar"><div class="box"><span>🔍</span><input id="q" type="search" placeholder="ゲーム名で検索"></div></div>
   <nav class="gnav"><a href="index.html" class="on">人気ゲーム</a><a href="index.html">新着・更新</a><a href="index.html">ランキング</a><a href="index.html">ゲーム一覧</a><a href="index.html">攻略メニュー</a></nav>
 </header>
-<div class="crumbs"><a href="index.html">トップ</a> ＞ <a href="index.html">ゲーム一覧</a> ＞ <a href="index.html">パズル＆サバイバル</a> ＞ <b>イベント</b></div><div class="ghead"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bd/24/5e/bd245e4e-b9c6-014c-dc10-de86ab61c260/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="パズル＆サバイバル" loading="lazy"><div><h1>パズル＆サバイバル<br>イベント</h1><div class="gmeta">37GAMES｜iOS/Android</div></div></div><p class="dates"><span>更新日：<b>2026年11月25日</b></span></p><p class="lead">主要イベントの仕組みと、消費を寄せる曜日サイクルをまとめたページです。普段の行動がポイントになる設計のため、「何を・いつ使うか」の判断を整理しています。</p><div class="blk"><div class="sub">このページの要点</div><div class="chips"><span class="bd bd-buy">原則：温存して寄せる</span><span class="bd bd-info">更新は午前9時</span><span class="bd bd-warn">エースコマンダー週は締切が月曜8:30</span></div><ul class="pts"><li>リクルートコイン・ブースト・スタミナ回復は、<b>対応するイベントの曜日・週まで温存</b>して一括使用</li><li>通常週とエースコマンダー週では<b>曜日の中身が変わる</b>。古い曜日表を現行として使わない</li><li>デッドライジングは<b>「負けさせない」ことが最優先</b>（2回敗北で襲来が止まる）</li><li>攻勢作戦は条件が8時間ごとに切り替わる。完了のタイミングを合わせると二重取りが狙える</li></ul></div><div class="blk"><div class="sub">目次</div><nav class="toclist"><a href="#b1">イベントの原則<span class="arr">›</span></a><a href="#b2-1">通常週の曜日サイクル<span class="arr">›</span></a><a href="#b2-2">デッドライジング<span class="arr">›</span></a><a href="#b2-3">エースコマンダー週<span class="arr">›</span></a><a href="#b2-4">同盟対決<span class="arr">›</span></a><a href="#b2-5">攻勢作戦ほか<span class="arr">›</span></a></nav></div><div class="blk"><img class="figimg" src="img/inf-event-week.png" alt="週間イベント早見" loading="lazy"><p class="cnote" style="margin:4px 0 0">週間イベントの早見図解</p></div>
+<div class="crumbs"><a href="index.html">トップ</a> ＞ <a href="index.html">ゲーム一覧</a> ＞ <a href="index.html">パズル＆サバイバル</a> ＞ <b>イベント</b></div><div class="ghead"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bd/24/5e/bd245e4e-b9c6-014c-dc10-de86ab61c260/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="パズル＆サバイバル" loading="lazy"><div><h1>パズル＆サバイバル<br>イベント</h1><div class="gmeta">37GAMES｜iOS/Android</div></div></div><p class="dates"><span>更新日：<b>2026年11月25日</b></span></p><p class="lead">主要イベントの仕組みと、消費を寄せる曜日サイクルをまとめたページです。普段の行動がポイントになる設計のため、「何を・いつ使うか」の判断を整理しています。</p><div class="blk"><div class="sub">このページの要点</div><div class="chips"><span class="bd bd-buy">原則：温存して寄せる</span><span class="bd bd-info">更新は午前9時</span><span class="bd bd-warn">エースコマンダー週は締切が月曜8:30</span></div><ul class="pts"><li>リクルートコイン・ブースト・スタミナ回復は、<b>対応するイベントの曜日・週まで温存</b>して一括使用</li><li>通常週とエースコマンダー週では<b>曜日の中身が変わる</b>。古い曜日表を現行として使わない</li><li>デッドライジングは<b>「負けさせない」ことが最優先</b>（2回敗北で襲来が止まる）</li><li>攻勢作戦は条件が8時間ごとに切り替わる。完了のタイミングを合わせると二重取りが狙える</li></ul></div><div class="blk"><div class="sub">目次</div><button type="button" class="tocbtn" aria-expanded="false">目次を開く<span class="pm">＋</span></button><nav class="toclist toc-closed"><a href="#b1">イベントの原則<span class="arr">›</span></a><a href="#b2-1">通常週の曜日サイクル<span class="arr">›</span></a><a href="#b2-2">デッドライジング<span class="arr">›</span></a><a href="#b2-3">エースコマンダー週<span class="arr">›</span></a><a href="#b2-4">同盟対決<span class="arr">›</span></a><a href="#b2-5">攻勢作戦ほか<span class="arr">›</span></a></nav></div><div class="blk"><img class="figimg" src="img/inf-event-week.png" alt="週間イベント早見" loading="lazy"><p class="cnote" style="margin:4px 0 0">週間イベントの早見図解</p></div>
 <div class="sec"><div id="b1"><div class="blk"><div class="chips"><span class="bd bd-buy">原則：普段の行動がポイントになる</span><span class="bd bd-gray">更新・リセットは午前9時</span></div>
 <p class="note">主要イベントはいずれも通常行動（ブースト使用・欠片入手・スタミナ消費など）がポイント化する設計です。リクルートコイン・ブースト・スタミナ回復は、対応するイベントの曜日・週まで温存してから一括使用するのが全体の原則です。曜日ごとの消費の寄せ方は、このページの「通常週の曜日サイクル」もあわせて確認してください。</p></div></div>
 <div id="b2"><div class="cards"><div class="card"><h4 id="b2-1">曜日イベントに消費を寄せる</h4>
@@ -346,4 +351,5 @@ window.addEventListener('scroll',stickyCtaUpdate,{passive:true});
 window.addEventListener('resize',stickyCtaUpdate);
 stickyCtaUpdate();
 </script>
+<script>document.querySelectorAll('.tocbtn').forEach(function(b){b.addEventListener('click',function(){var n=b.nextElementSibling;var c=n.classList.toggle('toc-closed');b.setAttribute('aria-expanded',String(!c));b.childNodes[0].textContent=c?'\u76ee\u6b21\u3092\u958b\u304f':'\u76ee\u6b21\u3092\u9589\u3058\u308b';b.querySelector('.pm').textContent=c?'\uff0b':'\uff0d';});});</script>
 </body></html>

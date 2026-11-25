@@ -170,8 +170,9 @@ td.pt{font-weight:800;color:#e05e00;white-space:nowrap}
 .chk{list-style:none;margin:0 0 2px}
 .chk li{position:relative;padding-left:22px;margin-bottom:5px;font-size:12.5px;line-height:1.55}
 .chk li:before{content:"\2610";position:absolute;left:0;color:#ff6900;font-weight:900}
-.svc-link{display:flex;justify-content:space-between;align-items:center;border:1.5px solid #ddd;background:#fff;border-radius:8px;padding:12px 14px;margin:8px 0;font-weight:800;font-size:13.5px;color:#444}
-.svc-link .arr{color:#ff6900;font-weight:900}
+.svc-link{display:flex;justify-content:space-between;align-items:center;gap:10px;border:1.5px solid #cfc4ec;background:#f0ecfa;border-radius:8px;padding:12px 14px;margin:8px 0;font-weight:800;font-size:13.5px;color:#463a75;text-decoration:none}
+.svc-link span+span{color:#6e639e;font-weight:600;font-size:12px}
+.svc-link .arr{color:#7a68c4;font-weight:900}
 
 /* 追従バナー：画面下固定・スクロール50%超で候補A（ゴールド＋キラキラ）に変化 */
 body{padding-bottom:104px}
@@ -203,6 +204,10 @@ body{padding-bottom:104px}
 .toclist a .arr{flex:none;color:#3977b8;font-weight:900}
 .toclist a:active{background:#d9e9fb}
 h4[id],div.acc[id],div[id^="b"]{scroll-margin-top:118px}
+
+.tocbtn{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;background:#eaf2fc;border:1px solid #bcd6f2;border-radius:8px;padding:10px 12px;font-size:13.5px;font-weight:800;color:#2f5f8f;font-family:inherit;cursor:pointer;margin:2px 0 10px}
+.tocbtn .pm{color:#3977b8;font-weight:900;flex:none}
+.toclist.toc-closed{display:none}
 </style></head><body><div class="page">
 <header class="header">
   <div class="header-top">
@@ -212,7 +217,7 @@ h4[id],div.acc[id],div[id^="b"]{scroll-margin-top:118px}
   <div class="searchbar"><div class="box"><span>🔍</span><input id="q" type="search" placeholder="ゲーム名で検索"></div></div>
   <nav class="gnav"><a href="index.html" class="on">人気ゲーム</a><a href="index.html">新着・更新</a><a href="index.html">ランキング</a><a href="index.html">ゲーム一覧</a><a href="index.html">攻略メニュー</a></nav>
 </header>
-<div class="crumbs"><a href="index.html">トップ</a> ＞ <a href="index.html">ゲーム一覧</a> ＞ <a href="index.html">パズル＆サバイバル</a> ＞ <b>毎日のルーティン</b></div><div class="ghead"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bd/24/5e/bd245e4e-b9c6-014c-dc10-de86ab61c260/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="パズル＆サバイバル" loading="lazy"><div><h1>パズル＆サバイバル<br>毎日のルーティン</h1><div class="gmeta">37GAMES｜iOS/Android</div></div></div><p class="dates"><span>更新日：<b>2026年11月25日</b></span></p><p class="lead">毎日やることのチェックリストと、ダイヤの使い道の優先順位をまとめたページです。午前9時のリセットを軸に、溢れさせない・出し続ける・仕込んで寝る、の3点を徹底するための内容です。</p><div class="blk"><div class="sub">このページの要点</div><div class="chips"><span class="bd bd-info">リセット：午前9時</span><span class="bd bd-buy">採集部隊は出し続ける</span><span class="bd bd-warn">AP・スタミナは溢れさせない</span></div><ul class="pts"><li>デイリー任務・ヘルプ・無料募集・無料配給・コロシアムを<b>毎日消化</b>する</li><li><b>採集部隊は帰還したらすぐ再出発</b>。ギルド資源場を優先する</li><li>ダイヤは<b>第2建造隊列の維持が最優先</b>。大口消費は土日（ダイヤの達人）に寄せる</li><li><b>寝る前に長い建設（CC・城壁）を仕込む</b>のが期限管理の基本</li></ul></div><div class="blk"><div class="sub">目次</div><nav class="toclist"><a href="#b1-1">日課チェックリスト<span class="arr">›</span></a><a href="#b1-2">毎日の無料系 早見表<span class="arr">›</span></a><a href="#b1-3">資源は採集を切らさない<span class="arr">›</span></a><a href="#b1-4">ダイヤの使い道<span class="arr">›</span></a><a href="#b1-5">曜日別の動き方<span class="arr">›</span></a><a href="#b1-6">週課・周期もの<span class="arr">›</span></a><a href="#b1-7">1日の時間帯の型<span class="arr">›</span></a></nav></div><div class="sec"><div id="b1"><div class="blk"><div class="chips"><span class="bd bd-info">リセット：午前9時</span><span class="bd bd-gray">AP回復：約5〜6分で1（諸説）</span><span class="bd bd-gray">スタミナ上限：120</span></div></div><div class="cards"><div class="card"><h4 id="b1-1">日課チェックリスト</h4>
+<div class="crumbs"><a href="index.html">トップ</a> ＞ <a href="index.html">ゲーム一覧</a> ＞ <a href="index.html">パズル＆サバイバル</a> ＞ <b>毎日のルーティン</b></div><div class="ghead"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bd/24/5e/bd245e4e-b9c6-014c-dc10-de86ab61c260/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="パズル＆サバイバル" loading="lazy"><div><h1>パズル＆サバイバル<br>毎日のルーティン</h1><div class="gmeta">37GAMES｜iOS/Android</div></div></div><p class="dates"><span>更新日：<b>2026年11月25日</b></span></p><p class="lead">毎日やることのチェックリストと、ダイヤの使い道の優先順位をまとめたページです。午前9時のリセットを軸に、溢れさせない・出し続ける・仕込んで寝る、の3点を徹底するための内容です。</p><div class="blk"><div class="sub">このページの要点</div><div class="chips"><span class="bd bd-info">リセット：午前9時</span><span class="bd bd-buy">採集部隊は出し続ける</span><span class="bd bd-warn">AP・スタミナは溢れさせない</span></div><ul class="pts"><li>デイリー任務・ヘルプ・無料募集・無料配給・コロシアムを<b>毎日消化</b>する</li><li><b>採集部隊は帰還したらすぐ再出発</b>。ギルド資源場を優先する</li><li>ダイヤは<b>第2建造隊列の維持が最優先</b>。大口消費は土日（ダイヤの達人）に寄せる</li><li><b>寝る前に長い建設（CC・城壁）を仕込む</b>のが期限管理の基本</li></ul></div><div class="blk"><div class="sub">目次</div><button type="button" class="tocbtn" aria-expanded="false">目次を開く<span class="pm">＋</span></button><nav class="toclist toc-closed"><a href="#b1-1">日課チェックリスト<span class="arr">›</span></a><a href="#b1-2">毎日の無料系 早見表<span class="arr">›</span></a><a href="#b1-3">資源は採集を切らさない<span class="arr">›</span></a><a href="#b1-4">ダイヤの使い道<span class="arr">›</span></a><a href="#b1-5">曜日別の動き方<span class="arr">›</span></a><a href="#b1-6">週課・周期もの<span class="arr">›</span></a><a href="#b1-7">1日の時間帯の型<span class="arr">›</span></a></nav></div><div class="sec"><div id="b1"><div class="blk"><div class="chips"><span class="bd bd-info">リセット：午前9時</span><span class="bd bd-gray">AP回復：約5〜6分で1（諸説）</span><span class="bd bd-gray">スタミナ上限：120</span></div></div><div class="cards"><div class="card"><h4 id="b1-1">日課チェックリスト</h4>
 <ul class="chk">
 <li><b>デイリー任務</b>を活躍度最大まで回す（巣窟1回／ギルドヘルプ10回／ギルドテク寄付の3種はギルド加入が前提）</li>
 <li><b>ギルドヘルプ</b>を押す（コインは1回1,000・1日5万が上限。自分の建設・研究もヘルプ依頼を出してから加速する）</li>
@@ -317,4 +322,5 @@ window.addEventListener('scroll',stickyCtaUpdate,{passive:true});
 window.addEventListener('resize',stickyCtaUpdate);
 stickyCtaUpdate();
 </script>
+<script>document.querySelectorAll('.tocbtn').forEach(function(b){b.addEventListener('click',function(){var n=b.nextElementSibling;var c=n.classList.toggle('toc-closed');b.setAttribute('aria-expanded',String(!c));b.childNodes[0].textContent=c?'\u76ee\u6b21\u3092\u958b\u304f':'\u76ee\u6b21\u3092\u9589\u3058\u308b';b.querySelector('.pm').textContent=c?'\uff0b':'\uff0d';});});</script>
 </body></html>

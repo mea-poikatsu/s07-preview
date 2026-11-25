@@ -171,8 +171,9 @@ td.pt{font-weight:800;color:#e05e00;white-space:nowrap}
 .chk{list-style:none;margin:0 0 2px}
 .chk li{position:relative;padding-left:22px;margin-bottom:5px;font-size:12.5px;line-height:1.55}
 .chk li:before{content:"\2610";position:absolute;left:0;color:#ff6900;font-weight:900}
-.svc-link{display:flex;justify-content:space-between;align-items:center;border:1.5px solid #ddd;background:#fff;border-radius:8px;padding:12px 14px;margin:8px 0;font-weight:800;font-size:13.5px;color:#444}
-.svc-link .arr{color:#ff6900;font-weight:900}
+.svc-link{display:flex;justify-content:space-between;align-items:center;gap:10px;border:1.5px solid #cfc4ec;background:#f0ecfa;border-radius:8px;padding:12px 14px;margin:8px 0;font-weight:800;font-size:13.5px;color:#463a75;text-decoration:none}
+.svc-link span+span{color:#6e639e;font-weight:600;font-size:12px}
+.svc-link .arr{color:#7a68c4;font-weight:900}
 
 /* 追従バナー：画面下固定・スクロール50%超で候補A（ゴールド＋キラキラ）に変化 */
 body{padding-bottom:104px}
@@ -223,6 +224,10 @@ a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
 .toclist a .arr{flex:none;color:#3977b8;font-weight:900}
 .toclist a:active{background:#d9e9fb}
 h4[id],div.acc[id],div[id^="b"]{scroll-margin-top:118px}
+
+.tocbtn{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;background:#eaf2fc;border:1px solid #bcd6f2;border-radius:8px;padding:10px 12px;font-size:13.5px;font-weight:800;color:#2f5f8f;font-family:inherit;cursor:pointer;margin:2px 0 10px}
+.tocbtn .pm{color:#3977b8;font-weight:900;flex:none}
+.toclist.toc-closed{display:none}
 </style></head><body><div class="page">
 <header class="header">
   <div class="header-top">
@@ -232,7 +237,7 @@ h4[id],div.acc[id],div[id^="b"]{scroll-margin-top:118px}
   <div class="searchbar"><div class="box"><span>🔍</span><input id="q" type="search" placeholder="ゲーム名で検索"></div></div>
   <nav class="gnav"><a href="index.html" class="on">人気ゲーム</a><a href="index.html">新着・更新</a><a href="index.html">ランキング</a><a href="index.html">ゲーム一覧</a><a href="index.html">攻略メニュー</a></nav>
 </header>
-<div class="crumbs"><a href="index.html">トップ</a> ＞ <a href="index.html">ゲーム一覧</a> ＞ <a href="index.html">パズル＆サバイバル</a> ＞ <b>建設と前提</b></div><div class="ghead"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bd/24/5e/bd245e4e-b9c6-014c-dc10-de86ab61c260/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="パズル＆サバイバル" loading="lazy"><div><h1>パズル＆サバイバル<br>建設と前提</h1><div class="gmeta">37GAMES｜iOS/Android</div></div></div><p class="dates"><span>更新日：<b>2026年11月25日</b></span></p><p class="lead">コントロールセンター（CC）のレベルアップに必要な前提建物と、建設で止まらないための運用をまとめたページです。前提の連鎖はツリー図で全体像を、数値は全表で確認できます。建設マスターや加速アイテムの使い方もこのページで扱います。</p><div class="blk"><div class="sub">このページの要点</div><div class="chips"><span class="bd bd-info">前提は先回りが原則</span><span class="bd bd-warn">CC15・CC17は2023年12月に仕様変更</span><span class="bd bd-buy">★3建設マスターは初日〜2日目</span></div><ul class="pts"><li>前提建物は<b>着工の1つ前から先回り</b>で上げる。城壁は常にCCと同レベル</li><li>建設時間には「素の時間」と「実効時間」の2系統があり、<b>期限の逆算は素の時間側</b>で見積もる</li><li><b>★3建設マスター</b>は資源削減の定番。買うなら恩恵期間が長い初日〜2日目</li><li>加速は要所（後半のCC・城壁）まで温存し、焦土鉱洞などで確保する</li></ul></div><div class="blk"><div class="sub">目次</div><nav class="toclist"><a href="#b1">前提建物は「先回り」で上げる（ツリー図）<span class="arr">›</span></a><a href="#b2">前提表（全表）<span class="arr">›</span></a><a href="#b3-1">建設の運用ルール<span class="arr">›</span></a><a href="#b3-2">建設マスター<span class="arr">›</span></a><a href="#b3-3">加速<span class="arr">›</span></a><a href="#b3-4">両論<span class="arr">›</span></a></nav></div><div class="sec"><div id="b1"><div class="cards"><div class="card"><h4>前提建物は「先回り」で上げる</h4>
+<div class="crumbs"><a href="index.html">トップ</a> ＞ <a href="index.html">ゲーム一覧</a> ＞ <a href="index.html">パズル＆サバイバル</a> ＞ <b>建設と前提</b></div><div class="ghead"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bd/24/5e/bd245e4e-b9c6-014c-dc10-de86ab61c260/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="パズル＆サバイバル" loading="lazy"><div><h1>パズル＆サバイバル<br>建設と前提</h1><div class="gmeta">37GAMES｜iOS/Android</div></div></div><p class="dates"><span>更新日：<b>2026年11月25日</b></span></p><p class="lead">コントロールセンター（CC）のレベルアップに必要な前提建物と、建設で止まらないための運用をまとめたページです。前提の連鎖はツリー図で全体像を、数値は全表で確認できます。建設マスターや加速アイテムの使い方もこのページで扱います。</p><div class="blk"><div class="sub">このページの要点</div><div class="chips"><span class="bd bd-info">前提は先回りが原則</span><span class="bd bd-warn">CC15・CC17は2023年12月に仕様変更</span><span class="bd bd-buy">★3建設マスターは初日〜2日目</span></div><ul class="pts"><li>前提建物は<b>着工の1つ前から先回り</b>で上げる。城壁は常にCCと同レベル</li><li>建設時間には「素の時間」と「実効時間」の2系統があり、<b>期限の逆算は素の時間側</b>で見積もる</li><li><b>★3建設マスター</b>は資源削減の定番。買うなら恩恵期間が長い初日〜2日目</li><li>加速は要所（後半のCC・城壁）まで温存し、焦土鉱洞などで確保する</li></ul></div><div class="blk"><div class="sub">目次</div><button type="button" class="tocbtn" aria-expanded="false">目次を開く<span class="pm">＋</span></button><nav class="toclist toc-closed"><a href="#b1">前提建物は「先回り」で上げる（ツリー図）<span class="arr">›</span></a><a href="#b2">前提表（全表）<span class="arr">›</span></a><a href="#b3-1">建設の運用ルール<span class="arr">›</span></a><a href="#b3-2">建設マスター<span class="arr">›</span></a><a href="#b3-3">加速<span class="arr">›</span></a><a href="#b3-4">両論<span class="arr">›</span></a></nav></div><div class="sec"><div id="b1"><div class="cards"><div class="card"><h4>前提建物は「先回り」で上げる</h4>
 <figure class="figc"><img src="img/building-headquarters.webp" alt="拠点の中心施設（本部／コントロールセンター）の外観" style="width:300px" loading="lazy"><figcaption class="fcap">拠点の中心施設（本部／コントロールセンター）の外観</figcaption></figure>
 <ul>
 <li>CCのレベルアップには、それぞれ前提建物のレベル到達が必要。前提が未達だと、資源と加速アイテムが揃っていてもCCの建設に着工できず足止めされる</li>
@@ -384,4 +389,5 @@ window.addEventListener('scroll',stickyCtaUpdate,{passive:true});
 window.addEventListener('resize',stickyCtaUpdate);
 stickyCtaUpdate();
 </script>
+<script>document.querySelectorAll('.tocbtn').forEach(function(b){b.addEventListener('click',function(){var n=b.nextElementSibling;var c=n.classList.toggle('toc-closed');b.setAttribute('aria-expanded',String(!c));b.childNodes[0].textContent=c?'\u76ee\u6b21\u3092\u958b\u304f':'\u76ee\u6b21\u3092\u9589\u3058\u308b';b.querySelector('.pm').textContent=c?'\uff0b':'\uff0d';});});</script>
 </body></html>
