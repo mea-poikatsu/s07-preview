@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>パズル＆サバイバル（パズサバ）のポイ活攻略｜ポイゲークエスト</title><style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{background:#e8e8e8;scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",sans-serif;color:#333;font-size:14px;line-height:1.6;-webkit-text-size-adjust:100%}
+.page{max-width:420px;margin:0 auto;background:#fff;min-height:100vh;box-shadow:0 0 12px rgba(0,0,0,.18)}
+a{color:inherit;text-decoration:none}
+img{display:block}
+.header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid #e5e5e5}
+.header-top{display:flex;align-items:center;justify-content:space-between;padding:8px 12px 6px}
+.logo{font-size:20px;font-weight:900;color:#333;white-space:nowrap}
+.logo .lg-mark{display:inline-block;background:#ff6900;color:#fff;border-radius:5px;padding:0 6px;margin-right:5px;font-size:18px}
+.logo .lg-sub{font-size:9px;font-weight:700;color:#ff6900;vertical-align:super;margin-left:3px}
+.header-icons{display:flex;gap:13px;color:#555;font-size:10px;text-align:center}
+.header-icons .ic{font-size:18px;line-height:1.1;display:block}
+.searchbar{padding:2px 12px 9px}
+.searchbar .box{display:flex;align-items:center;background:#f2f2f2;border-radius:16px;padding:0 12px}
+.searchbar input{flex:1;border:0;background:transparent;font-size:13px;padding:7px 6px;outline:none;color:#333;font-family:inherit}
+.gnav{display:flex;border-top:1px solid #f0f0f0;overflow-x:auto;white-space:nowrap}
+.gnav a{flex:1;text-align:center;font-size:12px;font-weight:700;padding:8px 6px;color:#444;border-bottom:2px solid transparent}
+.gnav a.on{color:#c9332b;border-bottom-color:#c9332b}
+.crumbs{font-size:11px;color:#888;padding:8px 12px 0}
+.sec{margin-top:22px;scroll-margin-top:118px}
+.sec-head{display:flex;align-items:center;justify-content:space-between;background:#faebe8;border-left:5px solid #c9332b;padding:7px 10px 7px 9px;margin:0 0 10px}
+.sec-head h2{font-size:16px;font-weight:800}
+.sec-head a{font-size:12px;color:#c9332b;font-weight:700}
+.sec-head .cnt{font-size:11px;color:#999;font-weight:700}
+.lead{padding:10px 12px 0;font-size:13px;color:#444}
+/* 記事リスト行 */
+.rows{padding:0 12px}
+.row{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid #eee;align-items:flex-start}
+.row img,.row .fallback-icon{width:64px;height:64px;border-radius:14%;flex:none;object-fit:cover;font-size:28px}
+.row .rtitle{font-size:13.5px;font-weight:700;line-height:1.45}
+.row .rmeta{margin-top:4px;font-size:11px;color:#999;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.row .rsum{margin-top:3px;font-size:11.5px;color:#666;line-height:1.5}
+.chip{display:inline-block;background:#fbe9e4;color:#9c2418;font-weight:800;font-size:11.5px;border-radius:3px;padding:1px 5px}
+.chip.gray{background:#f0f0f0;color:#777}
+/* 表 */
+.tscroll{overflow-x:auto;padding:0 12px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;margin:6px 0 4px}
+th,td{border:1px solid #ddd;padding:6px 8px;text-align:left;vertical-align:middle}
+th{background:#f7f3ec;font-weight:800;white-space:nowrap}
+td.pt,th.pt{text-align:right}
+td.pt{font-weight:800;color:#9c2418;white-space:nowrap}
+/* スペック早見表 */
+.spec th{width:34%;background:#faebe8;white-space:normal}
+.spec td{line-height:1.55}
+.spec td b{color:#9c2418}
+/* 攻略メニュー */
+.menu-label{text-align:center;font-weight:800;font-size:13px;color:#666;margin:14px 0 8px}
+.menu{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:0 12px}
+.menu.folded a:nth-child(n+7){display:none}
+.menu-toggle{display:block;margin:8px auto 2px;padding:8px 26px;border:1px solid #d9d9d9;border-radius:999px;background:#fff;font-size:13px;font-weight:700;color:#466b84;cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.menu a{border:1px solid #e3e3e3;border-radius:6px;background:#fff;text-align:center;padding:10px 2px 8px;font-size:12px;font-weight:700;color:#444;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.menu a .mi{display:block;font-size:19px;margin-bottom:3px}
+.menu a.hot{border-color:#e08a7d;background:#fdf0ec;color:#9c2418}
+.quick{display:flex;flex-wrap:wrap;gap:6px;padding:10px 12px 2px}
+.quick a{font-size:12px;font-weight:700;color:#466b84;background:#eaf2fc;border-radius:999px;padding:5px 11px}
+/* ゲームページ */
+.ghead{display:flex;gap:12px;padding:12px;align-items:center}
+.ghead img,.ghead .fallback-icon{width:76px;height:76px;border-radius:20%;object-fit:cover;font-size:34px}
+.ghead h1{font-size:19px;font-weight:900;line-height:1.35}
+.ghead .gmeta{font-size:11.5px;color:#888;margin-top:3px}
+.ghead .gmax{margin-top:5px;font-size:13px;font-weight:900;color:#c9332b}
+.dates{font-size:11px;color:#999;padding:0 12px;display:flex;gap:12px;flex-wrap:wrap}
+.dates b{color:#777;font-weight:700}
+.toc{position:sticky;top:104px;z-index:55;display:flex;background:#333;overflow-x:auto;white-space:nowrap}
+.toc a{flex:1;text-align:center;color:#fff;font-size:12px;font-weight:700;padding:8px 10px}
+.toc a:active,.toc a.on{background:#c9332b}
+/* タブ */
+.tabs{display:flex;gap:6px;padding:0 12px;margin-bottom:4px;scroll-margin-top:160px}
+.tabs button{flex:1;border:1px solid #ddd;background:#f7f7f7;border-radius:8px 8px 0 0;padding:9px 4px;font-size:13px;font-weight:800;color:#777;cursor:pointer;font-family:inherit;border-bottom:3px solid #ddd}
+.tabs button.on{background:#fff;color:#9c2418;border-color:#ddd;border-bottom:3px solid #c9332b}
+.tabs button .tt{display:block;font-size:11px;font-weight:800;color:#c9332b}
+.tabpanel{display:none;padding:4px 12px 0}
+.tabpanel.on{display:block}
+.svc-diff{margin:2px 12px 8px;font-size:12.5px;font-weight:800;color:#9c2418;text-align:center}
+.svc-diff.hide{display:none}
+/* アコーディオン */
+.acc{border:1px solid #e5e5e5;border-radius:6px;margin:8px 0;overflow:hidden}
+.acc button{width:100%;background:#fafafa;border:0;text-align:left;font-size:13px;font-weight:800;color:#444;padding:10px 12px;cursor:pointer;font-family:inherit;display:flex;justify-content:space-between;align-items:center}
+.acc button .pm{color:#c9332b;font-size:15px}
+.acc .acc-body{display:none;padding:10px 12px;font-size:12px;color:#555;border-top:1px solid #eee;line-height:1.7}
+.acc.open .acc-body{display:block}
+.acc-body ul{margin:0 0 0 18px}
+.acc-body li{margin-bottom:4px;line-height:1.6}
+.ditem{padding:8px 0;border-bottom:1px dashed #e5e5e5}
+.ditem:last-child{border-bottom:0}
+.ditem .dname{font-weight:800;font-size:13px}
+.ditem .dmeta{font-size:12px;color:#444;margin:2px 0}
+.ditem .dreason{font-size:11.5px;color:#888;line-height:1.55}
+.kv{font-size:12px;color:#555;margin:2px 0}
+.kv b{color:#333}
+.blk{padding:0 12px}
+.blk h3{font-size:15px;font-weight:800;border-bottom:2px solid #e08a7d;padding-bottom:3px;margin:16px 0 8px}
+.blk p{font-size:13.5px;margin-bottom:8px}
+.blk ol{margin:0 0 8px 20px;font-size:13.5px}
+.blk li{margin-bottom:5px}
+.note{font-size:11.5px;color:#888}
+.more-link{display:block;padding:10px 12px;font-weight:700;font-size:13.5px;border-bottom:1px solid #eee}
+.more-link .tri{color:#c9332b;margin-right:6px}
+/* モンスター型の追加部品 */
+.anchor-jump{display:block;margin:10px 12px 2px;background:#c9332b;color:#fff;font-weight:800;font-size:13px;text-align:center;border-radius:6px;padding:10px 8px}
+.read-note{font-size:11.5px;color:#777;background:#fafafa;border:1px solid #eee;border-radius:6px;padding:8px 10px;margin:6px 0 8px;line-height:1.65}
+.upd-note{font-size:11.5px;color:#8a6d1a;background:#fffbe8;border:1px solid #f0df9a;border-radius:6px;padding:8px 10px;margin:8px 0;line-height:1.65}
+.upd-note b{color:#6d5510}
+.risk-note{font-size:12px;color:#a33;background:#fff5f5;border-left:4px solid #e88;border-radius:0 6px 6px 0;padding:8px 10px;margin:8px 0;line-height:1.65}
+.hist td{font-size:12px;line-height:1.55}
+.hist td.hd{white-space:nowrap;font-weight:700}
+.hist .old{color:#999}
+.hist .arrw{color:#c9332b;font-weight:800}
+.footer{margin-top:30px;background:#f7f7f7;border-top:1px solid #e5e5e5;padding:16px 12px 28px}
+.footer .flinks{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:#555;margin-bottom:10px}
+.footer .disc{font-size:11px;color:#888;line-height:1.7;margin-bottom:10px}
+.footer .copy{font-size:11px;color:#aaa;text-align:center}
+.grow td{padding:2px 6px 8px;background:#fffdf7}
+.grow .acc{margin:2px 0 0}
+.hidden{display:none!important}
+/* ===== 図解・バー・バッジ ===== */
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin:6px 0}
+.bd{display:inline-block;font-size:10.5px;font-weight:800;border-radius:10px;padding:1px 8px;line-height:1.6;vertical-align:middle;white-space:nowrap}
+.bd-buy{background:#e6f4ea;color:#137333;border:1px solid #a3d9b1}
+.bd-no{background:#fdecea;color:#b3261e;border:1px solid #f0b8b2}
+.bd-warn{background:#fff4e0;color:#a35b00;border:1px solid #f2cf8f}
+.bd-info{background:#eaf2fc;color:#2f5f8f;border:1px solid #bcd6f2}
+.bd-gray{background:#f0f0f0;color:#666;border:1px solid #ddd}
+.bars{margin:8px 0 2px}
+.barrow{display:flex;align-items:center;gap:8px;margin:7px 0}
+.barrow .bl{width:52px;flex:none;font-size:11.5px;font-weight:800;color:#555;text-align:right}
+.barrow .bt{flex:1;background:#f0f0f0;border-radius:4px;height:20px;overflow:hidden}
+.barrow .bf{height:100%;background:#c9332b;border-radius:4px}
+.barrow .bf.free{background:#466b84}
+.barrow .bv{flex:none;font-size:14px;font-weight:900;color:#333}
+.bar-note{margin-left:60px}
+/* ステップフロー */
+.flow{display:flex;align-items:center;gap:3px;overflow-x:auto;padding:8px 12px 2px}
+.fbox{flex:none;border:1.5px solid #e08a7d;background:#fdf0ec;border-radius:6px;padding:5px 8px;font-size:12px;font-weight:800;text-align:center;color:#333}
+.fbox small{display:block;font-size:10px;color:#888;font-weight:700}
+.fbox.plus{border-color:#bfcfd9;background:#edf2f5}
+.farr{color:#c9332b;font-weight:900;flex:none}
+/* タイムライン */
+.tl{display:flex;overflow-x:auto;padding:12px 12px 4px}
+.tl .node{flex:1;min-width:88px;text-align:center;position:relative;padding:0 3px}
+.tl .node:before{content:"";position:absolute;top:8px;left:-50%;width:100%;height:2px;background:#ffd9ae}
+.tl .node:first-child:before{display:none}
+.tl .dot{width:16px;height:16px;border-radius:50%;background:#c9332b;margin:0 auto;position:relative;z-index:1;box-shadow:0 0 0 2px #e08a7d}
+.tl .node.blue .dot{background:#466b84;box-shadow:0 0 0 2px #9dbede}
+.tl .node.red .dot{background:#c0392b;box-shadow:0 0 0 2px #e5a49e}
+.tl .tt2{font-size:11px;font-weight:900;margin-top:6px;color:#333}
+.tl .td2{font-size:10.5px;color:#777;line-height:1.45;margin-top:2px}
+/* 前提ツリー */
+.tree{font-size:12px;margin:8px 0}
+.tnode{border:1.5px solid #e08a7d;background:#fdf0ec;border-radius:6px;padding:5px 9px;font-weight:800;color:#333;display:inline-block;margin:2px 0}
+.tnode small{display:block;font-weight:700;color:#888;font-size:10.5px}
+.tkids{margin:2px 0 8px 14px;border-left:2px solid #ffd9ae;padding-left:10px}
+.tkids .tnode{border-color:#bfcfd9;background:#edf2f5}
+.tarr{color:#c9332b;font-weight:900;margin:0 2px}
+/* カード */
+.cards{padding:0 12px}
+.card{border:1px solid #e5e5e5;border-radius:8px;padding:10px 12px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.hook{background:#EAF2FC;border:1px solid #c9def2;border-radius:8px;padding:10px 12px;margin:10px 0;font-size:12.5px;line-height:1.75;color:#333}
+.card h4{font-size:14px;font-weight:800;margin-bottom:6px}
+.card ul{margin:0 0 2px 18px;font-size:12.5px}
+.card li{margin-bottom:4px;line-height:1.55}
+.card .cnote{font-size:11px;color:#888;margin-top:6px;line-height:1.55}
+.card table{font-size:12px}
+.sub{font-size:12.5px;font-weight:800;margin:10px 0 4px}
+/* 価格vs還元などの小バー */
+.cmp{font-size:10.5px;min-width:132px}
+.cmp .crow{display:flex;align-items:center;gap:5px;margin:2px 0}
+.cmp .cl{font-size:10px;font-weight:800;color:#888;width:24px;flex:none}
+.cmp .ct{flex:1;background:#f0f0f0;height:9px;border-radius:3px;overflow:hidden;min-width:44px}
+.cmp .cf{height:9px}
+.cmp .cf.p{background:#c0392b}
+.cmp .cf.r{background:#2e9e5b}
+.cmp .cf.o{background:#c9332b}
+.cmp .cf.b{background:#466b84}
+.cmp .cv{font-weight:700;color:#555;white-space:nowrap}
+.pts{margin:0 0 8px 18px;font-size:13px}
+.pts li{margin-bottom:5px;line-height:1.55}
+.figimg{width:100%;height:auto;border-radius:8px;border:1px solid #e5e5e5}
+/* 追従バナー：画面下固定・スクロール50%超で候補A（ゴールド＋キラキラ）に変化 */
+body{padding-bottom:104px}
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:80;padding:0 10px calc(7px + env(safe-area-inset-bottom));pointer-events:none}
+.sticky-cta-bar{pointer-events:auto;position:relative;display:flex;align-items:center;justify-content:center;gap:6px;max-width:420px;margin:0 auto;padding:9px 14px 8px;border-radius:999px;background:linear-gradient(180deg,#f0563f,#d42a1e);color:#fff;font-weight:900;font-size:13.5px;letter-spacing:.02em;white-space:nowrap;box-shadow:0 6px 18px rgba(0,0,0,.35);transition:background .45s ease,color .45s ease,box-shadow .45s ease}
+.sticky-cta.alt .sticky-cta-bar{background:linear-gradient(135deg,#fff3b0 0%,#ffd94d 30%,#f5b800 55%,#ffe680 80%,#ffc400 100%);color:#5b4300;box-shadow:0 6px 22px rgba(245,184,0,.65)}
+.sticky-cta-bubble{position:absolute;top:-10px;left:22px;background:#fff;color:#d42a1e;font-size:10.5px;font-weight:900;padding:2px 10px;border-radius:999px;box-shadow:0 2px 6px rgba(0,0,0,.22);transition:color .45s ease,background .45s ease;z-index:3}
+.sticky-cta.alt .sticky-cta-bubble{color:#a87b00;background:linear-gradient(180deg,#fffbe8,#ffedb0)}
+.sticky-cta-text{position:relative;z-index:1}
+.sticky-cta-arrow{font-size:15px;font-weight:900;line-height:1;position:relative;z-index:1}
+.sticky-cta .sparkle{position:absolute;color:#fff;font-size:13px;text-shadow:0 0 6px #ffdf4d,0 0 2px #fff;opacity:0;pointer-events:none;z-index:2}
+.sticky-cta.alt .sparkle{animation:twinkle 1.6s ease-in-out infinite}
+.sticky-cta .sparkle.s1{top:2px;left:16%}
+.sticky-cta .sparkle.s2{top:16px;right:14%;animation-delay:.4s}
+.sticky-cta .sparkle.s3{bottom:3px;left:38%;animation-delay:.8s;font-size:10px}
+.sticky-cta .sparkle.s4{top:6px;right:34%;animation-delay:1.1s;font-size:10px}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(.6) rotate(0deg)}50%{opacity:1;transform:scale(1.25) rotate(25deg)}}
+.sticky-cta.alt .sticky-cta-bar::after{content:"";position:absolute;inset:0;border-radius:999px;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.75) 50%,transparent 70%);background-size:250% 100%;animation:shine 2.6s ease-in-out infinite;pointer-events:none}
+@keyframes shine{0%{background-position:120% 0}55%,100%{background-position:-60% 0}}
+@media (max-width:380px){.sticky-cta-bar{font-size:12.5px;padding:8px 12px 7px}}
+/* CTAブロック（型L）：本文末尾・フッター直前の出口 */
+.cta{margin:26px 0 8px;text-align:center;padding:0 12px}
+.cta-catch{font-weight:900;font-size:16.5px;color:#c9332b;letter-spacing:.02em;margin:0 0 12px;line-height:1.5}
+.cta-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(180deg,#d94a3c,#c9332b);color:#fff;font-weight:900;font-size:17.5px;line-height:1.45;text-decoration:none;border-radius:999px;padding:18px 38px 17px 22px;position:relative;box-shadow:0 5px 0 #8f1f16,0 10px 22px rgba(255,105,0,.35)}
+.cta-btn:active{transform:translateY(2px);box-shadow:0 3px 0 #8f1f16,0 6px 14px rgba(255,105,0,.3)}
+.cta-btn .cta-label{text-align:center}
+.cta-btn .arr{position:absolute;right:20px;font-size:22px;font-weight:900}
+.cta-sub{margin:14px 0 0;font-size:14.5px}
+
+.fig{margin:10px 0}
+.fig img{width:100%;height:auto;display:block;border-radius:10px}
+.figc{margin:10px 0;text-align:center}
+.figc img{max-width:100%;height:auto;border-radius:10px}
+.fcap{font-size:12px;color:#667;margin-top:4px;text-align:left}
+.shotrow{display:flex;gap:8px;overflow-x:auto;padding:2px 0 6px}
+.shotrow img{height:250px;width:auto;flex:none;border-radius:10px}
+.bannergrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.bannergrid a{display:block;text-decoration:none}
+.bannergrid img{width:100%;height:auto;display:block;border-radius:10px}
+.bannergrid .bcap{display:block;font-size:12.5px;font-weight:700;color:#466b84;margin-top:4px}
+.bgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0}
+.bgrid figure{margin:0}
+.bgrid img{width:100%;height:110px;object-fit:cover;border-radius:8px;display:block}
+.bgrid figcaption{font-size:12px;color:#555;margin-top:3px}
+.prow{display:flex;gap:10px;margin:10px 0}
+.prow figure{flex:1;margin:0}
+.prow img{width:100%;height:210px;object-fit:cover;object-position:top center;border-radius:10px;display:block}
+.prow figcaption{font-size:12px;color:#555;margin-top:3px;text-align:center}
+.hicon{width:34px;height:34px;border-radius:8px;vertical-align:-10px;margin-right:6px;object-fit:cover}
+a.bannerlink{display:block;margin:10px 0}
+a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
+.fig.hero-art img{aspect-ratio:2.15/1;object-fit:cover;object-position:center 35%}
+</style>
+<style>
+.theme-toggle{cursor:pointer}
+html[data-theme="dark"]{color-scheme:dark;background:#0d0b0a}
+html[data-theme="dark"] body{color:#e8e2dc}
+html[data-theme="dark"] .page{background:#1a1714;box-shadow:0 0 12px rgba(0,0,0,.6)}
+html[data-theme="dark"] .header{background:#1a1714;border-bottom-color:#3a332c}
+html[data-theme="dark"] .logo{color:#f2ede8}
+html[data-theme="dark"] .header-icons{color:#b8b0a6}
+html[data-theme="dark"] .searchbar .box{background:#262019}
+html[data-theme="dark"] .searchbar input{color:#e8e2dc}
+html[data-theme="dark"] .gnav{border-top-color:#2c2620}
+html[data-theme="dark"] .gnav a{color:#cfc8c0}
+html[data-theme="dark"] .gnav a.on{color:#e0584d;border-bottom-color:#e0584d}
+html[data-theme="dark"] .crumbs{color:#9a9186}
+html[data-theme="dark"] .sec-head{background:#2e1c18;border-left-color:#e0584d}
+html[data-theme="dark"] .sec-head a{color:#f0a294}
+html[data-theme="dark"] .sec-head .cnt{color:#9a9186}
+html[data-theme="dark"] .lead{color:#d8d2ca}
+html[data-theme="dark"] .row{border-bottom-color:#38302a}
+html[data-theme="dark"] .row .rmeta{color:#9a9186}
+html[data-theme="dark"] .row .rsum{color:#bdb4a9}
+html[data-theme="dark"] .chip{background:#332019;color:#f0a294}
+html[data-theme="dark"] .chip.gray{background:#2b2b2b;color:#a9a9a9}
+html[data-theme="dark"] th,html[data-theme="dark"] td{border-color:#453b32}
+html[data-theme="dark"] th{background:#262019}
+html[data-theme="dark"] td.pt{color:#f0a294}
+html[data-theme="dark"] .spec th{background:#2e1c18}
+html[data-theme="dark"] .spec td b{color:#f0a294}
+html[data-theme="dark"] .menu a{background:#241f1b;border-color:#453b32;color:#e8e2dc}
+html[data-theme="dark"] .menu a.hot{background:#33201b;border-color:#e0584d;color:#f0a294}
+html[data-theme="dark"] .menu-toggle{color:#8fb0c7}
+html[data-theme="dark"] .ghead .gmeta{color:#9a9186}
+html[data-theme="dark"] .ghead .gmax{color:#f0a294}
+html[data-theme="dark"] .toc{background:#262019}
+html[data-theme="dark"] .toc a{color:#d8d2ca}
+html[data-theme="dark"] .tabs button{background:#241f1b;color:#cfc8c0;border-color:#453b32}
+html[data-theme="dark"] .tabs button.on{color:#f0a294;border-bottom-color:#e0584d}
+html[data-theme="dark"] .acc button{background:#241f1b;color:#e8e2dc}
+html[data-theme="dark"] .acc .acc-body{background:#1f1b17}
+html[data-theme="dark"] .ditem{border-bottom-color:#38302a}
+html[data-theme="dark"] .ditem .dmeta{color:#9a9186}
+html[data-theme="dark"] .note{background:#262019;color:#d8d2ca}
+html[data-theme="dark"] .read-note,html[data-theme="dark"] .upd-note{background:#262019;color:#d8d2ca}
+html[data-theme="dark"] .risk-note{background:#332019;color:#f2cf8f}
+html[data-theme="dark"] .footer{background:#141110;color:#9a9186}
+html[data-theme="dark"] .footer .flinks a{color:#cfc8c0}
+html[data-theme="dark"] .card{background:#241f1b;border-color:#453b32}
+html[data-theme="dark"] .card .cnote{color:#9a9186}
+html[data-theme="dark"] .fbox{background:#2e1c18;border-color:#e08a7d}
+html[data-theme="dark"] .farr{color:#e0584d}
+html[data-theme="dark"] .tnode{background:#241f1b;border-color:#453b32}
+html[data-theme="dark"] .tkids .tnode{background:#1d2731;border-color:#3d5468}
+html[data-theme="dark"] .bd-buy{background:#153420;color:#8fd7a4}
+html[data-theme="dark"] .bd-no{background:#3a1a16;color:#f0a294}
+html[data-theme="dark"] .bd-warn{background:#33270f;color:#f2cf8f}
+html[data-theme="dark"] .bd-info{background:#1d2c3d;color:#a9c8e2}
+html[data-theme="dark"] .bd-gray{background:#2b2b2b;color:#bbbbbb}
+html[data-theme="dark"] .bannergrid .bcap{color:#8fb0c7}
+html[data-theme="dark"] .fcap{color:#9a9186}
+html[data-theme="dark"] input,html[data-theme="dark"] select,html[data-theme="dark"] textarea{background:#262019;color:#e8e2dc;border-color:#453b32}
+html[data-theme="dark"] .hist td.hd{background:#262019}
+</style><script>(function(){try{var t=localStorage.getItem('poigame-theme');if(t!=='dark'&&t!=='light'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<meta name="description" content="マッチ3パズルと拠点育成を組み合わせたゾンビサバイバルストラテジー。ポイ活案件の条件は、拠点の中心施設「コントロールセンター」のレベル到達が中心で、ステップアップ型の案件がモッピー（合計27,037円）とハピタス（合計42,530円）で確認されてい">
+<meta name="robots" content="index,follow">
+<link rel="icon" href="/mea-game-poikatsu/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/mea-game-poikatsu/favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/mea-game-poikatsu/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/mea-game-poikatsu/favicon-180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/mea-game-poikatsu/favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/mea-game-poikatsu/favicon-512.png">
+<link rel="canonical" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8BB8V3DRW8"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8BB8V3DRW8');</script>
+<script src="/mea-game-poikatsu/assets/site.js" defer></script>
+</head>
+<body><div class="page">
+
+<header class="header">
+  <div class="header-top">
+    <div class="logo"><img src="/mea-game-poikatsu/logo-symbol.png" alt="" style="width:34px;height:34px;vertical-align:-9px;margin-right:6px;border-radius:7px">ポイゲークエスト<span class="lg-sub">POIKATSU GAME WIKI</span></div>
+    <div class="header-icons"><div><span class="ic">🔍</span>検索</div><div><span class="ic">☰</span>メニュー</div></div>
+  </div>
+  <div class="searchbar"><div class="box"><span>🔍</span><input id="q" type="search" placeholder="ゲーム名で検索"></div></div>
+  <nav class="gnav"><a href="/mea-game-poikatsu/#popular" class="on">人気ゲーム</a><a href="/mea-game-poikatsu/#updates">新着・更新</a><a href="/mea-game-poikatsu/#ranking">ランキング</a><a href="/mea-game-poikatsu/games/">ゲーム一覧</a><a href="/mea-game-poikatsu/games/puzzles-and-survival/">攻略メニュー</a></nav>
+</header>
+<main>
+
+<div class="crumbs"><a href="/mea-game-poikatsu/">トップ</a> ＞ <a href="/mea-game-poikatsu/games/">ゲーム一覧</a> ＞ <b>パズル＆サバイバル</b></div>
+<div class="ghead"><img class="" src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/app-icon.jpg" alt="パズル＆サバイバル" loading="lazy"><div><h1>パズル＆サバイバル（パズサバ）<br>ポイ活攻略Wiki</h1>
+<div class="gmeta">37GAMES｜iOS/Android</div>
+<div class="gmax">ポイ活案件 最大42,530円（掲載2件）</div></div></div>
+<p class="dates"><span>公開日：<b>2026年11月25日</b></span><span>更新日：<b>2026年11月26日</b></span></p>
+<p class="lead">マッチ3パズルと拠点育成を組み合わせたゾンビサバイバルストラテジー。ポイ活案件の条件は、拠点の中心施設「コントロールセンター」のレベル到達が中心で、ステップアップ型の案件がモッピー（合計27,037円）とハピタス（合計42,530円）で確認されています。</p>
+<figure class="fig hero-art"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/keyart-main.jpg" alt="パズル＆サバイバルのキーアート（巨大な変異ボスに挑む英雄たち）" loading="lazy"><figcaption class="fcap">キーアート：巨大な変異ボスに英雄たちが挑む（公式サイト素材）</figcaption></figure>
+<div class="menu-label">▼ 攻略メニュー ▼</div>
+<div class="menu folded" id="menuGrid"><a href="#campaign" class="hot"><span class="mi">📋</span>ポイ活案件</a><a href="joban.html" class=""><span class="mi">⚔️</span>序盤の進め方</a><a href="eiyu.html" class=""><span class="mi">🦸</span>英雄</a><a href="kensetsu.html" class=""><span class="mi">🏰</span>施設・建設</a><a href="kenkyu.html" class=""><span class="mi">🔬</span>研究</a><a href="heishi.html" class=""><span class="mi">🛡️</span>兵士・部隊</a><a href="resource.html" class=""><span class="mi">💎</span>資源・ダイヤ</a><a href="doumei.html" class=""><span class="mi">🤝</span>同盟・ギルド</a><a href="event.html" class=""><span class="mi">🎪</span>イベント</a><a href="pets.html" class=""><span class="mi">🐾</span>ペット・異常生物</a><a href="board.html" class=""><span class="mi">💬</span>掲示板</a></div><button type="button" class="menu-toggle" id="menuToggle" aria-expanded="false">もっと見る ▼</button><script>(function(){var tg=document.getElementById('menuToggle'),mg=document.getElementById('menuGrid');tg.addEventListener('click',function(){var f=mg.classList.toggle('folded');tg.textContent=f?'もっと見る ▼':'閉じる ▲';tg.setAttribute('aria-expanded',String(!f));});})();</script>
+<div class="quick"><a href="giftcode.html">🎁 ギフトコード</a><a href="immigration.html">🧳 移民</a><a href="hero-resonance.html">✨ 英雄共鳴</a><a href="treatment-calculator.html">🏥 治療コスト計算機</a><a href="tools-cc.html">🧮 CC計算機</a><a href="tools-training.html">📊 訓練計算機</a><a href="tools-watersort.html">🧪 試験管ソルバー</a><a href="event-calendar.html">📅 イベントカレンダー</a><a href="conditions/index.html">📋 案件条件の詳細</a><a href="all-pages.html">🗂 全ページ一覧</a><a href="contribute.html">📮 情報提供</a></div>
+<nav class="toc"><a href="#campaign" class="on">ポイ活案件</a><a href="#about">ゲーム概要</a><a href="#meyasu">到達目安</a><a href="#guide">上げ方</a><a href="#history">変更履歴</a></nav>
+
+<div class="sec" id="campaign"><div class="sec-head"><h2>ポイ活案件</h2><a href="/mea-game-poikatsu/how-to-read/">条件の見方 ＞</a></div>
+<div style="padding:10px 12px 0"><img class="figimg" src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/inf-campaign.png" alt="パズサバ案件の早見図解" loading="lazy"><p class="note" style="margin-top:4px">案件の早見図解です。ポイント数と条件は、この下の表が正本です。</p></div>
+<div class="blk"><div class="chips"><span class="bd bd-info">掲載2件</span><span class="bd bd-gray">サービスごとに条件・ポイントが異なる</span><span class="bd bd-warn">期限：インストール後30日以内</span></div>
+<p class="note">ステップアップ型は到達した段階分だけ受け取れるため、無理のない段階を区切りにするのが基本です。各STEPの下に、そのレベル帯の攻略（前提・効率策・つまずき）を開閉式で入れています。</p></div>
+<div class="tscroll"><table class="spec"><tr><th>最大ポイント</th><td><b>42,530円</b>（ハピタス・iOS掲載）／27,037円（モッピー・両OS同額）</td></tr><tr><th>獲得条件（最終ステップ）</th><td>コントロールセンターLv30到達＋購入系5ステップ（ハピタス／モッピーとも）</td></tr><tr><th>ステップ数</th><td>各10ステップ（ステップアップ型）</td></tr><tr><th>掲載サービス</th><td>2件（ハピタス／モッピー）</td></tr><tr><th>期限</th><td>インストール後30日以内（ハピタス／モッピーとも）</td></tr><tr><th>所要時間の目安</th><td><span class="bd bd-info">到達先：Lv22到達まで</span> 課金：<b>目安17日</b> <span class="bd bd-buy">永久建築隊列＋★3建築マスター装備を購入・約1,500円</span>／無課金：<b>目安25日</b><br><span class="bd bd-warn">Lv30は目安なし</span> 無課金では到達不可能とされ、この課金プランの範囲でも届かないため。いずれも調査・体験談等をもとにした目安です。詳しくは下の「所要時間・到達目安」へ</td></tr><tr><th>更新日</th><td>2026年11月25日</td></tr></table></div>
+<a class="anchor-jump" href="#svctabs">▼ 掲載サービス別の条件ステップを見る</a>
+<div class="blk"><p class="risk-note">この案件は掲載内容の確認値を更新したことがあります（2026年11月25日）。参加前に、ページ下部の<a href="#history" style="color:#a33;font-weight:700;text-decoration:underline">条件の変更履歴</a>もあわせて確認してください。</p></div>
+<div class="flow"><span class="fbox">Lv7<small>到達</small></span><span class="farr">→</span><span class="fbox">Lv12<small>到達</small></span><span class="farr">→</span><span class="fbox">Lv17<small>無課金の撤退ライン</small></span><span class="farr">→</span><span class="fbox">Lv25<small>到達</small></span><span class="farr">→</span><span class="fbox">Lv30<small>最終・到達は困難</small></span><span class="farr">＋</span><span class="fbox plus">購入系<small>5ステップ</small></span><span class="farr">＝</span><span class="fbox plus">全10<small>ステップ</small></span></div>
+<div class="tabs" id="svctabs"><button class="on" data-tab="tab0">ハピタス<span class="tt">最大42,530円</span></button><button data-tab="tab1">モッピー<span class="tt">最大27,037円</span></button></div>
+<p class="svc-diff" id="svcDiff">ハピタスの方が15,493円お得</p>
+<div class="tabpanel on" id="tab0">
+<p class="read-note">この表の読み方：2026年11月25日時点で公式ページで確認した掲載条件です。ポイントは到達した段階ごとに付与されます。条件が変更された場合は、このページ下部の変更履歴に記録します。</p>
+<p class="kv"><b>対象OS</b>：iOS（itemid 98148の掲載で確認。他にも別額の掲載が複数存在する）</p>
+<p class="kv"><b>期限</b>：インストール後30日以内に各成果地点へ到達（公式詳細ページで確認）</p>
+<p class="upd-note"><b>確認値の更新（2026年11月25日）</b>：旧表記「第三者情報による最大42,530円相当」→ 公式詳細ページで確認した「合計42,530円（全10ステップ・iOS掲載）」に差し替えました。Androidの額は当該掲載では確認できず、別額の掲載が複数併存します。</p>
+<p class="upd-note"><b>ステップ構成の訂正（2026年11月25日）</b>：旧表記「Lv3〜Lv26の到達ステップのみ・後半は60日期限」→ 公式詳細ページ（itemid 98148）で再確認した現行構成「Lv7〜Lv30の到達5ステップ＋購入系5ステップ・全ステップ30日以内」に差し替えました。ポイントの数値自体（合計42,530円）に変更はありません。</p>
+<table><tr><th style="width:72%">達成条件</th><th class="pt">ポイント</th></tr><tr><td>コントロールセンターLv7到達</td><td class="pt">125円</td></tr><tr class="grow"><td colspan="2"><div class="acc"><button type="button">このSTEPの攻略<span class="pm">＋</span></button><div class="acc-body"><ul><li>山場は建設そのものより「初日の動き」</li><li>最優先は活発な上位ギルドへの加入</li><li>スタミナはゾンビ巣窟のギャザー（集結）に振るのが定石</li><li>建築の待ち時間はエピソード進行に使う</li><li>ギフトコードはチュートリアル終了後にまとめて入力</li><li><span class="bd bd-warn">注意</span> 初心者シールドは開始5日目前後で切れる。それまでに拠点の守りを意識</li><li><span class="bd bd-warn">注意</span> VPN経由ではポイントが付与されない例がある。経由方法と通信環境は開始前に確認</li></ul></div></div></td></tr><tr><td>コントロールセンターLv12到達</td><td class="pt">592円</td></tr><tr class="grow"><td colspan="2"><div class="acc"><button type="button">このSTEPの攻略<span class="pm">＋</span></button><div class="acc-body"><ul><li>研究の優先度が効いてくる帯</li><li>発展ツリーは「スタミナ回復」が最優先。次いで建築速度・研究速度・訓練速度を揃える</li><li>進軍枠は研究所Lv6／12／20の順に解放。研究所も先回りで上げておく</li><li>★2英雄はLv31で全スキル解放。「全員Lv31で止める」が定石</li><li>エピソード10章クリアで生物研究所が解放され、オート戦闘も使える</li><li>AP（スタミナ）はダイヤで買わないのが原則</li><li>前提施設（城壁ほか）は、着工の1つ前から先回りで上げておくと止まらない</li></ul></div></div></td></tr><tr><td>コントロールセンターLv17到達</td><td class="pt">2,134円</td></tr><tr class="grow"><td colspan="2"><div class="acc"><button type="button">このSTEPの攻略<span class="pm">＋</span></button><div class="acc-body"><ul><li>無課金の現実的な撤退ラインとされる帯</li><li>前提（現行仕様）：CC15＝生物研究所Lv14／CC17＝武器庫Lv16</li><li>2023年12月の仕様変更で旧仕様（交易所／鋼材収集工場）から変更。古い攻略記事とは前提が異なる</li><li>ガスはCC15から採集・使用が可能になる</li><li><span class="bd bd-warn">注意</span> 内政英雄のコスト削減スキルは拠点Lv16までしか効かないとされる（要再検証の情報のため断定はしません）。Lv17以降は当てにしない</li><li><span class="bd bd-warn">注意</span> ポイ活ギルドはこのLv17前後で人が抜けて崩壊しやすい例が複数ある。過疎化したら移籍を検討する分岐点</li></ul></div></div></td></tr><tr><td>コントロールセンターLv25到達</td><td class="pt">4,348円</td></tr><tr class="grow"><td colspan="2"><div class="acc"><button type="button">このSTEPの攻略<span class="pm">＋</span></button><div class="acc-body"><ul><li><span class="bd bd-info">プランの上限ライン</span> 現実的課金プラン（永久建築隊列＋★3建築マスター装備・約1,500円）でも上限に近い、狙える範囲のSTEP</li><li>前提：CC25＝研究所Lv24（あわせて城壁Lv24）</li><li>途中のCC22では戦争ホールLv21と、アイテム「建築工学」が必要</li><li>建築工学の単価は5ダイヤ説と10ダイヤ説の両論。必要総数は273〜314個と諸説あるため、予算は多い方（10ダイヤ×314個＝3,140ダイヤ）で見ておくと安全</li><li>研究所Lv20で進軍枠IIIが解放され、採集部隊が4部隊になる</li><li>建設時間には短縮なしの「素の時間」と短縮適用後の「実効時間」の2系統があり約25%異なる。期限の逆算は素の時間側で見積もるのが安全</li><li>参考：全ての購入ステップを買った場合の収支では、このSTEPで累計が購入金額を上回る計算になる（詳しくは「所要時間・到達目安」の根拠）</li></ul></div></div></td></tr><tr><td>コントロールセンターLv30到達</td><td class="pt">15,811円</td></tr><tr class="grow"><td colspan="2"><div class="acc"><button type="button">このSTEPの攻略<span class="pm">＋</span></button><div class="acc-body"><ul><li>最終STEP <span class="bd bd-warn">このページの目安の対象外</span></li><li>前提：シューターキャンプLv29（あわせて城壁Lv29）</li><li>CC30単体の建設コスト（相対バー）</li></ul><div class="cmp"><div class="crow"><span class="cl">食料</span><span class="ct"><span class="cf o" style="display:block;width:100%"></span></span><span class="cv">約2億6,100万</span></div><div class="crow"><span class="cl">木材</span><span class="ct"><span class="cf o" style="display:block;width:20%"></span></span><span class="cv">約5,150万</span></div><div class="crow"><span class="cl">鋼材</span><span class="ct"><span class="cf o" style="display:block;width:12%"></span></span><span class="cv">約3,100万</span></div><div class="crow"><span class="cl">ガス</span><span class="ct"><span class="cf o" style="display:block;width:6%"></span></span><span class="cv">約1,560万</span></div></div><ul><li>短縮なしの素の建設時間は約37日。30日の期限内に通常の進め方で届く水準ではない</li><li>無課金では到達不可能という見解が複数一致している</li><li>Lv30は「届けば大きい」位置づけ。無理のない判断を</li></ul></div></div></td></tr><tr><td>スカーレットギフト購入 <span class="bd bd-warn">価格未確定</span></td><td class="pt">2,055円</td></tr><tr class="grow"><td colspan="2"><div class="acc"><button type="button">このSTEPの攻略<span class="pm">＋</span></button><div class="acc-body"><ul><li>購入系STEPの1つ</li><li><span class="bd bd-warn">注意</span> 価格は時期・OSで変動し、現行価格は調査でも確定できていない（1,600円前後という見方が優勢ですが、このページでは断定しません）</li><li>還元ポイントとストア表記の実価格を見比べてから判断する</li><li>購入系STEPは全体に「還元が実価格を下回る」ものが大半という整理が、調査・体験談等で共通している</li></ul></div></div></td></tr><tr><td>永久建築隊列購入 <span class="bd bd-buy">買う物</span></td><td class="pt">474円</td></tr><tr class="grow"><td colspan="2"><div class="acc"><button type="button">このSTEPの攻略<span class="pm">＋</span></button><div class="acc-body"><ul><li>建設枠が恒常的に2枠になる購入STEP</li><li>価格はAndroid 670円／iOS 800円の時期を経て、現行は800円帯が中心とされる</li><li>ダイヤで都度追加する「第二建造隊列（250ダイヤ／2日）」とは別物</li><li>購入系STEPの中では時短目的で推奨される数少ない例</li><li>買うなら恩恵を受ける期間が長い初日〜2日目が目安</li></ul></div></div></td></tr><tr><td>星5研究マスター購入 <span class="bd bd-no">買わない物</span></td><td class="pt">9,486円</td></tr><tr class="grow"><td colspan="2"><div class="acc"><button type="button">このSTEPの攻略<span class="pm">＋</span></button><div class="acc-body"><ul><li>価格は約12,000円と、購入系STEPの中で最大級</li><li>還元9,486円に対して実価格が上回り、単体では赤字になる</li><li>このページの課金プランでは「買わない物」に分類</li><li>★5装備そのものもポイ活の収支に対して過剰という見方が大勢</li></ul></div></div></td></tr><tr><td>ローダン購入 <span class="bd bd-no">買わない物</span></td><td class="pt">5,336円</td></tr><tr class="grow"><td colspan="2"><div class="acc"><button type="button">このSTEPの攻略<span class="pm">＋</span></button><div class="acc-body"><ul><li>★5英雄ローダンの購入STEP</li><li>実践者の結論として「ローダンへの課金（8,000円規模）で黒字になるポイントサイトはない」とされ、このSTEPは捨てる判断が標準</li><li>無課金での入手手段も現実的ではないとされる</li></ul></div></div></td></tr><tr><td>30日のプラチナ週パス購入 <span class="bd bd-no">買わない物</span></td><td class="pt">2,169円</td></tr><tr class="grow"><td colspan="2"><div class="acc"><button type="button">このSTEPの攻略<span class="pm">＋</span></button><div class="acc-body"><ul><li>30日間の週パス購入STEP</li><li>価格は新設時2,780円。現行は3,200円帯が有力（2026年8月の価格改定の影響）</li><li>還元2,169円を価格が上回ることが多く、このページの課金プランでは「買わない物」に分類</li><li>パスは購入した日から効果期間が進むため、買う場合も案件の期限（30日）と重なるタイミングで買うのが基本</li></ul></div></div></td></tr></table>
+<p class="risk-note">注意：最終ステップのLv30到達は、無課金では到達不可能とされています。購入系ステップは実費が還元ポイントを上回る場合があるため、購入前にストア表記の実価格と見比べてください。</p>
+<div class="acc"><button type="button">計測条件・始め方の注意<span class="pm">＋</span></button><div class="acc-body">ハピタス経由でインストールすること（経由外インストールは対象外）</div></div><div class="acc"><button type="button">対象外になる条件<span class="pm">＋</span></button><div class="acc-body"><ul><li>ハピタス経由以外でインストールした場合</li><li>事前にインストール済みの場合</li><li>成果条件未達</li><li>海外IPからの利用</li><li>インストール前に他サイトで同アプリの成果地点に到達している場合</li><li>インストール後に別サイトで入れ直した場合</li><li>広告主都合の判定漏れ</li><li>課金未反映など</li></ul></div></div><div class="acc"><button type="button">ポイント付与の時期<span class="pm">＋</span></button><div class="acc-body">通帳記載1時間以内・ポイント判定1時間以内</div></div></div>
+<div class="tabpanel" id="tab1">
+<p class="read-note">この表の読み方：2026年11月25日時点で連携先の表示で確認した掲載条件です。ポイントは到達した段階ごとに付与されます。条件が変更された場合は、このページ下部の変更履歴に記録します。</p>
+<p class="kv"><b>対象OS</b>：iOS/Android（両OS同額）</p>
+<p class="kv"><b>期限</b>：インストール後30日以内に各成果地点へ到達（連携先の表示で確認）</p>
+<p class="upd-note"><b>確認値の更新（2026年11月25日）</b>：旧表記「コントロールセンターLv17到達・2,700円（1段階）」→ 公式詳細ページで確認した「StepUp 全10ステップ合計27,037円（両OS同額）」に差し替えました。従来値は別掲載の単発条件と思われます。</p>
+<table><tr><th style="width:72%">達成条件</th><th class="pt">ポイント</th></tr><tr><td>コントロールセンターLv7到達</td><td class="pt">75円</td></tr><tr class="grow"><td colspan="2"><div class="acc"><button type="button">このSTEPの攻略<span class="pm">＋</span></button><div class="acc-body"><ul><li>山場は建設そのものより「初日の動き」</li><li>最優先は活発な上位ギルドへの加入</li><li>スタミナはゾンビ巣窟のギャザー（集結）に振るのが定石</li><li>建築の待ち時間はエピソード進行に使う</li><li>ギフトコードはチュートリアル終了後にまとめて入力</li><li><span class="bd bd-warn">注意</span> 初心者シールドは開始5日目前後で切れる。それまでに拠点の守りを意識</li><li><span class="bd bd-warn">注意</span> VPN経由ではポイントが付与されない例がある。経由方法と通信環境は開始前に確認</li></ul></div></div></td></tr><tr><td>コントロールセンターLv12到達</td><td class="pt">378円</td></tr><tr class="grow"><td colspan="2"><div class="acc"><button type="button">このSTEPの攻略<span class="pm">＋</span></button><div class="acc-body"><ul><li>研究の優先度が効いてくる帯</li><li>発展ツリーは「スタミナ回復」が最優先。次いで建築速度・研究速度・訓練速度を揃える</li><li>進軍枠は研究所Lv6／12／20の順に解放。研究所も先回りで上げておく</li><li>★2英雄はLv31で全スキル解放。「全員Lv31で止める」が定石</li><li>エピソード10章クリアで生物研究所が解放され、オート戦闘も使える</li><li>AP（スタミナ）はダイヤで買わないのが原則</li><li>前提施設（城壁ほか）は、着工の1つ前から先回りで上げておくと止まらない</li></ul></div></div></td></tr><tr><td>コントロールセンターLv17到達</td><td class="pt">1,360円</td></tr><tr class="grow"><td colspan="2"><div class="acc"><button type="button">このSTEPの攻略<span class="pm">＋</span></button><div class="acc-body"><ul><li>無課金の現実的な撤退ラインとされる帯</li><li>前提（現行仕様）：CC15＝生物研究所Lv14／CC17＝武器庫Lv16</li><li>2023年12月の仕様変更で旧仕様（交易所／鋼材収集工場）から変更。古い攻略記事とは前提が異なる</li><li>ガスはCC15から採集・使用が可能になる</li><li><span class="bd bd-warn">注意</span> 内政英雄のコスト削減スキルは拠点Lv16までしか効かないとされる（要再検証の情報のため断定はしません）。Lv17以降は当てにしない</li><li><span class="bd bd-warn">注意</span> ポイ活ギルドはこのLv17前後で人が抜けて崩壊しやすい例が複数ある。過疎化したら移籍を検討する分岐点</li></ul></div></div></td></tr><tr><td>コントロールセンターLv25到達</td><td class="pt">2,772円</td></tr><tr class="grow"><td colspan="2"><div class="acc"><button type="button">このSTEPの攻略<span class="pm">＋</span></button><div class="acc-body"><ul><li>前提：CC25＝研究所Lv24（あわせて城壁Lv24）</li><li>途中のCC22では戦争ホールLv21と、アイテム「建築工学」が必要</li><li>建築工学の単価は5ダイヤ説と10ダイヤ説の両論。必要総数は273〜314個と諸説あるため、予算は多い方（10ダイヤ×314個＝3,140ダイヤ）で見ておくと安全</li><li>研究所Lv20で進軍枠IIIが解放され、採集部隊が4部隊になる</li><li>建設時間には短縮なしの「素の時間」と短縮適用後の「実効時間」の2系統があり約25%異なる。期限の逆算は素の時間側で見積もるのが安全</li><li>参考：全ての購入ステップを買った場合の収支では、このSTEPまででは累計が購入金額を上回らず、上回るのは最終のLv30到達時という計算</li></ul></div></div></td></tr><tr><td>コントロールセンターLv30到達</td><td class="pt">10,080円</td></tr><tr class="grow"><td colspan="2"><div class="acc"><button type="button">このSTEPの攻略<span class="pm">＋</span></button><div class="acc-body"><ul><li>最終STEP <span class="bd bd-warn">目安は提示していない</span></li><li>前提：シューターキャンプLv29（あわせて城壁Lv29）</li><li>CC30単体の建設コスト（相対バー）</li></ul><div class="cmp"><div class="crow"><span class="cl">食料</span><span class="ct"><span class="cf o" style="display:block;width:100%"></span></span><span class="cv">約2億6,100万</span></div><div class="crow"><span class="cl">木材</span><span class="ct"><span class="cf o" style="display:block;width:20%"></span></span><span class="cv">約5,150万</span></div><div class="crow"><span class="cl">鋼材</span><span class="ct"><span class="cf o" style="display:block;width:12%"></span></span><span class="cv">約3,100万</span></div><div class="crow"><span class="cl">ガス</span><span class="ct"><span class="cf o" style="display:block;width:6%"></span></span><span class="cv">約1,560万</span></div></div><ul><li>短縮なしの素の建設時間は約37日とされる</li><li>購入系ステップ分（約2.3万円）の課金だけでは30日以内に届いた報告はなく、到達には大幅な追加課金が必要とされる</li><li>このページではLv30までの日数の目安を提示していない</li></ul></div></div></td></tr><tr><td>スカーレットギフト購入 <span class="bd bd-warn">価格未確定</span></td><td class="pt">1,310円</td></tr><tr class="grow"><td colspan="2"><div class="acc"><button type="button">このSTEPの攻略<span class="pm">＋</span></button><div class="acc-body"><ul><li>購入系STEPの1つ</li><li><span class="bd bd-warn">注意</span> 価格は時期・OSで変動し、現行価格は調査でも確定できていない（1,600円前後という見方が優勢ですが、このページでは断定しません）</li><li>還元ポイントとストア表記の実価格を見比べてから判断する</li><li>購入系STEPは全体に「還元が実価格を下回る」ものが大半という整理が、調査・体験談等で共通している</li></ul></div></div></td></tr><tr><td>永久建築隊列購入 <span class="bd bd-buy">買う物</span></td><td class="pt">302円</td></tr><tr class="grow"><td colspan="2"><div class="acc"><button type="button">このSTEPの攻略<span class="pm">＋</span></button><div class="acc-body"><ul><li>建設枠が恒常的に2枠になる購入STEP</li><li>価格はAndroid 670円／iOS 800円の時期を経て、現行は800円帯が中心とされる</li><li>ダイヤで都度追加する「第二建造隊列（250ダイヤ／2日）」とは別物</li><li>購入系STEPの中では時短目的で推奨される数少ない例</li><li>買うなら恩恵を受ける期間が長い初日〜2日目が目安</li></ul></div></div></td></tr><tr><td>星5研究マスター購入 <span class="bd bd-no">買わない物</span></td><td class="pt">6,048円</td></tr><tr class="grow"><td colspan="2"><div class="acc"><button type="button">このSTEPの攻略<span class="pm">＋</span></button><div class="acc-body"><ul><li>価格は約12,000円と、購入系STEPの中で最大級</li><li>還元6,048円に対して実価格が上回り、単体では赤字になる</li><li>このページの課金プランでは「買わない物」に分類</li><li>★5装備そのものもポイ活の収支に対して過剰という見方が大勢</li></ul></div></div></td></tr><tr><td>ローダン購入 <span class="bd bd-no">買わない物</span></td><td class="pt">3,402円</td></tr><tr class="grow"><td colspan="2"><div class="acc"><button type="button">このSTEPの攻略<span class="pm">＋</span></button><div class="acc-body"><ul><li>★5英雄ローダンの購入STEP</li><li>実践者の結論として「ローダンへの課金（8,000円規模）で黒字になるポイントサイトはない」とされ、このSTEPは捨てる判断が標準</li><li>無課金での入手手段も現実的ではないとされる</li></ul></div></div></td></tr><tr><td>30日のプラチナ週パス購入 <span class="bd bd-no">買わない物</span></td><td class="pt">1,310円</td></tr><tr class="grow"><td colspan="2"><div class="acc"><button type="button">このSTEPの攻略<span class="pm">＋</span></button><div class="acc-body"><ul><li>30日間の週パス購入STEP</li><li>価格は新設時2,780円。現行は3,200円帯が有力（2026年8月の価格改定の影響）</li><li>還元1,310円を価格が上回ることが多く、このページの課金プランでは「買わない物」に分類</li><li>パスは購入した日から効果期間が進むため、買う場合も案件の期限（30日）と重なるタイミングで買うのが基本</li></ul></div></div></td></tr></table>
+<p class="risk-note">注意：最終ステップのLv30到達は、無課金では到達不可能とされています。購入系ステップは実費が還元ポイントを上回る場合があるため、購入前にストア表記の実価格と見比べてください。</p>
+<div class="acc"><button type="button">計測条件・始め方の注意<span class="pm">＋</span></button><div class="acc-body"><ul><li>モッピー経由で開始すること（直接インストールは対象外）</li><li>同一ブラウザで遷移すること</li><li>クリックから1時間以内に初回成果地点を完了していない場合は対象外になる場合がある（iOS版表示・連携先表示）</li></ul></div></div><div class="acc"><button type="button">対象外になる条件<span class="pm">＋</span></button><div class="acc-body"><p class="kv">（iOS版ページの表示）</p><ul><li>アプリドライブ内『挑戦中』に表示されない場合</li><li>過去にダウンロードしたことがある場合</li><li>過去に成果地点へ到達している場合</li><li>成果調査依頼時にアンインストール済みの場合</li><li>同一ブラウザからの遷移でない場合</li><li>クリックから1時間以内に初回成果地点を完了していない場合</li><li>海外IPからの利用は対象外</li><li>成果調査は不可（連携先の表示で確認）</li><li>トラッキング許可が必須</li><li>Android版の否認条件はPC表示で本文が出ず未確認</li></ul></div></div><div class="acc"><button type="button">ポイント付与の時期<span class="pm">＋</span></button><div class="acc-body">確定反映は30分程度（案件ページ記載）。期限・付与時期の別記なし</div></div></div>
+</div>
+
+<div class="cta">
+<p class="cta-catch">＼ 公式認定サイト限定！初回特典 最大<span class="cta-bonus">2,300円</span> GET ／</p>
+<a class="cta-btn" data-ref-service="ハピタス" data-ref-placement="campaign" href="https://hapitas.jp/appinvite?i=26164523" target="_blank" rel="noopener"><span class="cta-label">登録無料！「ハピタス」招待URLはコチラ！</span><span class="arr">›</span></a>
+<p class="cta-sub">「<span class="cta-svc">ハピタス</span>」を経由後、プレイして<b class="cta-amt">42,530円</b>ゲット！</p>
+</div>
+
+<div class="sec" id="about"><div class="sec-head"><h2>ゲーム概要</h2></div>
+<div class="blk">
+<figure class="fig"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/feature-1.jpg" alt="公式バナー「英雄と共に世界を救え！」（英雄集合とゲームロゴ）" loading="lazy"></figure>
+<p class="kv"><b>運営</b>：37GAMES</p>
+<p class="kv"><b>対応OS</b>：iOS/Android</p>
+<p class="kv"><b>ジャンル</b>：マッチ3パズル × 拠点育成ストラテジー</p>
+<ul class="pts">
+<li>ゾンビに占拠された世界が舞台。マッチ3パズルで戦いながら拠点を育てていくストラテジー</li>
+<li>育成の中心は拠点の中心施設「コントロールセンター（CC）」。城壁・監視塔などの前提施設を順に上げていく</li>
+<li>ポイ活案件の条件は、このCCのレベル到達で判定されるものが中心</li>
+</ul>
+<div class="shotrow"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/shot-run-01.jpg" alt="ランゲーム画面「ゾンビと戦う」（金のボスと対峙）" loading="lazy"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/shot-run-04.jpg" alt="ランゲーム画面「共に戦おう」（ボスへのスキル攻撃）" loading="lazy"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/shot-run-06.jpg" alt="ランゲーム画面「ボスに挑戦」（巨大ボス戦）" loading="lazy"></div>
+<p class="fcap">広告でおなじみのランゲーム画面（App Store掲載スクリーンショット）。実際の主体は拠点育成です</p>
+<p><span class="bd bd-warn">注意</span> 広告やアイコンのイメージと実際のゲーム内容（拠点育成が主体）は大きく異なります。始める前に知っておきたいポイントです。</p>
+</div></div>
+<div class="blk"><div class="hook">このゲームはポイントサイトの案件にもなっています。コントロールセンターLv7到達で125円、Lv17到達で2,134円（ハピタス掲載）など、普段の進行そのものがステップになっています。遊ぶ予定があるなら、始める前に<a href="#campaign" style="color:#466b84;font-weight:700;text-decoration:underline">このページの案件セクション</a>を確認しておくと、同じプレイでポイントが付きます。</div></div>
+
+<div class="sec" id="meyasu"><div class="sec-head"><h2>所要時間・到達目安（推定）</h2></div>
+<div class="blk">
+<div class="chips"><span class="bd bd-info">到達先：課金・無課金ともLv22到達まで</span><span class="bd bd-gray">前提は「現実的課金プラン」</span><span class="bd bd-warn">Lv30は目安なし</span></div>
+<div class="bars">
+<div class="barrow"><div class="bl">課金</div><div class="bt"><div class="bf" style="width:68%"></div></div><div class="bv">目安17日</div></div>
+<div class="chips bar-note"><span class="bd bd-buy">買う物：永久建築隊列＋★3建築マスター装備</span><span class="bd bd-gray">合計約1,500円</span><span class="bd bd-gray">それ以外の購入ステップは買わない前提</span></div>
+<div class="barrow"><div class="bl">無課金</div><div class="bt"><div class="bf free" style="width:100%"></div></div><div class="bv">目安25日</div></div>
+</div>
+<div class="tl">
+<div class="node"><div class="dot"></div><div class="tt2">初日</div><div class="td2">上位ギルド加入（初回300ダイヤ）／ギフトコード入力／★3建築マスター購入</div></div>
+<div class="node"><div class="dot"></div><div class="tt2">〜2日目</div><div class="td2">永久建築隊列を買うならこの頃（恩恵の期間が長い）</div></div>
+<div class="node"><div class="dot"></div><div class="tt2">〜7日</div><div class="td2">エピソード10章クリアが目標（生物研究所が解放）</div></div>
+<div class="node red"><div class="dot"></div><div class="tt2">8日間限定</div><div class="td2">オーストン1,250円。取り逃がし注意</div></div>
+<div class="node"><div class="dot"></div><div class="tt2">Lv17</div><div class="td2">無課金の撤退ライン／ポイ活ギルドの崩壊に注意</div></div>
+<div class="node"><div class="dot"></div><div class="tt2">17日目</div><div class="td2">課金プランでLv22到達の目安</div></div>
+<div class="node blue"><div class="dot"></div><div class="tt2">25日目</div><div class="td2">無課金でLv22到達の目安</div></div>
+<div class="node red"><div class="dot"></div><div class="tt2">30日</div><div class="td2">案件の期限</div></div>
+</div>
+<ul class="pts">
+<li>課金の目安17日は、★3建築マスターを初日に買うことが前提の数値。建築マスターなしの課金ではLv22に29日かかった実例があり、前提の違う報告は混ぜていない</li>
+<li>無課金ではLv23を29日で到達した実例もあり、Lv22・目安25日（幅は25〜30日）の裏付けになっている</li>
+<li>最終ステップのLv30は、無課金では到達不可能とされ、現実的課金プランの範囲でも届かない水準のため、Lv30までの目安は出していない</li>
+</ul>
+<p class="note">所要時間は調査・体験談等をもとにした目安です。毎日触れる時間や進め方によって前後します。買う物・買わない物の損得は、下の「課金の判断材料」に表でまとめています。</p>
+<div class="acc"><button type="button">目安の根拠と注意点<span class="pm">＋</span></button><div class="acc-body"><p class="kv"><b></b></p><ul><li>課金は目安17日、無課金は目安25日（体験談等では、課金で14日〜23日、無課金で3週間前後〜30日といった幅がある）</li><li>課金の前提は永久建築隊列（Android 670円／iOS 800円、現行は800円帯が中心）＋★3建築マスター装備（約800円）の合計約1,500円で、それ以外の購入ステップは買わない前提</li><li>個人差があり、公式の到達保証でもない</li></ul><p class="kv" style="margin-top:8px"><b></b></p><ul><li>購入ステップ5件を全て買うと、支出は合計約23,570円（Android）〜約23,700円（iOS）</li><li>内訳：永久建築隊列670円／800円、星5研究マスター約12,000円、ローダン約6,100円、スカーレットギフト1,600円（推定）、30日のプラチナ週パス3,200円（現行価格帯が有力。新設時は2,780円で、2026年8月の価格改定で3,200円帯に）。価格は時期・OSで変動する</li><li>獲得ポイントの累計が支出を上回るのは、ハピタスでは購入系の還元19,520円＋到達系の累計でLv25到達時（累計26,719円）、モッピーでは購入系の還元12,372円＋到達系の累計で最終ステップのLv30到達時（累計27,037円）という計算</li><li>実際に全て買う進め方は一般的ではないため、このページの目安の前提にはしていない</li><li>なおスカーレットギフトの価格想定が最安（800円）の場合に限ると、ハピタスの転換点はLv17に前倒しになる計算で、価格次第で変わりうる点に注意</li></ul></div></div>
+</div></div>
+
+<div class="sec" id="guide"><div class="sec-head"><h2>効率的な上げ方</h2><a href="#topics">一覧を見る ＞</a></div><div class="blk"><div class="sub">STEP帯ごとの攻略ページ早見</div>
+<div class="tscroll"><table><tr><th>CC Lv帯</th><th>見るページ</th></tr>
+<tr><td>〜Lv7</td><td><a href="joban.html" style="color:#466b84;text-decoration:underline">序盤の進め方</a>／<a href="joban-survival.html" style="color:#466b84;text-decoration:underline">サバイバルイベント（開始7日間）</a></td></tr>
+<tr><td>Lv8〜14</td><td><a href="kensetsu.html" style="color:#466b84;text-decoration:underline">施設の上げ方</a>／<a href="eiyu.html" style="color:#466b84;text-decoration:underline">英雄</a></td></tr>
+<tr><td>Lv15〜17</td><td><a href="kenkyu.html" style="color:#466b84;text-decoration:underline">研究の進め方</a>／<a href="doumei.html" style="color:#466b84;text-decoration:underline">同盟・ギルド</a>（ギルド対決はCC15から）</td></tr>
+<tr><td>Lv18〜22</td><td><a href="kensetsu-numbers.html" style="color:#466b84;text-decoration:underline">CCの数値表</a>／<a href="resource.html" style="color:#466b84;text-decoration:underline">資源・ダイヤの集め方</a></td></tr>
+<tr><td>全期間</td><td><a href="event.html" style="color:#466b84;text-decoration:underline">イベント攻略</a>／<a href="routine.html" style="color:#466b84;text-decoration:underline">毎日のルーティン</a>／<a href="giftcode.html" style="color:#466b84;text-decoration:underline">ギフトコード</a></td></tr>
+</table></div>
+<p class="cnote">Lv22到達までに必要な資源は、CC本体だけでも<b>食料112.9M／木材60.8M／鋼材17.7M／ガス1.8M</b>（前提建物・城壁・研究分が上乗せされます）。Lvごとのコストと時間は<a href="kensetsu-numbers.html" style="color:#466b84;text-decoration:underline">CCの数値表</a>にあります。</p></div>
+<div class="blk">
+<div class="chips"><span class="bd bd-gray">条件の中心：コントロールセンター（CC）のレベル到達</span><span class="bd bd-info">無課金の撤退ライン：Lv17</span><span class="bd bd-info">目安を出せる上限：Lv22</span><span class="bd bd-warn">Lv30は無課金で到達不可能とされる</span></div>
+<p class="note">効率の柱は3つです（調査・体験談等をもとに整理）。</p>
+<div class="chips"><span class="bd bd-buy">柱1：前提建物の先回り</span><span class="bd bd-buy">柱2：加速アイテムの確保</span><span class="bd bd-buy">柱3：課金するなら効く所だけ</span></div>
+</div>
+<div class="cards">
+
+<div class="card"><h4>前提建物は「先回り」で上げる</h4>
+<ul>
+<li>CCのレベルアップには、それぞれ前提建物のレベル到達が必要。前提が未達だと、資源と加速アイテムが揃っていてもCCの建設に着工できず足止めされる</li>
+<li>建設枠が空いているタイミングで次の前提を先に建てておくことが、調査・体験談等で共通して挙がる最重要の進め方</li>
+<li>城壁は常にCCと同じレベルが条件。戦争ホールと大使館は前提の連鎖が長いため、常に最大レベルを目安に上げておくのが安全</li>
+<li>建設枠は2枠に保つのが前提級の効率差。第二建造隊列（250ダイヤ／2日、アイテム「ゴールドハンマー」を所持していればそちらを優先）を追加すると2件同時進行でき、進行速度が大きく上がるとされる</li>
+</ul>
+<div class="sub">前提の連鎖（図解）</div>
+<div class="tree">
+<span class="tnode">CC Lv22<small>目安の到達ライン</small></span>
+<div class="tkids"><span class="tnode">戦争ホール Lv21</span><span class="tarr">←</span><span class="tnode">大使館 Lv21</span><br><span class="tnode">アイテム「建築工学」<small>別途必要（単価は5ダイヤ説／10ダイヤ説の両論／総数273〜314個）</small></span></div>
+<span class="tnode">CC Lv20</span>
+<div class="tkids"><span class="tnode">ライダーキャンプ Lv19</span><span class="tarr">←</span><span class="tnode">倉庫 Lv19</span></div>
+<span class="tnode">CC Lv18</span>
+<div class="tkids"><span class="tnode">ファイターキャンプ Lv17</span><span class="tarr">←</span><span class="tnode">ブートキャンプ Lv17</span></div>
+<span class="tnode">CC Lv17</span>
+<div class="tkids"><span class="tnode">武器庫 Lv16<small>現行仕様（2023年12月の変更前は鋼材収集工場）</small></span></div>
+<span class="tnode">CC Lv15</span>
+<div class="tkids"><span class="tnode">生物研究所 Lv14<small>現行仕様（2023年12月の変更前は交易所）</small></span></div>
+</div>
+<p class="cnote">読み方：左のCCレベルに着工するには、右の建物を先にそのレベルまで上げておく必要があります。城壁は全レベルで「CCと同レベル」が条件です。</p>
+<div class="sub">前提表（数値）</div>
+<div style="overflow-x:auto"><table><tr><th>CCレベル</th><th>主な前提建物</th></tr>
+<tr><td><b>Lv15</b></td><td>生物研究所Lv14（現行仕様。2023年12月の仕様変更前は交易所Lv14）</td></tr>
+<tr><td><b>Lv16</b></td><td>ガスステーションLv15</td></tr>
+<tr><td><b>Lv17</b></td><td>武器庫Lv16（現行仕様。2023年12月の仕様変更前は鋼材収集工場Lv16）</td></tr>
+<tr><td><b>Lv18</b></td><td>ファイターキャンプLv17（前提にブートキャンプLv17）</td></tr>
+<tr><td><b>Lv19</b></td><td>大使館Lv18</td></tr>
+<tr><td><b>Lv20</b></td><td>ライダーキャンプLv19（前提に倉庫Lv19）</td></tr>
+<tr><td><b>Lv21</b></td><td>木材場Lv20</td></tr>
+<tr><td><b>Lv22</b></td><td>戦争ホールLv21（前提に大使館Lv21）＋アイテム「建築工学」が別途必要（単価は5ダイヤ説と10ダイヤ説の両論。必要総数は273〜314個と諸説あり、予算は多い方＝3,140ダイヤで見ておくと安全）</td></tr>
+</table></div>
+<p class="cnote">注記：CC15（交易所→生物研究所）とCC17（鋼材収集工場→武器庫）は2023年12月に仕様変更されています。古い攻略記事・体験談と前提が違う場合は、この変更が理由です。このページの表は現行仕様で統一しています。</p>
+</div>
+
+<div class="card"><h4>★3建設マスターは初日〜2日目に買う <span class="bd bd-buy">買う物</span></h4>
+<ul>
+<li>課金するなら定番とされるのが、指揮官装備の「★3建設マスター」（建築装備）。建物のレベルアップに必要な資源を、部位ごとに「固定額＋割合」で削減する</li>
+<li>削減の例：武器★3は食料-100万かつ-5%、頭★3は鋼材-20万かつ-5%、盾・胴★3は木材-50万かつ-2.5%、指・足★3はガス-2.5%など</li>
+<li>低レベル帯では要求資源が削減額以下になり、実質ゼロ消費で建てられることもある</li>
+<li><span class="bd bd-warn">注意</span> 指揮官情報画面で「装備して初めて効果を発揮する」。買っただけでは無効</li>
+<li>実績：無課金で約3週間かかるラインを約2週間（14日）に短縮した実践報告がある。Lv15くらいまではほぼ資源消費なしで進められ、資源生産施設もゼロ消費で上げられるため生産量が上がる好循環になる、という評価</li>
+<li>買うなら初日〜2日目が目安（恩恵を受ける期間が長い）。到達目安の「課金：目安17日（Lv22到達まで）」は、この★3建設マスターを初日に買い、永久建築隊列も購入する前提（合計約1,500円）の数値。前提なしに17日だけを見るのは危険（建築マスターなしの課金ではLv22に29日かかった実例あり）</li>
+</ul>
+<p class="cnote">価格は610円〜800円程度の幅で報告されています（iOS 800円／Android 670円という提示と、610円での購入実績の両方があります）。時期による価格改定の階段があり、現行（2026年8月の価格改定後）は800円帯が中心とされます。OS・時期で変動するため断定はできません。また、装備自体が建設時間を直接短縮するわけではなく、削減するのは資源のみです。「時間も大幅に削減」という表現もありますが、実態は資源待ちが解消されることによる間接的な短縮、と整理するのが正確です。</p>
+</div>
+
+<div class="card"><h4>加速アイテムの確保策</h4>
+<p class="kv">ポイ活で必要な加速は「汎用ブースト」と「建造ブースト」の2種。CC単体の建設時間には、短縮なしの「素の時間」と短縮適用後の「実効時間」の2系統があり、約25%異なります。</p>
+<div class="cmp" style="margin:6px 0">
+<div class="crow"><span class="cl">素</span><span class="ct"><span class="cf p" style="display:block;width:100%"></span></span><span class="cv">Lv22：約8日10時間（Lv21は約7日）</span></div>
+<div class="crow"><span class="cl">実効</span><span class="ct"><span class="cf b" style="display:block;width:76%"></span></span><span class="cv">Lv22：約6日9時間</span></div>
+</div>
+<p class="kv">期限の逆算は素の時間側で見積もるのが安全で、いずれにしても短縮手段の積み重ねが前提になります。</p>
+<ul>
+<li><b>焦土鉱洞イベント</b>：Lv5まで進めると1時間加速×100個（＝100時間分）が得られる。トークンだけでは届かない分は、ダイヤを使ってでも取る価値があるとされる、加速不足の最終解決策</li>
+<li><b>日次ショップで買う</b>：廃墟挑戦ショップで汎用ブースト60分、サバイバルショップで建造ブースト60分（いずれも1日購入上限あり、ショップは午前9時リセット）。ギルドショップでも汎用ブーストを入手できる</li>
+<li><b>アース鉱窟を常時回す</b>：CC16で解放される鉱窟でアースを採掘し、交換ショップで資源（特に鋼材・ガス）に替えるのが後半の資源不足の解消策。1回の占拠で6時間採掘できるため、途切れないように回し続ける。略奪回避のコツとして、高レベル鉱山は狙われやすいのでLv1〜2に置き、階層は手入力で70〜90番台の過疎フロアを使うと奪われにくい、という実践知がある</li>
+<li><b>短縮効果を重ねる</b>：研究「発展：建造I」で5%短縮。指揮官タレント「建造マスターI／II」は各5%、「建造特急」は発動直後に開始する建設を20%短縮するためCC着工の直前に発動する。アイテム「建築ブースト」も使用後に開始した建設に効くので、CC着工の直前に使うのが要点。英雄の軍団スキル（フィネスの建設速度UPなど）は所持しているだけで自動発動する。ギルドヘルプは大使館Lvを上げると受けられる上限が増える</li>
+<li><b>生物研究所の内政スキル</b>：建設短縮・採集速度アップのスキルがあり、解放条件のエピソード10章は7日以内クリアが目標とされる（エピソードは11章までで十分という整理）</li>
+</ul>
+<p class="cnote">加速は要所まで温存し、後半のCC・城壁に投入するのが基本です。ただし温存し過ぎて、終盤の建設が素の時間（6日超）のまま残るのも失敗パターンとして挙がっています。</p>
+</div>
+
+<div class="card"><h4>資源は採集を切らさない</h4>
+<ul>
+<li>研究「戦闘：進軍枠I／II」で採集部隊を最大3部隊まで増やすことが最優先とされる（進軍枠IIには科学研究所Lv12が必要）。部隊数がそのまま採集効率に直結するため</li>
+<li>ギルド資源場は一度に大量に集められ採集速度も上がるため優先度が高い</li>
+<li>資源採集ブースト+50%は進軍枠3つを確保した後が使いどころとされる</li>
+<li>どの資源が不足するかは下の「意見が割れている点（両論）」も参照</li>
+</ul>
+</div>
+
+<div class="card"><h4>研究・英雄まわりの要点</h4>
+<ul>
+<li><b>研究は発展ツリー最優先</b>：「スタミナ回復」を先に取り、建築速度・研究速度・訓練速度を次に揃える。進軍枠IIIは研究所Lv20で解放され、採集部隊が4部隊になる</li>
+<li><b>★2英雄は全員Lv31で止める</b>：★2英雄はLv31で全スキルが解放されるため、それ以上は育てないのが洋の東西で一致する定石</li>
+<li><b>内政英雄のコスト削減はLv16まで</b>：内政英雄の資源コスト削減スキルは、拠点Lv16までしか効かないとされる（要再検証の情報のため断定はしません）。Lv17以降の前提計算では、内政英雄の削減を当てにしない</li>
+</ul>
+</div>
+
+<div class="card"><h4>曜日イベントに消費を寄せる</h4>
+<p class="kv">通常イベント週には曜日ごとの固定サイクルがあり、消費のタイミングを寄せるとイベント報酬が増えます。</p>
+<div style="overflow-x:auto"><table><tr><th>曜日</th><th>イベント</th><th>寄せる消費</th></tr>
+<tr><td><b>月</b></td><td>英雄強化（英雄獲得でポイント）</td><td>ガチャ・英雄チョイスは月曜にまとめて使う</td></tr>
+<tr><td><b>火</b></td><td>避難所強化（建設・研究・訓練ブーストの使用時間でポイント）</td><td>建設ブーストは火曜に集中投入する</td></tr>
+<tr><td><b>水</b></td><td>装備強化</td><td>装備まわりの消費</td></tr>
+<tr><td><b>木</b></td><td>ミュータント＆モジュール</td><td>モジュールまわりの消費</td></tr>
+<tr><td><b>金</b></td><td>栄誉＆器官強化</td><td>器官まわりの消費</td></tr>
+<tr><td><b>土・日</b></td><td>ダイヤの達人（ダイヤ使用量でポイント）</td><td>ダイヤ消費（資源購入・VIPポイント購入など）は土日に寄せる</td></tr>
+</table></div>
+<div class="sub">毎日の基本動作</div>
+<ul>
+<li>デイリー任務で活躍度を最大まで溜める</li>
+<li>探索でAP（スタミナ）を上限に達する前に消費する</li>
+<li>バーの無料募集を欠かさない</li>
+<li>イベント画面を毎日チェックする（イベントは午前9時更新）</li>
+</ul>
+</div>
+
+<div class="card"><h4>つまずきやすいパターン</h4>
+<ul>
+<li><span class="bd bd-warn">注意</span> <b>開始8日間限定のオーストン取り逃がし</b>：開始から8日間限定のイベント「サバイバル」で1,250円に到達すると、★5英雄オーストンを無課金で獲得できる。★5英雄ステップの受け皿になるため、取り逃がすとステップごと落とす。4〜5日目からはミッション内容を確認しながら1,250円を狙うのが目安。取り逃がした場合も、週末開催の「攻勢作戦」で獲得可能という情報がある。なお、獲得経路には「7日間任務のポイントで8日目に受け取る」という別説や、Androidのみという注記もあり、案件・時期で異なる可能性がある</li>
+<li><span class="bd bd-warn">注意</span> <b>倉庫・大使館系の後回し</b>：CC20の着工時に、ライダーキャンプLv19とその前提の倉庫が未達で停滞した実例がある。前提の連鎖が長い大使館・戦争ホール系と、倉庫は後回しにせず、上の前提表を先回りで消化する</li>
+<li><span class="bd bd-warn">注意</span> <b>資源の略奪</b>：資源アイテム（箱）は建築で使う直前まで開封しないのが鉄則（カバンの中身は略奪対象にならない）。倉庫の保護量を超える資源を持ち過ぎないこと、長時間離席する時はシールドを張ることも、立て直しに日数を食わないための工夫として挙がっている</li>
+<li><span class="bd bd-warn">注意</span> <b>ポイ活ギルドの崩壊</b>：ポイ活目的で集まったギルドは、Lv17前後で到達済みのメンバーが抜けて崩壊しやすい、という例が複数ある。ヘルプと集結（ギャザー）が止まると進行が一気に落ちるため、活動が落ちてきたら早めに活発なギルドへの移籍を検討する</li>
+<li><span class="bd bd-warn">注意</span> <b>過疎ギルドに居続ける</b>：活発な上位ギルドへの早期加入は、ヘルプによる時間短縮・集結（ギャザー）報酬・ギルドギフトなど全般の底上げになる（初回加入で300ダイヤも得られる）。過疎化したら移籍するのが定石で、脱退後の再加入にクールタイムはないとされる</li>
+</ul>
+</div>
+</div>
+
+<div class="cta">
+<p class="cta-catch">＼ 公式認定サイト限定！初回特典 最大<span class="cta-bonus">2,300円</span> GET ／</p>
+<a class="cta-btn" data-ref-service="ハピタス" data-ref-placement="campaign" href="https://hapitas.jp/appinvite?i=26164523" target="_blank" rel="noopener"><span class="cta-label">登録無料！「ハピタス」招待URLはコチラ！</span><span class="arr">›</span></a>
+<p class="cta-sub">「<span class="cta-svc">ハピタス</span>」を経由後、プレイして<b class="cta-amt">42,530円</b>ゲット！</p>
+</div>
+
+<div class="cards">
+<div class="card"><h4>課金の判断材料</h4>
+<ul>
+<li>軽課金の試算例（ワラウ案件・30日期限）：「軽課金（約1,000〜1,500円）でLv22到達＋購入ステップまで進めた場合に4,150円、実質利益は約2,650円」という提示がある</li>
+<li>購入ステップ自体にポイントが付く案件構成では、課金額の一部がポイントで戻るため、「課金ステップのポイント還元も含めれば数千円の投資は許容範囲」という見方もある</li>
+<li>このページの課金目安が前提にしている「現実的課金プラン」の内訳は下表のとおり。買う物は2点だけに絞り、それ以外は買わない前提</li>
+</ul>
+<div class="acc open">
+<button type="button">買う物（2点・合計 約1,500〜1,600円）<span class="pm">－</span></button>
+<div class="acc-body">
+<div class="ditem">
+<div class="dname">永久建築隊列</div>
+<div class="dmeta">価格：670円（Android）／800円（iOS）。現行は800円帯が中心<br>還元：474円／302円（ハピタス／モッピー）</div>
+<div class="cmp"><div class="crow"><span class="cl">価格</span><span class="ct"><span class="cf p" style="display:block;width:7%"></span></span><span class="cv">800円</span></div><div class="crow"><span class="cl">還元</span><span class="ct"><span class="cf r" style="display:block;width:4%"></span></span><span class="cv">474円</span></div></div>
+<p class="dreason">建設枠が恒常的に2枠になり、時短効果が大きい定番。還元だけでは価格を下回るが、進め方全体の速度が上がるため買う側に入れる</p>
+</div>
+<div class="ditem">
+<div class="dname">★3建築マスター装備</div>
+<div class="dmeta">価格：約800円（610〜800円の幅で報告あり）<br>還元：購入ステップ対象外（ポイント還元なし）</div>
+<div class="cmp"><div class="crow"><span class="cl">価格</span><span class="ct"><span class="cf p" style="display:block;width:7%"></span></span><span class="cv">約800円</span></div><div class="crow"><span class="cl">還元</span><span class="ct"><span class="cf r" style="display:block;width:0%"></span></span><span class="cv">なし</span></div></div>
+<p class="dreason">建設の資源コストを大きく削減する定番の時短アイテム。無課金で約3週間かかるラインを約2週間（14日）に短縮した実践報告があり、到達目安17日の前提になっている</p>
+</div>
+</div>
+</div>
+
+<div class="acc">
+<button type="button">買わない物（3点）<span class="pm">＋</span></button>
+<div class="acc-body">
+<div class="ditem">
+<div class="dname">星5研究マスター</div>
+<div class="dmeta">価格：約12,000円<br>還元：9,486円／6,048円（ハピタス／モッピー）</div>
+<div class="cmp"><div class="crow"><span class="cl">価格</span><span class="ct"><span class="cf p" style="display:block;width:100%"></span></span><span class="cv">約12,000円</span></div><div class="crow"><span class="cl">還元</span><span class="ct"><span class="cf r" style="display:block;width:79%"></span></span><span class="cv">9,486円</span></div></div>
+<p class="dreason">還元が実価格を下回り、単体で赤字。★5装備はポイ活の収支に対して過剰という見方が大勢</p>
+</div>
+<div class="ditem">
+<div class="dname">ローダン</div>
+<div class="dmeta">価格：約6,100円<br>還元：5,336円／3,402円（ハピタス／モッピー）</div>
+<div class="cmp"><div class="crow"><span class="cl">価格</span><span class="ct"><span class="cf p" style="display:block;width:51%"></span></span><span class="cv">約6,100円</span></div><div class="crow"><span class="cl">還元</span><span class="ct"><span class="cf r" style="display:block;width:44%"></span></span><span class="cv">5,336円</span></div></div>
+<p class="dreason">還元が実価格を下回る。実践者の結論として「ローダンへの課金で黒字になるポイントサイトはない」とされ、捨てる判断が標準</p>
+</div>
+<div class="ditem">
+<div class="dname">プラチナ週パス30日</div>
+<div class="dmeta">価格：現行3,200円帯（新設時2,780円）<br>還元：2,169円／1,310円（ハピタス／モッピー）</div>
+<div class="cmp"><div class="crow"><span class="cl">価格</span><span class="ct"><span class="cf p" style="display:block;width:27%"></span></span><span class="cv">3,200円帯</span></div><div class="crow"><span class="cl">還元</span><span class="ct"><span class="cf r" style="display:block;width:18%"></span></span><span class="cv">2,169円</span></div></div>
+<p class="dreason">価格が還元を上回ることが多く、黒字化は難しい</p>
+</div>
+</div>
+</div>
+<p class="cnote">価格は時期・OSで変動します。還元はハピタス掲載／モッピー掲載の購入ステップのポイントです。買う物2点の合計は約1,500〜1,600円です。</p>
+<ul>
+<li>★3を超える建設装備（★4＝2,440円／★5＝12,000円、さらに上のプロモートは1部位1万円規模）は、ポイ活の収支に対して過剰という見方が大勢。代表例が★5英雄ローダンへの課金（8,000円）で、実践者の結論として「ポイントサイトを一通り見ても黒字になるところはない」とされている。ローダンのステップは捨てる判断が標準（無課金での入手手段も現実的ではないとされる）</li>
+<li>ダイヤの必須枠：前提表のとおり建築工学に最大で314個が必要（単価は5ダイヤ説と10ダイヤ説の両論があり、多い方の10ダイヤで見ると最大3,140ダイヤ。必要総数には273個という説もあり、諸説ある前提で多めに見積もっている）。第二建造隊列（250ダイヤ／2日）と24時間採集ブースト（300ダイヤ）分も残しておくのが目安とされる</li>
+</ul>
+<div class="hook">買うと決めたら、購入の前に案件の「購入ステップ」を確認してください。永久建築隊列は購入ステップの対象で、ハピタス掲載では474円が付きます（価格は現行800円帯が中心）。一方、★3建築マスター装備は購入ステップの対象外で、買ってもポイントは付きません。ポイントが付く物と付かない物を分けて考えるのが、このゲームの課金判断の要点です。</div>
+</div>
+
+<div class="card"><h4>意見が割れている点（両論）</h4>
+<div class="sub">不足する資源はLv帯で変わる</div>
+<ul>
+<li>序盤〜中盤は木材・鋼材がかなり不足する、という見方が中心</li>
+<li>一方で「Lv20以降はガスが最大の難所」という見方もあり、CC22建設時には食料とガスも不足したという記録もある</li>
+<li>段階ごとに不足資源が変わる前提で、資源アイテムは使う直前まで温存するのが安全</li>
+<li>CC単体の建設コストだけを積み上げても、Lv22到達までに必要な量は下のとおり（前提建物・城壁・研究分は別）</li>
+</ul>
+<div class="cmp" style="margin:6px 0">
+<div class="crow"><span class="cl">食料</span><span class="ct"><span class="cf o" style="display:block;width:100%"></span></span><span class="cv">約1億1,300万</span></div>
+<div class="crow"><span class="cl">木材</span><span class="ct"><span class="cf o" style="display:block;width:54%"></span></span><span class="cv">約6,100万</span></div>
+<div class="crow"><span class="cl">鋼材</span><span class="ct"><span class="cf o" style="display:block;width:16%"></span></span><span class="cv">約1,800万</span></div>
+<div class="crow"><span class="cl">ガス</span><span class="ct"><span class="cf o" style="display:block;width:2%"></span></span><span class="cv">約180万</span></div>
+</div>
+<ul>
+<li>総量の概数をうたう情報もあるが、算出根拠が確認できないものはこのページでは採用していない</li>
+</ul>
+<div class="sub">VIP8（進軍枠4つ目）の是非</div>
+<ul>
+<li><span class="bd bd-info">推進論</span> 「Lv20くらいまでにVIP8にしておきたい。ギルドショップと、最後はダイヤで届かせる」というもの</li>
+<li><span class="bd bd-gray">否定論</span> 「VIP8にはダイヤ30,000個以上が必要で割に合わない。毎日のログインで届くVIP2〜3で十分」というもの</li>
+<li>ダイヤの残量と期限までの日数で判断が分かれる論点として、両論を併記する</li>
+</ul>
+<p class="cnote">このセクションの内容は、調査・体験談等をもとに整理したものです。ゲームのアップデートや案件条件の変更で前提が変わる場合があります。</p>
+</div>
+
+</div></div>
+
+
+<div class="sec" id="topics"><div class="sec-head"><h2>攻略トピック</h2></div>
+<div class="bannergrid"><a href="joban.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/feature-2.jpg" alt="公式バナー「パズルシミュレーション ジェムを消しまくろう！」" loading="lazy"><span class="bcap">▶ 序盤の進め方（パズル戦闘）</span></a><a href="kensetsu.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/feature-5.jpg" alt="公式バナー「人類最後の砦を守り抜け！」" loading="lazy"><span class="bcap">▶ 施設の上げ方（街づくり）</span></a><a href="kensetsu.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/feature-3.jpg" alt="公式バナー「世紀末のハイテクノロジー 装備をアップグレード」" loading="lazy"><span class="bcap">▶ 施設の上げ方（装備）</span></a><a href="doumei.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/feature-4.jpg" alt="公式バナー「仲間との『共闘』」" loading="lazy"><span class="bcap">▶ 同盟・ギルド（共闘）</span></a></div>
+<a class="more-link" href="joban.html"><span class="tri">▶</span>序盤の進め方（初日〜Lv12）</a>
+<a class="more-link" href="giftcode.html"><span class="tri">▶</span>ギフトコード</a>
+<a class="more-link" href="kensetsu.html"><span class="tri">▶</span>建設と前提</a>
+<a class="more-link" href="kenkyu.html"><span class="tri">▶</span>研究の進め方</a>
+<a class="more-link" href="eiyu.html"><span class="tri">▶</span>英雄</a>
+<a class="more-link" href="resource.html"><span class="tri">▶</span>資源・ダイヤの集め方</a>
+<a class="more-link" href="doumei.html"><span class="tri">▶</span>同盟・ギルド</a>
+<a class="more-link" href="event.html"><span class="tri">▶</span>イベント攻略</a>
+</div>
+<div class="sec" id="history"><div class="sec-head"><h2>条件の変更履歴・確認記録</h2></div>
+<div class="tscroll"><table class="hist"><tr><th>日付</th><th>対象</th><th>変更内容（報酬）</th></tr>
+<tr><td class="hd">2026年<br>11月25日</td><td>ハピタス</td><td><span class="old">iOS：最大42,530円相当／Android：最大37,181円相当（第三者情報）</span><br><span class="arrw">→</span> 合計42,530円（全10ステップ・iOS掲載／公式詳細ページで確認）</td></tr>
+<tr><td class="hd">2026年<br>11月25日</td><td>モッピー</td><td><span class="old">2,700円（コントロールセンターLv17到達・1段階）</span><br><span class="arrw">→</span> 合計27,037円（StepUp・全10ステップ・両OS同額／公式詳細ページで確認）</td></tr>
+</table></div>
+<div class="blk">
+<p class="kv"><b>更新日</b>：2026年11月25日（ハピタス公式詳細ページ／モッピー公式詳細ページ・連携先表示で確認）</p>
+<p class="kv">掲載条件は変更される場合があります。このページでは旧条件を消さず、変更履歴として残しています。</p>
+</div>
+<a class="more-link" href="/mea-game-poikatsu/editorial-policy/"><span class="tri">▶</span>情報の確認方法・到達目安の算出方法（編集方針）</a>
+</div>
+
+<div class="sec" id="related"><div class="sec-head"><h2>次にチェックしたい案件</h2><a href="index.html">一覧を見る ＞</a></div>
+<div class="rows">
+<a class="row" href="/mea-game-poikatsu/games/doomsday-last-survivors/"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/35/39/f2/3539f255-bfef-bfd0-4872-a23324dbfcd0/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="ドゥームズデイ：ラストサバイバー" loading="lazy"><div><div class="rtitle">ドゥームズデイ：ラストサバイバー</div><div class="rmeta"><span class="chip">最大22,197円</span><span class="chip gray">ハピタス</span><span>更新日：2026.11.25</span></div><div class="rsum">最終条件：ヒーロー40体所持／全12ステップ／期限はインストールから70日以内</div></div></a>
+<a class="row" href="/mea-game-poikatsu/games/whiteout-survival/"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e6/9e/98/e69e9840-fa2b-7b53-c7f9-75a75021de26/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="ホワイトアウト・サバイバル" loading="lazy"><div><div class="rtitle">ホワイトアウト・サバイバル</div><div class="rmeta"><span class="chip">最大10,209円</span><span class="chip gray">ハピタス</span><span>更新日：2026.11.25</span></div><div class="rsum">最終条件：大溶鉱炉Lv23到達後の課金系ステップ／全10ステップ／成果受付はクリックから25日以内</div></div></a>
+<a class="row" href="/mea-game-poikatsu/games/tenchi-eiyuden/"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d1/90/90/d19090d4-372c-ba4c-0fcf-ca2c353d1a65/AppIcon-1x_U007emarketing-0-4-85-220-0.png/512x512bb.jpg" alt="天地英雄伝" loading="lazy"><div><div class="rtitle">天地英雄伝</div><div class="rmeta"><span class="chip">最大380,497円</span><span class="chip gray">モッピー</span><span>更新日：2026.11.25</span></div><div class="rsum">全13ステップ（増量中）／期限はインストール日から30日以内（全ステップ共通）</div></div></a>
+</div>
+<a class="more-link" href="/mea-game-poikatsu/how-to-read/"><span class="tri">▶</span>案件条件の見方（ステップアップ型とは）</a>
+<a class="more-link" href="/mea-game-poikatsu/how-to-read/"><span class="tri">▶</span>購入系ステップで損をしないための確認点</a>
+<a class="more-link" href="index.html"><span class="tri">▶</span>ポイントが高いゲームランキング</a>
+</div>
+
+<div class="cta">
+<p class="cta-catch">＼ 公式認定サイト限定！初回特典 最大<span class="cta-bonus">2,300円</span> GET ／</p>
+<a class="cta-btn" data-ref-service="ハピタス" data-ref-placement="campaign" href="https://hapitas.jp/appinvite?i=26164523" target="_blank" rel="noopener"><span class="cta-label">登録無料！「ハピタス」招待URLはコチラ！</span><span class="arr">›</span></a>
+<p class="cta-sub">「<span class="cta-svc">ハピタス</span>」を経由後、プレイして<b class="cta-amt">42,530円</b>ゲット！</p>
+</div>
+
+</main>
+<footer class="footer">
+  <div class="flinks"><a href="/mea-game-poikatsu/games/">ゲーム一覧</a><a href="/mea-game-poikatsu/#ranking">ポイントが高い順</a><a href="/mea-game-poikatsu/how-to-read/">案件条件の見方</a><a href="/mea-game-poikatsu/editorial-policy/">編集方針</a><a href="/mea-game-poikatsu/about/">このサイトについて</a></div>
+  <p class="disc">当サイトは、ポイントサイト各社の紹介プログラムに参加しています。記事内のリンクを経由してサービスに登録・利用された場合、当サイトに紹介料が支払われることがあります。掲載しているポイント数・条件・期限は、各サービスの公式ページで確認した時点の情報です。参加前に必ず公式ページで最新の条件をご確認ください。</p>
+  <p class="copy">© ポイゲークエスト（ポイ活ゲーム攻略Wiki）</p>
+</footer>
+
+</div>
+<!-- 追従バナー（試作） -->
+<div class="sticky-cta" id="stickyCta">
+  <a class="sticky-cta-bar" id="stickyCtaBar" data-ref-service="ハピタス" data-ref-placement="sticky" href="https://hapitas.jp/appinvite?i=26164523" target="_blank" rel="noopener">
+    <span class="sticky-cta-bubble">＼ 今すぐ「<span class="sticky-svc">ハピタス</span>」経由で ／</span>
+    <span class="sparkle s1">✦</span><span class="sparkle s2">✦</span><span class="sparkle s3">✦</span><span class="sparkle s4">✦</span>
+    <span class="sticky-cta-text">最大<span class="sticky-amt">42,530円</span>GET</span>
+    <span class="sticky-cta-arrow">›</span>
+  </a>
+</div>
+<script>
+// サービス連動データ（タブ切替でCTA・バナーまで一括で切り替える）
+var SVC={
+  hapitas:{name:'ハピタス',bonus:'2,300円',amt:'42,530円',url:'https://hapitas.jp/appinvite?i=26164523',diff:'ハピタスの方が15,493円お得'},
+  moppy:{name:'モッピー',bonus:'7,000円',amt:'27,037円',url:'https://pc.moppy.jp/entry/invite.php?invite=7xaGA123',diff:'モッピー経由で初回最大7,000円ゲット'}
+};
+function applySvc(key){
+  var d=SVC[key]; if(!d)return;
+  document.querySelectorAll('.cta-btn,#stickyCtaBar').forEach(function(el){el.setAttribute('data-ref-service',d.name);});
+  document.querySelectorAll('.cta-bonus').forEach(function(e){e.textContent=d.bonus});
+  document.querySelectorAll('.cta-svc').forEach(function(e){e.textContent=d.name});
+  document.querySelectorAll('.cta-label').forEach(function(e){e.textContent='登録無料！「'+d.name+'」招待URLはコチラ！'});
+  document.querySelectorAll('.cta-amt').forEach(function(e){e.textContent=d.amt});
+  document.querySelectorAll('.cta-btn').forEach(function(e){e.setAttribute('href',d.url)});
+  document.querySelectorAll('.sticky-svc').forEach(function(e){e.textContent=d.name});
+  document.querySelectorAll('.sticky-amt').forEach(function(e){e.textContent=d.amt});
+  var bar=document.getElementById('stickyCtaBar');
+  if(bar)bar.setAttribute('href',d.url);
+  var diff=document.getElementById('svcDiff');
+  if(diff)diff.textContent=d.diff;
+}
+// タブ切替
+document.querySelectorAll('.tabs button').forEach(function(b){
+  b.addEventListener('click',function(){
+    document.querySelectorAll('.tabs button').forEach(function(x){x.classList.remove('on')});
+    document.querySelectorAll('.tabpanel').forEach(function(p){p.classList.remove('on')});
+    b.classList.add('on'); document.getElementById(b.dataset.tab).classList.add('on');
+    applySvc(b.dataset.tab==='tab1'?'moppy':'hapitas');
+  });
+});
+// アコーディオン
+document.querySelectorAll('.acc>button').forEach(function(b){
+  b.addEventListener('click',function(){
+    var acc=b.parentElement,open=acc.classList.toggle('open');
+    b.querySelector('.pm').textContent=open?'－':'＋';
+  });
+});
+// 目次ハイライト
+var tocLinks=document.querySelectorAll('.toc a');
+var secs=['campaign','about','meyasu','guide','history'].map(function(id){return document.getElementById(id)});
+window.addEventListener('scroll',function(){
+  var y=window.scrollY+150,cur=0;
+  secs.forEach(function(s,i){if(s&&s.offsetTop<=y)cur=i});
+  tocLinks.forEach(function(a,i){a.classList.toggle('on',i===cur)});
+},{passive:true});
+// 追従バナー：スクロール割合が50%を超えたら色を変える
+var stickyCta=document.getElementById('stickyCta');
+function stickyCtaUpdate(){
+  if(!stickyCta)return;
+  var max=document.documentElement.scrollHeight-window.innerHeight;
+  var ratio=max>0?window.scrollY/max:0;
+  stickyCta.classList.toggle('alt',ratio>0.5);
+}
+window.addEventListener('scroll',stickyCtaUpdate,{passive:true});
+window.addEventListener('resize',stickyCtaUpdate);
+stickyCtaUpdate();
+</script>
+<script>(function(){var host=document.querySelector('.header-icons');if(!host)return;var cur=document.documentElement.getAttribute('data-theme')||'light';var d=document.createElement('div');d.className='theme-toggle';d.setAttribute('role','button');d.setAttribute('tabindex','0');d.setAttribute('aria-label','表示テーマを切り替える');function draw(){d.innerHTML='<span class="ic">'+(cur==='dark'?'☀️':'🌙')+'</span>テーマ';}function flip(){cur=(cur==='dark')?'light':'dark';document.documentElement.setAttribute('data-theme',cur);try{localStorage.setItem('poigame-theme',cur);}catch(e){}draw();}draw();d.addEventListener('click',flip);d.addEventListener('keydown',function(ev){if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();flip();}});host.appendChild(d);})();</script>
+</body></html>

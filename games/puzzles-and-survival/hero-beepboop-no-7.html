@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>パズサバ ドンドン7号｜ポイゲークエスト</title><style>
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{background:#e8e8e8;scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",sans-serif;color:#333;font-size:14px;line-height:1.6;-webkit-text-size-adjust:100%}
+.page{max-width:420px;margin:0 auto;background:#fff;min-height:100vh;box-shadow:0 0 12px rgba(0,0,0,.18)}
+a{color:inherit;text-decoration:none}
+img{display:block}
+.header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid #e5e5e5}
+.header-top{display:flex;align-items:center;justify-content:space-between;padding:8px 12px 6px}
+.logo{font-size:20px;font-weight:900;color:#333;white-space:nowrap}
+.logo .lg-mark{display:inline-block;background:#ff6900;color:#fff;border-radius:5px;padding:0 6px;margin-right:5px;font-size:18px}
+.logo .lg-sub{font-size:9px;font-weight:700;color:#ff6900;vertical-align:super;margin-left:3px}
+.header-icons{display:flex;gap:13px;color:#555;font-size:10px;text-align:center}
+.header-icons .ic{font-size:18px;line-height:1.1;display:block}
+.searchbar{padding:2px 12px 9px}
+.searchbar .box{display:flex;align-items:center;background:#f2f2f2;border-radius:16px;padding:0 12px}
+.searchbar input{flex:1;border:0;background:transparent;font-size:13px;padding:7px 6px;outline:none;color:#333;font-family:inherit}
+.gnav{display:flex;border-top:1px solid #f0f0f0;overflow-x:auto;white-space:nowrap}
+.gnav a{flex:1;text-align:center;font-size:12px;font-weight:700;padding:8px 6px;color:#444;border-bottom:2px solid transparent}
+.gnav a.on{color:#c9332b;border-bottom-color:#c9332b}
+.crumbs{font-size:11px;color:#888;padding:8px 12px 0}
+.sec{margin-top:22px;scroll-margin-top:118px}
+.sec-head{display:flex;align-items:center;justify-content:space-between;background:#faebe8;border-left:5px solid #c9332b;padding:7px 10px 7px 9px;margin:0 0 10px}
+.sec-head h2{font-size:16px;font-weight:800}
+.sec-head a{font-size:12px;color:#c9332b;font-weight:700}
+.sec-head .cnt{font-size:11px;color:#999;font-weight:700}
+.lead{padding:10px 12px 0;font-size:13px;color:#444}
+/* 記事リスト行 */
+.rows{padding:0 12px}
+.row{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid #eee;align-items:flex-start}
+.row img,.row .fallback-icon{width:64px;height:64px;border-radius:14%;flex:none;object-fit:cover;font-size:28px}
+.row .rtitle{font-size:13.5px;font-weight:700;line-height:1.45}
+.row .rmeta{margin-top:4px;font-size:11px;color:#999;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.row .rsum{margin-top:3px;font-size:11.5px;color:#666;line-height:1.5}
+.chip{display:inline-block;background:#fbe9e4;color:#9c2418;font-weight:800;font-size:11.5px;border-radius:3px;padding:1px 5px}
+.chip.gray{background:#f0f0f0;color:#777}
+/* 表 */
+.tscroll{overflow-x:auto;padding:0 12px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;margin:6px 0 4px}
+th,td{border:1px solid #ddd;padding:6px 8px;text-align:left;vertical-align:middle}
+th{background:#f7f3ec;font-weight:800;white-space:nowrap}
+td.pt,th.pt{text-align:right}
+td.pt{font-weight:800;color:#9c2418;white-space:nowrap}
+/* スペック早見表 */
+.spec th{width:34%;background:#faebe8;white-space:normal}
+.spec td{line-height:1.55}
+.spec td b{color:#9c2418}
+/* 攻略メニュー */
+.menu-label{text-align:center;font-weight:800;font-size:13px;color:#666;margin:14px 0 8px}
+.menu{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:0 12px}
+.menu a{border:1px solid #e3e3e3;border-radius:6px;background:#fff;text-align:center;padding:10px 2px 8px;font-size:12px;font-weight:700;color:#444;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.menu a .mi{display:block;font-size:19px;margin-bottom:3px}
+.menu a.hot{border-color:#e08a7d;background:#fdf0ec;color:#9c2418}
+/* ゲームページ */
+.ghead{display:flex;gap:12px;padding:12px;align-items:center}
+.ghead img,.ghead .fallback-icon{width:76px;height:76px;border-radius:20%;object-fit:cover;font-size:34px}
+.ghead h1{font-size:19px;font-weight:900;line-height:1.35}
+.ghead .gmeta{font-size:11.5px;color:#888;margin-top:3px}
+.ghead .gmax{margin-top:5px;font-size:13px;font-weight:900;color:#c9332b}
+.dates{font-size:11px;color:#999;padding:0 12px;display:flex;gap:12px;flex-wrap:wrap}
+.dates b{color:#777;font-weight:700}
+.toc{position:sticky;top:104px;z-index:55;display:flex;background:#333;overflow-x:auto;white-space:nowrap}
+.toc a{flex:1;text-align:center;color:#fff;font-size:12px;font-weight:700;padding:8px 10px}
+.toc a:active,.toc a.on{background:#c9332b}
+/* タブ */
+.tabs{display:flex;gap:6px;padding:0 12px;margin-bottom:4px;scroll-margin-top:160px}
+.tabs button{flex:1;border:1px solid #ddd;background:#f7f7f7;border-radius:8px 8px 0 0;padding:9px 4px;font-size:13px;font-weight:800;color:#777;cursor:pointer;font-family:inherit;border-bottom:3px solid #ddd}
+.tabs button.on{background:#fff;color:#9c2418;border-color:#ddd;border-bottom:3px solid #c9332b}
+.tabs button .tt{display:block;font-size:11px;font-weight:800;color:#c9332b}
+.tabpanel{display:none;padding:4px 12px 0}
+.tabpanel.on{display:block}
+/* アコーディオン */
+.acc{border:1px solid #e5e5e5;border-radius:6px;margin:8px 0;overflow:hidden}
+.acc button{width:100%;background:#fafafa;border:0;text-align:left;font-size:13px;font-weight:800;color:#444;padding:10px 12px;cursor:pointer;font-family:inherit;display:flex;justify-content:space-between;align-items:center}
+.acc button .pm{color:#c9332b;font-size:15px}
+.acc .acc-body{display:none;padding:10px 12px;font-size:12px;color:#555;border-top:1px solid #eee;line-height:1.7}
+.acc.open .acc-body{display:block}
+.acc-body ul{margin:0 0 0 18px}
+.acc-body li{margin-bottom:4px;line-height:1.6}
+.kv{font-size:12px;color:#555;margin:2px 0}
+.kv b{color:#333}
+.blk{padding:0 12px}
+.blk h3{font-size:15px;font-weight:800;border-bottom:2px solid #e08a7d;padding-bottom:3px;margin:16px 0 8px}
+.blk p{font-size:13.5px;margin-bottom:8px}
+.blk ol{margin:0 0 8px 20px;font-size:13.5px}
+.blk li{margin-bottom:5px}
+.note{font-size:11.5px;color:#888}
+.more-link{display:block;padding:10px 12px;font-weight:700;font-size:13.5px;border-bottom:1px solid #eee}
+.more-link .tri{color:#c9332b;margin-right:6px}
+/* モンスター型の追加部品 */
+.anchor-jump{display:block;margin:10px 12px 2px;background:#c9332b;color:#fff;font-weight:800;font-size:13px;text-align:center;border-radius:6px;padding:10px 8px}
+.read-note{font-size:11.5px;color:#777;background:#fafafa;border:1px solid #eee;border-radius:6px;padding:8px 10px;margin:6px 0 8px;line-height:1.65}
+.upd-note{font-size:11.5px;color:#8a6d1a;background:#fffbe8;border:1px solid #f0df9a;border-radius:6px;padding:8px 10px;margin:8px 0;line-height:1.65}
+.upd-note b{color:#6d5510}
+.risk-note{font-size:12px;color:#a33;background:#fff5f5;border-left:4px solid #e88;border-radius:0 6px 6px 0;padding:8px 10px;margin:8px 0;line-height:1.65}
+.hist td{font-size:12px;line-height:1.55}
+.hist td.hd{white-space:nowrap;font-weight:700}
+.hist .old{color:#999}
+.hist .arrw{color:#c9332b;font-weight:800}
+.footer{margin-top:30px;background:#f7f7f7;border-top:1px solid #e5e5e5;padding:16px 12px 28px}
+.footer .flinks{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:#555;margin-bottom:10px}
+.footer .disc{font-size:11px;color:#888;line-height:1.7;margin-bottom:10px}
+.footer .copy{font-size:11px;color:#aaa;text-align:center}
+.grow td{padding:2px 6px 8px;background:#fffdf7}
+.grow .acc{margin:2px 0 0}
+.hidden{display:none!important}
+/* ===== 図解・バー・バッジ ===== */
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin:6px 0}
+.bd{display:inline-block;font-size:10.5px;font-weight:800;border-radius:10px;padding:1px 8px;line-height:1.6;vertical-align:middle;white-space:nowrap}
+.bd-buy{background:#e6f4ea;color:#137333;border:1px solid #a3d9b1}
+.bd-no{background:#fdecea;color:#b3261e;border:1px solid #f0b8b2}
+.bd-warn{background:#fff4e0;color:#a35b00;border:1px solid #f2cf8f}
+.bd-info{background:#eaf2fc;color:#2f5f8f;border:1px solid #bcd6f2}
+.bd-gray{background:#f0f0f0;color:#666;border:1px solid #ddd}
+.bars{margin:8px 0 2px}
+.barrow{display:flex;align-items:center;gap:8px;margin:7px 0}
+.barrow .bl{width:52px;flex:none;font-size:11.5px;font-weight:800;color:#555;text-align:right}
+.barrow .bt{flex:1;background:#f0f0f0;border-radius:4px;height:20px;overflow:hidden}
+.barrow .bf{height:100%;background:#c9332b;border-radius:4px}
+.barrow .bf.free{background:#466b84}
+.barrow .bv{flex:none;font-size:14px;font-weight:900;color:#333}
+.bar-note{margin-left:60px}
+/* ステップフロー */
+.flow{display:flex;align-items:center;gap:3px;overflow-x:auto;padding:8px 12px 2px}
+.fbox{flex:none;border:1.5px solid #e08a7d;background:#fdf0ec;border-radius:6px;padding:5px 8px;font-size:12px;font-weight:800;text-align:center;color:#333}
+.fbox small{display:block;font-size:10px;color:#888;font-weight:700}
+.fbox.plus{border-color:#bfcfd9;background:#edf2f5}
+.farr{color:#c9332b;font-weight:900;flex:none}
+/* タイムライン */
+.tl{display:flex;overflow-x:auto;padding:12px 12px 4px}
+.tl .node{flex:1;min-width:88px;text-align:center;position:relative;padding:0 3px}
+.tl .node:before{content:"";position:absolute;top:8px;left:-50%;width:100%;height:2px;background:#ffd9ae}
+.tl .node:first-child:before{display:none}
+.tl .dot{width:16px;height:16px;border-radius:50%;background:#c9332b;margin:0 auto;position:relative;z-index:1;box-shadow:0 0 0 2px #e08a7d}
+.tl .node.blue .dot{background:#466b84;box-shadow:0 0 0 2px #9dbede}
+.tl .node.red .dot{background:#c0392b;box-shadow:0 0 0 2px #e5a49e}
+.tl .tt2{font-size:11px;font-weight:900;margin-top:6px;color:#333}
+.tl .td2{font-size:10.5px;color:#777;line-height:1.45;margin-top:2px}
+/* 前提ツリー */
+.tree{font-size:12px;margin:8px 0}
+.tnode{border:1.5px solid #e08a7d;background:#fdf0ec;border-radius:6px;padding:5px 9px;font-weight:800;color:#333;display:inline-block;margin:2px 0}
+.tnode small{display:block;font-weight:700;color:#888;font-size:10.5px}
+.tkids{margin:2px 0 8px 14px;border-left:2px solid #ffd9ae;padding-left:10px}
+.tkids .tnode{border-color:#bfcfd9;background:#edf2f5}
+.tarr{color:#c9332b;font-weight:900;margin:0 2px}
+/* カード */
+.cards{padding:0 12px}
+.card{border:1px solid #e5e5e5;border-radius:8px;padding:10px 12px;margin:10px 0;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.card h4{font-size:14px;font-weight:800;margin-bottom:6px}
+.card ul{margin:0 0 2px 18px;font-size:12.5px}
+.card li{margin-bottom:4px;line-height:1.55}
+.card .cnote{font-size:11px;color:#888;margin-top:6px;line-height:1.55}
+.card table{font-size:12px}
+.sub{font-size:12.5px;font-weight:800;margin:10px 0 4px}
+/* 価格vs還元などの小バー */
+.cmp{font-size:10.5px;min-width:132px}
+.cmp .crow{display:flex;align-items:center;gap:5px;margin:2px 0}
+.cmp .cl{font-size:10px;font-weight:800;color:#888;width:24px;flex:none}
+.cmp .ct{flex:1;background:#f0f0f0;height:9px;border-radius:3px;overflow:hidden;min-width:44px}
+.cmp .cf{height:100%}
+.cmp .cf.p{background:#c0392b}
+.cmp .cf.r{background:#2e9e5b}
+.cmp .cf.o{background:#c9332b}
+.cmp .cf.b{background:#466b84}
+.cmp .cv{font-weight:700;color:#555;white-space:nowrap}
+.pts{margin:0 0 8px 18px;font-size:13px}
+.pts li{margin-bottom:5px;line-height:1.55}
+.chk{list-style:none;margin:0 0 2px}
+.chk li{position:relative;padding-left:22px;margin-bottom:5px;font-size:12.5px;line-height:1.55}
+.chk li:before{content:"\2610";position:absolute;left:0;color:#c9332b;font-weight:900}
+.svc-link{display:flex;justify-content:space-between;align-items:center;gap:10px;border:1.5px solid #cfc4ec;background:#f0ecfa;border-radius:8px;padding:12px 14px;margin:8px 0;font-weight:800;font-size:13.5px;color:#463a75;text-decoration:none}
+.svc-link span+span{color:#6e639e;font-weight:600;font-size:12px}
+.svc-link .arr{color:#7a68c4;font-weight:900}
+
+/* 追従バナー：画面下固定・スクロール50%超で候補A（ゴールド＋キラキラ）に変化 */
+body{padding-bottom:104px}
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:80;padding:0 10px calc(7px + env(safe-area-inset-bottom));pointer-events:none}
+.sticky-cta-bar{pointer-events:auto;position:relative;display:flex;align-items:center;justify-content:center;gap:6px;max-width:420px;margin:0 auto;padding:9px 14px 8px;border-radius:999px;background:linear-gradient(180deg,#f0563f,#d42a1e);color:#fff;font-weight:900;font-size:13.5px;letter-spacing:.02em;white-space:nowrap;box-shadow:0 6px 18px rgba(0,0,0,.35);transition:background .45s ease,color .45s ease,box-shadow .45s ease}
+.sticky-cta.alt .sticky-cta-bar{background:linear-gradient(135deg,#fff3b0 0%,#ffd94d 30%,#f5b800 55%,#ffe680 80%,#ffc400 100%);color:#5b4300;box-shadow:0 6px 22px rgba(245,184,0,.65)}
+.sticky-cta-bubble{position:absolute;top:-10px;left:22px;background:#fff;color:#d42a1e;font-size:10.5px;font-weight:900;padding:2px 10px;border-radius:999px;box-shadow:0 2px 6px rgba(0,0,0,.22);transition:color .45s ease,background .45s ease;z-index:3}
+.sticky-cta.alt .sticky-cta-bubble{color:#a87b00;background:linear-gradient(180deg,#fffbe8,#ffedb0)}
+.sticky-cta-text{position:relative;z-index:1}
+.sticky-cta-arrow{font-size:15px;font-weight:900;line-height:1;position:relative;z-index:1}
+.sticky-cta .sparkle{position:absolute;color:#fff;font-size:13px;text-shadow:0 0 6px #ffdf4d,0 0 2px #fff;opacity:0;pointer-events:none;z-index:2}
+.sticky-cta.alt .sparkle{animation:twinkle 1.6s ease-in-out infinite}
+.sticky-cta .sparkle.s1{top:2px;left:16%}
+.sticky-cta .sparkle.s2{top:16px;right:14%;animation-delay:.4s}
+.sticky-cta .sparkle.s3{bottom:3px;left:38%;animation-delay:.8s;font-size:10px}
+.sticky-cta .sparkle.s4{top:6px;right:34%;animation-delay:1.1s;font-size:10px}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(.6) rotate(0deg)}50%{opacity:1;transform:scale(1.25) rotate(25deg)}}
+.sticky-cta.alt .sticky-cta-bar::after{content:"";position:absolute;inset:0;border-radius:999px;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.75) 50%,transparent 70%);background-size:250% 100%;animation:shine 2.6s ease-in-out infinite;pointer-events:none}
+@keyframes shine{0%{background-position:120% 0}55%,100%{background-position:-60% 0}}
+@media (max-width:380px){.sticky-cta-bar{font-size:12.5px;padding:8px 12px 7px}}
+
+.fig{margin:10px 0}
+.fig img{width:100%;height:auto;display:block;border-radius:10px}
+.figc{margin:10px 0;text-align:center}
+.figc img{max-width:100%;height:auto;border-radius:10px}
+.fcap{font-size:12px;color:#667;margin-top:4px;text-align:left}
+.shotrow{display:flex;gap:8px;overflow-x:auto;padding:2px 0 6px}
+.shotrow img{height:250px;width:auto;flex:none;border-radius:10px}
+.bannergrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.bannergrid a{display:block;text-decoration:none}
+.bannergrid img{width:100%;height:auto;display:block;border-radius:10px}
+.bannergrid .bcap{display:block;font-size:12.5px;font-weight:700;color:#466b84;margin-top:4px}
+.bgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0}
+.bgrid figure{margin:0}
+.bgrid img{width:100%;height:110px;object-fit:cover;border-radius:8px;display:block}
+.bgrid figcaption{font-size:12px;color:#555;margin-top:3px}
+.prow{display:flex;gap:10px;margin:10px 0}
+.prow figure{flex:1;margin:0}
+.prow img{width:100%;height:210px;object-fit:cover;object-position:top center;border-radius:10px;display:block}
+.prow figcaption{font-size:12px;color:#555;margin-top:3px;text-align:center}
+.hicon{width:34px;height:34px;border-radius:8px;vertical-align:-10px;margin-right:6px;object-fit:cover}
+a.bannerlink{display:block;margin:10px 0}
+a.bannerlink img{width:100%;height:auto;display:block;border-radius:10px}
+.rel2{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 12px;margin:14px 0 4px}.rel2-cell{display:block;border:1px solid #e3e3e3;border-radius:8px;overflow:hidden;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.05)} .rel2-cell img{width:100%;height:84px;object-fit:cover} .rel2-cell span{display:block;font-size:12.5px;font-weight:800;color:#466b84;padding:7px 9px}
+
+/* 目次ボタン */
+.toclist{display:flex;flex-direction:column;gap:6px;margin:4px 0 10px}
+.toclist a{display:flex;align-items:center;justify-content:space-between;gap:8px;background:#eaf2fc;border:1px solid #bcd6f2;border-radius:8px;padding:10px 12px;font-size:13.5px;font-weight:800;color:#2f5f8f;line-height:1.45}
+.toclist a .arr{flex:none;color:#466b84;font-weight:900}
+.toclist a:active{background:#d9e9fb}
+h4[id],div.acc[id],div[id^="b"]{scroll-margin-top:118px}
+
+/* ===== 英雄個別ページ追加 ===== */
+.hgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:8px 0 4px}
+.hgrid a{display:block;text-align:center;border:1px solid #e3e3e3;border-radius:8px;padding:7px 2px 6px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.hgrid img{width:48px;height:48px;border-radius:10px;object-fit:cover;margin:0 auto}
+.hgrid .noimg{width:48px;height:48px;border-radius:10px;background:#eaf2fc;color:#466b84;font-weight:900;font-size:19px;display:flex;align-items:center;justify-content:center;margin:0 auto}
+.hgrid .hn{display:block;font-size:10.5px;font-weight:700;color:#466b84;margin-top:4px;line-height:1.3}
+.hgrid .hm{display:block;font-size:9.5px;color:#999;margin-top:1px}
+.ghead .fallback-icon{width:76px;height:76px;border-radius:20%;background:#eaf2fc;color:#466b84;font-weight:900;font-size:32px;display:flex;align-items:center;justify-content:center;flex:none}
+table.plain th{background:#f7f3ec}
+
+.tocbtn{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;background:#eaf2fc;border:1px solid #bcd6f2;border-radius:8px;padding:10px 12px;font-size:13.5px;font-weight:800;color:#2f5f8f;font-family:inherit;cursor:pointer;margin:2px 0 10px}
+.tocbtn .pm{color:#466b84;font-weight:900;flex:none}
+.toclist.toc-closed{display:none}
+</style>
+<style>
+.theme-toggle{cursor:pointer}
+html[data-theme="dark"]{color-scheme:dark;background:#0d0b0a}
+html[data-theme="dark"] body{color:#e8e2dc}
+html[data-theme="dark"] .page{background:#1a1714;box-shadow:0 0 12px rgba(0,0,0,.6)}
+html[data-theme="dark"] .header{background:#1a1714;border-bottom-color:#3a332c}
+html[data-theme="dark"] .logo{color:#f2ede8}
+html[data-theme="dark"] .header-icons{color:#b8b0a6}
+html[data-theme="dark"] .searchbar .box{background:#262019}
+html[data-theme="dark"] .searchbar input{color:#e8e2dc}
+html[data-theme="dark"] .gnav{border-top-color:#2c2620}
+html[data-theme="dark"] .gnav a{color:#cfc8c0}
+html[data-theme="dark"] .gnav a.on{color:#e0584d;border-bottom-color:#e0584d}
+html[data-theme="dark"] .crumbs{color:#9a9186}
+html[data-theme="dark"] .sec-head{background:#2e1c18;border-left-color:#e0584d}
+html[data-theme="dark"] .sec-head a{color:#f0a294}
+html[data-theme="dark"] .sec-head .cnt{color:#9a9186}
+html[data-theme="dark"] .lead{color:#d8d2ca}
+html[data-theme="dark"] .row{border-bottom-color:#38302a}
+html[data-theme="dark"] .row .rmeta{color:#9a9186}
+html[data-theme="dark"] .row .rsum{color:#bdb4a9}
+html[data-theme="dark"] .chip{background:#332019;color:#f0a294}
+html[data-theme="dark"] .chip.gray{background:#2b2b2b;color:#a9a9a9}
+html[data-theme="dark"] th,html[data-theme="dark"] td{border-color:#453b32}
+html[data-theme="dark"] th{background:#262019}
+html[data-theme="dark"] td.pt{color:#f0a294}
+html[data-theme="dark"] .spec th{background:#2e1c18}
+html[data-theme="dark"] .spec td b{color:#f0a294}
+html[data-theme="dark"] .menu a{background:#241f1b;border-color:#453b32;color:#e8e2dc}
+html[data-theme="dark"] .menu a.hot{background:#33201b;border-color:#e0584d;color:#f0a294}
+html[data-theme="dark"] .menu-toggle{color:#8fb0c7}
+html[data-theme="dark"] .ghead .gmeta{color:#9a9186}
+html[data-theme="dark"] .ghead .gmax{color:#f0a294}
+html[data-theme="dark"] .toc{background:#262019}
+html[data-theme="dark"] .toc a{color:#d8d2ca}
+html[data-theme="dark"] .tabs button{background:#241f1b;color:#cfc8c0;border-color:#453b32}
+html[data-theme="dark"] .tabs button.on{color:#f0a294;border-bottom-color:#e0584d}
+html[data-theme="dark"] .acc button{background:#241f1b;color:#e8e2dc}
+html[data-theme="dark"] .acc .acc-body{background:#1f1b17}
+html[data-theme="dark"] .ditem{border-bottom-color:#38302a}
+html[data-theme="dark"] .ditem .dmeta{color:#9a9186}
+html[data-theme="dark"] .note{background:#262019;color:#d8d2ca}
+html[data-theme="dark"] .read-note,html[data-theme="dark"] .upd-note{background:#262019;color:#d8d2ca}
+html[data-theme="dark"] .risk-note{background:#332019;color:#f2cf8f}
+html[data-theme="dark"] .footer{background:#141110;color:#9a9186}
+html[data-theme="dark"] .footer .flinks a{color:#cfc8c0}
+html[data-theme="dark"] .card{background:#241f1b;border-color:#453b32}
+html[data-theme="dark"] .card .cnote{color:#9a9186}
+html[data-theme="dark"] .fbox{background:#2e1c18;border-color:#e08a7d}
+html[data-theme="dark"] .farr{color:#e0584d}
+html[data-theme="dark"] .tnode{background:#241f1b;border-color:#453b32}
+html[data-theme="dark"] .tkids .tnode{background:#1d2731;border-color:#3d5468}
+html[data-theme="dark"] .bd-buy{background:#153420;color:#8fd7a4}
+html[data-theme="dark"] .bd-no{background:#3a1a16;color:#f0a294}
+html[data-theme="dark"] .bd-warn{background:#33270f;color:#f2cf8f}
+html[data-theme="dark"] .bd-info{background:#1d2c3d;color:#a9c8e2}
+html[data-theme="dark"] .bd-gray{background:#2b2b2b;color:#bbbbbb}
+html[data-theme="dark"] .bannergrid .bcap{color:#8fb0c7}
+html[data-theme="dark"] .fcap{color:#9a9186}
+html[data-theme="dark"] input,html[data-theme="dark"] select,html[data-theme="dark"] textarea{background:#262019;color:#e8e2dc;border-color:#453b32}
+html[data-theme="dark"] .hist td.hd{background:#262019}
+</style><script>(function(){try{var t=localStorage.getItem('poigame-theme');if(t!=='dark'&&t!=='light'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<meta name="description" content="ドンドン7号の個別ページです。基本情報と最大ステータス、パズルスキル「サンダージャッジメント」、軍団・内政スキル、専属ウェポン、入手先をまとめています。">
+<meta name="robots" content="index,follow">
+<link rel="icon" href="/mea-game-poikatsu/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/mea-game-poikatsu/favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/mea-game-poikatsu/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/mea-game-poikatsu/favicon-180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/mea-game-poikatsu/favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/mea-game-poikatsu/favicon-512.png">
+<link rel="canonical" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/hero-beepboop-no-7.html">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8BB8V3DRW8"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8BB8V3DRW8');</script>
+<script src="/mea-game-poikatsu/assets/site.js" defer></script>
+</head><body><div class="page">
+<header class="header">
+  <div class="header-top">
+    <div class="logo"><img src="/mea-game-poikatsu/logo-symbol.png" alt="" style="width:34px;height:34px;vertical-align:-9px;margin-right:6px;border-radius:7px">ポイゲークエスト<span class="lg-sub">POIKATSU GAME WIKI</span></div>
+    <div class="header-icons"><div><span class="ic">🔍</span>検索</div><div><span class="ic">☰</span>メニュー</div></div>
+  </div>
+  <div class="searchbar"><div class="box"><span>🔍</span><input id="q" type="search" placeholder="ゲーム名で検索"></div></div>
+  <nav class="gnav"><a href="/mea-game-poikatsu/#popular" class="on">人気ゲーム</a><a href="/mea-game-poikatsu/#updates">新着・更新</a><a href="/mea-game-poikatsu/#ranking">ランキング</a><a href="/mea-game-poikatsu/games/">ゲーム一覧</a><a href="/mea-game-poikatsu/games/puzzles-and-survival/">攻略メニュー</a></nav>
+</header>
+<main>
+<div class="crumbs"><a href="/mea-game-poikatsu/">トップ</a> ＞ <a href="/mea-game-poikatsu/games/">ゲーム一覧</a> ＞ <a href="index.html">パズル＆サバイバル</a> ＞ <a href="eiyu.html">英雄</a> ＞ <a href="eiyu-list.html">全英雄一覧</a> ＞ <b>ドンドン7号</b></div><div class="ghead"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-beepboop-no-7.webp" alt="ドンドン7号" loading="lazy"><div><h1>パズル＆サバイバル<br>ドンドン7号</h1><div class="gmeta">Beepboop No.7｜37GAMES</div></div></div><p class="dates"><span>更新日：<b>2026年11月25日</b></span></p><p class="lead">ドンドン7号の個別ページです。基本情報と最大ステータス、パズルスキル「サンダージャッジメント」、軍団・内政スキル、専属ウェポン、入手先をまとめています。</p><div class="blk"><div class="sub">このページの要点</div><div class="chips"><span class="bd bd-info">狂乱（紫）型</span><span class="bd bd-info">内政</span><span class="bd bd-gray">★5（→★6）</span><span class="bd bd-gray">レイジ速度：速い</span><span class="bd bd-buy">所持で常時発動のパッシブ中心</span><span class="bd bd-warn">妨害/挑発</span></div><ul class="pts"><li>パズルスキル「<b>サンダージャッジメント</b>」：選択した敵に360%のダメージを与え、ランダムに他の2体の敵に180%のダメージを与える</li><li>軍団・内政スキル：パッシブ 建造速度：+5時 +30%／最大 +100%</li><li>最大基本ステータスは<b>合計11,490</b>（Lv.400/+8/★6時点）</li><li>入手先：VIPリミテッドパック</li></ul></div><div class="blk"><div class="sub">目次</div><button type="button" class="tocbtn" aria-expanded="false">目次を開く<span class="pm">＋</span></button><nav class="toclist toc-closed"><a href="#b1-1">基本情報とステータス<span class="arr">›</span></a><a href="#b1-2">パズルスキル<span class="arr">›</span></a><a href="#b1-3">軍団・内政スキル<span class="arr">›</span></a><a href="#b1-4">専属ウェポン<span class="arr">›</span></a><a href="#b1-5">入手先<span class="arr">›</span></a><a href="#b1-6">同じ属性・兵種の英雄<span class="arr">›</span></a></nav></div><div class="sec"><div id="b1"><div class="cards"><div class="card"><h4 id="b1-1">基本情報とステータス</h4><table class="spec"><tr><th>名前</th><td>ドンドン7号</td></tr><tr><th>英名</th><td>Beepboop No.7</td></tr><tr><th>レア度</th><td>★5（→★6）</td></tr><tr><th>兵種</th><td>内政</td></tr><tr><th>属性（タイプ）</th><td>狂乱（紫）</td></tr><tr><th>レイジ速度</th><td>速い</td></tr><tr><th>万能欠片</th><td>交換不可</td></tr><tr><th>最大HP（Lv.400/+8/★6）</th><td>5,579</td></tr><tr><th>最大DEF</th><td>2,959</td></tr><tr><th>最大ATK</th><td>2,952</td></tr><tr><th>合計ステータス</th><td>11,490</td></tr></table></div><div class="card"><h4 id="b1-2">パズルスキル「サンダージャッジメント」</h4><table class="spec"><tr><th>スキル名</th><td><b>サンダージャッジメント</b></td></tr><tr><th>効果タグ</th><td>妨害/挑発</td></tr><tr><th>効果</th><td>選択した敵に360%のダメージを与え、ランダムに他の2体の敵に180%のダメージを与える<br>確率でメインターゲットにスタンを与え、確定で命中率を30%低下させる。3ターン持続<br>ランダムな1体に追加で100%のダメージを与える</td></tr></table></div><div class="card"><h4 id="b1-3">軍団・内政スキル</h4><p class="kv">戦術スペシャル（全英雄共通）：部隊ATK倍率は強化段階で上がり、+5以降で最大<b>500%</b>になります。</p><table class="plain"><tr><th>発動</th><th>スキル・対象</th><th>効果</th></tr><tr><td>パッシブ</td><td>建造速度</td><td>+5時 +30%／最大 +100%</td></tr><tr><td>パッシブ</td><td>無料研究ブースト時間</td><td>+5時 +30分／最大 +80分</td></tr><tr><td>パッシブ</td><td>部隊規模上限</td><td>+5時 +10,000／最大 +30,000</td></tr></table></div><div class="card"><h4 id="b1-4">専属ウェポン</h4><table class="spec"><tr><th>名称</th><td><b>SRショックドリル</b></td></tr><tr><th>効果</th><td>部隊DEF+100%<br>部隊HP+100%<br>部隊規模上限+10,000<br>部隊規模上限+15,000<br>建造速度+100%</td></tr></table></div><div class="card"><h4 id="b1-5">入手先</h4><p class="kv"><b>VIPリミテッドパック</b></p><p class="kv">万能欠片では交換できません。専用の入手ルートで確保します。</p></div><div class="card"><h4 id="b1-6">同じ属性・兵種の英雄</h4><div class="sub">同じ属性（狂乱）の英雄</div><div class="hgrid"><a href="hero-celine.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-celine.webp" alt="セリンの顔アイコン" loading="lazy"><span class="hn">セリン</span><span class="hm">★6・ファイター</span></a><a href="hero-arthur-montbatten.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-arthur-montbatten.webp" alt="アーサー・マウントバッテンの顔アイコン" loading="lazy"><span class="hn">アーサー・マウントバッテン</span><span class="hm">★6・ライダー</span></a><a href="hero-amelia.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-amelia.webp" alt="エイミーの顔アイコン" loading="lazy"><span class="hn">エイミー</span><span class="hm">★6・内政</span></a><a href="hero-megatron.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-megatron.webp" alt="メガトロンの顔アイコン" loading="lazy"><span class="hn">メガトロン</span><span class="hm">★6・内政</span></a><a href="hero-valeria.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-valeria.webp" alt="ヴァレリアの顔アイコン" loading="lazy"><span class="hn">ヴァレリア</span><span class="hm">★6・内政</span></a><a href="hero-ashley-graham.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-ashley-graham.webp" alt="アシュリー・グラハムの顔アイコン" loading="lazy"><span class="hn">アシュリー・グラハム</span><span class="hm">★6・内政</span></a><a href="hero-tomoyo.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-tomoyo.webp" alt="知世の顔アイコン" loading="lazy"><span class="hn">知世</span><span class="hm">★5・ファイター</span></a><a href="hero-marlowe.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-marlowe.webp" alt="マットの顔アイコン" loading="lazy"><span class="hn">マット</span><span class="hm">★5・ライダー</span></a><a href="hero-wali.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-wali.webp" alt="ワリの顔アイコン" loading="lazy"><span class="hn">ワリ</span><span class="hm">★5・ライダー</span></a><a href="hero-agent-x.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-agent-x.webp" alt="アマンダの顔アイコン" loading="lazy"><span class="hn">アマンダ</span><span class="hm">★5・内政</span></a><a href="hero-eva.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-eva.webp" alt="エヴァの顔アイコン" loading="lazy"><span class="hn">エヴァ</span><span class="hm">★5・内政</span></a><a href="hero-atropos.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-atropos.webp" alt="アイリスの顔アイコン" loading="lazy"><span class="hn">アイリス</span><span class="hm">★5・内政</span></a><a href="hero-lorren.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-lorren.webp" alt="ローレン・スミスの顔アイコン" loading="lazy"><span class="hn">ローレン・スミス</span><span class="hm">★5・内政</span></a><a href="hero-finesse.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-finesse.webp" alt="フィネスの顔アイコン" loading="lazy"><span class="hn">フィネス</span><span class="hm">★4・内政</span></a><a href="hero-iraia.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-iraia.webp" alt="イライアの顔アイコン" loading="lazy"><span class="hn">イライア</span><span class="hm">★4・内政</span></a><a href="hero-zelus.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-zelus.webp" alt="ゼルスの顔アイコン" loading="lazy"><span class="hn">ゼルス</span><span class="hm">★3・ライダー</span></a><a href="hero-ira.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-ira.webp" alt="イラの顔アイコン" loading="lazy"><span class="hn">イラ</span><span class="hm">★3・内政</span></a><a href="hero-sabes.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-sabes.webp" alt="サベスの顔アイコン" loading="lazy"><span class="hn">サベス</span><span class="hm">★2・内政</span></a></div><div class="sub">同じ兵種（内政）の英雄</div><div class="hgrid"><a href="hero-sembello.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-sembello.webp" alt="センベロの顔アイコン" loading="lazy"><span class="hn">センベロ</span><span class="hm">★6・内政</span></a><a href="hero-ray-ramos.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-ray-ramos.webp" alt="レイ・ルイスの顔アイコン" loading="lazy"><span class="hn">レイ・ルイス</span><span class="hm">★6・内政</span></a><a href="hero-ginny.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-ginny.webp" alt="ジェニーの顔アイコン" loading="lazy"><span class="hn">ジェニー</span><span class="hm">★6・内政</span></a><a href="hero-edward-teach.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-edward-teach.webp" alt="エドワード・ティーチの顔アイコン" loading="lazy"><span class="hn">エドワード・ティーチ</span><span class="hm">★6・内政</span></a><a href="hero-starscream.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-starscream.webp" alt="スタースクリームの顔アイコン" loading="lazy"><span class="hn">スタースクリーム</span><span class="hm">★6・内政</span></a><a href="hero-lilian.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-lilian.webp" alt="リリアンの顔アイコン" loading="lazy"><span class="hn">リリアン</span><span class="hm">★6・内政</span></a><a href="hero-hanna.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-hanna.webp" alt="ハンナの顔アイコン" loading="lazy"><span class="hn">ハンナ</span><span class="hm">★6・内政</span></a><a href="hero-alexander.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-alexander.webp" alt="アレクサンダーの顔アイコン" loading="lazy"><span class="hn">アレクサンダー</span><span class="hm">★6・内政</span></a><a href="hero-luna.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-luna.webp" alt="ルナの顔アイコン" loading="lazy"><span class="hn">ルナ</span><span class="hm">★6・内政</span></a><a href="hero-marcus.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-marcus.webp" alt="マーカスの顔アイコン" loading="lazy"><span class="hn">マーカス</span><span class="hm">★6・内政</span></a><a href="hero-optimus-prime.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-optimus-prime.webp" alt="オプティマスプライムの顔アイコン" loading="lazy"><span class="hn">オプティマスプライム</span><span class="hm">★6・内政</span></a><a href="hero-bumblebee.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-bumblebee.webp" alt="バンブルビーの顔アイコン" loading="lazy"><span class="hn">バンブルビー</span><span class="hm">★6・内政</span></a><a href="hero-amelia.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-amelia.webp" alt="エイミーの顔アイコン" loading="lazy"><span class="hn">エイミー</span><span class="hm">★6・内政</span></a><a href="hero-megatron.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-megatron.webp" alt="メガトロンの顔アイコン" loading="lazy"><span class="hn">メガトロン</span><span class="hm">★6・内政</span></a><a href="hero-valeria.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-valeria.webp" alt="ヴァレリアの顔アイコン" loading="lazy"><span class="hn">ヴァレリア</span><span class="hm">★6・内政</span></a><a href="hero-leon-s-kennedy.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-leon-s-kennedy.webp" alt="レオン・S・ケネディの顔アイコン" loading="lazy"><span class="hn">レオン・S・ケネディ</span><span class="hm">★6・内政</span></a><a href="hero-claire-redfield.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-claire-redfield.webp" alt="クレア・レッドフィールドの顔アイコン" loading="lazy"><span class="hn">クレア・レッドフィールド</span><span class="hm">★6・内政</span></a><a href="hero-ada-wong.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-ada-wong.webp" alt="エイダ・ウォンの顔アイコン" loading="lazy"><span class="hn">エイダ・ウォン</span><span class="hm">★6・内政</span></a><a href="hero-ashley-graham.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-ashley-graham.webp" alt="アシュリー・グラハムの顔アイコン" loading="lazy"><span class="hn">アシュリー・グラハム</span><span class="hm">★6・内政</span></a><a href="hero-samuel.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-samuel.webp" alt="サミュエルの顔アイコン" loading="lazy"><span class="hn">サミュエル</span><span class="hm">★5・内政</span></a><a href="hero-scarlett.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-scarlett.webp" alt="スカーレットの顔アイコン" loading="lazy"><span class="hn">スカーレット</span><span class="hm">★5・内政</span></a><a href="hero-marios.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-marios.webp" alt="マリオスの顔アイコン" loading="lazy"><span class="hn">マリオス</span><span class="hm">★5・内政</span></a><a href="hero-leah.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-leah.webp" alt="リアの顔アイコン" loading="lazy"><span class="hn">リア</span><span class="hm">★5・内政</span></a><a href="hero-levina.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-levina.webp" alt="アンナの顔アイコン" loading="lazy"><span class="hn">アンナ</span><span class="hm">★5・内政</span></a><a href="hero-chia-hao.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-chia-hao.webp" alt="翔太の顔アイコン" loading="lazy"><span class="hn">翔太</span><span class="hm">★5・内政</span></a><a href="hero-ironclaw.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-ironclaw.webp" alt="ローダンの顔アイコン" loading="lazy"><span class="hn">ローダン</span><span class="hm">★5・内政</span></a><a href="hero-mantis.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-mantis.webp" alt="マークの顔アイコン" loading="lazy"><span class="hn">マーク</span><span class="hm">★5・内政</span></a><a href="hero-lady-m.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-lady-m.webp" alt="アイディーの顔アイコン" loading="lazy"><span class="hn">アイディー</span><span class="hm">★5・内政</span></a><a href="hero-lee.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-lee.webp" alt="リィーの顔アイコン" loading="lazy"><span class="hn">リィー</span><span class="hm">★5・内政</span></a><a href="hero-wuxin.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-wuxin.webp" alt="無心の顔アイコン" loading="lazy"><span class="hn">無心</span><span class="hm">★5・内政</span></a><a href="hero-ayane.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-ayane.webp" alt="綾音の顔アイコン" loading="lazy"><span class="hn">綾音</span><span class="hm">★5・内政</span></a><a href="hero-agent-x.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-agent-x.webp" alt="アマンダの顔アイコン" loading="lazy"><span class="hn">アマンダ</span><span class="hm">★5・内政</span></a><a href="hero-eva.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-eva.webp" alt="エヴァの顔アイコン" loading="lazy"><span class="hn">エヴァ</span><span class="hm">★5・内政</span></a><a href="hero-atropos.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-atropos.webp" alt="アイリスの顔アイコン" loading="lazy"><span class="hn">アイリス</span><span class="hm">★5・内政</span></a><a href="hero-lorren.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-lorren.webp" alt="ローレン・スミスの顔アイコン" loading="lazy"><span class="hn">ローレン・スミス</span><span class="hm">★5・内政</span></a><a href="hero-otto.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-otto.webp" alt="オットーの顔アイコン" loading="lazy"><span class="hn">オットー</span><span class="hm">★4・内政</span></a><a href="hero-finesse.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-finesse.webp" alt="フィネスの顔アイコン" loading="lazy"><span class="hn">フィネス</span><span class="hm">★4・内政</span></a><a href="hero-iraia.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-iraia.webp" alt="イライアの顔アイコン" loading="lazy"><span class="hn">イライア</span><span class="hm">★4・内政</span></a><a href="hero-elwin.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-elwin.webp" alt="エルウィンの顔アイコン" loading="lazy"><span class="hn">エルウィン</span><span class="hm">★3・内政</span></a><a href="hero-marshall.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-marshall.webp" alt="マーシャルの顔アイコン" loading="lazy"><span class="hn">マーシャル</span><span class="hm">★3・内政</span></a><a href="hero-bourbon.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-bourbon.webp" alt="バーボンの顔アイコン" loading="lazy"><span class="hn">バーボン</span><span class="hm">★3・内政</span></a><a href="hero-ira.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-ira.webp" alt="イラの顔アイコン" loading="lazy"><span class="hn">イラ</span><span class="hm">★3・内政</span></a><a href="hero-mr-chen.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-mr-chen.webp" alt="Mr.陳の顔アイコン" loading="lazy"><span class="hn">Mr.陳</span><span class="hm">★2・内政</span></a><a href="hero-sabes.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-sabes.webp" alt="サベスの顔アイコン" loading="lazy"><span class="hn">サベス</span><span class="hm">★2・内政</span></a></div></div></div></div></div><div class="sec"><div class="sec-head"><h2>あわせて確認したい関連ページ</h2></div><div class="rel2"><a class="rel2-cell" href="eiyu-list.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/hero-mars.webp" alt="全英雄一覧" loading="lazy"><span>全英雄一覧</span></a><a class="rel2-cell" href="hero-search.html"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/img/ui-hero-bag.webp" alt="英雄検索" loading="lazy"><span>英雄検索</span></a></div></div>
+<div class="blk"><a class="more-link" href="eiyu-list.html"><span class="tri">◀</span>全英雄一覧へ戻る</a></div>
+<div class="blk"><a class="more-link" href="hero-search.html"><span class="tri">◀</span>英雄検索で探す</a><a class="more-link" href="index.html"><span class="tri">◀</span>パズル＆サバイバル攻略トップへ戻る</a></div>
+</main>
+<footer class="footer">
+  <div class="flinks"><a href="/mea-game-poikatsu/games/">ゲーム一覧</a><a href="/mea-game-poikatsu/#ranking">ポイントが高い順</a><a href="/mea-game-poikatsu/how-to-read/">案件条件の見方</a><a href="/mea-game-poikatsu/editorial-policy/">編集方針</a><a href="/mea-game-poikatsu/about/">このサイトについて</a></div>
+  <p class="disc">当サイトは、ポイントサイト各社の紹介プログラムに参加しています。記事内のリンクを経由してサービスに登録・利用された場合、当サイトに紹介料が支払われることがあります。掲載しているポイント数・条件・期限は、各サービスの公式ページで確認した時点の情報です。参加前に必ず公式ページで最新の条件をご確認ください。</p>
+  <p class="copy">© ポイゲークエスト（ポイ活ゲーム攻略Wiki）</p>
+</footer>
+</div>
+<!-- 追従バナー -->
+<div class="sticky-cta" id="stickyCta">
+  <a class="sticky-cta-bar" href="https://hapitas.jp/appinvite?i=26164523" target="_blank" rel="noopener">
+    <span class="sticky-cta-bubble">＼ 今すぐチェック ／</span>
+    <span class="sparkle s1">✦</span><span class="sparkle s2">✦</span><span class="sparkle s3">✦</span><span class="sparkle s4">✦</span>
+    <span class="sticky-cta-text">【パズサバ】最大42,530円のポイントGET</span>
+    <span class="sticky-cta-arrow">›</span>
+  </a>
+</div>
+<script>
+document.querySelectorAll('.acc>button').forEach(function(b){b.addEventListener('click',function(){var acc=b.parentElement,open=acc.classList.toggle('open');b.querySelector('.pm').textContent=open?'－':'＋';});});
+
+// 追従バナー：スクロール割合が50%を超えたら色を変える
+var stickyCta=document.getElementById('stickyCta');
+function stickyCtaUpdate(){
+  if(!stickyCta)return;
+  var max=document.documentElement.scrollHeight-window.innerHeight;
+  var ratio=max>0?window.scrollY/max:0;
+  stickyCta.classList.toggle('alt',ratio>0.5);
+}
+window.addEventListener('scroll',stickyCtaUpdate,{passive:true});
+window.addEventListener('resize',stickyCtaUpdate);
+stickyCtaUpdate();
+</script>
+<script>document.querySelectorAll('.tocbtn').forEach(function(b){b.addEventListener('click',function(){var n=b.nextElementSibling;var c=n.classList.toggle('toc-closed');b.setAttribute('aria-expanded',String(!c));b.childNodes[0].textContent=c?'\u76ee\u6b21\u3092\u958b\u304f':'\u76ee\u6b21\u3092\u9589\u3058\u308b';b.querySelector('.pm').textContent=c?'\uff0b':'\uff0d';});});</script>
+<script>(function(){var host=document.querySelector('.header-icons');if(!host)return;var cur=document.documentElement.getAttribute('data-theme')||'light';var d=document.createElement('div');d.className='theme-toggle';d.setAttribute('role','button');d.setAttribute('tabindex','0');d.setAttribute('aria-label','表示テーマを切り替える');function draw(){d.innerHTML='<span class="ic">'+(cur==='dark'?'☀️':'🌙')+'</span>テーマ';}function flip(){cur=(cur==='dark')?'light':'dark';document.documentElement.setAttribute('data-theme',cur);try{localStorage.setItem('poigame-theme',cur);}catch(e){}draw();}draw();d.addEventListener('click',flip);d.addEventListener('keydown',function(ev){if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();flip();}});host.appendChild(d);})();</script>
+</body></html>
