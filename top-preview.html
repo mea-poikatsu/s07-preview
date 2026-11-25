@@ -35,11 +35,12 @@ h2 .h2sub{font-size:11.5px;font-weight:400;color:#cfe0f2}
 .car-main img{width:72px;height:72px;border-radius:16px;margin-bottom:8px}
 .car-name{font-weight:700;font-size:15.5px;line-height:1.4;display:block}
 .badges{display:flex;flex-wrap:wrap;gap:5px;margin:9px 0}
-.bd{font-size:11.5px;font-weight:700;border-radius:6px;padding:2px 8px}
-.bd-pt{background:var(--navy);color:#fff}
-.bd-svc{background:var(--lblue);color:#2F5F8F}
-.bd-dl{background:var(--warn);color:#8a5a12}
-.bd-boost{background:#fde8e4;color:#b3352b}
+.bd{font-size:11px;font-weight:800;border-radius:10px;padding:2px 8px;line-height:1.6;white-space:nowrap}
+.bd-pt{background:var(--navy);color:#fff;border:1px solid var(--navy)}
+.bd-svc{background:#eaf2fc;color:#2f5f8f;border:1px solid #bcd6f2}
+.bd-dl{background:#fff4e0;color:#a35b00;border:1px solid #f2cf8f}
+.bd-boost{background:#e6f4ea;color:#137333;border:1px solid #a3d9b1}
+.bd-new{background:#fff1de;color:#e05e00;border:1px solid #f5cf9f}
 .cta{display:block;text-align:center;background:linear-gradient(180deg,#ff8a3d,#ff6900);color:#fff;font-weight:800;border-radius:999px;padding:10px 12px;font-size:14px;box-shadow:0 3px 0 #d15400}
 .ad{border:2px dashed #b9c8d8;border-radius:10px;background:#f6f9fc;color:#7b8ea3;text-align:center;padding:20px 10px;font-size:12.5px}
 .ad b{display:block;font-size:13px;letter-spacing:.25em;color:#5a6a7d;margin-bottom:4px}
@@ -68,13 +69,15 @@ ol.rank{list-style:none;margin:0;padding:0}
 ul.news{list-style:none;margin:0;padding:0}
 .news-row{display:flex;gap:9px;align-items:flex-start;padding:10px 2px;border-bottom:1px solid #eef3f8;color:var(--ink)}
 .tag{flex:0 0 auto;font-size:11px;font-weight:800;border-radius:6px;padding:2px 8px;margin-top:2px}
-.tag-add{background:var(--green);color:#1d6b45}
-.tag-chg{background:var(--warn);color:#8a5a12}
+.tag-add{background:#e6f4ea;color:#137333;border:1px solid #a3d9b1}
+.tag-chg{background:#fff4e0;color:#a35b00;border:1px solid #f2cf8f}
 .news-main{display:flex;flex-direction:column}
 .news-date{font-size:11.5px;color:var(--mut)}
 .news-title{font-size:14px;font-weight:600;line-height:1.5}
-.banners{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.banner{border-radius:12px;padding:16px 13px;color:#fff;font-weight:800;font-size:14.5px;line-height:1.45;min-height:74px;display:flex;align-items:center}
+.feats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.feat{display:block;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff;color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.feat .band{height:52px;display:flex;align-items:center;padding:0 12px;color:#fff;font-weight:800;font-size:14px;line-height:1.4}
+.feat .fdesc{display:block;font-size:11.5px;color:var(--mut);padding:7px 10px 9px;line-height:1.5}
 .b1{background:linear-gradient(135deg,#3977B8,#172B49)}.b2{background:linear-gradient(135deg,#5b8c5a,#2e4a2d)}.b3{background:linear-gradient(135deg,#8a6d3b,#5e4512)}.b4{background:linear-gradient(135deg,#7a5ba6,#463a75)}.b5{background:linear-gradient(135deg,#2F5F8F,#172B49)}.b6{background:linear-gradient(135deg,#b35c7a,#6e2f47)}
 ul.allgames{columns:2;list-style:none;margin:0;padding:0;font-size:13.5px}
 ul.allgames li{padding:5px 0;border-bottom:1px solid #f0f4f8;break-inside:avoid}
@@ -97,6 +100,25 @@ footer.site li{padding:3px 0}
 footer.site .desc{font-size:11.5px;color:#93a9c2;line-height:1.7;margin-top:16px}
 footer.site .sns{font-size:12.5px;display:flex;gap:14px;flex-wrap:wrap;margin-top:6px}
 .copy{text-align:center;font-size:11.5px;color:#7e93ab;margin-top:16px}
+.stats{display:flex;gap:8px;margin:12px 0 4px}
+.stat{flex:1;background:#f4f8fc;border:1px solid var(--line);border-radius:10px;padding:10px 4px;text-align:center}
+.stat .n{font-size:20px;font-weight:900;color:var(--navy);line-height:1.25}
+.stat .n small{font-size:11.5px;font-weight:800}
+.stat .l{font-size:10.5px;color:var(--mut);font-weight:700;margin-top:2px;line-height:1.4}
+.fig{margin:12px 0 4px}
+.fig img{width:100%;height:auto;display:block;border-radius:10px}
+.flow{display:flex;align-items:stretch;gap:3px;padding:10px 0 4px}
+.fbox{flex:1;border:1.5px solid #ffb066;background:#fff8f0;border-radius:6px;padding:7px 4px;font-size:11.5px;font-weight:800;text-align:center;color:#333;display:flex;align-items:center;justify-content:center;line-height:1.45}
+.farr{flex:none;align-self:center;color:#ff6900;font-weight:900;font-size:11px}
+.hook{background:#EAF2FC;border:1px solid #c9def2;border-radius:8px;padding:10px 12px;margin:10px 0 2px;font-size:12.5px;line-height:1.75;color:#333}
+.bars{margin:4px 0 10px}
+.bar-row{margin:9px 0}
+.bar-name{font-size:12px;font-weight:700;color:#333;margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar-line{display:flex;align-items:center;gap:8px}
+.bar-track{flex:1;background:#f0f0f0;border-radius:4px;height:16px;overflow:hidden}
+.bar-fill{height:100%;background:#3977b8;border-radius:4px}
+.bar-fill.top{background:#ff6900}
+.bar-val{flex:none;font-size:13px;font-weight:900;color:#333}
 .note{font-size:11.5px;color:var(--mut);margin-top:6px}
 </style>
 </head>
@@ -109,6 +131,19 @@ footer.site .sns{font-size:12.5px;display:flex;gap:14px;flex-wrap:wrap;margin-to
 <section class="blk" style="margin-top:6px">
   <h1>ポイ活ゲーム攻略Wiki「ポイゲークエスト」</h1>
   <p class="lead">ポイ活ゲームの攻略情報と案件条件を、ゲームごとにまとめたWikiです。どのポイントサイトに載っているか、最大で何ポイントもらえるか、条件の期限はいつまでか。始める前に比べられるよう、案件情報を台帳で管理して掲載しています。</p>
+  <div class="stats">
+    <div class="stat"><div class="n">33</div><div class="l">掲載ゲーム</div></div>
+    <div class="stat"><div class="n">83</div><div class="l">掲載中の案件</div></div>
+    <div class="stat"><div class="n">380,497<small>P</small></div><div class="l">最高額の案件（天地英雄伝）</div></div>
+  </div>
+  <figure class="fig"><img src="img/inf-top-shikumi.webp" alt="ポイ活ゲームの仕組みの図解。案件を探す、経由して始める、遊んで達成、ポイントが付くの4ステップ" loading="lazy" onerror="this.closest('.fig').style.display='none'"></figure>
+  <div class="flow">
+    <a class="fbox" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/">案件を探す</a><span class="farr">▶</span>
+    <a class="fbox" href="https://mea-poikatsu.github.io/mea-game-poikatsu/how-to-read/">経由して始める</a><span class="farr">▶</span>
+    <a class="fbox" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/">遊んで達成</a><span class="farr">▶</span>
+    <a class="fbox" href="https://mea-poikatsu.github.io/mea-game-poikatsu/how-to-read/">ポイントが付く</a>
+  </div>
+  <div class="hook">案件は、ポイントサイトを経由したインストールが起点です。先にゲームを始めてしまうと、後から案件の対象にできない場合があります。始める前に、各ゲームページで条件と期限を確認してください。</div>
 </section>
 
 <section class="blk">
@@ -154,6 +189,8 @@ footer.site .sns{font-size:12.5px;display:flex;gap:14px;flex-wrap:wrap;margin-to
 
 <section class="blk" id="ranking">
   <h2>ポイ活ゲームランキング</h2>
+  <p class="note" style="margin:0 0 2px">最大ポイントの比較（上位5ゲーム）</p>
+  <div class="bars"><div class="bar-row"><div class="bar-name">1位：天地英雄伝</div><div class="bar-line"><div class="bar-track"><div class="bar-fill top" style="width:100%"></div></div><div class="bar-val">最大380,497P</div></div></div><div class="bar-row"><div class="bar-name">2位：Slot Mate - 3Dスロットカジノゲーム</div><div class="bar-line"><div class="bar-track"><div class="bar-fill" style="width:50%"></div></div><div class="bar-val">最大188,976P</div></div></div><div class="bar-row"><div class="bar-name">3位：ロックンキャッシュカジノ-スロットゲーム</div><div class="bar-line"><div class="bar-track"><div class="bar-fill" style="width:39%"></div></div><div class="bar-val">最大146,639P</div></div></div><div class="bar-row"><div class="bar-name">4位：ザ・グランドマフィア</div><div class="bar-line"><div class="bar-track"><div class="bar-fill" style="width:30%"></div></div><div class="bar-val">最大112,906P</div></div></div><div class="bar-row"><div class="bar-name">5位：Wild Survival</div><div class="bar-line"><div class="bar-track"><div class="bar-fill" style="width:17%"></div></div><div class="bar-val">最大65,832pt</div></div></div></div>
   <div class="tabs">
     <button class="tab on" data-t="points">ポイントが高い順</button>
     <button class="tab" data-t="new">新着順</button>
@@ -186,13 +223,13 @@ footer.site .sns{font-size:12.5px;display:flex;gap:14px;flex-wrap:wrap;margin-to
 
 <section class="blk">
   <h2>特集・入口</h2>
-  <div class="banners">
-    <a class="banner b1" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/">パズルゲームの案件</a>
-    <a class="banner b2" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/">放置ゲームの案件</a>
-    <a class="banner b3" href="https://mea-poikatsu.github.io/mea-game-poikatsu/how-to-read/">ステップアップ案件の見方</a>
-    <a class="banner b4" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/">ギフトコードがあるゲーム</a>
-    <a class="banner b5" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/">全ゲーム一覧</a>
-    <a class="banner b6" href="https://mea-poikatsu.github.io/mea-game-poikatsu/how-to-read/">ポイ活の仕組みと注意点</a>
+  <div class="feats">
+    <a class="feat" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/"><span class="band b1">パズルゲームの案件</span><span class="fdesc">パズル系の案件を一覧で見比べられます</span></a>
+    <a class="feat" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/"><span class="band b2">放置ゲームの案件</span><span class="fdesc">放置系の案件を一覧で見比べられます</span></a>
+    <a class="feat" href="https://mea-poikatsu.github.io/mea-game-poikatsu/how-to-read/"><span class="band b3">ステップアップ案件の見方</span><span class="fdesc">段階ごとにポイントが付く案件の確認ポイント</span></a>
+    <a class="feat" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/"><span class="band b4">ギフトコードがあるゲーム</span><span class="fdesc">コードを入力して特典がもらえるゲーム</span></a>
+    <a class="feat" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/"><span class="band b5">全ゲーム一覧</span><span class="fdesc">掲載中の全ゲームをまとめて確認できます</span></a>
+    <a class="feat" href="https://mea-poikatsu.github.io/mea-game-poikatsu/how-to-read/"><span class="band b6">ポイ活の仕組みと注意点</span><span class="fdesc">始める前に知っておきたい条件と期限の話</span></a>
   </div>
 </section>
 
@@ -203,7 +240,7 @@ footer.site .sns{font-size:12.5px;display:flex;gap:14px;flex-wrap:wrap;margin-to
 
 <section class="blk">
   <h2>新しく案件が付いたゲーム</h2>
-  <div class="rail"><a class="rail-card2" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/gourmet-journey/"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/55/f2/33/55f2336f-731c-e1b0-69fc-eab959bc0b5b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="グルメ・ジャーニー(Tasty Travels)のアイコン" loading="lazy"><span class="rail-name">グルメ・ジャーニー(Tasty Travels)</span><span class="rail-sub">最大10,698pt／ハピタス</span></a><a class="rail-card2" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/the-ants/"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/82/41/e3/8241e357-1044-687a-981b-aea8bcfe6a99/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="ザ・アンツのアイコン" loading="lazy"><span class="rail-name">ザ・アンツ</span><span class="rail-sub">最大9,839pt／ハピタス</span></a><a class="rail-card2" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/whiteout-survival/"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e6/9e/98/e69e9840-fa2b-7b53-c7f9-75a75021de26/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="ホワイトアウト・サバイバルのアイコン" loading="lazy"><span class="rail-name">ホワイトアウト・サバイバル</span><span class="rail-sub">最大10,209pt／ハピタス</span></a><a class="rail-card2" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/color-link/"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/81/87/cc/8187cc0c-f6f3-1ea7-8046-55911265483d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="Color Linkのアイコン" loading="lazy"><span class="rail-name">Color Link</span><span class="rail-sub">最大10,453pt／ハピタス</span></a><a class="rail-card2" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/tenchi-eiyuden/"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d1/90/90/d19090d4-372c-ba4c-0fcf-ca2c353d1a65/AppIcon-1x_U007emarketing-0-4-85-220-0.png/512x512bb.jpg" alt="天地英雄伝のアイコン" loading="lazy"><span class="rail-name">天地英雄伝</span><span class="rail-sub">最大380,497P／モッピー</span></a><a class="rail-card2" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/rock-n-cash-casino/"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/9a/88/7d/9a887da9-f5e1-ed8c-be1a-70c9dd1bc76c/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg" alt="ロックンキャッシュカジノ-スロットゲームのアイコン" loading="lazy"><span class="rail-name">ロックンキャッシュカジノ-スロットゲーム</span><span class="rail-sub">最大146,639P／モッピー</span></a><a class="rail-card2" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/western-farm-klondike/"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f2/00/14/f200143d-09c3-0c2b-a79c-f9bbe1551038/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="ウエスタン農場 - クロンダイクの冒険のアイコン" loading="lazy"><span class="rail-name">ウエスタン農場 - クロンダイクの冒険</span><span class="rail-sub">最大14,000pt／ワラウ</span></a><a class="rail-card2" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/merge-cooking/"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f2/39/9f/f2399f90-7d4d-9c08-ff6e-8d706a02f5c1/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="Merge Cooking®のアイコン" loading="lazy"><span class="rail-name">Merge Cooking®</span><span class="rail-sub">最大15,280pt／ワラウ</span></a></div>
+  <div class="rail"><a class="rail-card2" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/gourmet-journey/"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/55/f2/33/55f2336f-731c-e1b0-69fc-eab959bc0b5b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="グルメ・ジャーニー(Tasty Travels)のアイコン" loading="lazy"><span class="rail-name">グルメ・ジャーニー(Tasty Travels)</span><span class="rail-sub">最大10,698pt／ハピタス</span><span class="bd bd-new" style="margin-top:6px">NEW</span></a><a class="rail-card2" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/the-ants/"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/82/41/e3/8241e357-1044-687a-981b-aea8bcfe6a99/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="ザ・アンツのアイコン" loading="lazy"><span class="rail-name">ザ・アンツ</span><span class="rail-sub">最大9,839pt／ハピタス</span><span class="bd bd-new" style="margin-top:6px">NEW</span></a><a class="rail-card2" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/whiteout-survival/"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e6/9e/98/e69e9840-fa2b-7b53-c7f9-75a75021de26/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="ホワイトアウト・サバイバルのアイコン" loading="lazy"><span class="rail-name">ホワイトアウト・サバイバル</span><span class="rail-sub">最大10,209pt／ハピタス</span><span class="bd bd-new" style="margin-top:6px">NEW</span></a><a class="rail-card2" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/color-link/"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/81/87/cc/8187cc0c-f6f3-1ea7-8046-55911265483d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="Color Linkのアイコン" loading="lazy"><span class="rail-name">Color Link</span><span class="rail-sub">最大10,453pt／ハピタス</span><span class="bd bd-new" style="margin-top:6px">NEW</span></a><a class="rail-card2" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/tenchi-eiyuden/"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d1/90/90/d19090d4-372c-ba4c-0fcf-ca2c353d1a65/AppIcon-1x_U007emarketing-0-4-85-220-0.png/512x512bb.jpg" alt="天地英雄伝のアイコン" loading="lazy"><span class="rail-name">天地英雄伝</span><span class="rail-sub">最大380,497P／モッピー</span><span class="bd bd-new" style="margin-top:6px">NEW</span></a><a class="rail-card2" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/rock-n-cash-casino/"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/9a/88/7d/9a887da9-f5e1-ed8c-be1a-70c9dd1bc76c/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg" alt="ロックンキャッシュカジノ-スロットゲームのアイコン" loading="lazy"><span class="rail-name">ロックンキャッシュカジノ-スロットゲーム</span><span class="rail-sub">最大146,639P／モッピー</span><span class="bd bd-new" style="margin-top:6px">NEW</span></a><a class="rail-card2" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/western-farm-klondike/"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f2/00/14/f200143d-09c3-0c2b-a79c-f9bbe1551038/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="ウエスタン農場 - クロンダイクの冒険のアイコン" loading="lazy"><span class="rail-name">ウエスタン農場 - クロンダイクの冒険</span><span class="rail-sub">最大14,000pt／ワラウ</span><span class="bd bd-new" style="margin-top:6px">NEW</span></a><a class="rail-card2" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/merge-cooking/"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f2/39/9f/f2399f90-7d4d-9c08-ff6e-8d706a02f5c1/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="Merge Cooking®のアイコン" loading="lazy"><span class="rail-name">Merge Cooking®</span><span class="rail-sub">最大15,280pt／ワラウ</span><span class="bd bd-new" style="margin-top:6px">NEW</span></a></div>
 </section>
 
 <section class="blk">
