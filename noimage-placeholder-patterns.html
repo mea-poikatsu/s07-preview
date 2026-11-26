@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>画像なし表示「情報提供待ち」3案プレビュー｜ポイゲークエスト</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f4f1ec;color:#333;font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",sans-serif;-webkit-text-size-adjust:100%}
+.page{max-width:480px;margin:0 auto;background:#fff;min-height:100vh}
+header{padding:18px 16px 10px;border-bottom:3px solid #b57e14}
+header h1{font-size:19px;margin:0 0 6px;line-height:1.4}
+header p{font-size:12.5px;color:#666;margin:0;line-height:1.7}
+.sec{padding:16px 0 6px}
+.sec-head{padding:0 16px}
+.sec-head h2{font-size:16px;margin:0 0 4px}
+.sec-head p{font-size:12px;color:#666;margin:0 0 8px;line-height:1.7}
+.ctx{font-size:11px;font-weight:800;color:#8a5f0c;padding:8px 16px 2px}
+.note{font-size:11.5px;color:#888;padding:4px 16px 10px;line-height:1.7}
+
+/* 現行の頭文字表示（再現） */
+.icongrid{display:grid;gap:10px 8px;padding:2px 12px 4px;grid-template-columns:repeat(4,1fr)}
+.icongrid .ig-item{display:block;text-decoration:none;color:#444}
+.icongrid .ig-item img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:top center;border-radius:12px;display:block;background:#eef3f9}
+.icongrid .ig-noimg{display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;border-radius:12px;background:linear-gradient(135deg,#dcebfb,#f2f7fd);color:#3977b8}
+.icongrid .ig-noimg span{font-size:26px;font-weight:900;opacity:.5}
+.icongrid .ig-label{font-size:11.5px;font-weight:800;text-align:center;margin-top:4px;line-height:1.3}
+.icongrid .ig-sub{font-size:10px;color:#999;text-align:center;line-height:1.3}
+
+/* ===== 案A シンプル型（キングショット金テーマ） ===== */
+.a-cell{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;aspect-ratio:1/1;border-radius:12px;background:#faf0da;border:1px solid #e3b959;color:#8a5f0c;text-align:center;padding:6px 4px}
+.a-cell .a-txt{font-size:10.5px;font-weight:800;line-height:1.45}
+.a-cell .a-btn{font-size:10px;font-weight:800;color:#fff;background:linear-gradient(180deg,#d99a26,#b57e14);border-radius:999px;padding:4px 10px;text-decoration:none;box-shadow:0 1px 3px rgba(124,86,10,.35)}
+.a-keyart{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;aspect-ratio:16/9;margin:2px 12px 4px;border-radius:12px;background:#faf0da;border:1px solid #e3b959;color:#8a5f0c;text-align:center;padding:10px}
+.a-keyart .a-txt{font-size:13px;font-weight:800}
+.a-keyart .a-btn{font-size:12px;font-weight:800;color:#fff;background:linear-gradient(180deg,#d99a26,#b57e14);border-radius:999px;padding:7px 18px;text-decoration:none;box-shadow:0 1px 3px rgba(124,86,10,.35)}
+.a-herohead{display:flex;gap:12px;padding:2px 12px 4px;align-items:flex-start}
+.a-herohead .a-cell{width:96px;flex:none;aspect-ratio:1/1}
+.a-herohead .hh-body{flex:1;min-width:0}
+.a-herohead .hh-name{font-size:17px;font-weight:900;margin:2px 0 4px}
+.a-herohead .hh-meta{font-size:11.5px;color:#777;line-height:1.6}
+
+/* ===== 案B 呼びかけ型 ===== */
+.b-card{margin:2px 12px 4px;border:1.5px solid #e3b959;border-radius:14px;background:#fdf6e7;padding:14px;text-align:center}
+.b-card .b-ttl{font-size:14.5px;font-weight:900;color:#8a5f0c;margin:0 0 6px}
+.b-card .b-txt{font-size:12px;line-height:1.8;color:#5c4a26;margin:0 0 10px}
+.b-card .b-btn{display:inline-block;font-size:13px;font-weight:800;color:#fff;background:linear-gradient(180deg,#d99a26,#b57e14);border-radius:999px;padding:9px 22px;text-decoration:none;box-shadow:0 2px 5px rgba(124,86,10,.35)}
+.b-herohead{display:flex;gap:12px;padding:2px 12px 4px;align-items:flex-start}
+.b-herohead .b-ph{width:96px;flex:none;aspect-ratio:1/1;border-radius:12px;background:#faf0da;border:1.5px dashed #e3b959;display:flex;align-items:center;justify-content:center;color:#8a5f0c;font-size:10.5px;font-weight:800;text-align:center;line-height:1.5;padding:6px}
+.b-herohead .hh-body{flex:1;min-width:0}
+.b-herohead .hh-name{font-size:17px;font-weight:900;margin:2px 0 4px}
+.b-herohead .hh-meta{font-size:11.5px;color:#777;line-height:1.6}
+
+/* ===== 案C 一覧向け小型型 ===== */
+.c-cell{position:relative;display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;border-radius:12px;background:#fdf6e7;border:1.5px dashed #e3b959;text-decoration:none}
+.c-badge{font-size:10px;font-weight:800;color:#8a5f0c;background:#fbeed3;border:1px solid #e3b959;border-radius:999px;padding:3px 9px}
+.c-cell.crimson{background:#fdf1f0;border-color:#e5a09b}
+.c-cell.crimson .c-badge{color:#a02620;background:#fbe3e1;border-color:#e5a09b}
+.c-cell.navy{background:#f2f7fd;border-color:#bcd6f2}
+.c-cell.navy .c-badge{color:#3977b8;background:#eaf2fc;border-color:#bcd6f2}
+footer{padding:18px 16px 28px;font-size:11.5px;color:#999;line-height:1.8}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+<h1>画像がない箇所の表示 ― 「情報提供待ち」3案</h1>
+<p>画像がまだ無い箇所で、名前の頭文字だけを表示する今の形をやめて、「情報提供待ち」の表示に替えるためのデザイン案です。色はゲームごとのテーマ色に合わせて変わります（ここではキングショットの金色で表示）。ボタンは各ゲームの情報提供ページへつながります。</p>
+</header>
+
+<!-- 現行 -->
+<section class="sec">
+<div class="sec-head"><h2>現行：頭文字1文字の表示</h2>
+<p>英雄一覧のグリッドで、画像が無い英雄は名前の頭文字だけが表示されています（ローザ／アルカーのセル）。</p></div>
+<div class="icongrid">
+<a class="ig-item" href="#"><img src="https://www.kingshotguide.com/heroes/jabel.webp" alt="ジェベル" width="144" height="144"><div class="ig-label">ジェベル</div><div class="ig-sub">Gen1・騎兵</div></a>
+<a class="ig-item" href="#"><img src="https://www.centurygames.com/wp-content/uploads/2025/04/helgachar.png" alt="ヘルガ" width="144" height="144"><div class="ig-label">ヘルガ</div><div class="ig-sub">Gen1・歩兵</div></a>
+<a class="ig-item" href="#"><div class="ig-noimg"><span>ロ</span></div><div class="ig-label">ローザ</div><div class="ig-sub">Gen4・弓兵</div></a>
+<a class="ig-item" href="#"><div class="ig-noimg"><span>ア</span></div><div class="ig-label">アルカー</div><div class="ig-sub">Gen4・歩兵</div></a>
+</div>
+</section>
+
+<!-- 案A -->
+<section class="sec">
+<div class="sec-head"><h2>案A：シンプル型</h2>
+<p>枠の中に「画像は情報提供待ちです」と小さなボタンだけを置く、最小限の形です。一覧でも個別ページでも同じ部品で使えます。</p></div>
+<div class="ctx">▼ 英雄一覧グリッドでの見え方</div>
+<div class="icongrid">
+<a class="ig-item" href="#"><img src="https://www.kingshotguide.com/heroes/jabel.webp" alt="ジェベル" width="144" height="144"><div class="ig-label">ジェベル</div><div class="ig-sub">Gen1・騎兵</div></a>
+<a class="ig-item" href="#"><img src="https://www.centurygames.com/wp-content/uploads/2025/04/helgachar.png" alt="ヘルガ" width="144" height="144"><div class="ig-label">ヘルガ</div><div class="ig-sub">Gen1・歩兵</div></a>
+<div class="ig-item"><div class="a-cell"><div class="a-txt">画像は<br>情報提供待ちです</div><a class="a-btn" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/contribute.html">情報提供する</a></div><div class="ig-label">ローザ</div><div class="ig-sub">Gen4・弓兵</div></div>
+<div class="ig-item"><div class="a-cell"><div class="a-txt">画像は<br>情報提供待ちです</div><a class="a-btn" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/contribute.html">情報提供する</a></div><div class="ig-label">アルカー</div><div class="ig-sub">Gen4・歩兵</div></div>
+</div>
+<div class="ctx">▼ 英雄ページの冒頭での見え方</div>
+<div class="a-herohead">
+<div class="a-cell"><div class="a-txt">画像は<br>情報提供待ちです</div><a class="a-btn" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/contribute.html">情報提供する</a></div>
+<div class="hh-body"><div class="hh-name">ローザ</div><div class="hh-meta">Gen4・弓兵<br>スキルや評価は掲載中です。画像は皆さまからの情報提供をお待ちしています。</div></div>
+</div>
+<div class="ctx">▼ トップのキーアート枠（16:9）での見え方</div>
+<div class="a-keyart"><div class="a-txt">このゲームの画像は情報提供待ちです</div><a class="a-btn" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/contribute.html">情報提供する</a></div>
+</section>
+
+<!-- 案B -->
+<section class="sec">
+<div class="sec-head"><h2>案B：呼びかけ型</h2>
+<p>「画像をお持ちの方はぜひ」という呼びかけの文面を厚くした形です。提供してもらうきっかけを強くしたい場所（個別ページの冒頭など）に向きます。</p></div>
+<div class="ctx">▼ 英雄ページの冒頭での見え方</div>
+<div class="b-herohead">
+<div class="b-ph">画像は<br>情報提供<br>待ちです</div>
+<div class="hh-body"><div class="hh-name">ローザ</div><div class="hh-meta">Gen4・弓兵<br>スキルや評価は掲載中です。</div></div>
+</div>
+<div class="b-card">
+<p class="b-ttl">📮 この英雄の画像を募集中です</p>
+<p class="b-txt">ローザの画像をお持ちの方は、ぜひ情報提供をお願いします。<br>皆さまからの提供で、このページがもっと充実していきます。</p>
+<a class="b-btn" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/contribute.html">画像を提供する</a>
+</div>
+<div class="ctx">▼ 一覧グリッドの下に置くバナー型</div>
+<div class="icongrid">
+<a class="ig-item" href="#"><img src="https://www.kingshotguide.com/heroes/jabel.webp" alt="ジェベル" width="144" height="144"><div class="ig-label">ジェベル</div><div class="ig-sub">Gen1・騎兵</div></a>
+<a class="ig-item" href="#"><img src="https://www.centurygames.com/wp-content/uploads/2025/04/helgachar.png" alt="ヘルガ" width="144" height="144"><div class="ig-label">ヘルガ</div><div class="ig-sub">Gen1・歩兵</div></a>
+<a class="ig-item" href="#"><div class="ig-noimg" style="background:#fdf6e7;color:#8a5f0c"><span style="font-size:11px;opacity:1;line-height:1.5">画像は<br>情報提供<br>待ちです</span></div><div class="ig-label">ローザ</div><div class="ig-sub">Gen4・弓兵</div></a>
+<a class="ig-item" href="#"><div class="ig-noimg" style="background:#fdf6e7;color:#8a5f0c"><span style="font-size:11px;opacity:1;line-height:1.5">画像は<br>情報提供<br>待ちです</span></div><div class="ig-label">アルカー</div><div class="ig-sub">Gen4・歩兵</div></a>
+</div>
+<div class="b-card">
+<p class="b-ttl">📮 画像が無い英雄がいます</p>
+<p class="b-txt">一部の英雄は画像を収集中です。お持ちの画像がありましたら、情報提供ページからお寄せください。</p>
+<a class="b-btn" href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/contribute.html">画像を提供する</a>
+</div>
+</section>
+
+<!-- 案C -->
+<section class="sec">
+<div class="sec-head"><h2>案C：一覧向け小型型</h2>
+<p>グリッドのセルに小さな「提供待ち」バッジだけを置く、一覧で邪魔にならない形です。名前は通常どおり下に表示されます。個別ページの大きな枠には案Aと組み合わせる想定です。</p></div>
+<div class="ctx">▼ 英雄一覧グリッドでの見え方（キングショットの金色）</div>
+<div class="icongrid">
+<a class="ig-item" href="#"><img src="https://www.kingshotguide.com/heroes/jabel.webp" alt="ジェベル" width="144" height="144"><div class="ig-label">ジェベル</div><div class="ig-sub">Gen1・騎兵</div></a>
+<a class="ig-item" href="#"><img src="https://www.centurygames.com/wp-content/uploads/2025/04/helgachar.png" alt="ヘルガ" width="144" height="144"><div class="ig-label">ヘルガ</div><div class="ig-sub">Gen1・歩兵</div></a>
+<a class="ig-item" href="#"><span class="c-cell"><span class="c-badge">提供待ち</span></span><div class="ig-label">ローザ</div><div class="ig-sub">Gen4・弓兵</div></a>
+<a class="ig-item" href="#"><span class="c-cell"><span class="c-badge">提供待ち</span></span><div class="ig-label">アルカー</div><div class="ig-sub">Gen4・歩兵</div></a>
+</div>
+<div class="ctx">▼ テーマ色に追随する例（左：パズサバの赤／右：サイト共通の紺）</div>
+<div class="icongrid" style="grid-template-columns:repeat(2,1fr)">
+<a class="ig-item" href="#"><span class="c-cell crimson"><span class="c-badge">提供待ち</span></span><div class="ig-label">英雄名（パズサバ色）</div></a>
+<a class="ig-item" href="#"><span class="c-cell navy"><span class="c-badge">提供待ち</span></span><div class="ig-label">ゲーム名（共通色）</div></a>
+</div>
+<p class="note">※ 案Cのセルをタップすると、その英雄のページへ進みます（ページ側で案A／Bの表示と組み合わせる想定）。</p>
+</section>
+
+<footer>
+このページは表示デザインの確認用プレビューです。「情報提供する」ボタンのリンク先はサンプルとしてパズサバの情報提供ページになっています。実際の組み込みでは、各ゲームの情報提供ページへつなぎます。<br>
+ポイゲークエスト
+</footer>
+</div>
+</body>
+</html>
