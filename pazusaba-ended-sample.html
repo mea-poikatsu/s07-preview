@@ -378,6 +378,7 @@ html[data-theme="dark"] .hook a,html[data-theme="dark"] td a,html[data-theme="da
 .nc-svc{display:inline-block;font-size:10.5px;font-weight:800;border-radius:999px;padding:1px 8px;line-height:1.55}
 .nc-bd{font-size:11px;font-weight:800;border-radius:10px;padding:2px 8px;background:#172B49;color:#fff;line-height:1.6}
 .nc-btn{display:block;text-align:center;margin-top:auto;padding:12px 10px;font-size:15px;font-weight:800;letter-spacing:.05em;color:#6d5310;background:linear-gradient(180deg,#ecd27c,#d3af47);border:1.5px solid #b28e35;border-radius:999px;text-decoration:none}
+.cta,.sticky-cta-bar{display:none !important}
 </style></head>
 <body><div class="pv-banner">【サンプル】パズサバの案件が全て終了した場合の攻略トップ表示です（実際の案件は掲載中です）</div><div class="page">
 
@@ -805,4 +806,5 @@ window.addEventListener('resize',stickyCtaUpdate);
 stickyCtaUpdate();
 </script>
 <script>(function(){var host=document.querySelector('.header-icons');if(!host)return;var cur=document.documentElement.getAttribute('data-theme')||'light';var d=document.createElement('div');d.className='theme-toggle';d.setAttribute('role','button');d.setAttribute('tabindex','0');d.setAttribute('aria-label','表示テーマを切り替える');function draw(){d.innerHTML='<span class="ic">'+(cur==='dark'?'☀️':'🌙')+'</span>テーマ';}function flip(){cur=(cur==='dark')?'light':'dark';document.documentElement.setAttribute('data-theme',cur);try{localStorage.setItem('poigame-theme',cur);}catch(e){}draw();}draw();d.addEventListener('click',flip);d.addEventListener('keydown',function(ev){if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();flip();}});host.appendChild(d);})();</script>
+<script>document.querySelectorAll('.cta,.sticky-cta-bar').forEach(function(e){e.remove()});</script>
 </body></html>
