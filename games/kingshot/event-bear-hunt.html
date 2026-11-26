@@ -425,6 +425,67 @@ html[data-theme="dark"] .bannergrid .bcap{color:#7fb8a8}
 html[data-theme="dark"] .fcap{color:#9a9186}
 html[data-theme="dark"] input,html[data-theme="dark"] select,html[data-theme="dark"] textarea{background:#262019;color:#e8e2dc;border-color:#453b32}
 html[data-theme="dark"] .hist td.hd{background:#262019}
+/* === dark-contrast-fix-2026-11-26 ===
+   コントラスト是正（2026-11-26 実測に基づく追加分）。
+   ライト側で濃色文字を持つ部品の暗テーマ上書き漏れを埋める。
+   色は暗テーマ既存パレット＋スロットトークン（#e0aa4e=dark_main／
+   #f2cd8a=dark_tint／#7fb8a8=dark_link）のみを使う。 */
+html[data-theme="dark"] .kv{color:#bdb4a9}
+html[data-theme="dark"] .kv b{color:#e8e2dc}
+html[data-theme="dark"] .kv a,html[data-theme="dark"] .rel a,html[data-theme="dark"] .xmedia-list a,html[data-theme="dark"] .cnote a,html[data-theme="dark"] .lead a,html[data-theme="dark"] .tabpanel a,html[data-theme="dark"] .acc-body a,html[data-theme="dark"] td a{color:#7fb8a8}
+html[data-theme="dark"] .fbox{color:#e8e2dc}
+html[data-theme="dark"] .fbox small{color:#9a9186}
+html[data-theme="dark"] .tnode{color:#e8e2dc}
+html[data-theme="dark"] .tnode small{color:#9a9186}
+html[data-theme="dark"] .tl .tt2{color:#e8e2dc}
+html[data-theme="dark"] .tl .td2{color:#9a9186}
+html[data-theme="dark"] .ditem .dname{color:#bdb4a9}
+html[data-theme="dark"] .cmp .cv,html[data-theme="dark"] .crow .cv{color:#bdb4a9}
+html[data-theme="dark"] .barrow .bl{color:#bdb4a9}
+html[data-theme="dark"] .barrow .bv{color:#e8e2dc}
+html[data-theme="dark"] .acc .acc-body{color:#d8d2ca}
+html[data-theme="dark"] .acc button .pm{color:#e0aa4e}
+html[data-theme="dark"] .more-link .tri{color:#e0aa4e}
+html[data-theme="dark"] .cta-catch{color:#e0aa4e}
+html[data-theme="dark"] .tarr{color:#e0aa4e}
+html[data-theme="dark"] .tabs button .tt{color:#e0aa4e}
+html[data-theme="dark"] .upd-note b{color:#f2cf8f}
+html[data-theme="dark"] .risk-note a{color:#f2cf8f}
+html[data-theme="dark"] .svc-diff{color:#f2cd8a}
+html[data-theme="dark"] .dates b{color:#bdb4a9}
+html[data-theme="dark"] .menu-label{color:#bdb4a9}
+html[data-theme="dark"] .menu-toggle{background:#262019;border-color:#453b32}
+html[data-theme="dark"] .tocbtn{background:#262019;border-color:#453b32;color:#d8d2ca}
+html[data-theme="dark"] .tocbtn .pm{color:#7fb8a8}
+html[data-theme="dark"] .toclist a{background:#262019;border-color:#453b32;color:#d8d2ca}
+html[data-theme="dark"] .toclist a .arr{color:#7fb8a8}
+html[data-theme="dark"] .hook{background:#262019;border-color:#453b32;color:#d8d2ca}
+html[data-theme="dark"] .hgrid a{background:#241f1b;border-color:#453b32}
+html[data-theme="dark"] .hgrid .hn{color:#7fb8a8}
+html[data-theme="dark"] .hgrid .hm{color:#9a9186}
+html[data-theme="dark"] .hgrid .noimg{background:#17302a;color:#7fb8a8}
+html[data-theme="dark"] .hlink b{color:#7fb8a8}
+html[data-theme="dark"] .hlink .arr{color:#7fb8a8}
+html[data-theme="dark"] .codebox .cb-code{color:#e8e2dc}
+html[data-theme="dark"] .codebox .cb-meta{color:#bdb4a9}
+html[data-theme="dark"] .codebox .cb-ui{color:#7fb8a8}
+html[data-theme="dark"] .steptable th{color:#e8e2dc}
+html[data-theme="dark"] .steptable td{color:#d8d2ca}
+html[data-theme="dark"] .nz-camp .nz-game{color:#f2cd8a}
+html[data-theme="dark"] .nz-camp .nz-sub{color:#9a9186}
+html[data-theme="dark"] .stat .n{color:#7fb8a8}
+html[data-theme="dark"] .xmedia-h{color:#bdb4a9}
+html[data-theme="dark"] .xmedia-sns a{color:#bdb4a9}
+html[data-theme="dark"] .xmedia-card-name{color:#e8e2dc}
+html[data-theme="dark"] .xmedia-card-desc{color:#bdb4a9}
+html[data-theme="dark"] .vd-rank{background:#1f1b17}
+html[data-theme="dark"] .vd-rank-label{color:#9a9186}
+html[data-theme="dark"] .vd-rank-value{color:#e0aa4e}
+html[data-theme="dark"] .vd-basis{color:#9a9186}
+html[data-theme="dark"] .calc-row label{color:#d8d2ca}
+html[data-theme="dark"] .calc .note{color:#9a9186}
+html[data-theme="dark"] .bgrid figcaption,html[data-theme="dark"] .prow figcaption{color:#bdb4a9}
+/* === /dark-contrast-fix === */
 html[data-theme="dark"] .breadcrumb{color:#9a9186}
 html[data-theme="dark"] .breadcrumb a{color:#cfc8c0}
 html[data-theme="dark"] .dates{color:#9a9186}
