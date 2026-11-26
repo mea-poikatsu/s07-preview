@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>サイトトップ カラー変更案（現行＋4案）｜ポイゲークエスト プレビュー</title>
+<style>
+body{margin:0;background:#ECEFF3;color:#222;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",sans-serif;line-height:1.7}
+.wrap{max-width:860px;margin:0 auto;padding:20px 14px 60px}
+h1.page{font-size:22px;line-height:1.4;margin:6px 0 10px}
+.intro{background:#fff;border-radius:12px;padding:16px 18px;font-size:14px}
+.intro li{margin:4px 0}
+.proposal{background:#fff;border-radius:12px;padding:18px;margin-top:22px}
+.pname{font-size:19px;margin:0 0 6px}
+.pdesc{font-size:13.5px;color:#444;margin:0 0 14px}
+.frame{width:390px;max-width:100%;height:780px;overflow-y:auto;margin:0 auto;border:1px solid #c9d2dc;border-radius:18px;box-shadow:0 4px 18px rgba(23,43,73,.16);background:#fff}
+.slots{border-collapse:collapse;width:100%;margin-top:16px;font-size:12.5px}
+.slots td{border-bottom:1px solid #e5eaf0;padding:6px 8px;vertical-align:middle}
+.slots td:first-child{color:#555;width:52%}
+.sw{display:inline-block;width:16px;height:16px;border-radius:4px;border:1px solid rgba(0,0,0,.18);vertical-align:-3px;margin-right:7px}
+code{font-family:ui-monospace,Menlo,monospace;font-size:12px}
+
+.mock{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",sans-serif;color:#222;background:var(--pagebg);line-height:1.65;font-size:15px}
+.mock *{box-sizing:border-box}
+.mock img{display:block}
+.mock a{text-decoration:none;color:var(--blue)}
+.mock header.site{position:relative;background:#fff;box-shadow:0 1px 5px rgba(23,43,73,.14)}
+.mock .hrow{display:flex;align-items:center;gap:5px;padding:13px 8px 11px;background:#fff}
+.mock .logo-full{width:118px;height:33px;object-fit:contain;object-position:left center;flex:0 0 auto}
+.mock .htag{line-height:1.35;min-width:0}
+.mock .htag .t1{display:block;font-size:12px;font-weight:700;color:var(--navy);white-space:nowrap}
+.mock .htag .t2{display:block;font-size:9px;color:var(--mut);white-space:nowrap}
+.mock .hacts{margin-left:auto;display:flex;gap:4px}
+.mock .hact{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--skydeep2);font-size:10px;font-weight:700;line-height:1.1;padding:6px 2px;min-width:54px;border-radius:10px;background:var(--lblue)}
+.mock .hact .ic{font-size:19px;line-height:1}
+.mock header.site nav{display:flex;justify-content:space-around;background:linear-gradient(90deg,var(--skydeep),var(--sky));padding:10px 6px 11px;font-size:12px;white-space:nowrap;border-bottom:2px solid var(--bandborder)}
+.mock header.site nav a{color:var(--navtext);font-weight:700}
+.mock main{max-width:760px;margin:0 auto;padding:0 12px 8px}
+.mock .kv{margin:0 -12px 4px}
+.mock .kv img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.mock .kv-strip{display:block;background:linear-gradient(90deg,var(--kv1),var(--kv2));color:var(--navy);font-size:12.5px;font-weight:700;padding:8px 12px;border-bottom:2px solid var(--gold)}
+.mock .kv-strip .star{color:var(--star)}
+.mock .blk{margin:26px 0}
+.mock h1{font-size:21px;line-height:1.45;margin:18px 0 8px;color:var(--navy)}
+.mock .lead{color:#33475e;font-size:14px;margin:0 0 4px}
+.mock .stats{display:flex;gap:8px;margin:12px 0 4px}
+.mock .stat{flex:1;background:linear-gradient(180deg,#fff,var(--statend));border:1px solid var(--statline);border-radius:10px;padding:10px 4px;text-align:center}
+.mock .stat .n{font-size:20px;font-weight:900;color:var(--skydeep2);line-height:1.25}
+.mock .stat .n small{font-size:11.5px;font-weight:800}
+.mock .stat .l{font-size:10.5px;color:var(--mut);font-weight:700;margin-top:2px;line-height:1.4}
+.mock h2{font-size:17px;color:var(--bandtext);background:linear-gradient(90deg,var(--skydeep),var(--h2end));border-radius:8px;padding:8px 12px;margin:0 0 12px;display:flex;align-items:baseline;gap:8px;border:1px solid var(--bandborder)}
+.mock h2::before{content:"✦";color:var(--gold);font-size:13px;text-shadow:0 1px 2px rgba(0,0,0,.18)}
+.mock h2 .h2sub{font-size:11.5px;font-weight:400;color:var(--bandsub)}
+.mock .searchbox input{width:100%;padding:13px 14px;font-size:16px;border:2px solid var(--blue);border-radius:10px;background:#fff;font-family:inherit}
+.mock .state-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px;align-items:center}
+.mock .state-label{font-size:12px;font-weight:800;color:var(--navy)}
+.mock .chips{display:flex;flex-wrap:wrap;gap:7px}
+.mock .chip{background:var(--lblue);color:var(--chiptext);border-radius:999px;padding:5px 12px;font-size:12.5px;font-weight:600}
+.mock .chip::before{content:"#";opacity:.55;margin-right:1px}
+.mock .rail{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px}
+.mock .car-card{flex:0 0 250px;border:1px solid var(--line);border-radius:12px;background:#fff;overflow:hidden;display:flex;flex-direction:column}
+.mock .car-art{position:relative;display:block}
+.mock .car-art-img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.mock .car-pt{position:absolute;top:8px;left:8px;background:var(--navy);color:#fff;font-size:11.5px;font-weight:800;border-radius:10px;padding:2px 9px;line-height:1.6}
+.mock .car-name{position:absolute;left:0;right:0;bottom:0;padding:22px 10px 8px;background:linear-gradient(180deg,transparent,rgba(10,20,35,.85));color:#fff;font-weight:800;font-size:14px}
+.mock .car-body{padding:10px 12px 12px;flex:1;display:flex;flex-direction:column}
+.mock .car-meta{font-size:11px;color:var(--mut);margin:0 0 8px;font-weight:600}
+.mock .car-progress{height:4px;background:#dcebfb;border-radius:999px;overflow:hidden}
+.mock .car-progress-fill{height:100%;background:linear-gradient(90deg,var(--sky),var(--skydeep2));border-radius:999px}
+.mock .guide-btn{display:block;text-align:center;background:var(--lblue);color:var(--gbtext);border:1.5px solid var(--gbline);font-weight:800;border-radius:999px;padding:9px 12px;font-size:13px}
+.mock .guide-btn.coin{margin-top:10px;padding:12px 10px;font-size:15px;letter-spacing:.05em;color:#6d5310;background:linear-gradient(180deg,#ecd27c 0%,#dfc05c 55%,#d3af47 100%);border:none}
+.mock .guide-btn.mini{display:inline-block;margin-top:0;padding:6px 12px;font-size:11.5px;line-height:1.5}
+.mock .popgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px 8px}
+.mock .pop-card{color:#222;text-align:center;font-size:11.5px;line-height:1.35;display:flex;flex-direction:column;min-width:0}
+.mock .pop-card img{width:64px;height:64px;border-radius:14px;margin:0 auto 5px}
+.mock .pop-main{display:block;color:#222;margin-bottom:6px}
+.mock .pop-main>span:first-of-type{display:block;font-weight:600;min-height:2.7em}
+.mock .mini-pt{display:block;color:var(--blue);font-weight:700;font-size:11px;margin-top:2px}
+.mock .pop-card .guide-btn{margin-top:auto;padding:5px 2px;font-size:10.5px;line-height:1.5}
+.mock .svc-card{border:1px solid var(--line);border-radius:12px;padding:14px;background:#fff;display:flex;flex-direction:column}
+.mock .svc-head{display:flex;gap:11px;align-items:center;margin-bottom:9px}
+.mock .svc-logo{width:118px;height:56px;display:flex;align-items:center;overflow:hidden;flex:0 0 auto}
+.mock .svc-logo img{max-width:118px;max-height:56px;object-fit:contain}
+.mock .svc-namebox h3{margin:0;font-size:16.5px;color:var(--navy)}
+.mock .svc-pos{margin:2px 0 0;font-size:11.5px;color:var(--mut);line-height:1.5}
+.mock .svc-benefit{background:var(--lblue);border-radius:8px;padding:9px 11px;font-size:13.5px;margin:0 0 9px;line-height:1.6}
+.mock .svc-benefit b{color:var(--amt)}
+.mock .svc-facts{margin:0 0 9px;padding-left:18px;font-size:12.5px;color:#33475e;line-height:1.7}
+.mock .svc-code{font-size:13px;margin:0 0 10px}
+.mock .svc-code span{display:block;font-size:11px;color:var(--mut);margin-top:1px}
+.mock .cta{display:block;text-align:center;background:linear-gradient(180deg,var(--cta1),var(--cta2));color:#fff;font-weight:800;border-radius:999px;padding:10px 12px;font-size:14px;box-shadow:0 3px 0 var(--ctash)}
+.mock .cta-hapitas{background:#FFFF00;color:#111;box-shadow:0 3px 0 #d9d900}
+.mock .svc-checked{font-size:11px;color:var(--mut);margin:8px 0 0;text-align:right}
+.mock .cta-catch{font-weight:900;font-size:16.5px;color:var(--cta2);letter-spacing:.02em;margin:0 0 12px;line-height:1.5;text-align:center}
+.mock .cta-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(180deg,var(--cta1),var(--cta2));color:#fff;font-weight:900;font-size:16px;border-radius:999px;padding:14px 12px;box-shadow:0 3px 0 var(--ctash)}
+.mock .bar-row{margin:9px 0}
+.mock .bar-name{font-size:12px;font-weight:700;color:#333;margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mock .bar-line{display:flex;align-items:center;gap:8px}
+.mock .bar-track{flex:1;background:#f0f0f0;border-radius:4px;height:16px;overflow:hidden}
+.mock .bar-fill{height:100%;background:var(--blue);border-radius:4px}
+.mock .bar-fill.top{background:var(--bartop)}
+.mock .bar-val{font-size:12px;font-weight:800;color:var(--amt);white-space:nowrap}
+.mock .tabs{display:flex;gap:7px;overflow-x:auto;padding-bottom:8px;margin-top:14px}
+.mock .tab{flex:0 0 auto;border:1.5px solid var(--blue);background:#fff;color:var(--blue);font-weight:700;font-size:13px;border-radius:999px;padding:7px 14px;font-family:inherit}
+.mock .tab.on{background:var(--blue);color:#fff}
+.mock ol.rank{list-style:none;margin:0;padding:0}
+.mock .rank-row{display:flex;align-items:center;flex-wrap:wrap;gap:10px;padding:9px 4px;border-bottom:1px solid #eef3f8}
+.mock .rank-link{display:flex;align-items:center;gap:10px;color:#222;flex:1;min-width:0}
+.mock .rank-row img{width:42px;height:42px;border-radius:10px}
+.mock .rk{font-weight:800;font-size:14px;width:26px;height:26px;border-radius:8px;background:#eef3f8;color:var(--navy);display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto}
+.mock ol.rank li:nth-child(1) .rk{background:#E75480;color:#fff}
+.mock ol.rank li:nth-child(2) .rk{background:#F08A1D;color:#fff}
+.mock ol.rank li:nth-child(3) .rk{background:#E3B505;color:#3a2f00}
+.mock .rk-main{display:flex;flex-direction:column;gap:2px;min-width:0}
+.mock .rk-name{font-weight:600;font-size:14.5px;line-height:1.45;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mock .rk-sub{font-size:12px;color:var(--mut);line-height:1.5;white-space:nowrap;overflow:hidden}
+.mock footer.site{background:var(--navy);color:var(--foottext);margin-top:34px;padding:22px 16px 26px;font-size:13px}
+.mock footer.site .fnav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:16px}
+.mock footer.site a{color:var(--foottext)}
+.mock footer.site h3{color:#fff;font-size:13.5px;margin:16px 0 8px}
+.mock footer.site .desc{font-size:11.5px;color:var(--footdesc);line-height:1.7;margin-top:16px}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1 class="page">サイトトップ カラー変更案（現行＋4案）</h1>
+<div class="intro">
+<p>ポイゲークエストのサイトトップの色だけを変えた比較プレビューです。各フレームは実際のトップと同じ構造・部品・文言・画像のモックで、<b>色だけ</b>が違います。フレーム内はスクロールできます。</p>
+<ul>
+<li>変えているのは共通色（主色／リンク／帯／金／淡色地／金額／CTA等、スロットT1〜T12）だけです</li>
+<li>サービスごとの色（ハピタスの黄など）と、ランキング1〜3位のメダル色は「記号」なので全案で固定です</li>
+<li>世界観の基準はメイン画像（明るい青空・浮遊島・金の世界観）です</li>
+<li>本番はまだ変更していません。案を選んでもらってから反映します</li>
+</ul>
+</div>
+
+<section class="proposal">
+<h2 class="pname">参考：現行</h2>
+<p class="pdesc">現在の本番トップの色そのもの。比較の基準として置く。</p>
+<div class="frame"><div class="mock" style="--navy:#172B49;--blue:#3977B8;--skydeep:#1B5FC1;--sky:#2E8BD8;--skydeep2:#1B5FC1;--h2end:#3E9BE0;--gold:#FFC93C;--star:#E8A90C;--lblue:#EAF2FC;--pagebg:#F2F9FF;--line:#D7E1EC;--mut:#5A6A7D;--amt:#E05E00;--cta1:#FF8A3D;--cta2:#FF6900;--ctash:#D15400;--bandtext:#FFFFFF;--navtext:#EAF6FF;--bandsub:#DFF2FF;--foottext:#CFE0F2;--footdesc:#93A9C2;--statend:#EAF6FF;--statline:#BCD9F5;--chiptext:#2F5F8F;--gbtext:#2F5F8F;--gbline:#BCD6F2;--kv1:#EAF6FF;--kv2:#FFF6DE;--bartop:#FF6900;--bandborder:transparent">
+<header class="site"><div class="hrow">
+<a class="logo" href="#"><img class="logo-full" src="https://mea-poikatsu.github.io/mea-game-poikatsu/img/logo-horizontal.webp" alt="ポイゲークエスト"></a>
+<div class="htag"><span class="t1">ポイゲークエスト</span><span class="t2">Wiki・攻略・ポイ活サイト</span></div>
+<div class="hacts"><a class="hact" href="#"><span class="ic">🔍</span>ゲーム検索</a><a class="hact" href="#"><span class="ic">✉</span>お問い合わせ</a></div>
+</div><nav><a href="#">ゲーム一覧</a><a href="#">ランキング</a><a href="#">新着・更新</a><a href="#">サイトの案内</a></nav></header>
+<main>
+<div class="kv"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/img/hero-main-a.webp" alt="ポイゲークエストのキービジュアル。浮遊島と城下町のファンタジー世界">
+<span class="kv-strip"><span class="star">✦</span> 目玉タイトル「パズル＆サバイバル」の攻略・案件を見る ›</span></div>
+<section class="blk" style="margin-top:6px">
+<h1>ポイ活ゲーム攻略Wiki「ポイゲークエスト」</h1>
+<p class="lead">ポイ活ゲームの攻略情報と案件条件を、ゲームごとにまとめたWikiです。どのポイントサイトに載っているか、最大で何ポイントもらえるか、始める前に比べられます。</p>
+<div class="stats">
+<div class="stat"><div class="n">33</div><div class="l">掲載ゲーム</div></div>
+<div class="stat"><div class="n">88</div><div class="l">掲載中の案件</div></div>
+<div class="stat"><div class="n">380,497<small>円</small></div><div class="l">最高額の案件</div></div>
+</div>
+<div class="searchbox" style="margin-top:14px"><input type="text" placeholder="ゲーム名で探す"></div>
+<div class="state-row"><span class="state-label">状態で探す</span><span class="chips"><span class="chip">キャンペーン</span><span class="chip">増量中（11件）</span><span class="chip">新着・更新</span><span class="chip">期限が近い順</span><span class="chip">高ポイント</span></span></div>
+</section>
+<section class="blk"><h2>注目の高額案件<span class="h2sub">最大ポイントが高い順</span></h2>
+<div class="rail"><div class="car-card"><span class="car-art"><img class="car-art-img" src="https://play-lh.googleusercontent.com/2BKCBag60vf4BjmXYgABvYjARyfIrO9MF4lkhmCKhfJr0OUXSgPPfxgOuPKek0iNZInLmBqE8bjXThb2bYGT_w=w1024-h576" alt="" loading="lazy"><span class="car-pt">最大380,497円</span><span class="car-name">天地英雄伝</span></span><div class="car-body"><p class="car-meta">ポイントサイト経由の案件があります</p><div class="car-progress"><div class="car-progress-fill" style="width:72%"></div></div><a class="guide-btn coin" href="#">攻略を見る</a></div></div><div class="car-card"><span class="car-art"><img class="car-art-img" src="https://play-lh.googleusercontent.com/Oca19Dfh_7v7st3nOV3XwbauxxvuR_K5_9Bg7RvGyS2jn_c78N1DAIGiPLp1msa9MzjNCkcZXYs1h8rbA2TucA=w1024-h576" alt="" loading="lazy"><span class="car-pt">最大338,847円</span><span class="car-name">Bingo Blitz</span></span><div class="car-body"><p class="car-meta">ポイントサイト経由の案件があります</p><div class="car-progress"><div class="car-progress-fill" style="width:72%"></div></div><a class="guide-btn coin" href="#">攻略を見る</a></div></div><div class="car-card"><span class="car-art"><img class="car-art-img" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/c4/d5/db/c4d5dbcb-8879-49b7-7fed-6f048dec31d0/1_1320x2868.png/320x480bb.jpg" alt="" loading="lazy"><span class="car-pt">最大215,469円</span><span class="car-name">キングショット</span></span><div class="car-body"><p class="car-meta">ポイントサイト経由の案件があります</p><div class="car-progress"><div class="car-progress-fill" style="width:72%"></div></div><a class="guide-btn coin" href="#">攻略を見る</a></div></div></div></section>
+<section class="blk"><h2>人気のポイ活ゲーム</h2><div class="popgrid"><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bd/24/5e/bd245e4e-b9c6-014c-dc10-de86ab61c260/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>パズル＆サバイバル</span><span class="mini-pt">最大42,530円</span></a><a class="guide-btn" href="#">攻略を見る</a></div><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b7/6f/a9/b76fa99c-73e0-dad3-d93a-d08caf5427d5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>ロイヤルマッチ</span><span class="mini-pt">最大11,493円</span></a><a class="guide-btn" href="#">攻略を見る</a></div><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e6/9e/98/e69e9840-fa2b-7b53-c7f9-75a75021de26/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>ホワイトアウト・サバイバル</span><span class="mini-pt">最大10,209円</span></a><a class="guide-btn" href="#">攻略を見る</a></div><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a5/64/dc/a564dcf6-cac2-946b-0032-fb9dc7ab9432/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>キングショット</span><span class="mini-pt">最大215,469円</span></a><a class="guide-btn" href="#">攻略を見る</a></div><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f1/01/2c/f1012c21-5153-7b08-4f81-a5e94e75d1a7/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>メメントモリ</span><span class="mini-pt">最大22,043円</span></a><a class="guide-btn" href="#">攻略を見る</a></div><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/82/41/e3/8241e357-1044-687a-981b-aea8bcfe6a99/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>ザ・アンツ</span><span class="mini-pt">最大9,839円</span></a><a class="guide-btn" href="#">攻略を見る</a></div><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/56/a6/13/56a613e8-939f-5eb5-00ac-6e16288d1f3a/AppIcon-0-0-1x_U007emarketing-0-5-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>ザ・グランドマフィア</span><span class="mini-pt">最大112,906円</span></a><a class="guide-btn" href="#">攻略を見る</a></div><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/31/1b/52/311b52d8-1de2-5561-cad2-4c4643ac1fb0/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>タウンシップ</span><span class="mini-pt">最大36,968円</span></a><a class="guide-btn" href="#">攻略を見る</a></div></div></section>
+<section class="blk"><h2>初回特別キャンペーン<span class="h2sub">招待リンク・コードで特典</span></h2>
+<div class="svc-card"><div class="svc-head"><div class="svc-logo"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/img/svc-hapitas.png" alt="ハピタスのロゴ"></div>
+<div class="svc-namebox"><h3>ハピタス</h3><p class="svc-pos">ゲーム案件の掲載数がいちばん多いサイト</p></div></div>
+<p class="svc-benefit">招待リンクからの登録で<b>最大2,300円</b>（2026年11月30日まで）</p>
+<ul class="svc-facts"><li>1ポイント＝1円、交換は300円分から</li><li>このサイトで掲載中のゲーム案件：38件</li></ul>
+<p class="svc-code">招待コード：<b>INXAHV</b><span>リンクから登録すれば入力は不要です</span></p>
+<a class="cta cta-hapitas" href="#">ハピタスに無料登録する</a>
+<p class="svc-checked">特典・条件は2026年11月23日に公式確認</p></div>
+<p style="font-size:11px;color:var(--mut);margin-top:8px">※このボタンはサービス色（固定）です。下の共通CTAと見比べてください。</p>
+<div style="margin-top:22px"><p class="cta-catch">＼ 初回特典 最大2,300円 GET ／</p>
+<a class="cta-btn" href="#">登録無料！「ハピタス」招待URLはコチラ！ ›</a></div>
+</section>
+<section class="blk"><h2>ポイ活ゲームランキング</h2>
+<p style="margin:0 0 2px;font-size:13px">最大ポイントの比較（上位3ゲーム）</p>
+<div class="bars"><div class="bar-row"><div class="bar-name">1位：天地英雄伝</div><div class="bar-line"><div class="bar-track"><div class="bar-fill top" style="width:100%"></div></div><div class="bar-val">最大380,497円</div></div></div><div class="bar-row"><div class="bar-name">2位：Bingo Blitz</div><div class="bar-line"><div class="bar-track"><div class="bar-fill" style="width:89%"></div></div><div class="bar-val">最大338,847円</div></div></div><div class="bar-row"><div class="bar-name">3位：キングショット</div><div class="bar-line"><div class="bar-track"><div class="bar-fill" style="width:57%"></div></div><div class="bar-val">最大215,469円</div></div></div></div>
+<div class="tabs"><button class="tab on">ポイントが高い順</button><button class="tab">新着順</button><button class="tab">期限が近い順</button></div>
+<ol class="rank"><li><div class="rank-row"><a class="rank-link" href="#"><span class="rk">1</span><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d1/90/90/d19090d4-372c-ba4c-0fcf-ca2c353d1a65/AppIcon-1x_U007emarketing-0-4-85-220-0.png/512x512bb.jpg" alt="" loading="lazy"><span class="rk-main"><span class="rk-name">天地英雄伝</span><span class="rk-sub">最大380,497円</span></span></a><a class="guide-btn mini" href="#">攻略を見る</a></div></li><li><div class="rank-row"><a class="rank-link" href="#"><span class="rk">2</span><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7d/75/7b/7d757b77-eafb-3707-3b31-b8bf0a6af4b9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span class="rk-main"><span class="rk-name">Bingo Blitz</span><span class="rk-sub">最大338,847円</span></span></a><a class="guide-btn mini" href="#">攻略を見る</a></div></li><li><div class="rank-row"><a class="rank-link" href="#"><span class="rk">3</span><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a5/64/dc/a564dcf6-cac2-946b-0032-fb9dc7ab9432/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span class="rk-main"><span class="rk-name">キングショット</span><span class="rk-sub">最大215,469円</span></span></a><a class="guide-btn mini" href="#">攻略を見る</a></div></li></ol></section>
+</main>
+<footer class="site"><div class="fnav"><a href="#">ゲーム一覧</a><a href="#">ポイ活ゲームランキング</a><a href="#">案件条件の見方</a><a href="#">編集方針</a><a href="#">このサイトについて</a></div>
+<h3>運営メディア</h3>
+<p class="desc">ポイゲークエストは、ポイ活ゲームの攻略情報と案件条件をまとめたWikiです。掲載している金額・条件は各ポイントサイトの公式掲載を確認したものです。</p>
+</footer></div></div>
+<table class='slots'><tr><td>T1 主色（見出し文字・フッター地）</td><td><span class='sw' style='background:#172B49'></span><code>#172B49</code></td></tr><tr><td>T2 リンク・タブ・検索枠</td><td><span class='sw' style='background:#3977B8'></span><code>#3977B8</code></td></tr><tr><td>T3 帯グラデ開始（ナビ／見出し帯）</td><td><span class='sw' style='background:#1B5FC1'></span><code>#1B5FC1</code></td></tr><tr><td>T4 帯グラデ中間（ナビ）</td><td><span class='sw' style='background:#2E8BD8'></span><code>#2E8BD8</code></td></tr><tr><td>T5 帯グラデ終了（見出し帯）</td><td><span class='sw' style='background:#3E9BE0'></span><code>#3E9BE0</code></td></tr><tr><td>T6 金アクセント（✦・帯の下線）</td><td><span class='sw' style='background:#FFC93C'></span><code>#FFC93C</code></td></tr><tr><td>T7 淡色地（ボタン・チップ・特典枠）</td><td><span class='sw' style='background:#EAF2FC'></span><code>#EAF2FC</code></td></tr><tr><td>T8 ページ地</td><td><span class='sw' style='background:#F2F9FF'></span><code>#F2F9FF</code></td></tr><tr><td>T9 境界線</td><td><span class='sw' style='background:#D7E1EC'></span><code>#D7E1EC</code></td></tr><tr><td>T10 補助文字</td><td><span class='sw' style='background:#5A6A7D'></span><code>#5A6A7D</code></td></tr><tr><td>T11 金額強調</td><td><span class='sw' style='background:#E05E00'></span><code>#E05E00</code></td></tr><tr><td>T12 CTA（グラデ2色＋影）</td><td><span class='sw' style='background:linear-gradient(180deg,#FF8A3D,#FF6900)'></span><code>#FF8A3D → #FF6900 ／ 影 #D15400</code></td></tr></table>
+</section>
+<section class="proposal">
+<h2 class="pname">案A：ネイビー＋金（重厚）</h2>
+<p class="pdesc">現行ネイビーをさらに深くし、帯（ナビ・見出し）もネイビー系へ寄せて重厚感と信頼感を出す。金は✦だけでなく金額強調とCTAまで金系に統一し、「コイン＝金」の世界観を色でも徹底する。メイン画像の明るい青空とは濃淡のコントラストで締める案。</p>
+<div class="frame"><div class="mock" style="--navy:#12263F;--blue:#2E63A8;--skydeep:#122A4A;--sky:#274E7D;--skydeep2:#122A4A;--h2end:#2A5A8C;--gold:#FFB52E;--star:#E8A90C;--lblue:#EAEFF6;--pagebg:#F3F6FA;--line:#D2DCE9;--mut:#54687E;--amt:#B87700;--cta1:#FFB52E;--cta2:#F08C00;--ctash:#B96F00;--bandtext:#FFFFFF;--navtext:#E8EEF7;--bandsub:#C7D5E8;--foottext:#C9D6E8;--footdesc:#8FA0B8;--statend:#EDF1F7;--statline:#C9D6E6;--chiptext:#274E7D;--gbtext:#274E7D;--gbline:#C3D2E4;--kv1:#EDF1F7;--kv2:#FFF3D6;--bartop:#B87700;--bandborder:transparent">
+<header class="site"><div class="hrow">
+<a class="logo" href="#"><img class="logo-full" src="https://mea-poikatsu.github.io/mea-game-poikatsu/img/logo-horizontal.webp" alt="ポイゲークエスト"></a>
+<div class="htag"><span class="t1">ポイゲークエスト</span><span class="t2">Wiki・攻略・ポイ活サイト</span></div>
+<div class="hacts"><a class="hact" href="#"><span class="ic">🔍</span>ゲーム検索</a><a class="hact" href="#"><span class="ic">✉</span>お問い合わせ</a></div>
+</div><nav><a href="#">ゲーム一覧</a><a href="#">ランキング</a><a href="#">新着・更新</a><a href="#">サイトの案内</a></nav></header>
+<main>
+<div class="kv"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/img/hero-main-a.webp" alt="ポイゲークエストのキービジュアル。浮遊島と城下町のファンタジー世界">
+<span class="kv-strip"><span class="star">✦</span> 目玉タイトル「パズル＆サバイバル」の攻略・案件を見る ›</span></div>
+<section class="blk" style="margin-top:6px">
+<h1>ポイ活ゲーム攻略Wiki「ポイゲークエスト」</h1>
+<p class="lead">ポイ活ゲームの攻略情報と案件条件を、ゲームごとにまとめたWikiです。どのポイントサイトに載っているか、最大で何ポイントもらえるか、始める前に比べられます。</p>
+<div class="stats">
+<div class="stat"><div class="n">33</div><div class="l">掲載ゲーム</div></div>
+<div class="stat"><div class="n">88</div><div class="l">掲載中の案件</div></div>
+<div class="stat"><div class="n">380,497<small>円</small></div><div class="l">最高額の案件</div></div>
+</div>
+<div class="searchbox" style="margin-top:14px"><input type="text" placeholder="ゲーム名で探す"></div>
+<div class="state-row"><span class="state-label">状態で探す</span><span class="chips"><span class="chip">キャンペーン</span><span class="chip">増量中（11件）</span><span class="chip">新着・更新</span><span class="chip">期限が近い順</span><span class="chip">高ポイント</span></span></div>
+</section>
+<section class="blk"><h2>注目の高額案件<span class="h2sub">最大ポイントが高い順</span></h2>
+<div class="rail"><div class="car-card"><span class="car-art"><img class="car-art-img" src="https://play-lh.googleusercontent.com/2BKCBag60vf4BjmXYgABvYjARyfIrO9MF4lkhmCKhfJr0OUXSgPPfxgOuPKek0iNZInLmBqE8bjXThb2bYGT_w=w1024-h576" alt="" loading="lazy"><span class="car-pt">最大380,497円</span><span class="car-name">天地英雄伝</span></span><div class="car-body"><p class="car-meta">ポイントサイト経由の案件があります</p><div class="car-progress"><div class="car-progress-fill" style="width:72%"></div></div><a class="guide-btn coin" href="#">攻略を見る</a></div></div><div class="car-card"><span class="car-art"><img class="car-art-img" src="https://play-lh.googleusercontent.com/Oca19Dfh_7v7st3nOV3XwbauxxvuR_K5_9Bg7RvGyS2jn_c78N1DAIGiPLp1msa9MzjNCkcZXYs1h8rbA2TucA=w1024-h576" alt="" loading="lazy"><span class="car-pt">最大338,847円</span><span class="car-name">Bingo Blitz</span></span><div class="car-body"><p class="car-meta">ポイントサイト経由の案件があります</p><div class="car-progress"><div class="car-progress-fill" style="width:72%"></div></div><a class="guide-btn coin" href="#">攻略を見る</a></div></div><div class="car-card"><span class="car-art"><img class="car-art-img" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/c4/d5/db/c4d5dbcb-8879-49b7-7fed-6f048dec31d0/1_1320x2868.png/320x480bb.jpg" alt="" loading="lazy"><span class="car-pt">最大215,469円</span><span class="car-name">キングショット</span></span><div class="car-body"><p class="car-meta">ポイントサイト経由の案件があります</p><div class="car-progress"><div class="car-progress-fill" style="width:72%"></div></div><a class="guide-btn coin" href="#">攻略を見る</a></div></div></div></section>
+<section class="blk"><h2>人気のポイ活ゲーム</h2><div class="popgrid"><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bd/24/5e/bd245e4e-b9c6-014c-dc10-de86ab61c260/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>パズル＆サバイバル</span><span class="mini-pt">最大42,530円</span></a><a class="guide-btn" href="#">攻略を見る</a></div><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b7/6f/a9/b76fa99c-73e0-dad3-d93a-d08caf5427d5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>ロイヤルマッチ</span><span class="mini-pt">最大11,493円</span></a><a class="guide-btn" href="#">攻略を見る</a></div><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e6/9e/98/e69e9840-fa2b-7b53-c7f9-75a75021de26/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>ホワイトアウト・サバイバル</span><span class="mini-pt">最大10,209円</span></a><a class="guide-btn" href="#">攻略を見る</a></div><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a5/64/dc/a564dcf6-cac2-946b-0032-fb9dc7ab9432/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>キングショット</span><span class="mini-pt">最大215,469円</span></a><a class="guide-btn" href="#">攻略を見る</a></div><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f1/01/2c/f1012c21-5153-7b08-4f81-a5e94e75d1a7/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>メメントモリ</span><span class="mini-pt">最大22,043円</span></a><a class="guide-btn" href="#">攻略を見る</a></div><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/82/41/e3/8241e357-1044-687a-981b-aea8bcfe6a99/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>ザ・アンツ</span><span class="mini-pt">最大9,839円</span></a><a class="guide-btn" href="#">攻略を見る</a></div><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/56/a6/13/56a613e8-939f-5eb5-00ac-6e16288d1f3a/AppIcon-0-0-1x_U007emarketing-0-5-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>ザ・グランドマフィア</span><span class="mini-pt">最大112,906円</span></a><a class="guide-btn" href="#">攻略を見る</a></div><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/31/1b/52/311b52d8-1de2-5561-cad2-4c4643ac1fb0/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>タウンシップ</span><span class="mini-pt">最大36,968円</span></a><a class="guide-btn" href="#">攻略を見る</a></div></div></section>
+<section class="blk"><h2>初回特別キャンペーン<span class="h2sub">招待リンク・コードで特典</span></h2>
+<div class="svc-card"><div class="svc-head"><div class="svc-logo"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/img/svc-hapitas.png" alt="ハピタスのロゴ"></div>
+<div class="svc-namebox"><h3>ハピタス</h3><p class="svc-pos">ゲーム案件の掲載数がいちばん多いサイト</p></div></div>
+<p class="svc-benefit">招待リンクからの登録で<b>最大2,300円</b>（2026年11月30日まで）</p>
+<ul class="svc-facts"><li>1ポイント＝1円、交換は300円分から</li><li>このサイトで掲載中のゲーム案件：38件</li></ul>
+<p class="svc-code">招待コード：<b>INXAHV</b><span>リンクから登録すれば入力は不要です</span></p>
+<a class="cta cta-hapitas" href="#">ハピタスに無料登録する</a>
+<p class="svc-checked">特典・条件は2026年11月23日に公式確認</p></div>
+<p style="font-size:11px;color:var(--mut);margin-top:8px">※このボタンはサービス色（固定）です。下の共通CTAと見比べてください。</p>
+<div style="margin-top:22px"><p class="cta-catch">＼ 初回特典 最大2,300円 GET ／</p>
+<a class="cta-btn" href="#">登録無料！「ハピタス」招待URLはコチラ！ ›</a></div>
+</section>
+<section class="blk"><h2>ポイ活ゲームランキング</h2>
+<p style="margin:0 0 2px;font-size:13px">最大ポイントの比較（上位3ゲーム）</p>
+<div class="bars"><div class="bar-row"><div class="bar-name">1位：天地英雄伝</div><div class="bar-line"><div class="bar-track"><div class="bar-fill top" style="width:100%"></div></div><div class="bar-val">最大380,497円</div></div></div><div class="bar-row"><div class="bar-name">2位：Bingo Blitz</div><div class="bar-line"><div class="bar-track"><div class="bar-fill" style="width:89%"></div></div><div class="bar-val">最大338,847円</div></div></div><div class="bar-row"><div class="bar-name">3位：キングショット</div><div class="bar-line"><div class="bar-track"><div class="bar-fill" style="width:57%"></div></div><div class="bar-val">最大215,469円</div></div></div></div>
+<div class="tabs"><button class="tab on">ポイントが高い順</button><button class="tab">新着順</button><button class="tab">期限が近い順</button></div>
+<ol class="rank"><li><div class="rank-row"><a class="rank-link" href="#"><span class="rk">1</span><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d1/90/90/d19090d4-372c-ba4c-0fcf-ca2c353d1a65/AppIcon-1x_U007emarketing-0-4-85-220-0.png/512x512bb.jpg" alt="" loading="lazy"><span class="rk-main"><span class="rk-name">天地英雄伝</span><span class="rk-sub">最大380,497円</span></span></a><a class="guide-btn mini" href="#">攻略を見る</a></div></li><li><div class="rank-row"><a class="rank-link" href="#"><span class="rk">2</span><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7d/75/7b/7d757b77-eafb-3707-3b31-b8bf0a6af4b9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span class="rk-main"><span class="rk-name">Bingo Blitz</span><span class="rk-sub">最大338,847円</span></span></a><a class="guide-btn mini" href="#">攻略を見る</a></div></li><li><div class="rank-row"><a class="rank-link" href="#"><span class="rk">3</span><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a5/64/dc/a564dcf6-cac2-946b-0032-fb9dc7ab9432/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span class="rk-main"><span class="rk-name">キングショット</span><span class="rk-sub">最大215,469円</span></span></a><a class="guide-btn mini" href="#">攻略を見る</a></div></li></ol></section>
+</main>
+<footer class="site"><div class="fnav"><a href="#">ゲーム一覧</a><a href="#">ポイ活ゲームランキング</a><a href="#">案件条件の見方</a><a href="#">編集方針</a><a href="#">このサイトについて</a></div>
+<h3>運営メディア</h3>
+<p class="desc">ポイゲークエストは、ポイ活ゲームの攻略情報と案件条件をまとめたWikiです。掲載している金額・条件は各ポイントサイトの公式掲載を確認したものです。</p>
+</footer></div></div>
+<table class='slots'><tr><td>T1 主色（見出し文字・フッター地）</td><td><span class='sw' style='background:#12263F'></span><code>#12263F</code></td></tr><tr><td>T2 リンク・タブ・検索枠</td><td><span class='sw' style='background:#2E63A8'></span><code>#2E63A8</code></td></tr><tr><td>T3 帯グラデ開始（ナビ／見出し帯）</td><td><span class='sw' style='background:#122A4A'></span><code>#122A4A</code></td></tr><tr><td>T4 帯グラデ中間（ナビ）</td><td><span class='sw' style='background:#274E7D'></span><code>#274E7D</code></td></tr><tr><td>T5 帯グラデ終了（見出し帯）</td><td><span class='sw' style='background:#2A5A8C'></span><code>#2A5A8C</code></td></tr><tr><td>T6 金アクセント（✦・帯の下線）</td><td><span class='sw' style='background:#FFB52E'></span><code>#FFB52E</code></td></tr><tr><td>T7 淡色地（ボタン・チップ・特典枠）</td><td><span class='sw' style='background:#EAEFF6'></span><code>#EAEFF6</code></td></tr><tr><td>T8 ページ地</td><td><span class='sw' style='background:#F3F6FA'></span><code>#F3F6FA</code></td></tr><tr><td>T9 境界線</td><td><span class='sw' style='background:#D2DCE9'></span><code>#D2DCE9</code></td></tr><tr><td>T10 補助文字</td><td><span class='sw' style='background:#54687E'></span><code>#54687E</code></td></tr><tr><td>T11 金額強調</td><td><span class='sw' style='background:#B87700'></span><code>#B87700</code></td></tr><tr><td>T12 CTA（グラデ2色＋影）</td><td><span class='sw' style='background:linear-gradient(180deg,#FFB52E,#F08C00)'></span><code>#FFB52E → #F08C00 ／ 影 #B96F00</code></td></tr></table>
+</section>
+<section class="proposal">
+<h2 class="pname">案B：スカイブルー（世界観直結）</h2>
+<p class="pdesc">メイン画像（青空・浮遊島・城下町）の空の色を、そのまま帯・見出し・数字へ広げる。ページ全体が1枚の青空のように繋がり、世界観との一体感が最も強い。金は太陽とコインの色として現行のまま残し、金額は暖色の橙で青の中で目立たせる。</p>
+<div class="frame"><div class="mock" style="--navy:#1C4E79;--blue:#1B7FD4;--skydeep:#1E88D6;--sky:#45A9E8;--skydeep2:#1E88D6;--h2end:#6FBFF5;--gold:#FFC93C;--star:#E8A90C;--lblue:#E1F1FD;--pagebg:#EDF7FF;--line:#CBE4F8;--mut:#5B7A94;--amt:#E07B00;--cta1:#FF9E2C;--cta2:#FF7A00;--ctash:#D15400;--bandtext:#FFFFFF;--navtext:#EAF6FF;--bandsub:#DFF2FF;--foottext:#D6EEFF;--footdesc:#9CC3E4;--statend:#EAF7FF;--statline:#BFE0F8;--chiptext:#1E6FB4;--gbtext:#1E6FB4;--gbline:#B9DDF8;--kv1:#EAF7FF;--kv2:#FFF6DE;--bartop:#FF7A00;--bandborder:transparent">
+<header class="site"><div class="hrow">
+<a class="logo" href="#"><img class="logo-full" src="https://mea-poikatsu.github.io/mea-game-poikatsu/img/logo-horizontal.webp" alt="ポイゲークエスト"></a>
+<div class="htag"><span class="t1">ポイゲークエスト</span><span class="t2">Wiki・攻略・ポイ活サイト</span></div>
+<div class="hacts"><a class="hact" href="#"><span class="ic">🔍</span>ゲーム検索</a><a class="hact" href="#"><span class="ic">✉</span>お問い合わせ</a></div>
+</div><nav><a href="#">ゲーム一覧</a><a href="#">ランキング</a><a href="#">新着・更新</a><a href="#">サイトの案内</a></nav></header>
+<main>
+<div class="kv"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/img/hero-main-a.webp" alt="ポイゲークエストのキービジュアル。浮遊島と城下町のファンタジー世界">
+<span class="kv-strip"><span class="star">✦</span> 目玉タイトル「パズル＆サバイバル」の攻略・案件を見る ›</span></div>
+<section class="blk" style="margin-top:6px">
+<h1>ポイ活ゲーム攻略Wiki「ポイゲークエスト」</h1>
+<p class="lead">ポイ活ゲームの攻略情報と案件条件を、ゲームごとにまとめたWikiです。どのポイントサイトに載っているか、最大で何ポイントもらえるか、始める前に比べられます。</p>
+<div class="stats">
+<div class="stat"><div class="n">33</div><div class="l">掲載ゲーム</div></div>
+<div class="stat"><div class="n">88</div><div class="l">掲載中の案件</div></div>
+<div class="stat"><div class="n">380,497<small>円</small></div><div class="l">最高額の案件</div></div>
+</div>
+<div class="searchbox" style="margin-top:14px"><input type="text" placeholder="ゲーム名で探す"></div>
+<div class="state-row"><span class="state-label">状態で探す</span><span class="chips"><span class="chip">キャンペーン</span><span class="chip">増量中（11件）</span><span class="chip">新着・更新</span><span class="chip">期限が近い順</span><span class="chip">高ポイント</span></span></div>
+</section>
+<section class="blk"><h2>注目の高額案件<span class="h2sub">最大ポイントが高い順</span></h2>
+<div class="rail"><div class="car-card"><span class="car-art"><img class="car-art-img" src="https://play-lh.googleusercontent.com/2BKCBag60vf4BjmXYgABvYjARyfIrO9MF4lkhmCKhfJr0OUXSgPPfxgOuPKek0iNZInLmBqE8bjXThb2bYGT_w=w1024-h576" alt="" loading="lazy"><span class="car-pt">最大380,497円</span><span class="car-name">天地英雄伝</span></span><div class="car-body"><p class="car-meta">ポイントサイト経由の案件があります</p><div class="car-progress"><div class="car-progress-fill" style="width:72%"></div></div><a class="guide-btn coin" href="#">攻略を見る</a></div></div><div class="car-card"><span class="car-art"><img class="car-art-img" src="https://play-lh.googleusercontent.com/Oca19Dfh_7v7st3nOV3XwbauxxvuR_K5_9Bg7RvGyS2jn_c78N1DAIGiPLp1msa9MzjNCkcZXYs1h8rbA2TucA=w1024-h576" alt="" loading="lazy"><span class="car-pt">最大338,847円</span><span class="car-name">Bingo Blitz</span></span><div class="car-body"><p class="car-meta">ポイントサイト経由の案件があります</p><div class="car-progress"><div class="car-progress-fill" style="width:72%"></div></div><a class="guide-btn coin" href="#">攻略を見る</a></div></div><div class="car-card"><span class="car-art"><img class="car-art-img" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/c4/d5/db/c4d5dbcb-8879-49b7-7fed-6f048dec31d0/1_1320x2868.png/320x480bb.jpg" alt="" loading="lazy"><span class="car-pt">最大215,469円</span><span class="car-name">キングショット</span></span><div class="car-body"><p class="car-meta">ポイントサイト経由の案件があります</p><div class="car-progress"><div class="car-progress-fill" style="width:72%"></div></div><a class="guide-btn coin" href="#">攻略を見る</a></div></div></div></section>
+<section class="blk"><h2>人気のポイ活ゲーム</h2><div class="popgrid"><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bd/24/5e/bd245e4e-b9c6-014c-dc10-de86ab61c260/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>パズル＆サバイバル</span><span class="mini-pt">最大42,530円</span></a><a class="guide-btn" href="#">攻略を見る</a></div><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b7/6f/a9/b76fa99c-73e0-dad3-d93a-d08caf5427d5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>ロイヤルマッチ</span><span class="mini-pt">最大11,493円</span></a><a class="guide-btn" href="#">攻略を見る</a></div><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e6/9e/98/e69e9840-fa2b-7b53-c7f9-75a75021de26/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>ホワイトアウト・サバイバル</span><span class="mini-pt">最大10,209円</span></a><a class="guide-btn" href="#">攻略を見る</a></div><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a5/64/dc/a564dcf6-cac2-946b-0032-fb9dc7ab9432/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>キングショット</span><span class="mini-pt">最大215,469円</span></a><a class="guide-btn" href="#">攻略を見る</a></div><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f1/01/2c/f1012c21-5153-7b08-4f81-a5e94e75d1a7/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>メメントモリ</span><span class="mini-pt">最大22,043円</span></a><a class="guide-btn" href="#">攻略を見る</a></div><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/82/41/e3/8241e357-1044-687a-981b-aea8bcfe6a99/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>ザ・アンツ</span><span class="mini-pt">最大9,839円</span></a><a class="guide-btn" href="#">攻略を見る</a></div><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/56/a6/13/56a613e8-939f-5eb5-00ac-6e16288d1f3a/AppIcon-0-0-1x_U007emarketing-0-5-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>ザ・グランドマフィア</span><span class="mini-pt">最大112,906円</span></a><a class="guide-btn" href="#">攻略を見る</a></div><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/31/1b/52/311b52d8-1de2-5561-cad2-4c4643ac1fb0/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>タウンシップ</span><span class="mini-pt">最大36,968円</span></a><a class="guide-btn" href="#">攻略を見る</a></div></div></section>
+<section class="blk"><h2>初回特別キャンペーン<span class="h2sub">招待リンク・コードで特典</span></h2>
+<div class="svc-card"><div class="svc-head"><div class="svc-logo"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/img/svc-hapitas.png" alt="ハピタスのロゴ"></div>
+<div class="svc-namebox"><h3>ハピタス</h3><p class="svc-pos">ゲーム案件の掲載数がいちばん多いサイト</p></div></div>
+<p class="svc-benefit">招待リンクからの登録で<b>最大2,300円</b>（2026年11月30日まで）</p>
+<ul class="svc-facts"><li>1ポイント＝1円、交換は300円分から</li><li>このサイトで掲載中のゲーム案件：38件</li></ul>
+<p class="svc-code">招待コード：<b>INXAHV</b><span>リンクから登録すれば入力は不要です</span></p>
+<a class="cta cta-hapitas" href="#">ハピタスに無料登録する</a>
+<p class="svc-checked">特典・条件は2026年11月23日に公式確認</p></div>
+<p style="font-size:11px;color:var(--mut);margin-top:8px">※このボタンはサービス色（固定）です。下の共通CTAと見比べてください。</p>
+<div style="margin-top:22px"><p class="cta-catch">＼ 初回特典 最大2,300円 GET ／</p>
+<a class="cta-btn" href="#">登録無料！「ハピタス」招待URLはコチラ！ ›</a></div>
+</section>
+<section class="blk"><h2>ポイ活ゲームランキング</h2>
+<p style="margin:0 0 2px;font-size:13px">最大ポイントの比較（上位3ゲーム）</p>
+<div class="bars"><div class="bar-row"><div class="bar-name">1位：天地英雄伝</div><div class="bar-line"><div class="bar-track"><div class="bar-fill top" style="width:100%"></div></div><div class="bar-val">最大380,497円</div></div></div><div class="bar-row"><div class="bar-name">2位：Bingo Blitz</div><div class="bar-line"><div class="bar-track"><div class="bar-fill" style="width:89%"></div></div><div class="bar-val">最大338,847円</div></div></div><div class="bar-row"><div class="bar-name">3位：キングショット</div><div class="bar-line"><div class="bar-track"><div class="bar-fill" style="width:57%"></div></div><div class="bar-val">最大215,469円</div></div></div></div>
+<div class="tabs"><button class="tab on">ポイントが高い順</button><button class="tab">新着順</button><button class="tab">期限が近い順</button></div>
+<ol class="rank"><li><div class="rank-row"><a class="rank-link" href="#"><span class="rk">1</span><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d1/90/90/d19090d4-372c-ba4c-0fcf-ca2c353d1a65/AppIcon-1x_U007emarketing-0-4-85-220-0.png/512x512bb.jpg" alt="" loading="lazy"><span class="rk-main"><span class="rk-name">天地英雄伝</span><span class="rk-sub">最大380,497円</span></span></a><a class="guide-btn mini" href="#">攻略を見る</a></div></li><li><div class="rank-row"><a class="rank-link" href="#"><span class="rk">2</span><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7d/75/7b/7d757b77-eafb-3707-3b31-b8bf0a6af4b9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span class="rk-main"><span class="rk-name">Bingo Blitz</span><span class="rk-sub">最大338,847円</span></span></a><a class="guide-btn mini" href="#">攻略を見る</a></div></li><li><div class="rank-row"><a class="rank-link" href="#"><span class="rk">3</span><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a5/64/dc/a564dcf6-cac2-946b-0032-fb9dc7ab9432/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span class="rk-main"><span class="rk-name">キングショット</span><span class="rk-sub">最大215,469円</span></span></a><a class="guide-btn mini" href="#">攻略を見る</a></div></li></ol></section>
+</main>
+<footer class="site"><div class="fnav"><a href="#">ゲーム一覧</a><a href="#">ポイ活ゲームランキング</a><a href="#">案件条件の見方</a><a href="#">編集方針</a><a href="#">このサイトについて</a></div>
+<h3>運営メディア</h3>
+<p class="desc">ポイゲークエストは、ポイ活ゲームの攻略情報と案件条件をまとめたWikiです。掲載している金額・条件は各ポイントサイトの公式掲載を確認したものです。</p>
+</footer></div></div>
+<table class='slots'><tr><td>T1 主色（見出し文字・フッター地）</td><td><span class='sw' style='background:#1C4E79'></span><code>#1C4E79</code></td></tr><tr><td>T2 リンク・タブ・検索枠</td><td><span class='sw' style='background:#1B7FD4'></span><code>#1B7FD4</code></td></tr><tr><td>T3 帯グラデ開始（ナビ／見出し帯）</td><td><span class='sw' style='background:#1E88D6'></span><code>#1E88D6</code></td></tr><tr><td>T4 帯グラデ中間（ナビ）</td><td><span class='sw' style='background:#45A9E8'></span><code>#45A9E8</code></td></tr><tr><td>T5 帯グラデ終了（見出し帯）</td><td><span class='sw' style='background:#6FBFF5'></span><code>#6FBFF5</code></td></tr><tr><td>T6 金アクセント（✦・帯の下線）</td><td><span class='sw' style='background:#FFC93C'></span><code>#FFC93C</code></td></tr><tr><td>T7 淡色地（ボタン・チップ・特典枠）</td><td><span class='sw' style='background:#E1F1FD'></span><code>#E1F1FD</code></td></tr><tr><td>T8 ページ地</td><td><span class='sw' style='background:#EDF7FF'></span><code>#EDF7FF</code></td></tr><tr><td>T9 境界線</td><td><span class='sw' style='background:#CBE4F8'></span><code>#CBE4F8</code></td></tr><tr><td>T10 補助文字</td><td><span class='sw' style='background:#5B7A94'></span><code>#5B7A94</code></td></tr><tr><td>T11 金額強調</td><td><span class='sw' style='background:#E07B00'></span><code>#E07B00</code></td></tr><tr><td>T12 CTA（グラデ2色＋影）</td><td><span class='sw' style='background:linear-gradient(180deg,#FF9E2C,#FF7A00)'></span><code>#FF9E2C → #FF7A00 ／ 影 #D15400</code></td></tr></table>
+</section>
+<section class="proposal">
+<h2 class="pname">案C：中間グラデ（深い空→明るい空）</h2>
+<p class="pdesc">帯を「深い空（ネイビー寄り）→明るい空（スカイ）」のグラデーションにして、浮遊島の空の奥行きを色で表現する。現行からの移行が最も穏やかで、失敗の少ない中間案。金額強調だけ橙から金茶へ寄せ、世界観の金を差し色として効かせる。CTAは現行の橙を維持する。</p>
+<div class="frame"><div class="mock" style="--navy:#1B3A5C;--blue:#2F74B5;--skydeep:#173F6E;--sky:#2E8BD8;--skydeep2:#173F6E;--h2end:#45A3E3;--gold:#FFC93C;--star:#E8A90C;--lblue:#E8F1FA;--pagebg:#F2F8FD;--line:#D5E2EE;--mut:#5A6E84;--amt:#C98A04;--cta1:#FF8A3D;--cta2:#FF6900;--ctash:#D15400;--bandtext:#FFFFFF;--navtext:#EAF6FF;--bandsub:#D8E9F8;--foottext:#CFE0F2;--footdesc:#93A9C2;--statend:#EAF6FF;--statline:#BCD9F5;--chiptext:#2F5F8F;--gbtext:#2F5F8F;--gbline:#BCD6F2;--kv1:#EAF6FF;--kv2:#FFF6DE;--bartop:#C98A04;--bandborder:transparent">
+<header class="site"><div class="hrow">
+<a class="logo" href="#"><img class="logo-full" src="https://mea-poikatsu.github.io/mea-game-poikatsu/img/logo-horizontal.webp" alt="ポイゲークエスト"></a>
+<div class="htag"><span class="t1">ポイゲークエスト</span><span class="t2">Wiki・攻略・ポイ活サイト</span></div>
+<div class="hacts"><a class="hact" href="#"><span class="ic">🔍</span>ゲーム検索</a><a class="hact" href="#"><span class="ic">✉</span>お問い合わせ</a></div>
+</div><nav><a href="#">ゲーム一覧</a><a href="#">ランキング</a><a href="#">新着・更新</a><a href="#">サイトの案内</a></nav></header>
+<main>
+<div class="kv"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/img/hero-main-a.webp" alt="ポイゲークエストのキービジュアル。浮遊島と城下町のファンタジー世界">
+<span class="kv-strip"><span class="star">✦</span> 目玉タイトル「パズル＆サバイバル」の攻略・案件を見る ›</span></div>
+<section class="blk" style="margin-top:6px">
+<h1>ポイ活ゲーム攻略Wiki「ポイゲークエスト」</h1>
+<p class="lead">ポイ活ゲームの攻略情報と案件条件を、ゲームごとにまとめたWikiです。どのポイントサイトに載っているか、最大で何ポイントもらえるか、始める前に比べられます。</p>
+<div class="stats">
+<div class="stat"><div class="n">33</div><div class="l">掲載ゲーム</div></div>
+<div class="stat"><div class="n">88</div><div class="l">掲載中の案件</div></div>
+<div class="stat"><div class="n">380,497<small>円</small></div><div class="l">最高額の案件</div></div>
+</div>
+<div class="searchbox" style="margin-top:14px"><input type="text" placeholder="ゲーム名で探す"></div>
+<div class="state-row"><span class="state-label">状態で探す</span><span class="chips"><span class="chip">キャンペーン</span><span class="chip">増量中（11件）</span><span class="chip">新着・更新</span><span class="chip">期限が近い順</span><span class="chip">高ポイント</span></span></div>
+</section>
+<section class="blk"><h2>注目の高額案件<span class="h2sub">最大ポイントが高い順</span></h2>
+<div class="rail"><div class="car-card"><span class="car-art"><img class="car-art-img" src="https://play-lh.googleusercontent.com/2BKCBag60vf4BjmXYgABvYjARyfIrO9MF4lkhmCKhfJr0OUXSgPPfxgOuPKek0iNZInLmBqE8bjXThb2bYGT_w=w1024-h576" alt="" loading="lazy"><span class="car-pt">最大380,497円</span><span class="car-name">天地英雄伝</span></span><div class="car-body"><p class="car-meta">ポイントサイト経由の案件があります</p><div class="car-progress"><div class="car-progress-fill" style="width:72%"></div></div><a class="guide-btn coin" href="#">攻略を見る</a></div></div><div class="car-card"><span class="car-art"><img class="car-art-img" src="https://play-lh.googleusercontent.com/Oca19Dfh_7v7st3nOV3XwbauxxvuR_K5_9Bg7RvGyS2jn_c78N1DAIGiPLp1msa9MzjNCkcZXYs1h8rbA2TucA=w1024-h576" alt="" loading="lazy"><span class="car-pt">最大338,847円</span><span class="car-name">Bingo Blitz</span></span><div class="car-body"><p class="car-meta">ポイントサイト経由の案件があります</p><div class="car-progress"><div class="car-progress-fill" style="width:72%"></div></div><a class="guide-btn coin" href="#">攻略を見る</a></div></div><div class="car-card"><span class="car-art"><img class="car-art-img" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/c4/d5/db/c4d5dbcb-8879-49b7-7fed-6f048dec31d0/1_1320x2868.png/320x480bb.jpg" alt="" loading="lazy"><span class="car-pt">最大215,469円</span><span class="car-name">キングショット</span></span><div class="car-body"><p class="car-meta">ポイントサイト経由の案件があります</p><div class="car-progress"><div class="car-progress-fill" style="width:72%"></div></div><a class="guide-btn coin" href="#">攻略を見る</a></div></div></div></section>
+<section class="blk"><h2>人気のポイ活ゲーム</h2><div class="popgrid"><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bd/24/5e/bd245e4e-b9c6-014c-dc10-de86ab61c260/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>パズル＆サバイバル</span><span class="mini-pt">最大42,530円</span></a><a class="guide-btn" href="#">攻略を見る</a></div><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b7/6f/a9/b76fa99c-73e0-dad3-d93a-d08caf5427d5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>ロイヤルマッチ</span><span class="mini-pt">最大11,493円</span></a><a class="guide-btn" href="#">攻略を見る</a></div><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e6/9e/98/e69e9840-fa2b-7b53-c7f9-75a75021de26/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>ホワイトアウト・サバイバル</span><span class="mini-pt">最大10,209円</span></a><a class="guide-btn" href="#">攻略を見る</a></div><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a5/64/dc/a564dcf6-cac2-946b-0032-fb9dc7ab9432/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>キングショット</span><span class="mini-pt">最大215,469円</span></a><a class="guide-btn" href="#">攻略を見る</a></div><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f1/01/2c/f1012c21-5153-7b08-4f81-a5e94e75d1a7/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>メメントモリ</span><span class="mini-pt">最大22,043円</span></a><a class="guide-btn" href="#">攻略を見る</a></div><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/82/41/e3/8241e357-1044-687a-981b-aea8bcfe6a99/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>ザ・アンツ</span><span class="mini-pt">最大9,839円</span></a><a class="guide-btn" href="#">攻略を見る</a></div><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/56/a6/13/56a613e8-939f-5eb5-00ac-6e16288d1f3a/AppIcon-0-0-1x_U007emarketing-0-5-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>ザ・グランドマフィア</span><span class="mini-pt">最大112,906円</span></a><a class="guide-btn" href="#">攻略を見る</a></div><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/31/1b/52/311b52d8-1de2-5561-cad2-4c4643ac1fb0/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>タウンシップ</span><span class="mini-pt">最大36,968円</span></a><a class="guide-btn" href="#">攻略を見る</a></div></div></section>
+<section class="blk"><h2>初回特別キャンペーン<span class="h2sub">招待リンク・コードで特典</span></h2>
+<div class="svc-card"><div class="svc-head"><div class="svc-logo"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/img/svc-hapitas.png" alt="ハピタスのロゴ"></div>
+<div class="svc-namebox"><h3>ハピタス</h3><p class="svc-pos">ゲーム案件の掲載数がいちばん多いサイト</p></div></div>
+<p class="svc-benefit">招待リンクからの登録で<b>最大2,300円</b>（2026年11月30日まで）</p>
+<ul class="svc-facts"><li>1ポイント＝1円、交換は300円分から</li><li>このサイトで掲載中のゲーム案件：38件</li></ul>
+<p class="svc-code">招待コード：<b>INXAHV</b><span>リンクから登録すれば入力は不要です</span></p>
+<a class="cta cta-hapitas" href="#">ハピタスに無料登録する</a>
+<p class="svc-checked">特典・条件は2026年11月23日に公式確認</p></div>
+<p style="font-size:11px;color:var(--mut);margin-top:8px">※このボタンはサービス色（固定）です。下の共通CTAと見比べてください。</p>
+<div style="margin-top:22px"><p class="cta-catch">＼ 初回特典 最大2,300円 GET ／</p>
+<a class="cta-btn" href="#">登録無料！「ハピタス」招待URLはコチラ！ ›</a></div>
+</section>
+<section class="blk"><h2>ポイ活ゲームランキング</h2>
+<p style="margin:0 0 2px;font-size:13px">最大ポイントの比較（上位3ゲーム）</p>
+<div class="bars"><div class="bar-row"><div class="bar-name">1位：天地英雄伝</div><div class="bar-line"><div class="bar-track"><div class="bar-fill top" style="width:100%"></div></div><div class="bar-val">最大380,497円</div></div></div><div class="bar-row"><div class="bar-name">2位：Bingo Blitz</div><div class="bar-line"><div class="bar-track"><div class="bar-fill" style="width:89%"></div></div><div class="bar-val">最大338,847円</div></div></div><div class="bar-row"><div class="bar-name">3位：キングショット</div><div class="bar-line"><div class="bar-track"><div class="bar-fill" style="width:57%"></div></div><div class="bar-val">最大215,469円</div></div></div></div>
+<div class="tabs"><button class="tab on">ポイントが高い順</button><button class="tab">新着順</button><button class="tab">期限が近い順</button></div>
+<ol class="rank"><li><div class="rank-row"><a class="rank-link" href="#"><span class="rk">1</span><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d1/90/90/d19090d4-372c-ba4c-0fcf-ca2c353d1a65/AppIcon-1x_U007emarketing-0-4-85-220-0.png/512x512bb.jpg" alt="" loading="lazy"><span class="rk-main"><span class="rk-name">天地英雄伝</span><span class="rk-sub">最大380,497円</span></span></a><a class="guide-btn mini" href="#">攻略を見る</a></div></li><li><div class="rank-row"><a class="rank-link" href="#"><span class="rk">2</span><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7d/75/7b/7d757b77-eafb-3707-3b31-b8bf0a6af4b9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span class="rk-main"><span class="rk-name">Bingo Blitz</span><span class="rk-sub">最大338,847円</span></span></a><a class="guide-btn mini" href="#">攻略を見る</a></div></li><li><div class="rank-row"><a class="rank-link" href="#"><span class="rk">3</span><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a5/64/dc/a564dcf6-cac2-946b-0032-fb9dc7ab9432/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span class="rk-main"><span class="rk-name">キングショット</span><span class="rk-sub">最大215,469円</span></span></a><a class="guide-btn mini" href="#">攻略を見る</a></div></li></ol></section>
+</main>
+<footer class="site"><div class="fnav"><a href="#">ゲーム一覧</a><a href="#">ポイ活ゲームランキング</a><a href="#">案件条件の見方</a><a href="#">編集方針</a><a href="#">このサイトについて</a></div>
+<h3>運営メディア</h3>
+<p class="desc">ポイゲークエストは、ポイ活ゲームの攻略情報と案件条件をまとめたWikiです。掲載している金額・条件は各ポイントサイトの公式掲載を確認したものです。</p>
+</footer></div></div>
+<table class='slots'><tr><td>T1 主色（見出し文字・フッター地）</td><td><span class='sw' style='background:#1B3A5C'></span><code>#1B3A5C</code></td></tr><tr><td>T2 リンク・タブ・検索枠</td><td><span class='sw' style='background:#2F74B5'></span><code>#2F74B5</code></td></tr><tr><td>T3 帯グラデ開始（ナビ／見出し帯）</td><td><span class='sw' style='background:#173F6E'></span><code>#173F6E</code></td></tr><tr><td>T4 帯グラデ中間（ナビ）</td><td><span class='sw' style='background:#2E8BD8'></span><code>#2E8BD8</code></td></tr><tr><td>T5 帯グラデ終了（見出し帯）</td><td><span class='sw' style='background:#45A3E3'></span><code>#45A3E3</code></td></tr><tr><td>T6 金アクセント（✦・帯の下線）</td><td><span class='sw' style='background:#FFC93C'></span><code>#FFC93C</code></td></tr><tr><td>T7 淡色地（ボタン・チップ・特典枠）</td><td><span class='sw' style='background:#E8F1FA'></span><code>#E8F1FA</code></td></tr><tr><td>T8 ページ地</td><td><span class='sw' style='background:#F2F8FD'></span><code>#F2F8FD</code></td></tr><tr><td>T9 境界線</td><td><span class='sw' style='background:#D5E2EE'></span><code>#D5E2EE</code></td></tr><tr><td>T10 補助文字</td><td><span class='sw' style='background:#5A6E84'></span><code>#5A6E84</code></td></tr><tr><td>T11 金額強調</td><td><span class='sw' style='background:#C98A04'></span><code>#C98A04</code></td></tr><tr><td>T12 CTA（グラデ2色＋影）</td><td><span class='sw' style='background:linear-gradient(180deg,#FF8A3D,#FF6900)'></span><code>#FF8A3D → #FF6900 ／ 影 #D15400</code></td></tr></table>
+</section>
+<section class="proposal">
+<h2 class="pname">案D：ライト（白＋淡スカイ）</h2>
+<p class="pdesc">帯を濃色の面から「淡いスカイの地＋濃色の文字」へ反転させ、雲の白を基調にした最も軽く明るい案。区切りは面ではなく色文字と金のラインで付ける今風の軽さになる。反面、帯の区切りの強さは他の案より弱くなる。フッターだけは主色の面で締める。</p>
+<div class="frame"><div class="mock" style="--navy:#17557F;--blue:#1B7FD4;--skydeep:#DCEEFF;--sky:#EAF6FF;--skydeep2:#17557F;--h2end:#EAF6FF;--gold:#E8A90C;--star:#E8A90C;--lblue:#EAF4FC;--pagebg:#FCFEFF;--line:#D9E8F4;--mut:#5F7A90;--amt:#E05E00;--cta1:#FF8A3D;--cta2:#FF6900;--ctash:#D15400;--bandtext:#17557F;--navtext:#17557F;--bandsub:#4A6B8A;--foottext:#D9E9F7;--footdesc:#9FB8CE;--statend:#F2FAFF;--statline:#CFE6F7;--chiptext:#1E6FB4;--gbtext:#1E6FB4;--gbline:#B9DDF8;--kv1:#EAF6FF;--kv2:#FFF6DE;--bartop:#FF6900;--bandborder:#E8A90C">
+<header class="site"><div class="hrow">
+<a class="logo" href="#"><img class="logo-full" src="https://mea-poikatsu.github.io/mea-game-poikatsu/img/logo-horizontal.webp" alt="ポイゲークエスト"></a>
+<div class="htag"><span class="t1">ポイゲークエスト</span><span class="t2">Wiki・攻略・ポイ活サイト</span></div>
+<div class="hacts"><a class="hact" href="#"><span class="ic">🔍</span>ゲーム検索</a><a class="hact" href="#"><span class="ic">✉</span>お問い合わせ</a></div>
+</div><nav><a href="#">ゲーム一覧</a><a href="#">ランキング</a><a href="#">新着・更新</a><a href="#">サイトの案内</a></nav></header>
+<main>
+<div class="kv"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/img/hero-main-a.webp" alt="ポイゲークエストのキービジュアル。浮遊島と城下町のファンタジー世界">
+<span class="kv-strip"><span class="star">✦</span> 目玉タイトル「パズル＆サバイバル」の攻略・案件を見る ›</span></div>
+<section class="blk" style="margin-top:6px">
+<h1>ポイ活ゲーム攻略Wiki「ポイゲークエスト」</h1>
+<p class="lead">ポイ活ゲームの攻略情報と案件条件を、ゲームごとにまとめたWikiです。どのポイントサイトに載っているか、最大で何ポイントもらえるか、始める前に比べられます。</p>
+<div class="stats">
+<div class="stat"><div class="n">33</div><div class="l">掲載ゲーム</div></div>
+<div class="stat"><div class="n">88</div><div class="l">掲載中の案件</div></div>
+<div class="stat"><div class="n">380,497<small>円</small></div><div class="l">最高額の案件</div></div>
+</div>
+<div class="searchbox" style="margin-top:14px"><input type="text" placeholder="ゲーム名で探す"></div>
+<div class="state-row"><span class="state-label">状態で探す</span><span class="chips"><span class="chip">キャンペーン</span><span class="chip">増量中（11件）</span><span class="chip">新着・更新</span><span class="chip">期限が近い順</span><span class="chip">高ポイント</span></span></div>
+</section>
+<section class="blk"><h2>注目の高額案件<span class="h2sub">最大ポイントが高い順</span></h2>
+<div class="rail"><div class="car-card"><span class="car-art"><img class="car-art-img" src="https://play-lh.googleusercontent.com/2BKCBag60vf4BjmXYgABvYjARyfIrO9MF4lkhmCKhfJr0OUXSgPPfxgOuPKek0iNZInLmBqE8bjXThb2bYGT_w=w1024-h576" alt="" loading="lazy"><span class="car-pt">最大380,497円</span><span class="car-name">天地英雄伝</span></span><div class="car-body"><p class="car-meta">ポイントサイト経由の案件があります</p><div class="car-progress"><div class="car-progress-fill" style="width:72%"></div></div><a class="guide-btn coin" href="#">攻略を見る</a></div></div><div class="car-card"><span class="car-art"><img class="car-art-img" src="https://play-lh.googleusercontent.com/Oca19Dfh_7v7st3nOV3XwbauxxvuR_K5_9Bg7RvGyS2jn_c78N1DAIGiPLp1msa9MzjNCkcZXYs1h8rbA2TucA=w1024-h576" alt="" loading="lazy"><span class="car-pt">最大338,847円</span><span class="car-name">Bingo Blitz</span></span><div class="car-body"><p class="car-meta">ポイントサイト経由の案件があります</p><div class="car-progress"><div class="car-progress-fill" style="width:72%"></div></div><a class="guide-btn coin" href="#">攻略を見る</a></div></div><div class="car-card"><span class="car-art"><img class="car-art-img" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/c4/d5/db/c4d5dbcb-8879-49b7-7fed-6f048dec31d0/1_1320x2868.png/320x480bb.jpg" alt="" loading="lazy"><span class="car-pt">最大215,469円</span><span class="car-name">キングショット</span></span><div class="car-body"><p class="car-meta">ポイントサイト経由の案件があります</p><div class="car-progress"><div class="car-progress-fill" style="width:72%"></div></div><a class="guide-btn coin" href="#">攻略を見る</a></div></div></div></section>
+<section class="blk"><h2>人気のポイ活ゲーム</h2><div class="popgrid"><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bd/24/5e/bd245e4e-b9c6-014c-dc10-de86ab61c260/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>パズル＆サバイバル</span><span class="mini-pt">最大42,530円</span></a><a class="guide-btn" href="#">攻略を見る</a></div><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b7/6f/a9/b76fa99c-73e0-dad3-d93a-d08caf5427d5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>ロイヤルマッチ</span><span class="mini-pt">最大11,493円</span></a><a class="guide-btn" href="#">攻略を見る</a></div><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e6/9e/98/e69e9840-fa2b-7b53-c7f9-75a75021de26/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>ホワイトアウト・サバイバル</span><span class="mini-pt">最大10,209円</span></a><a class="guide-btn" href="#">攻略を見る</a></div><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a5/64/dc/a564dcf6-cac2-946b-0032-fb9dc7ab9432/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>キングショット</span><span class="mini-pt">最大215,469円</span></a><a class="guide-btn" href="#">攻略を見る</a></div><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f1/01/2c/f1012c21-5153-7b08-4f81-a5e94e75d1a7/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>メメントモリ</span><span class="mini-pt">最大22,043円</span></a><a class="guide-btn" href="#">攻略を見る</a></div><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/82/41/e3/8241e357-1044-687a-981b-aea8bcfe6a99/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>ザ・アンツ</span><span class="mini-pt">最大9,839円</span></a><a class="guide-btn" href="#">攻略を見る</a></div><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/56/a6/13/56a613e8-939f-5eb5-00ac-6e16288d1f3a/AppIcon-0-0-1x_U007emarketing-0-5-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>ザ・グランドマフィア</span><span class="mini-pt">最大112,906円</span></a><a class="guide-btn" href="#">攻略を見る</a></div><div class="pop-card"><a class="pop-main" href="#"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/31/1b/52/311b52d8-1de2-5561-cad2-4c4643ac1fb0/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span>タウンシップ</span><span class="mini-pt">最大36,968円</span></a><a class="guide-btn" href="#">攻略を見る</a></div></div></section>
+<section class="blk"><h2>初回特別キャンペーン<span class="h2sub">招待リンク・コードで特典</span></h2>
+<div class="svc-card"><div class="svc-head"><div class="svc-logo"><img src="https://mea-poikatsu.github.io/mea-game-poikatsu/img/svc-hapitas.png" alt="ハピタスのロゴ"></div>
+<div class="svc-namebox"><h3>ハピタス</h3><p class="svc-pos">ゲーム案件の掲載数がいちばん多いサイト</p></div></div>
+<p class="svc-benefit">招待リンクからの登録で<b>最大2,300円</b>（2026年11月30日まで）</p>
+<ul class="svc-facts"><li>1ポイント＝1円、交換は300円分から</li><li>このサイトで掲載中のゲーム案件：38件</li></ul>
+<p class="svc-code">招待コード：<b>INXAHV</b><span>リンクから登録すれば入力は不要です</span></p>
+<a class="cta cta-hapitas" href="#">ハピタスに無料登録する</a>
+<p class="svc-checked">特典・条件は2026年11月23日に公式確認</p></div>
+<p style="font-size:11px;color:var(--mut);margin-top:8px">※このボタンはサービス色（固定）です。下の共通CTAと見比べてください。</p>
+<div style="margin-top:22px"><p class="cta-catch">＼ 初回特典 最大2,300円 GET ／</p>
+<a class="cta-btn" href="#">登録無料！「ハピタス」招待URLはコチラ！ ›</a></div>
+</section>
+<section class="blk"><h2>ポイ活ゲームランキング</h2>
+<p style="margin:0 0 2px;font-size:13px">最大ポイントの比較（上位3ゲーム）</p>
+<div class="bars"><div class="bar-row"><div class="bar-name">1位：天地英雄伝</div><div class="bar-line"><div class="bar-track"><div class="bar-fill top" style="width:100%"></div></div><div class="bar-val">最大380,497円</div></div></div><div class="bar-row"><div class="bar-name">2位：Bingo Blitz</div><div class="bar-line"><div class="bar-track"><div class="bar-fill" style="width:89%"></div></div><div class="bar-val">最大338,847円</div></div></div><div class="bar-row"><div class="bar-name">3位：キングショット</div><div class="bar-line"><div class="bar-track"><div class="bar-fill" style="width:57%"></div></div><div class="bar-val">最大215,469円</div></div></div></div>
+<div class="tabs"><button class="tab on">ポイントが高い順</button><button class="tab">新着順</button><button class="tab">期限が近い順</button></div>
+<ol class="rank"><li><div class="rank-row"><a class="rank-link" href="#"><span class="rk">1</span><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d1/90/90/d19090d4-372c-ba4c-0fcf-ca2c353d1a65/AppIcon-1x_U007emarketing-0-4-85-220-0.png/512x512bb.jpg" alt="" loading="lazy"><span class="rk-main"><span class="rk-name">天地英雄伝</span><span class="rk-sub">最大380,497円</span></span></a><a class="guide-btn mini" href="#">攻略を見る</a></div></li><li><div class="rank-row"><a class="rank-link" href="#"><span class="rk">2</span><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7d/75/7b/7d757b77-eafb-3707-3b31-b8bf0a6af4b9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span class="rk-main"><span class="rk-name">Bingo Blitz</span><span class="rk-sub">最大338,847円</span></span></a><a class="guide-btn mini" href="#">攻略を見る</a></div></li><li><div class="rank-row"><a class="rank-link" href="#"><span class="rk">3</span><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a5/64/dc/a564dcf6-cac2-946b-0032-fb9dc7ab9432/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="" loading="lazy"><span class="rk-main"><span class="rk-name">キングショット</span><span class="rk-sub">最大215,469円</span></span></a><a class="guide-btn mini" href="#">攻略を見る</a></div></li></ol></section>
+</main>
+<footer class="site"><div class="fnav"><a href="#">ゲーム一覧</a><a href="#">ポイ活ゲームランキング</a><a href="#">案件条件の見方</a><a href="#">編集方針</a><a href="#">このサイトについて</a></div>
+<h3>運営メディア</h3>
+<p class="desc">ポイゲークエストは、ポイ活ゲームの攻略情報と案件条件をまとめたWikiです。掲載している金額・条件は各ポイントサイトの公式掲載を確認したものです。</p>
+</footer></div></div>
+<table class='slots'><tr><td>T1 主色（見出し文字・フッター地）</td><td><span class='sw' style='background:#17557F'></span><code>#17557F</code></td></tr><tr><td>T2 リンク・タブ・検索枠</td><td><span class='sw' style='background:#1B7FD4'></span><code>#1B7FD4</code></td></tr><tr><td>T3 帯グラデ開始（ナビ／見出し帯）</td><td><span class='sw' style='background:#DCEEFF'></span><code>#DCEEFF</code></td></tr><tr><td>T4 帯グラデ中間（ナビ）</td><td><span class='sw' style='background:#EAF6FF'></span><code>#EAF6FF</code></td></tr><tr><td>T5 帯グラデ終了（見出し帯）</td><td><span class='sw' style='background:#EAF6FF'></span><code>#EAF6FF</code></td></tr><tr><td>T6 金アクセント（✦・帯の下線）</td><td><span class='sw' style='background:#E8A90C'></span><code>#E8A90C</code></td></tr><tr><td>T7 淡色地（ボタン・チップ・特典枠）</td><td><span class='sw' style='background:#EAF4FC'></span><code>#EAF4FC</code></td></tr><tr><td>T8 ページ地</td><td><span class='sw' style='background:#FCFEFF'></span><code>#FCFEFF</code></td></tr><tr><td>T9 境界線</td><td><span class='sw' style='background:#D9E8F4'></span><code>#D9E8F4</code></td></tr><tr><td>T10 補助文字</td><td><span class='sw' style='background:#5F7A90'></span><code>#5F7A90</code></td></tr><tr><td>T11 金額強調</td><td><span class='sw' style='background:#E05E00'></span><code>#E05E00</code></td></tr><tr><td>T12 CTA（グラデ2色＋影）</td><td><span class='sw' style='background:linear-gradient(180deg,#FF8A3D,#FF6900)'></span><code>#FF8A3D → #FF6900 ／ 影 #D15400</code></td></tr><tr><td>帯の文字色（反転）</td><td><span class='sw' style='background:#17557F'></span><code>#17557F（主色）</code></td></tr></table>
+</section>
+</div>
+</body>
+</html>
