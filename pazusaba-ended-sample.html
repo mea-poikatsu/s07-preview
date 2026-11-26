@@ -382,6 +382,14 @@ html[data-theme="dark"] .hook a,html[data-theme="dark"] td a,html[data-theme="da
 .nc-banner p{color:#cfe2f5;font-size:12.5px;margin:0 0 10px}
 .nc-banner a{display:block;background:linear-gradient(180deg,#ecd27c,#d3af47);border:1.5px solid #b28e35;color:#6d5310;font-weight:800;font-size:15.5px;border-radius:999px;padding:12px 10px;text-decoration:none}
 .sticky-cta .sticky-cta-bar,.sticky-cta.alt .sticky-cta-bar{background:#172B49 !important;color:#fff !important;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+.nc-panel{margin:12px;background:linear-gradient(180deg,#1d3a5f,#172B49);border:1.5px solid #3977B8;border-radius:16px;padding:0 14px 8px;overflow:hidden}
+.nc-phead{background:linear-gradient(180deg,#ecd27c,#d3af47);color:#4a3805;font-weight:900;font-size:14.5px;line-height:1.5;margin:0 -14px 6px;padding:10px 14px;text-align:center}
+.nc-row{display:flex;gap:11px;padding:10px 2px;border-top:1px solid rgba(255,255,255,.14)}
+.nc-row:first-of-type{border-top:none}
+.nc-ic{flex:0 0 42px;height:42px;border-radius:50%;background:linear-gradient(180deg,#ecd27c,#d3af47);display:flex;align-items:center;justify-content:center;font-size:20px}
+.nc-tx h4{margin:1px 0 4px;font-size:14.5px;color:#FFD94D}
+.nc-tx p{margin:0;font-size:13px;line-height:1.75;color:#dbe7f5}
+.nc-tx a{color:#8fc3ff;font-weight:700}
 </style></head>
 <body><div class="pv-banner">【サンプル】パズサバの案件が全て終了した場合の攻略トップ表示です（実際の案件は掲載中です）</div><div class="page">
 
@@ -407,12 +415,11 @@ html[data-theme="dark"] .hook a,html[data-theme="dark"] td a,html[data-theme="da
 <nav class="toc"><a href="#campaign" class="on">ポイ活案件</a><a href="#about">ゲーム概要</a><a href="#meyasu">到達目安</a><a href="#guide">上げ方</a><a href="#history">変更履歴</a></nav>
 
 <div class="sec" id="campaign"><div class="sec-head"><h2>ポイ活案件</h2><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/how-to-read/">条件の見方 ＞</a></div>
-<div class="nc-notice">
-  <span class="nc-tag">お知らせ</span>
-  <p class="nc-main">現在搭載の案件が終了した可能性があり更新されていません</p>
-  <p class="nc-body">パズル＆サバイバルのポイ活案件は、現在ご案内できる掲載がありません。新しい案件が確認でき次第、このページでお知らせします。</p>
-  <div class="nc-hook">攻略ページはこれまで通り読めます。上の「攻略メニュー」から、英雄・施設・イベントなどの攻略へそのまま進めます。</div>
-  <p class="nc-body" style="margin-top:10px">終了した案件の条件・ステップは、<a href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/conditions/">案件条件の詳細</a>に当時の記録として残しています（申込導線は設置していません）。</p>
+<div class="nc-panel">
+  <p class="nc-phead">現在搭載の案件が終了した可能性があり更新されていません</p>
+  <div class="nc-row"><div class="nc-ic">📢</div><div class="nc-tx"><h4>現在、ご案内できる案件はありません</h4><p>パズル＆サバイバルのポイ活案件は、現在ご案内できる掲載がありません。新しい案件が確認でき次第、このページでお知らせします。</p></div></div>
+  <div class="nc-row"><div class="nc-ic">📖</div><div class="nc-tx"><h4>攻略ページはこれまで通り読めます</h4><p>上の「攻略メニュー」から、英雄・施設・イベントなどの攻略へそのまま進めます。</p></div></div>
+  <div class="nc-row"><div class="nc-ic">🗂️</div><div class="nc-tx"><h4>終了した案件の記録について</h4><p>終了した案件の条件・ステップは、<a href="https://mea-poikatsu.github.io/mea-game-poikatsu/games/puzzles-and-survival/conditions/">案件条件の詳細</a>に当時の記録として残しています（申込導線は設置していません）。</p></div></div>
 </div>
 <h3 class="nc-h3">いま挑戦できる他のゲームの案件</h3>
 <div class="nc-rail">
