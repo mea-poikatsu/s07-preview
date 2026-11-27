@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ポイ活ポータル｜メアのポイ活メディア（Yahoo型ハブ雛形）</title>
+<!--
+  S01ハブ雛形：Yahoo! JAPANトップの構成の型に沿った組み替え案（2026-11-28）
+  ・本番未反映のローカル雛形。事実（コード・特典・期限・確認日）は services-data.json の現行値。
+  ・広告はセクション境界にだけプレースホルダを配置。
+  ・検索窓とカテゴリタブはこのページ内で19件を絞り込む（ライブ検索）。
+  ・紹介コードはタップでコピー＋フィードバック表示。
+-->
+<style>
+  :root{
+    --pink:#d6336c; --pink-deep:#b02557; --pink-soft:#fdf0f4; --pink-panel:#fdeef3;
+    --ink:#222; --muted:#767676; --line:#e7c9d4; --link:#b02557;
+    --orange:#f76707; --red:#e03131; --blue:#1c6fe8; --gold:#f59f00;
+    --chip:#fff;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",sans-serif; color:var(--ink); background:#fff; font-size:14px; line-height:1.55;}
+  a{color:var(--link); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .wrap{max-width:1200px; margin:0 auto; padding:0 10px;}
+
+  /* 鮮度帯（Yahooのユーティリティ帯に対応） */
+  .utility{display:flex; justify-content:space-between; align-items:center; gap:8px; font-size:11px; color:var(--muted); padding:5px 2px; border-bottom:1px solid #eee; flex-wrap:wrap;}
+  .utility .fresh{color:var(--pink-deep); font-weight:700;}
+  .utility nav a{color:var(--muted); margin-left:10px;}
+
+  /* ヘッダー（ロゴ中央＋左右アイコン） */
+  header.site{display:flex; align-items:flex-start; justify-content:space-between; padding:10px 0 6px;}
+  .hgroup{display:flex; gap:14px;}
+  .hicon{display:flex; flex-direction:column; align-items:center; width:58px; color:var(--ink); font-size:10px; line-height:1.25; text-align:center;}
+  .hicon:hover{text-decoration:none;}
+  .hicon .ic{width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:19px; font-weight:700; margin-bottom:3px;}
+  .logo{text-align:center; padding-top:2px;}
+  .logo .name{font-size:31px; font-weight:900; color:var(--pink); letter-spacing:.02em; line-height:1.1;}
+  .logo .sub{display:inline-block; margin-top:3px; font-size:11px; color:var(--pink-deep); border:1px solid var(--line); background:var(--pink-soft); border-radius:999px; padding:1px 10px;}
+
+  /* 検索帯 */
+  .searchband{border:1px solid var(--line); background:var(--pink-soft); padding:8px 10px 10px; margin-top:4px;}
+  .tabs{display:flex; gap:2px; flex-wrap:wrap; justify-content:center; margin-bottom:7px;}
+  .tabs button{border:0; background:transparent; font-size:13px; padding:3px 9px; cursor:pointer; color:var(--ink); border-radius:4px;}
+  .tabs button.on{font-weight:900; color:var(--pink-deep); text-decoration:underline; text-underline-offset:3px;}
+  .searchrow{display:flex; gap:8px; max-width:760px; margin:0 auto;}
+  .searchrow input{flex:1; font-size:16px; padding:8px 10px; border:1px solid #c9c9c9; border-radius:4px; min-width:0;}
+  .searchrow .go{background:var(--blue); color:#fff; border:0; font-size:15px; font-weight:700; padding:8px 22px; border-radius:4px; cursor:pointer;}
+  .searchrow .detail{align-self:center; font-size:12px; white-space:nowrap;}
+  .searchcount{text-align:center; font-size:11px; color:var(--muted); margin-top:6px;}
+
+  /* ピックアップ帯 */
+  .pickup-line{display:flex; gap:22px; flex-wrap:wrap; padding:8px 4px 2px; font-size:13px;}
+  .pickup-line a::before{content:"» "; color:var(--pink); font-weight:900;}
+  .pickup-line .hot{color:var(--red); font-weight:700;}
+
+  /* 3カラム */
+  .cols{display:grid; grid-template-columns:250px 1fr 300px; gap:12px; margin-top:10px; align-items:start;}
+  .panel{border:1px solid var(--line); background:#fff; margin-bottom:12px;}
+  .panel > h2{font-size:14px; font-weight:900; padding:7px 10px; background:var(--pink-panel); border-bottom:1px solid var(--line);}
+  .panel .body{padding:8px 10px;}
+  .left .panel{background:var(--pink-soft);}
+  .left .panel > h2{background:transparent; border-bottom:0; padding-bottom:2px;}
+
+  /* 左：ピックアップ */
+  .feat{padding:6px 10px 10px;}
+  .feat a.name{font-size:14px; font-weight:700; display:flex; align-items:center; gap:7px;}
+  .feat .pill{display:inline-block; background:#fff; border:1px solid var(--line); border-radius:5px; font-size:11px; padding:2px 8px; margin:4px 0 10px 27px; color:var(--ink);}
+  .fic{width:20px; height:20px; border-radius:5px; color:#fff; display:inline-flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; flex:none;}
+
+  /* 左：全体マップ */
+  .sitemap{list-style:none; padding:2px 10px 8px;}
+  .sitemap li{padding:4px 0; border-bottom:1px dotted #f3d7e0;}
+  .sitemap li:last-child{border-bottom:0;}
+  .sitemap a{display:flex; gap:8px; align-items:flex-start; color:var(--ink);}
+  .sitemap a:hover{text-decoration:none;}
+  .sitemap .nm{font-weight:700; color:var(--link); font-size:13px;}
+  .sitemap .ds{display:block; font-size:11px; color:var(--muted); line-height:1.4;}
+  .sitemap .here{font-size:10px; background:var(--pink); color:#fff; border-radius:3px; padding:0 5px; margin-left:5px; vertical-align:1px;}
+  .minilinks{list-style:none; padding:2px 10px 8px; font-size:13px;}
+  .minilinks li{padding:3px 0;}
+  .minilinks .fic{margin-right:7px;}
+
+  /* 中央：更新トピックス */
+  .topics .thead{display:flex; justify-content:space-between; align-items:baseline; padding:7px 10px 0;}
+  .topics .thead h2{font-size:15px; font-weight:900;}
+  .topics .upd{font-size:11px; color:var(--muted);}
+  .topics ul{list-style:none; padding:6px 10px 8px;}
+  .topics li{padding:4px 0; font-size:14px; border-bottom:1px dotted #eee;}
+  .topics li:last-child{border-bottom:0;}
+  .topics .dt{color:var(--muted); font-size:11px; margin-right:6px; white-space:nowrap;}
+  .badge{display:inline-block; font-size:10px; font-weight:900; color:#fff; border-radius:3px; padding:1px 6px; vertical-align:1px; margin-left:6px;}
+  .b-new{background:var(--orange);}
+  .b-limit{background:var(--red);}
+  .b-check{background:#2f9e44;}
+  .topics .more{padding:0 10px 9px; font-size:13px; display:flex; gap:18px;}
+
+  /* 中央：サービス一覧 */
+  .svc-cat{font-size:12px; font-weight:900; color:var(--pink-deep); background:var(--pink-panel); padding:4px 10px; margin-top:2px;}
+  .svc{list-style:none;}
+  .svc li{display:flex; align-items:center; gap:9px; padding:7px 10px; border-bottom:1px solid #f6e3ea;}
+  .svc li:last-child{border-bottom:0;}
+  .svc .fic{width:26px; height:26px; font-size:14px; border-radius:6px;}
+  .svc .main{flex:1; min-width:0;}
+  .svc .nm{font-weight:700; font-size:14px;}
+  .svc .bf{font-size:12px; color:var(--ink);}
+  .svc .vf{font-size:11px; color:var(--muted); white-space:nowrap;}
+  .code{font-family:ui-monospace,Menlo,monospace; background:#f1f3f5; border:1px dashed #c9c9c9; border-radius:5px; padding:3px 8px; font-size:13px; cursor:pointer; white-space:nowrap;}
+  .code small{display:block; font-family:inherit; font-size:9px; color:var(--muted); text-align:center;}
+  .code.copied{background:#e6fcf5; border-color:#2f9e44; color:#2b8a3e;}
+  .nocode{font-size:11px; color:var(--muted); white-space:nowrap;}
+  .noresult{display:none; padding:14px 10px; color:var(--muted); font-size:13px;}
+
+  /* 広告プレースホルダ（セクション境界のみ） */
+  .adslot{border:1px dashed #d9d9d9; background:#fafafa; color:#adb5bd; font-size:11px; text-align:center; padding:12px 6px; margin:0 0 12px;}
+  .adslot::before{content:"広告"; display:block; font-size:10px; margin-bottom:2px;}
+
+  /* 右：イチオシ */
+  .hero-card .img{height:130px; background:linear-gradient(135deg,#ffd6e7,#ffb3cd 55%,#ff8fab); display:flex; align-items:center; justify-content:center; color:#fff; font-size:15px; font-weight:900; text-shadow:0 1px 3px rgba(0,0,0,.25); text-align:center; padding:0 12px;}
+  .hero-card .body{padding:10px;}
+  .hero-card h3{font-size:17px; margin-bottom:4px;}
+  .hero-card p{font-size:12px; color:var(--ink);}
+  .hero-card .row{display:flex; gap:8px; align-items:center; margin-top:9px; flex-wrap:wrap;}
+  .btn{display:inline-block; background:var(--pink); color:#fff; font-weight:700; padding:8px 16px; border-radius:5px; font-size:14px;}
+  .btn:hover{text-decoration:none; background:var(--pink-deep);}
+
+  /* 右：期限カレンダー */
+  .cal .date{font-size:14px; font-weight:900; padding:7px 10px 0;}
+  .cal .stat{font-size:12px; padding:2px 10px 6px; color:var(--ink);}
+  .cal ul{list-style:none; padding:0 10px 9px;}
+  .cal li{display:flex; gap:8px; padding:6px 0; border-top:1px dotted #f3d7e0; font-size:13px; align-items:baseline;}
+  .cal .d{font-weight:900; white-space:nowrap;}
+  .cal .left-days{margin-left:auto; color:var(--red); font-weight:900; font-size:12px; white-space:nowrap;}
+  .cal .left-days.far{color:var(--muted); font-weight:400;}
+
+  /* 右：毎日チェック */
+  .daily{list-style:none; padding:4px 10px 9px;}
+  .daily li{padding:5px 0; font-size:13px; display:flex; gap:8px; align-items:center;}
+
+  /* 右：ニュースレター */
+  .nl .body p{font-size:12px; margin-bottom:8px;}
+  .nl form{display:flex; gap:6px;}
+  .nl input{flex:1; min-width:0; font-size:14px; padding:7px 8px; border:1px solid #c9c9c9; border-radius:4px;}
+  .nl button{background:var(--pink); color:#fff; border:0; font-weight:700; padding:7px 14px; border-radius:4px; cursor:pointer;}
+  .nl .note{font-size:10px; color:var(--muted); margin-top:6px;}
+
+  /* 右：特典額ランキング */
+  .rank{list-style:none; padding:4px 10px 9px;}
+  .rank li{display:flex; gap:8px; align-items:baseline; padding:5px 0; border-bottom:1px dotted #f3d7e0; font-size:13px;}
+  .rank li:last-child{border-bottom:0;}
+  .rank .no{width:18px; height:18px; border-radius:3px; background:#868e96; color:#fff; font-size:11px; font-weight:900; display:inline-flex; align-items:center; justify-content:center; flex:none;}
+  .rank li:nth-child(1) .no{background:var(--red);}
+  .rank li:nth-child(2) .no{background:var(--orange);}
+  .rank li:nth-child(3) .no{background:var(--gold);}
+  .rank .amt{margin-left:auto; font-weight:900; white-space:nowrap;}
+  .rank .upd{display:block; text-align:right; font-size:11px; color:var(--muted); padding-top:4px;}
+
+  /* フッター */
+  footer.site{border-top:1px solid var(--line); margin-top:6px; padding:14px 4px 26px; text-align:center; font-size:12px; color:var(--muted);}
+  footer.site .fn{font-weight:900; color:var(--ink); margin-bottom:5px;}
+  footer.site nav{margin:3px 0;}
+  footer.site nav a{color:var(--muted); margin:0 6px;}
+  footer.site .pr{max-width:760px; margin:10px auto 0; font-size:11px; line-height:1.6; text-align:left;}
+
+  /* SP用サイトアイコン帯 */
+  .sp-icons{display:none;}
+
+  @media (max-width:1023px){
+    .cols{grid-template-columns:220px 1fr 270px;}
+  }
+  @media (max-width:767px){
+    .hgroup{display:none;}
+    header.site{justify-content:flex-start;}
+    .logo{text-align:left;}
+    .logo .name{font-size:24px;}
+    .cols{display:flex; flex-direction:column;}
+    .center-col{order:1;} .right-col{order:2;} .left-col{order:3;}
+    .sp-icons{display:flex; gap:4px; overflow-x:auto; padding:10px 2px 4px; -webkit-overflow-scrolling:touch;}
+    .sp-icons a{display:flex; flex-direction:column; align-items:center; width:64px; flex:none; color:var(--ink); font-size:10px; text-align:center; line-height:1.3;}
+    .sp-icons .ic{width:38px; height:38px; border-radius:9px; color:#fff; display:flex; align-items:center; justify-content:center; font-size:17px; font-weight:700; margin-bottom:3px;}
+    .sp-icons .tag{font-size:9px; background:var(--pink); color:#fff; border-radius:3px; padding:0 4px; margin-top:2px;}
+    .searchrow .go{padding:8px 14px;}
+    .svc .vf{display:none;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- 鮮度帯 -->
+  <div class="utility">
+    <span>最終更新：<span class="fresh">2026年11月26日</span>（全19サービスのコード・特典を確認済み）</span>
+    <nav>
+      <a href="#about">このメディアについて</a><a href="#pr">広告・紹介報酬に関する表記</a><a href="#contact">お問い合わせ</a>
+    </nav>
+  </div>
+
+  <!-- ヘッダー -->
+  <header class="site">
+    <div class="hgroup">
+      <a class="hicon" href="https://mea-poikatsu.github.io/mea-poikatsu-blog/"><span class="ic" style="background:#e64980">帖</span>ポイ活<br>レビュー帖</a>
+      <a class="hicon" href="https://mea-poikatsu.github.io/mea-ranking/"><span class="ic" style="background:#f59f00">順</span>ポイランク</a>
+      <a class="hicon" href="https://mea-poikatsu.github.io/mea-code-search/"><span class="ic" style="background:#1c6fe8">検</span>コード<br>サーチ</a>
+    </div>
+    <div class="logo">
+      <div class="name">ポイ活ポータル</div>
+      <span class="sub">メアのポイ活メディア</span>
+    </div>
+    <div class="hgroup">
+      <a class="hicon" href="https://mea-poikatsu.github.io/mea-game-poikatsu/"><span class="ic" style="background:#7048e8">遊</span>ポイゲー<br>クエスト</a>
+      <a class="hicon" href="https://mea-poikatsu.github.io/mea-code-matome/"><span class="ic" style="background:#0ca678">鑑</span>招待コード<br>図鑑</a>
+      <a class="hicon" href="https://mea-poikatsu.github.io/mea-keijiban/"><span class="ic" style="background:#f76707">場</span>ポイ活<br>ひろば</a>
+    </div>
+  </header>
+
+  <!-- 検索帯 -->
+  <div class="searchband">
+    <div class="tabs" id="tabs">
+      <button class="on" data-cat="all">すべて</button>
+      <button data-cat="point">ポイントサイト</button>
+      <button data-cat="sns">SNS・動画</button>
+      <button data-cat="pay">決済・銀行</button>
+      <button data-cat="app">新アプリ</button>
+      <button data-cat="other">その他</button>
+    </div>
+    <div class="searchrow">
+      <input id="q" type="search" placeholder="サービス名・紹介コードで検索" aria-label="サービス名・紹介コードで検索">
+      <button class="go" id="go">検索</button>
+      <a class="detail" href="https://mea-poikatsu.github.io/mea-poikatsu-media/search/">詳しく検索 →</a>
+    </div>
+    <div class="searchcount" id="count">全19サービスが対象です</div>
+  </div>
+
+  <!-- SP用サイトアイコン帯 -->
+  <div class="sp-icons">
+    <a href="https://mea-poikatsu.github.io/mea-poikatsu-media/"><span class="ic" style="background:#d6336c">ポ</span>ポータル<span class="tag">現在地</span></a>
+    <a href="https://mea-poikatsu.github.io/mea-poikatsu-blog/"><span class="ic" style="background:#e64980">帖</span>レビュー帖</a>
+    <a href="https://mea-poikatsu.github.io/mea-ranking/"><span class="ic" style="background:#f59f00">順</span>ポイランク</a>
+    <a href="https://mea-poikatsu.github.io/mea-code-search/"><span class="ic" style="background:#1c6fe8">検</span>コード検索</a>
+    <a href="https://mea-poikatsu.github.io/mea-poikatsu-magazine/"><span class="ic" style="background:#12b886">誌</span>ポイレーダー</a>
+    <a href="https://mea-poikatsu.github.io/mea-kantan-guide/"><span class="ic" style="background:#4dabf7">説</span>トリセツ</a>
+    <a href="https://mea-poikatsu.github.io/mea-game-poikatsu/"><span class="ic" style="background:#7048e8">遊</span>ポイゲークエスト</a>
+    <a href="https://mea-poikatsu.github.io/mea-code-matome/"><span class="ic" style="background:#0ca678">鑑</span>コード図鑑</a>
+    <a href="https://mea-poikatsu.github.io/mea-keijiban/"><span class="ic" style="background:#f76707">場</span>ひろば</a>
+  </div>
+
+  <!-- ピックアップ帯 -->
+  <div class="pickup-line">
+    <a href="#cal"><span class="hot">期限間近</span> ハピタスのキャンペーンは11/30（月）まで・最大2,300P</a>
+    <a href="#cal">エアウォレットの新ラウンドは12/21（月）まで・コード 6nzih9k</a>
+  </div>
+
+  <div class="cols">
+    <!-- 左カラム -->
+    <div class="left-col left">
+      <section class="panel">
+        <h2>ピックアップ</h2>
+        <div class="feat">
+          <a class="name" href="#svc-freecash"><span class="fic" style="background:#01b763">F</span>Freecash</a>
+          <span class="pill">毎日のルーレットで無条件ボーナス</span>
+          <a class="name" href="#cal"><span class="fic" style="background:#ffd43b;color:#7a4d00">ハ</span>ハピタス</a>
+          <span class="pill">11/30（月）まで・最大2,300P</span>
+        </div>
+      </section>
+
+      <section class="panel" id="map">
+        <h2>メアのポイ活メディア全体マップ</h2>
+        <ul class="sitemap">
+          <li><a href="https://mea-poikatsu.github.io/mea-poikatsu-media/"><span class="fic" style="background:#d6336c">ポ</span><span><span class="nm">ポイ活ポータル</span><span class="here">現在地</span><span class="ds">いま見ている総合案内。媒体全体の入口はここ。</span></span></a></li>
+          <li><a href="https://mea-poikatsu.github.io/mea-poikatsu-blog/"><span class="fic" style="background:#e64980">帖</span><span><span class="nm">ポイ活レビュー帖</span><span class="ds">気になるサービスを探して比べてみてね。</span></span></a></li>
+          <li><a href="https://mea-poikatsu.github.io/mea-ranking/"><span class="fic" style="background:#f59f00">順</span><span><span class="nm">ポイランク</span><span class="ds">おすすめ順に並べた紹介コード案内。</span></span></a></li>
+          <li><a href="https://mea-poikatsu.github.io/mea-code-search/"><span class="fic" style="background:#1c6fe8">検</span><span><span class="nm">コードサーチ</span><span class="ds">検索と絞り込みに特化。コードを素早く探せます。</span></span></a></li>
+          <li><a href="https://mea-poikatsu.github.io/mea-poikatsu-magazine/"><span class="fic" style="background:#12b886">誌</span><span><span class="nm">ポイレーダー</span><span class="ds">読み物スタイルでじっくり紹介。</span></span></a></li>
+          <li><a href="https://mea-poikatsu.github.io/mea-kantan-guide/"><span class="fic" style="background:#4dabf7">説</span><span><span class="nm">ポイ活のトリセツ</span><span class="ds">初めての方にも分かりやすい初心者向け案内。</span></span></a></li>
+          <li><a href="https://mea-poikatsu.github.io/mea-game-poikatsu/"><span class="fic" style="background:#7048e8">遊</span><span><span class="nm">ポイゲークエスト</span><span class="ds">ゲームを遊んで稼ぐ案件が中心。</span></span></a></li>
+          <li><a href="https://mea-poikatsu.github.io/mea-code-matome/"><span class="fic" style="background:#0ca678">鑑</span><span><span class="nm">招待コード図鑑</span><span class="ds">全サービスの紹介コードを一覧でまとめ。</span></span></a></li>
+          <li><a href="https://mea-poikatsu.github.io/mea-keijiban/"><span class="fic" style="background:#f76707">場</span><span><span class="nm">ポイ活ひろば</span><span class="ds">みんなのコード交換・質問ができる掲示板。</span></span></a></li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <h2>SNS・note</h2>
+        <ul class="minilinks">
+          <li><a href="https://x.com/pppppuririn"><span class="fic" style="background:#111">X</span>X（@pppppuririn）</a></li>
+          <li><a href="https://www.instagram.com/mea.poikatsu/"><span class="fic" style="background:#c2255c">◎</span>Instagram（@mea.poikatsu）</a></li>
+          <li><a href="https://www.tiktok.com/@mea_poikatsu"><span class="fic" style="background:#111">♪</span>TikTok（@mea_poikatsu）</a></li>
+          <li><a href="https://note.com/k_n702"><span class="fic" style="background:#2f9e44">n</span>note（実践レポート）</a></li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <h2>外部ブログ</h2>
+        <ul class="minilinks">
+          <li><a href="https://mea-poikatsu.hatenablog.com/">はてなブログ</a></li>
+          <li><a href="https://mea-poikatsu.seesaa.blog/">Seesaaブログ</a></li>
+          <li><a href="https://mea-poikatsu.blogspot.com/">Blogger</a></li>
+          <li><a href="https://meapoikatsu.blog.fc2.com/">FC2ブログ</a></li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- 中央カラム -->
+    <div class="center-col">
+      <section class="panel topics">
+        <div class="thead">
+          <h2>更新トピックス</h2>
+          <span class="upd">2026年11月26日 更新</span>
+        </div>
+        <ul>
+          <li><span class="dt">11/26</span><a href="#cal">ハピタスのキャンペーンは11/30（月）まで。最大2,300P、登録はお早めに</a><span class="badge b-limit">あと2日</span></li>
+          <li><span class="dt">11/25</span><a href="#svc-mirapoi">ミラポイの招待特典400ptを確認しました</a><span class="badge b-new">NEW</span></li>
+          <li><span class="dt">11/25</span><a href="#svc-warau">ワラウのキャンペーン期限（2027年1月31日まで）を確認しました</a><span class="badge b-check">確認済み</span></li>
+          <li><span class="dt">11/24</span><a href="#svc-airwallet">エアウォレットは新ラウンドのコード 6nzih9k に切り替わっています（12/21まで）</a><span class="badge b-new">NEW</span></li>
+          <li><span class="dt">11/24</span><a href="#services">全19サービスの紹介コード・特典を一括で確認しました</a><span class="badge b-check">確認済み</span></li>
+        </ul>
+        <div class="more">
+          <a href="#cal">期限カレンダーを見る</a>
+          <a href="#services">サービス一覧へ</a>
+        </div>
+      </section>
+
+      <div class="adslot">（セクション境界の広告枠：Ninja AdMax想定）</div>
+
+      <section class="panel" id="services">
+        <h2>紹介サービス一覧（全19サービス）</h2>
+        <div id="svc-root">
+        <div class="catblock" data-cat="point">
+          <div class="svc-cat">ポイントサイト</div>
+          <ul class="svc">
+            <li data-cat="point" data-q="freecash フリーキャッシュ 3bqlxb" id="svc-freecash">
+              <span class="fic" style="background:#01b763">F</span>
+              <span class="main"><span class="nm">Freecash</span><span class="badge b-new">イチオシ</span><br><span class="bf">毎日のルーレットで無条件ボーナス</span></span>
+              <span class="vf">11/24確認</span>
+              <button class="code" data-code="3BQLXB">3BQLXB<small>タップでコピー</small></button>
+            </li>
+            <li data-cat="point" data-q="ワラウ warau bEs7" id="svc-warau">
+              <span class="fic" style="background:#e03131">ワ</span>
+              <span class="main"><span class="nm">ワラウ</span><span class="badge b-new">NEW</span><br><span class="bf">最大2,500pt（キャンペーンは2027/1/31まで）</span></span>
+              <span class="vf">11/25確認</span>
+              <button class="code" data-code="bEs7">bEs7<small>タップでコピー</small></button>
+            </li>
+            <li data-cat="point" data-q="ハピタス hapitas inxahv" id="svc-hapitas">
+              <span class="fic" style="background:#f59f00">ハ</span>
+              <span class="main"><span class="nm">ハピタス</span><span class="badge b-limit">11/30まで</span><br><span class="bf">最大2,300P（キャンペーンは2026/11/30まで）</span></span>
+              <span class="vf">11/23確認</span>
+              <button class="code" data-code="INXAHV">INXAHV<small>タップでコピー</small></button>
+            </li>
+            <li data-cat="point" data-q="モッピー moppy 7xaga123" id="svc-moppy">
+              <span class="fic" style="background:#12b886">モ</span>
+              <span class="main"><span class="nm">モッピー</span><br><span class="bf">最大7,000P</span></span>
+              <span class="vf">11/23確認</span>
+              <button class="code" data-code="7xaGA123">7xaGA123<small>タップでコピー</small></button>
+            </li>
+          </ul>
+        </div>
+
+        <div class="catblock" data-cat="sns">
+          <div class="svc-cat">SNS・動画</div>
+          <ul class="svc">
+            <li data-cat="sns" data-q="tiktok ティックトック 284097117" id="svc-tiktok">
+              <span class="fic" style="background:#111">T</span>
+              <span class="main"><span class="nm">TikTok</span><br><span class="bf">最大6,000円分</span></span>
+              <span class="vf">11/24確認</span>
+              <button class="code" data-code="284097117">284097117<small>タップでコピー</small></button>
+            </li>
+            <li data-cat="sns" data-q="tiktok lite ティックトックライト 890270647" id="svc-tiktok-lite">
+              <span class="fic" style="background:#495057">L</span>
+              <span class="main"><span class="nm">TikTok Lite</span><br><span class="bf">1,400円分</span></span>
+              <span class="vf">11/24確認</span>
+              <button class="code" data-code="890270647">890270647<small>タップでコピー</small></button>
+            </li>
+          </ul>
+        </div>
+
+        <div class="catblock" data-cat="pay">
+          <div class="svc-cat">決済・銀行</div>
+          <ul class="svc">
+            <li data-cat="pay" data-q="楽天モバイル rakuten mobile" id="svc-rakuten-mobile">
+              <span class="fic" style="background:#bf0000">楽</span>
+              <span class="main"><span class="nm">楽天モバイル</span><br><span class="bf">MNPなら13,000ポイント／新規なら12,000ポイント</span></span>
+              <span class="vf">11/24確認</span>
+              <span class="nocode">リンク型<br>（コードなし）</span>
+            </li>
+            <li data-cat="pay" data-q="paypay ペイペイ 02-49xlfp8" id="svc-paypay">
+              <span class="fic" style="background:#e8112d">P</span>
+              <span class="main"><span class="nm">PayPay</span><br><span class="bf">300pt</span></span>
+              <span class="vf">11/24確認</span>
+              <button class="code" data-code="02-49XLFP8">02-49XLFP8<small>タップでコピー</small></button>
+            </li>
+            <li data-cat="pay" data-q="smbc olive オリーブ ff89103-3439377" id="svc-olive">
+              <span class="fic" style="background:#6a994e">O</span>
+              <span class="main"><span class="nm">SMBC Olive</span><br><span class="bf">Vポイント1,000pt</span></span>
+              <span class="vf">11/24確認</span>
+              <button class="code" data-code="FF89103-3439377">FF89103-3439377<small>タップでコピー</small></button>
+            </li>
+            <li data-cat="pay" data-q="エアウォレット airwallet 6nzih9k" id="svc-airwallet">
+              <span class="fic" style="background:#1c6fe8">エ</span>
+              <span class="main"><span class="nm">エアウォレット</span><span class="badge b-new">NEW</span><br><span class="bf">COIN+残高300円分（新ラウンドは2026/12/21まで）</span></span>
+              <span class="vf">11/24確認</span>
+              <button class="code" data-code="6nzih9k">6nzih9k<small>タップでコピー</small></button>
+            </li>
+            <li data-cat="pay" data-q="メルカリ mercari hkrdnm" id="svc-mercari">
+              <span class="fic" style="background:#e64980">メ</span>
+              <span class="main"><span class="nm">メルカリ</span><br><span class="bf">500円分</span></span>
+              <span class="vf">11/24確認</span>
+              <button class="code" data-code="HKRDNM">HKRDNM<small>タップでコピー</small></button>
+            </li>
+          </ul>
+        </div>
+
+        <div class="catblock" data-cat="app">
+          <div class="svc-cat">新アプリ</div>
+          <ul class="svc">
+            <li data-cat="app" data-q="サンポ sampo gtkz6e" id="svc-sampo">
+              <span class="fic" style="background:#2f9e44">サ</span>
+              <span class="main"><span class="nm">サンポ</span><br><span class="bf">双方4,000pt</span></span>
+              <span class="vf">11/24確認</span>
+              <button class="code" data-code="GTKZ6E">GTKZ6E<small>タップでコピー</small></button>
+            </li>
+            <li data-cat="app" data-q="ぶたまる butamaru jutn9fh" id="svc-butamaru">
+              <span class="fic" style="background:#f06595">ぶ</span>
+              <span class="main"><span class="nm">ぶたまる</span><br><span class="bf">500pt</span></span>
+              <span class="vf">11/24確認</span>
+              <button class="code" data-code="JUTN9FH">JUTN9FH<small>タップでコピー</small></button>
+            </li>
+            <li data-cat="app" data-q="ミラポイ mirapoi p3cqwg3" id="svc-mirapoi">
+              <span class="fic" style="background:#4dabf7">ミ</span>
+              <span class="main"><span class="nm">ミラポイ</span><span class="badge b-new">NEW</span><br><span class="bf">招待コード入力で400ptゲット</span></span>
+              <span class="vf">11/25確認</span>
+              <button class="code" data-code="P3CQCWG3">P3CQCWG3<small>タップでコピー</small></button>
+            </li>
+            <li data-cat="app" data-q="トクエル tokueru 9459gj" id="svc-tokueru">
+              <span class="fic" style="background:#0ca678">ト</span>
+              <span class="main"><span class="nm">トクエル</span><br><span class="bf">双方5,000ポイント</span></span>
+              <span class="vf">11/24確認</span>
+              <button class="code" data-code="9459GJ">9459GJ<small>タップでコピー</small></button>
+            </li>
+            <li data-cat="app" data-q="dipsファーム dips meapoi 9rnr7n" id="svc-dips">
+              <span class="fic" style="background:#66a80f">d</span>
+              <span class="main"><span class="nm">dipsファーム</span><br><span class="bf">水1,000g＋高級肥料10個（特別コード）／双方に高級肥料5個（友達招待）</span></span>
+              <span class="vf">11/24確認</span>
+              <span>
+                <button class="code" data-code="MEAPOI">MEAPOI<small>特別コード</small></button>
+                <button class="code" data-code="9RNR7N">9RNR7N<small>友達招待</small></button>
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="catblock" data-cat="other">
+          <div class="svc-cat">その他</div>
+          <ul class="svc">
+            <li data-cat="other" data-q="オリくじ orikuji az3poy" id="svc-orikuji">
+              <span class="fic" style="background:#f76707">オ</span>
+              <span class="main"><span class="nm">オリくじ</span><br><span class="bf">双方に500pt</span></span>
+              <span class="vf">11/24確認</span>
+              <button class="code" data-code="AZ3pOY">AZ3pOY<small>タップでコピー</small></button>
+            </li>
+            <li data-cat="other" data-q="ポケカツ pokekatsu 2bgz325p" id="svc-pokekatsu">
+              <span class="fic" style="background:#7048e8">ポ</span>
+              <span class="main"><span class="nm">ポケカツ</span><br><span class="bf">初回チャージ90%OFF</span></span>
+              <span class="vf">11/23確認</span>
+              <button class="code" data-code="2BGZ325P">2BGZ325P<small>タップでコピー</small></button>
+            </li>
+            <li data-cat="other" data-q="muse ミューズ wyka9y" id="svc-muse">
+              <span class="fic" style="background:#343a40">M</span>
+              <span class="main"><span class="nm">Muse</span><br><span class="bf">10億Museトークン</span></span>
+              <span class="vf">11/24確認</span>
+              <button class="code" data-code="WYKA9Y">WYKA9Y<small>タップでコピー</small></button>
+            </li>
+          </ul>
+        </div>
+
+        <div class="noresult" id="noresult">条件に合うサービスがありませんでした。表記ゆれ（英語名・コード）でも検索できます。</div>
+        </div>
+      </section>
+
+      <div class="adslot">（セクション境界の広告枠：Ninja AdMax想定）</div>
+    </div>
+
+    <!-- 右カラム -->
+    <div class="right-col">
+      <section class="panel hero-card">
+        <div class="img">メアのイチオシ<br>Freecash</div>
+        <div class="body">
+          <h3>Freecash</h3>
+          <p>毎日のルーレットで無条件ボーナス。ゲームにログインするだけでもらえる報酬や、高額案件も沢山。スマホで簡単に始められます。</p>
+          <div class="row">
+            <button class="code" data-code="3BQLXB">3BQLXB<small>タップでコピー</small></button>
+            <a class="btn" href="https://freecash.com/r/3BQLXB">無料で登録する</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel cal" id="cal">
+        <div class="date">2026年11月28日（土）</div>
+        <div class="stat">期限が近いもの <strong>2件</strong>あります（11/26確認）</div>
+        <ul>
+          <li><span class="d">11/30（月）</span><span>ハピタス<br>キャンペーン終了</span><span class="left-days">あと2日</span></li>
+          <li><span class="d">12/21（月）</span><span>エアウォレット<br>新ラウンド終了</span><span class="left-days">あと23日</span></li>
+          <li><span class="d">2027/1/31（日）</span><span>ワラウ<br>キャンペーン</span><span class="left-days far">あと64日</span></li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <h2>毎日チェック</h2>
+        <ul class="daily">
+          <li><span class="fic" style="background:#01b763">F</span><a href="#svc-freecash">Freecash：毎日のルーレットで無条件ボーナス</a></li>
+          <li><span class="fic" style="background:#f59f00">ハ</span><a href="#svc-hapitas">ハピタス：3日連続ログインで100P</a></li>
+          <li><span class="fic" style="background:#495057">L</span><a href="#svc-tiktok-lite">TikTok Lite：動画視聴でコツコツ貯まる</a></li>
+        </ul>
+      </section>
+
+      <section class="panel nl">
+        <h2>ニュースレター「Muse通信」</h2>
+        <div class="body">
+          <p>招待コード・紹介特典・キャンペーン情報と初心者向け攻略を、毎週1回・土曜日にお届けします。</p>
+          <form id="nlform">
+            <input type="email" required placeholder="メールアドレス" aria-label="メールアドレス">
+            <button type="submit">登録する</button>
+          </form>
+          <div class="note">登録無料で、いつでも配信停止できます。※この雛形ではフォームは実際には送信されません。</div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>特典額ランキング</h2>
+        <ol class="rank">
+          <li><span class="no">1</span><a href="#svc-rakuten-mobile">楽天モバイル</a><span class="amt">13,000pt</span></li>
+          <li><span class="no">2</span><a href="#svc-moppy">モッピー</a><span class="amt">7,000P</span></li>
+          <li><span class="no">3</span><a href="#svc-tiktok">TikTok</a><span class="amt">6,000円分</span></li>
+          <li><span class="no">4</span><a href="#svc-tokueru">トクエル</a><span class="amt">5,000ポイント</span></li>
+          <li><span class="no">5</span><a href="#svc-sampo">サンポ</a><span class="amt">4,000pt</span></li>
+        </ol>
+        <span class="upd">11/26更新</span>
+      </section>
+    </div>
+  </div>
+
+  <!-- フッター -->
+  <footer class="site" id="about">
+    <div class="fn">ポイ活ポータル（メアのポイ活メディア）</div>
+    <nav>
+      <a href="https://mea-poikatsu.github.io/mea-poikatsu-media/about/">運営者情報</a>-
+      <a href="https://mea-poikatsu.github.io/mea-poikatsu-media/ad-disclosure/" id="pr">広告・紹介報酬に関する表記</a>-
+      <a href="https://mea-poikatsu.github.io/mea-poikatsu-media/contact/" id="contact">お問い合わせ</a>
+    </nav>
+    <nav>
+      <a href="https://mea-poikatsu.github.io/mea-poikatsu-media/privacy/">プライバシーポリシー</a>-
+      <a href="https://mea-poikatsu.github.io/mea-poikatsu-media/terms/">利用規約</a>
+    </nav>
+    <p class="pr">このページは広告（PR）を含みます。掲載している紹介リンク・紹介コードを使って各サービスに登録し、所定の条件を満たすと、メア（紹介者）に各サービスの運営会社から紹介報酬が支払われる場合があります。紹介報酬が発生しても、あなたの特典が減ったり、利用料金が上乗せされたりすることはありません。</p>
+    <div style="margin-top:10px;">© 2026 ポイ活ポータル</div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var cat = 'all';
+  var q = document.getElementById('q');
+  var count = document.getElementById('count');
+  var noresult = document.getElementById('noresult');
+  var items = Array.prototype.slice.call(document.querySelectorAll('.svc li'));
+  var blocks = Array.prototype.slice.call(document.querySelectorAll('.catblock'));
+
+  function apply(){
+    var word = q.value.trim().toLowerCase();
+    var shown = 0;
+    items.forEach(function(li){
+      var hay = ((li.getAttribute('data-q') || '') + ' ' + li.textContent).toLowerCase();
+      var ok = (cat === 'all' || li.getAttribute('data-cat') === cat) && (!word || hay.indexOf(word) !== -1);
+      li.style.display = ok ? '' : 'none';
+      if (ok) shown++;
+    });
+    blocks.forEach(function(b){
+      var any = Array.prototype.some.call(b.querySelectorAll('li'), function(li){ return li.style.display !== 'none'; });
+      b.style.display = any ? '' : 'none';
+    });
+    noresult.style.display = shown ? 'none' : 'block';
+    count.textContent = (cat === 'all' && !word) ? '全19サービスが対象です' : ('19件中 ' + shown + '件を表示しています');
+  }
+  document.getElementById('tabs').addEventListener('click', function(e){
+    if (e.target.tagName !== 'BUTTON') return;
+    cat = e.target.getAttribute('data-cat');
+    Array.prototype.forEach.call(this.querySelectorAll('button'), function(b){ b.classList.toggle('on', b === e.target); });
+    apply();
+  });
+  q.addEventListener('input', apply);
+  document.getElementById('go').addEventListener('click', function(){
+    apply();
+    document.getElementById('services').scrollIntoView({behavior:'smooth'});
+  });
+
+  // 紹介コード：タップでコピー＋フィードバック
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest ? e.target.closest('.code') : null;
+    if (!btn) return;
+    var code = btn.getAttribute('data-code');
+    function done(){
+      var small = btn.querySelector('small');
+      var orig = small ? small.textContent : '';
+      btn.classList.add('copied');
+      if (small) small.textContent = 'コピーしました';
+      setTimeout(function(){ btn.classList.remove('copied'); if (small) small.textContent = orig; }, 1600);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(code).then(done, function(){ fallback(); });
+    } else { fallback(); }
+    function fallback(){
+      var ta = document.createElement('textarea');
+      ta.value = code; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); } catch(_){}
+      document.body.removeChild(ta); done();
+    }
+  });
+
+  // ニュースレター（雛形：送信しない）
+  document.getElementById('nlform').addEventListener('submit', function(e){
+    e.preventDefault();
+    this.querySelector('button').textContent = 'ありがとうございます';
+  });
+})();
+</script>
+</body>
+</html>
